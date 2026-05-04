@@ -1,24 +1,27 @@
 ~*~ LONG-RUN / SIEGE UTOPIA ~*~
 
 AXIOMS & GOALS
-* Combat should be larger scale, but easy to surmount with good planning.
-* Players given ample time to prepare during the day for a night time assault by monsters.
-* Logistics and trade are super important, borderline essential. Villagers provide a shit load of resources and offer powerful defense
-* Machines would be tools that change or refine a player obtained input. Fuck skyblock automation, and fuck stagnation.
-* Collaberating with others is key to survival. It's not feasible to maintain all aspects of a civilization alone.
-* Progression should depend on exploration, and Survival is something to be fought for.
+* Combat should be larger scale, but easy to surmount with good planning. Difficult, but managable.
+* Players given ample time to prepare during the day for a potential night time assault by monsters.
+* Logistics and trade are super important.
+* Villagers act as a primary resource that must be protected.
+* Machines would be tools that change or refine a player obtained input. Skyblock automation sux, stagnation sux.
+* Collaberating with others is key to survival. It's not feasible to maintain all aspects of a civilization alone, longterm.
 * Progression should roughly line up with human's tech progression: Hunter Gatherer -> Stone Age -> Copper/Iron age -> Middle Ages (Defense and long-term infra) -> Industrial Age (Well funded defense and security networks.)
-* Should be performant on all systems, with an alternate client for .
+* Should be performant on all systems, with an alternate client for maximizing performace.
 
 ----------------------------------------------------------------------------------------------------------------
 
 CRAFTING
-* Due to the difficulty of getting lots of gunpowder, 2 recipes have been added (1 coal + 2 sugar -> 1 gunp, 1 bpowder + 2 sug -> 6) (Bombs shouldn't be super expensive, but have the obvious downside of literally blowing up your shit. Bombs are tools, not luxury items) D
+* Due to the difficulty of getting lots of gunpowder, 2 recipes have been added (1 coal + 2 sugar -> 1 gunp, 1 bpowder + 2 sug -> 6) (Bombs shouldn't be super expensive, but have the obvious downside of literally blowing up your stuff.) D
+* Removed chance of precision mechanism failing.
+* Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest.
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
+* Netherite Diving gear now has slighly less protection than Iron Armor rather than sharing stats with Netherite (The immortal netherite chestplate, for starters, was always really confusing to me because there was really no reason not to have one. It costs less than making a normal netherite chestplate for a permanent upgrade to your armor. You may not have noticed this originally, but you can literally just combine the copper pieces of armor with one netherite ingot and an upgrade template. As for the diving helmet, which is also a direct upgrade due to not requiring a diamond helmet, it combined with the backtank lets you breath under lava, undermining potions in the process. All in all, the netherite diving gear in create is kind of baffling to me.)
+* Removed Netherite Diving Gear recipe that uses diamond gear as a base. Now only the  + template + copper diving gear recipes remain, which explain the lower defense.
 * Tripled Backtank S.U Storage.
-* Nerfed Netherite Backtank's armor.
 
 WORLD
 * Added Tectonic, which adds large scale, realistic scenery. D
@@ -27,24 +30,25 @@ WORLD
 * Days last 30 minutes and nights last 20. D
 * Nerfed Gold spawn by 25%. (This is in light of multiple buffs made to gold below)
 * Significantly lowered chance of exposed diamonds being removed. D
-* Reduced Diamond Spawn by 40%. (Make diamonds more of an achievement.)
+* Reduced Diamond Spawn by 40%. (This is to promote caving over strip mining)
 * Increased Large and Small Iron veins to compensate for the removal of Create Iron Farms. (4 -> 6, 9 -> 12) D
 * Increased Iron depth to y40. D
 * Altered amount of Iron Veins (Honestly I was just kind of eyeballing this one, but you should get way more iron at the new ideal depth than vanilla. The new best depth should be viewable on EMI)
 * Increased Ancient debris ore size by 40%. D
 * Added Quark, which adds Oretises (Among other things) that allow some ores to be 'sheered off' them with a pickaxe. D
-* Mud is now craftable using 8 dirt and a water bucket or sugar cane. (This is inline with multiple changes made to furnace progression) PD
-* Terracotta can be made using a Clay Block on a campfire. PD
-* Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 Terracotta, Packed Mud or Smooth Stone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.)
-* Furnaces are now crafted using a blast Furnace and 4 Create Cogs and 4 Blocks of Copper. (The Furnace seems to have some ability to regulare it's own temperature depending on the recipe, so it would make sense if it had some mechanical stuff going on inside.)
-* Smokers are now crafted using 4 Logs, and either 4 Terracotta, Packed mud or Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here.)
+* Mud is now craftable using 8 dirt and a water bucket or sugar cane. (This is inline with multiple changes made to furnaces) D
+* Terracotta can be made using a Clay Block on a campfire. D
+* Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 Terracotta, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) D
+* Furnaces are now crafted using a Kiln, 4 Create Cogs and 4 Blocks of Copper. (The Furnace seems to have some ability to regulate it's own temperature depending on the recipe, so it would make sense if it had some mechanical stuff going on inside that causes items to not cook as quickly. Either way, the furnace is just objectively better than a vanilla blast furnace because of it's versatility, so I think it would make sense if it was unlocked last and is the first bit of technology unlocked.) D
+* Smokers are now crafted using 4 Logs, and either 4 Terracotta, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
 * Massively decreased the spawn rate of surface dungeons, a structure added by D&T. They spawn way too frequently and have loot that interferes with progression, namely multiple sets of iron armor and tools (some of which come pre-enchanted). (If the loot pool is seperate I'll probably just remove the iron equipment and keep the structure)
 * Removed Herobrine. D
 
 FOOD
-* Added Serene Seasons. Each season lasts 18 IRL hours. (Might disable the season-specific crops feature, but the noticable passage of time is a positive change) PD
+* Added Serene Seasons. Each season lasts 18 IRL hours.
 * Added Farmers Delight w/ Create Integration. D
 * Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game. (Wood -60%, Stone -60%, Iron -10%) PD
+* Hoes now have an area based harvest which doesn't dimension from their durability and increases based on the material.
 * Moved some hunger gained from Golden Carrots into saturation saturation. (Food heirarchy: Crops, Meat, Meat+crops / stews, golden foods & platters) (This makes g carrots more health recovery focused, in line with gapples, rather than a primary meal source)
 * May eat food past full hunger to fill saturation fully. (Farmers delight is actively adding this feature to nourished players, so IDK if this is even necessary. Probably not?) PD
 * Slighly increased hunger rate. (May not be necessary with amount of combat focused encounters, might also be axed)
@@ -82,14 +86,14 @@ TOOLS
 * Added Gliders and simplified recipes for them. (The original had some crazy recipes for something that never even got close to overtaking elytas. Like, I need 6 ingots of netherite for a netherite glider?!) D
 
 MONSTERS
-* Skeletons and Pillagers have increased range, but much worse accuracy. Zombies and other melee units tend to give time for ranged unit # to grow quickly, and creates a need for a player owned backline of ranged troops D
+* Skeletons and Pillagers have increased range, but much worse accuracy. Zombies and other melee units tend to give time for ranged unit # to grow quickly, and may create a need for a player owned backline of ranged troops D
 * Some spiders fire webs to slow down targets. D
 * Some creepers may launch themselves at their target if they're above them. D
 * Some creepers are john cena (?) D
 * Some zombies may use stone tools after spotting a player (typically to dig or mine to them). The best way to defend against this is Quark's Sturdy Stone). D
 * Some zombies may use a fishing rod or enderpearl to get close to players. D
 * Explosive damage causes creepers to explode. D
-* Nerf mob Musket damage against player (~1/10 received damage). D
+* Nerf mob Musket damage against player (~1/6 received damage). This change was to keep muskets dangerous to mobs and other players in PVP without having to remove them from mobs, because getting beamed from a mile away with no armor kind of sucks. D
 * Increased the number of Leader monsters. D
 * Zombies have better rare loot, including ammunition and cannonballs. D
 * Added Alex Mobs, which adds mobs (shocker). D
@@ -105,6 +109,7 @@ MOBS
 * Added the ability to kidnap small children with Supplementaries Cages
 
 LANGUAGE
-* Added keys for Poor/Normal Energy Drink Bongs. D
+* Added translation keys for Poor/Normal Energy Drink Bongs. D
+* Serene Seasons 'Growing Seasons' -> 'Best Growing Seasons' (All crops are still growable, but their speed is determined by the season)
 * Renamed Refurbished Furniture's Wrench to 'Multi-Tool'. D
-* Renamed Blast Furnace to Kiln to match what it's actually used for.
+* Renamed Blast Furnace to Kiln
