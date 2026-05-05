@@ -3,8 +3,7 @@
 AXIOMS & GOALS
 * Combat should be larger scale, but easy to surmount with good planning. Difficult, but managable.
 * Players given ample time to prepare during the day for a potential night time assault by monsters.
-* Logistics and trade are super important.
-* Villagers act as a primary resource that must be protected.
+* Logistics and trade are super important. Villagers act as a primary resource that must be protected.
 * Machines would be tools that change or refine a player obtained input. Skyblock automation sux, stagnation sux.
 * Collaberating with others is key to survival. It's not feasible to maintain all aspects of a civilization alone, longterm.
 * Progression should roughly line up with human's tech progression:
@@ -24,12 +23,13 @@ CRAFTING
 * Sturdy Stone is now able to be crafted by blasting Cobblestone. D
 * Removed the ability to decraft Sturdy Stone.
 * Added the ability to 'De-Sheet' most create sheets to recycle metals. D
-* Added the ability to use Clay on a campfire to make fire charges. D
+* Added the ability to smash flint blocks into Fire Charges using a cutting board. D
+* Added the ability to use Coal on a campfire to make fire charges. D
 * Added the ability to use Clay on a campfire to make Bricks (Which are usable as weapons) D
 * Mud is now craftable using 8 dirt and a water bucket or sugar cane. (This is inline with multiple changes made to furnaces) D
 * Terracotta can be made using a Clay Block on a campfire. D
 * Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 Brick Blocks, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) D
-* Furnaces are now crafted using a Kiln, 4 Create Cogs and 4 Blocks of Copper. (The Furnace seems to have some ability to regulate it's own temperature depending on the recipe, so it would make sense if it had some mechanical stuff going on inside that causes items to not cook as quickly. Either way, the furnace is just objectively better than a vanilla blast furnace because of it's versatility, so I think it would make sense if it was unlocked last and is the first bit of technology unlocked.) D
+* Furnaces are now crafted using a Kiln, 4 Sturdy Stone and 4 Blocks of Copper. (The furnace is just objectively better than a vanilla blast furnace because of it's versatility, so I think it would make sense if it was something you worked up to. Plus, the usage of Sturdy Stone introduces it's crafting recipe to players early on) D
 * Smokers are now crafted using 4 Logs, and either 4 Brick Blocks, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
 * Backpacks now require 2 Copper blocks rather than 2 iron ingots. D
 
@@ -43,7 +43,7 @@ WORLD
 * Added Tectonic, which adds large scale, realistic scenery. D
 * Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. D
 * Cannot sleep through bad Celestial events. D
-* Days last 30 minutes and nights last 20. D
+* Days last 25 minutes and nights last 20. PD
 * Nerfed Gold spawn by 25%. (This is in light of multiple buffs made to gold below, still testing to see if this is even necessary) ONHOLD
 * Significantly lowered chance of exposed diamonds being removed. D
 * Reduced Diamond Spawn by 40%. (This is to promote caving over strip mining) D
@@ -85,6 +85,7 @@ COMBAT
 * Moved Electrum enchantability to Diamond Tier. This puts it in line as an equal alternative to netherite, rather than a total down/upgrade. Electrum avoids the massive slowdown of netherite, but is more involved to earn.
 
 TOOLS
+* Removed Flint Knife from Farmers Delight
 * All Gold Tools durability upped to 225 (For ref, Iron is 250). D
 * Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game, so spamming wood/stone hoes for a single field should be more annoying (Wood -60%, Stone -60%) PD
 * May Reroll enchantments at enchanting table for 1 lapis and a few EXP points (Not levels!) D
