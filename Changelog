@@ -7,7 +7,12 @@ AXIOMS & GOALS
 * Villagers act as a primary resource that must be protected.
 * Machines would be tools that change or refine a player obtained input. Skyblock automation sux, stagnation sux.
 * Collaberating with others is key to survival. It's not feasible to maintain all aspects of a civilization alone, longterm.
-* Progression should roughly line up with human's tech progression: Hunter Gatherer -> Stone Age -> Copper/Iron age -> Middle Ages (Defense and long-term infra) -> Industrial Age (Well funded defense and security networks.)
+* Progression should roughly line up with human's tech progression:
+    Hunter Gatherer - Creation of the first settlement(s). Some basic wooden tools, a campfire, and some nearby animals are all that's currently at your disposal.
+    Stone Age - Creation of your first Kiln with some basic stone tools. Soon, you gather a backpack and your first bits of armor.
+    Copper age - Small tech advances. Gold tools and armor alongside chainmail are the standard, with small advances in Create.
+    Middle Ages - Defense and long-term infrastructure projects begin. Walls rise, professional armies begin to take root. Likely to have encountered a Blood Moon by this point.
+    Industrial Age - Well funded defense and security networks. Everyone has diamonds by this point, and most are focused on industrialization in (relative) safety.
 * Should be performant on all systems, with an alternate client for maximizing performace.
 
 ----------------------------------------------------------------------------------------------------------------
@@ -15,7 +20,18 @@ AXIOMS & GOALS
 CRAFTING
 * Due to the difficulty of getting lots of gunpowder, 2 recipes have been added (1 coal + 2 sugar -> 1 gunp, 1 bpowder + 2 sug -> 6) (Bombs shouldn't be super expensive, but have the obvious downside of literally blowing up your stuff.) D
 * Removed chance of precision mechanism failing.
-* Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest.
+* Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest. D
+* Sturdy Stone is now able to be crafted by blasting Cobblestone. D
+* Removed the ability to decraft Sturdy Stone.
+* Added the ability to 'De-Sheet' most create sheets to recycle metals. D
+* Added the ability to use Clay on a campfire to make fire charges. D
+* Added the ability to use Clay on a campfire to make Bricks (Which are usable as weapons) D
+* Mud is now craftable using 8 dirt and a water bucket or sugar cane. (This is inline with multiple changes made to furnaces) D
+* Terracotta can be made using a Clay Block on a campfire. D
+* Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 Brick Blocks, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) D
+* Furnaces are now crafted using a Kiln, 4 Create Cogs and 4 Blocks of Copper. (The Furnace seems to have some ability to regulate it's own temperature depending on the recipe, so it would make sense if it had some mechanical stuff going on inside that causes items to not cook as quickly. Either way, the furnace is just objectively better than a vanilla blast furnace because of it's versatility, so I think it would make sense if it was unlocked last and is the first bit of technology unlocked.) D
+* Smokers are now crafted using 4 Logs, and either 4 Brick Blocks, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
+* Backpacks now require 2 Copper blocks rather than 2 iron ingots. D
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
@@ -28,26 +44,19 @@ WORLD
 * Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. D
 * Cannot sleep through bad Celestial events. D
 * Days last 30 minutes and nights last 20. D
-* Nerfed Gold spawn by 25%. (This is in light of multiple buffs made to gold below)
+* Nerfed Gold spawn by 25%. (This is in light of multiple buffs made to gold below, still testing to see if this is even necessary) ONHOLD
 * Significantly lowered chance of exposed diamonds being removed. D
-* Reduced Diamond Spawn by 40%. (This is to promote caving over strip mining)
+* Reduced Diamond Spawn by 40%. (This is to promote caving over strip mining) D
 * Increased Large and Small Iron veins to compensate for the removal of Create Iron Farms. (4 -> 6, 9 -> 12) D
 * Increased Iron depth to y40. D
 * Altered amount of Iron Veins (Honestly I was just kind of eyeballing this one, but you should get way more iron at the new ideal depth than vanilla. The new best depth should be viewable on EMI)
 * Increased Ancient debris ore size by 40%. D
 * Added Quark, which adds Oretises (Among other things) that allow some ores to be 'sheered off' them with a pickaxe. D
-* Mud is now craftable using 8 dirt and a water bucket or sugar cane. (This is inline with multiple changes made to furnaces) D
-* Terracotta can be made using a Clay Block on a campfire. D
-* Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 Terracotta, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) D
-* Furnaces are now crafted using a Kiln, 4 Create Cogs and 4 Blocks of Copper. (The Furnace seems to have some ability to regulate it's own temperature depending on the recipe, so it would make sense if it had some mechanical stuff going on inside that causes items to not cook as quickly. Either way, the furnace is just objectively better than a vanilla blast furnace because of it's versatility, so I think it would make sense if it was unlocked last and is the first bit of technology unlocked.) D
-* Smokers are now crafted using 4 Logs, and either 4 Terracotta, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
-* Massively decreased the spawn rate of surface dungeons, a structure added by D&T. They spawn way too frequently and have loot that interferes with progression, namely multiple sets of iron armor and tools (some of which come pre-enchanted). (If the loot pool is seperate I'll probably just remove the iron equipment and keep the structure)
-* Removed Herobrine. D
+* Removed Iron equipment from Bunkers (A D&T Structure) and replaced it with gold. D
 
 FOOD
 * Added Serene Seasons. Each season lasts 18 IRL hours.
 * Added Farmers Delight w/ Create Integration. D
-* Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game. (Wood -60%, Stone -60%, Iron -10%) PD
 * Hoes now have an area based harvest which doesn't dimension from their durability and increases based on the material.
 * Moved some hunger gained from Golden Carrots into saturation saturation. (Food heirarchy: Crops, Meat, Meat+crops / stews, golden foods & platters) (This makes g carrots more health recovery focused, in line with gapples, rather than a primary meal source)
 * May eat food past full hunger to fill saturation fully. (Farmers delight is actively adding this feature to nourished players, so IDK if this is even necessary. Probably not?) PD
@@ -77,6 +86,7 @@ COMBAT
 
 TOOLS
 * All Gold Tools durability upped to 225 (For ref, Iron is 250). D
+* Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game, so spamming wood/stone hoes for a single field should be more annoying (Wood -60%, Stone -60%) PD
 * May Reroll enchantments at enchanting table for 1 lapis and a few EXP points (Not levels!) D
 * Nerfed Mending, Now its a one-use book that resets repair cost. (Mending in this modpack should be super easy to come by with a village, so keeping vanilla functionality is extremely overkill.) D
 * All Gold equipment benefits from Fortune II, even if it's unenchanted. D
@@ -97,7 +107,6 @@ MONSTERS
 * Increased the number of Leader monsters. D
 * Zombies have better rare loot, including ammunition and cannonballs. D
 * Added Alex Mobs, which adds mobs (shocker). D
-* Added Phantoms to the End.
 
 MOBS
 * Villagers may be converted into Villager Guards using a Sword. D
@@ -108,8 +117,11 @@ MOBS
 * Snow Golem's snowballs cause damage. D
 * Added the ability to kidnap small children with Supplementaries Cages
 
-LANGUAGE
+RESOURCES
 * Added translation keys for Poor/Normal Energy Drink Bongs. D
 * Serene Seasons 'Growing Seasons' -> 'Best Growing Seasons' (All crops are still growable, but their speed is determined by the season)
 * Renamed Refurbished Furniture's Wrench to 'Multi-Tool'. D
-* Renamed Blast Furnace to Kiln
+* Renamed Blast Furnace to Kiln. D
+* Replaced Poppies with Roses, and Blue Orchids with Cyan Roses. D
+* Replaced all non-C148 background music with the unreleased minecraft songs. D
+* Most vanilla sounds now use their unupdated equivilent. (Steves goes 'Oo!', doors are clicky, ect.)
