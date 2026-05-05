@@ -21,7 +21,7 @@ CRAFTING
 * Removed chance of precision mechanism failing.
 * Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest. D
 * Sturdy Stone is now able to be crafted by blasting Cobblestone. D
-* Removed the ability to decraft Sturdy Stone.
+* Removed normal crafting recipes involving sturdy stone (Shaped recipe + decompressing). D
 * Added the ability to 'De-Sheet' most create sheets to recycle metals. D
 * Added the ability to smash flint blocks into Fire Charges using a cutting board. D
 * Added the ability to use Coal on a campfire to make fire charges. D
@@ -31,7 +31,9 @@ CRAFTING
 * Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 Brick Blocks, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) D
 * Furnaces are now crafted using a Kiln, 4 Sturdy Stone and 4 Blocks of Copper. (The furnace is just objectively better than a vanilla blast furnace because of it's versatility, so I think it would make sense if it was something you worked up to. Plus, the usage of Sturdy Stone introduces it's crafting recipe to players early on) D
 * Smokers are now crafted using 4 Logs, and either 4 Brick Blocks, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
+* Farmers Delight Stoves can now be crafted using 3 copper blocks in place of the iron ingots in it's recipe. D
 * Backpacks now require 2 Copper blocks rather than 2 iron ingots. D
+* Added the ability to craft Supplementaries' Bombs using Glass and Bricks, but at a worse rate per TNT spent.
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
