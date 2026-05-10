@@ -7,11 +7,11 @@ AXIOMS & GOALS
 * Machines would be tools that change or refine a player obtained input. Skyblock automation sux, stagnation sux.
 * Collaberating with others is key to survival. It's not feasible to maintain all aspects of a civilization alone, longterm.
 * Progression should roughly line up with human's tech progression:
-    Hunter Gatherer - Creation of the first settlement(s). Some basic wooden tools, a campfire, and some nearby animals are all that's currently at your disposal.
-    Stone Age - Creation of your first Kiln with some basic stone tools. Soon, you gather a backpack and your first bits of armor.
-    Copper age - Small tech advances. Gold tools and armor alongside chainmail are the standard, with small advances in Create.
-    Middle Ages - Defense and long-term infrastructure projects begin. Walls rise, professional armies begin to take root. Likely to have encountered a Blood Moon by this point.
-    Industrial Age - Well funded defense and security networks. Everyone has diamonds by this point, and most are focused on industrialization in (relative) safety.
+    * Hunter Gatherer - Creation of the first settlement(s). Some basic wooden tools, a campfire, and some nearby animals are all that's currently at your disposal.
+    * Stone Age - Creation of your first Kiln with some basic stone tools. Soon, you gather a backpack and your first bits of armor.
+    * Copper age - Small tech advances. Gold tools and armor alongside chainmail are the standard, with small advances in Create.
+    * Middle Ages - Defense and long-term infrastructure projects begin. Walls rise, professional armies begin to take root. Likely to have encountered a Blood Moon by this point.
+    * Industrial Age - Well funded defense and security networks. Everyone has diamonds by this point, and most are focused on industrialization in (relative) safety.
 * Should be performant on all systems, with an alternate client for maximizing performace.
 
 ----------------------------------------------------------------------------------------------------------------
