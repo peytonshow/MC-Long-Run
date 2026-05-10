@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.02,
+  "ingredient": {
+    "tag": "minecraft:planks"
+  },
+  "result": {
+    "id": "supplementaries:ash"
+  }
+}

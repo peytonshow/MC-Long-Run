@@ -22,10 +22,12 @@ CRAFTING
 * Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest. D
 * Sturdy Stone is now able to be crafted by blasting Cobblestone. D
 * Removed normal crafting recipes involving sturdy stone (Shaped recipe + decompressing). D
+* Added the ability to make a firecharge from using a pickaxe on a cutting board with a flint block. D
 * Added the ability to 'De-Sheet' most create sheets to recycle metals. D
 * Added the ability to smash flint blocks into Fire Charges using a cutting board. D
 * Added the ability to use Coal on a campfire to make fire charges. D
 * Added the ability to use Clay on a campfire to make Bricks (Which are usable as weapons) D
+* May craft 2 arrows using 1 Flint, 1 Arrow and 1 Leather. D
 * Mud is now craftable using 8 dirt and a water bucket or sugar cane. (This is inline with multiple changes made to furnaces) D
 * Terracotta can be made using a Clay Block on a campfire. D
 * Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 Brick Blocks, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) D
@@ -42,6 +44,7 @@ CREATE
 * Tripled Backtank S.U Storage.
 
 WORLD
+* Campfires are unlit by default. D
 * Added Tectonic, which adds large scale, realistic scenery. D
 * Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. D
 * Cannot sleep through bad Celestial events. D
@@ -55,6 +58,7 @@ WORLD
 * Increased Ancient debris ore size by 40%. D
 * Added Quark, which adds Oretises (Among other things) that allow some ores to be 'sheered off' them with a pickaxe. D
 * Removed Iron equipment from Bunkers (A D&T Structure) and replaced it with gold. D
+* Removed Iron equipment from most overworld surface structures and replaced it with gold. PD
 
 FOOD
 * Added Serene Seasons. Each season lasts 18 IRL hours.
@@ -82,13 +86,13 @@ COMBAT
 * Gold Armor's durability is now 220 (Iron is 240) D
 * Gold Armor now has the same defense as Diamond, which is inline with golds 'short-term powerup' properties, like in gapples.
 * Iron Armor now has 1 Toughness. (For reference, Diamond has 2, netherite 3.) D
-* Netherite now provides 4.5 more armor on a full set. The added armor is not taken into account during slowdown calculation, which makes it very powerful, but still slow. This makes tanking an actually viable strategy.  D
+* Netherite now provides 3 more armor on a full set. The added armor is not taken into account during slowdown calculation, which makes it very powerful, but still slow. This makes tanking an actually viable strategy.  D
 * Netherite's enchantability has been moved to Stone. This should promote building more, safer village infrastructure rather than relying on RNG.
 * Moved Electrum enchantability to Diamond Tier. This puts it in line as an equal alternative to netherite, rather than a total down/upgrade. Electrum avoids the massive slowdown of netherite, but is more involved to earn.
 
 TOOLS
-* Removed Flint Knife from Farmers Delight
 * All Gold Tools durability upped to 225 (For ref, Iron is 250). D
+* Stone and Gold pickaxes can mine Gold Ore.
 * Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game, so spamming wood/stone hoes for a single field should be more annoying (Wood -60%, Stone -60%) PD
 * May Reroll enchantments at enchanting table for 1 lapis and a few EXP points (Not levels!) D
 * Nerfed Mending, Now its a one-use book that resets repair cost. (Mending in this modpack should be super easy to come by with a village, so keeping vanilla functionality is extremely overkill.) D
@@ -109,6 +113,7 @@ MONSTERS
 * Nerf mob Musket damage against player (~1/6 received damage). This change was to keep muskets dangerous to mobs and other players in PVP without having to remove them from mobs, because getting beamed from a mile away with no armor kind of sucks. D
 * Increased the number of Leader monsters. D
 * Zombies have better rare loot, including ammunition and cannonballs. D
+* Skeletons drop twice as many arrows, and have a rare chance to drop bombs, fire arrows or Supplementaries Quivers.
 * Added Alex Mobs, which adds mobs (shocker). D
 
 MOBS

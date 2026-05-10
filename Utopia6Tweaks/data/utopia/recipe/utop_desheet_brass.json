@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0,
+  "group": "brass_ingot",
+  "ingredient": {
+    "item": "create:brass_sheet"
+  },
+  "result": {
+    "id": "create:brass_ingot"
+  }
+}

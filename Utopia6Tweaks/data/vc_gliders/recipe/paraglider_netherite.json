@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "gliders",
+  "key": {
+    "R": {
+      "item": "vc_gliders:reinforced_paper"
+    },
+    "S": {
+      "item": "quark:blaze_lantern"
+    },
+    "W": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "F": {
+      "item": "minecraft:fire_charge"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    }
+  },
+  "pattern": [
+    "RRR",
+    "SPS",
+    "WFW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vc_gliders:paraglider_netherite"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:blackstone"
+      },
+      {
+        "item": "minecraft:packed_mud"
+      },
+      {
+        "item": "minecraft:bricks"
+      }
+    ],
+    "X": [
+      {
+        "item": "minecraft:soul_campfire"
+      },
+      {
+        "item": "minecraft:campfire"
+      }
+    ]
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:blast_furnace"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:stonecutter"
+    },
+    "T": {
+      "item": "minecraft:crafting_table"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "R": {
+      "item": "minecraft:copper_block"
+    }
+  },
+  "pattern": [
+    "PBP",
+    "PRP",
+    "PIP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "refurbished_furniture:workbench"
+  }
+}

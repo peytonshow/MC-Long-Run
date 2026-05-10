@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": [
+      {
+        "tag": "minecraft:stone_tool_materials"
+      },
+      {
+        "item": "minecraft:packed_mud"
+      },
+      {
+        "item": "minecraft:bricks"
+      }
+    ],
+    "X": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "# #",
+    "X#X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:smoker"
+  }
+}
