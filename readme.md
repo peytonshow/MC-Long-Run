@@ -5,6 +5,7 @@ AXIOMS & GOALS
 * Players given ample time to prepare during the day for a potential night time assault by monsters.
 * Logistics and trade are super important. Villagers act as a primary resource that must be protected.
 * Machines would be tools that change or refine a player obtained input. Skyblock automation sux, stagnation sux.
+* Mob farms also suck, building them sux, using them sux. 
 * Collaberating with others is key to survival. It's not feasible to maintain all aspects of a civilization alone, longterm.
 * Progression should roughly line up with human's tech progression:
     * Hunter Gatherer - Creation of the first settlement(s). Some basic wooden tools, a campfire, and some nearby animals are all that's currently at your disposal.
@@ -13,6 +14,12 @@ AXIOMS & GOALS
     * Middle Ages - Defense and long-term infrastructure projects begin. Walls rise, professional armies begin to take root. Likely to have encountered a Blood Moon by this point.
     * Industrial Age - Well funded defense and security networks. Everyone has diamonds by this point, and most are focused on industrialization in (relative) safety.
 * Should be performant on all systems, with an alternate client for maximizing performace.
+
+KEYS
+D - Done
+PD - Partly Done
+TD - Test first, otherwise done
+F - Final
 
 ----------------------------------------------------------------------------------------------------------------
 
@@ -36,6 +43,8 @@ CRAFTING
 * Farmers Delight Stoves can now be crafted using 3 copper blocks in place of the iron ingots in it's recipe. D
 * Backpacks now require 2 Copper blocks rather than 2 iron ingots. D
 * Added the ability to craft Supplementaries' Bombs using Glass and Bricks, but at a worse rate per TNT spent.
+* Added the ability to cut Leather into Rabbit Hide. D
+* Fixed nirvana's rope recipe using Supplementaries' when it should be using farmer's delight. TD
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
@@ -48,7 +57,7 @@ WORLD
 * Added Tectonic, which adds large scale, realistic scenery. D
 * Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. D
 * Cannot sleep through bad Celestial events. D
-* Days last 25 minutes and nights last 20. PD
+* Days last 25 minutes and nights last 20. D
 * Nerfed Gold spawn by 25%. (This is in light of multiple buffs made to gold below, still testing to see if this is even necessary) ONHOLD
 * Significantly lowered chance of exposed diamonds being removed. D
 * Reduced Diamond Spawn by 40%. (This is to promote caving over strip mining) D
@@ -61,6 +70,7 @@ WORLD
 * Removed Iron equipment from most overworld surface structures and replaced it with gold. PD
 
 FOOD
+* Most food items stack to 16, which is an improvement for some items and a negative for others. PD
 * Added Serene Seasons. Each season lasts 18 IRL hours.
 * Added Farmers Delight w/ Create Integration. D
 * Hoes now have an area based harvest which doesn't dimension from their durability and increases based on the material.
@@ -89,6 +99,7 @@ COMBAT
 * Netherite now provides 3 more armor on a full set. The added armor is not taken into account during slowdown calculation, which makes it very powerful, but still slow. This makes tanking an actually viable strategy.  D
 * Netherite's enchantability has been moved to Stone. This should promote building more, safer village infrastructure rather than relying on RNG.
 * Moved Electrum enchantability to Diamond Tier. This puts it in line as an equal alternative to netherite, rather than a total down/upgrade. Electrum avoids the massive slowdown of netherite, but is more involved to earn.
+* Leather armor is now craftable out of Rabbit Hide OR Leather.
 
 TOOLS
 * All Gold Tools durability upped to 225 (For ref, Iron is 250). D
@@ -125,7 +136,10 @@ MOBS
 * Snow Golem's snowballs cause damage. D
 * Added the ability to kidnap small children with Supplementaries Cages
 
-RESOURCES
+TAGS
+* Added Golden Spear to quarks Gold fortune/looting buff. D
+
+RESOURCE PACK & LANG
 * Added translation keys for Poor/Normal Energy Drink Bongs. D
 * Serene Seasons 'Growing Seasons' -> 'Best Growing Seasons' (All crops are still growable, but their speed is determined by the season)
 * Renamed Refurbished Furniture's Wrench to 'Multi-Tool'. D
