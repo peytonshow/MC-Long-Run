@@ -19,6 +19,7 @@ KEYS
 D - Done
 PD - Partly Done
 TD - Test first, otherwise done
+ONHOLD - On hold, obv
 F - Final
 
 ----------------------------------------------------------------------------------------------------------------
@@ -94,17 +95,20 @@ COMBAT
 * Chainmail armor is craftable from upgrading Leather Armor w/ chain. Costs ~16 iron, vs 24 for full iron normally. D
 * Chainmail armor now shares stats with iron, with a minor difference in durability. (This is to help chainmails really weird place in progression. Like, when are we even supposed to use this in vanilla?) D
 * Gold Armor's durability is now 220 (Iron is 240) D
-* Gold Armor now has the same defense as Diamond, which is inline with golds 'short-term powerup' properties, like in gapples.
+* Gold Armor now has the same defense as Diamond, which is inline with golds 'short-term powerup' properties, like in gapples. PD
 * Iron Armor now has 1 Toughness. (For reference, Diamond has 2, netherite 3.) D
 * Netherite now provides 3 more armor on a full set. The added armor is not taken into account during slowdown calculation, which makes it very powerful, but still slow. This makes tanking an actually viable strategy.  D
 * Netherite's enchantability has been moved to Stone. This should promote building more, safer village infrastructure rather than relying on RNG.
 * Moved Electrum enchantability to Diamond Tier. This puts it in line as an equal alternative to netherite, rather than a total down/upgrade. Electrum avoids the massive slowdown of netherite, but is more involved to earn.
-* Leather armor is now craftable out of Rabbit Hide OR Leather.
+* Leather armor is now craftable out of Rabbit Hide OR Leather. TD
 
 TOOLS
+* Fist breaks blocks 50% slower.
+* Wooden tools break blocks 50% Slower.
+* Wooden tools now have ~20 durability each. D
 * All Gold Tools durability upped to 225 (For ref, Iron is 250). D
 * Stone and Gold pickaxes can mine Gold Ore.
-* Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game, so spamming wood/stone hoes for a single field should be more annoying (Wood -60%, Stone -60%) PD
+* Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game, so spamming wood/stone hoes for a single field should be more annoying (Wood -60%, Stone -60%) D
 * May Reroll enchantments at enchanting table for 1 lapis and a few EXP points (Not levels!) D
 * Nerfed Mending, Now its a one-use book that resets repair cost. (Mending in this modpack should be super easy to come by with a village, so keeping vanilla functionality is extremely overkill.) D
 * All Gold equipment benefits from Fortune II, even if it's unenchanted. D
@@ -134,14 +138,14 @@ MOBS
 * Villager Guards attack creepers (This is going to turn out horribly, but so many already creepers spawn on blood moons they'll probably die to them after the other mobs are dead anyways, since the guards just otherwise stand there. Explosives in general just tend to really fuck them up. Test!!)
 * Villagers have a 'Cycle Trades' button, which goes away after one trade. D
 * Snow Golem's snowballs cause damage. D
-* Added the ability to kidnap small children with Supplementaries Cages
+* Added the ability to kidnap small children with Supplementaries Cages.
 
 TAGS
 * Added Golden Spear to quarks Gold fortune/looting buff. D
 
 RESOURCE PACK & LANG
 * Added translation keys for Poor/Normal Energy Drink Bongs. D
-* Serene Seasons 'Growing Seasons' -> 'Best Growing Seasons' (All crops are still growable, but their speed is determined by the season)
+* Serene Seasons 'Growing Seasons' -> 'Best Growing Seasons' (All crops are still growable, but their speed is determined by the season. This change was to reflect that fact) D
 * Renamed Refurbished Furniture's Wrench to 'Multi-Tool'. D
 * Renamed Blast Furnace to Kiln. D
 * Replaced Poppies with Roses, and Blue Orchids with Cyan Roses. D
