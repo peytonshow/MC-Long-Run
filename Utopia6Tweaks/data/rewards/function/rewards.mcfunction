@@ -1,1 +1,1 @@
-tellraw @s {"text": "You have been rewarded special login reward items...", "color": "red", "bold":true}
+tellraw @s {"text": "You open your eyes...", "color": "gold", "bold":false}

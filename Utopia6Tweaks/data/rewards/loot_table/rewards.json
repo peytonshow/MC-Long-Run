@@ -5,52 +5,38 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:bundle",
+          "name": "spearsmod:wooden_spear"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bow"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "supplementaries:quiver",
           "functions": [
-            {
-              "function": "minecraft:set_name",
-              "entity": "this",
-              "name": {
-                "text": "Knapsack",
-                "color": "yellow",
-                "bold": true,
-                "italic": false
-              }
-            },
             {
               "function": "minecraft:set_components",
               "components": {
                 "minecraft:bundle_contents": [
                   {
-                    "id": "minecraft:bow",
-                    "count": 1
-                  },
-                  {
                     "id": "minecraft:arrow",
-                    "count": 12
+                    "count": 25
                   }
                 ]
               }
             }
           ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "supplementaries:quiver"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:stone_shovel"
         }
       ]
     }

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "ec": "all",
+    "ec_other": "op",
+    "craft": "all",
+    "invsee": "op"
+  }
+}

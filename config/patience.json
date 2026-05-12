@@ -1,0 +1,272 @@
+{
+  "debug": false,
+  "enable_sounds": true,
+  "default_crafting_sound": "patience:crafting",
+  "default_finish_sound": "patience:finish",
+  "default_penalty_sound": "patience:penalty",
+  "default_success_sound": "patience:success",
+  "global_time_multiplier": 1.0,
+  "experience": {
+    "enabled": true,
+    "multiplier": 1.0,
+    "base_speed": 1.5,
+    "speed_per_level": 0.07,
+    "max_level_cap": 30
+  },
+  "decay": {
+    "enabled": true,
+    "rate": 2.0
+  },
+  "screen_shake": {
+    "enabled": false,
+    "intensity": 0.5
+  },
+  "hunger": {
+    "enabled": true,
+    "exhaustion_cost": 0.1,
+    "penalty": {
+      "enabled": true,
+      "threshold": 6,
+      "multiplier": 0.5
+    }
+  },
+  "minigame": {
+    "enabled": true,
+    "chance": 0.5,
+    "window_width": 0.15,
+    "penalty_percent": 0.25,
+    "penalty_cancels_craft": true
+  },
+  "item_sounds": {
+    "minecraft:stick": "patience:crafting"
+  },
+  "ingredient_multipliers": {
+    "by_mod": {
+      "minecraft": 1.0
+    },
+    "by_item": {
+      "minecraft:stick": 1.0
+    },
+    "by_tag": {
+      "#minecraft:planks": 1.0
+    }
+  },
+  "output_multipliers": {
+    "by_mod": {
+      "minecraft": 1.0
+    },
+    "by_item": {
+      "minecraft:stick": 1.0
+    },
+    "by_tag": {
+      "#minecraft:planks": 1.0
+    }
+  },
+  "recipe_multipliers": {
+    "by_type": {
+      "minecraft:crafting": 1.0
+    },
+    "by_recipe": {
+      "minecraft:stick": 1.0
+    }
+  },
+  "containers": [
+    {
+      "enabled": true,
+      "screen_class": "net.minecraft.client.gui.screens.inventory.InventoryScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 0,
+      "result_slot": 9,
+      "ingredient_slots": "1-4",
+      "ingredient_mode": "slot",
+      "overlay_texture": "patience:textures/inventory.png",
+      "overlay_x": 134,
+      "overlay_y": 28,
+      "overlay_width": 18,
+      "overlay_height": 15
+    },
+    {
+      "enabled": true,
+      "screen_class": "top.theillusivec4.curios.client.gui.CuriosScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 0,
+      "result_slot": 9,
+      "ingredient_slots": "1-4",
+      "ingredient_mode": "slot",
+      "overlay_texture": "patience:textures/inventory.png",
+      "overlay_x": 134,
+      "overlay_y": 28,
+      "overlay_width": 18,
+      "overlay_height": 15
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 0,
+      "result_slot": 10,
+      "ingredient_slots": "1-9",
+      "ingredient_mode": "slot"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.minecraft.client.gui.screens.inventory.SmithingScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 3,
+      "result_slot": 4,
+      "ingredient_slots": "0-2",
+      "ingredient_mode": "slot",
+      "overlay_x": 67,
+      "overlay_y": 48,
+      "crafting_sound": "patience:smithing_table"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.minecraft.client.gui.screens.inventory.AnvilScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 2,
+      "result_slot": 3,
+      "ingredient_slots": "0-1",
+      "ingredient_mode": "slot",
+      "overlay_x": 101,
+      "overlay_y": 47,
+      "crafting_sound": "patience:anvil"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.minecraft.client.gui.screens.inventory.GrindstoneScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 2,
+      "result_slot": 3,
+      "ingredient_slots": "0-1",
+      "ingredient_mode": "slot",
+      "overlay_x": 94,
+      "overlay_y": 33,
+      "crafting_sound": "patience:grindstone"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.minecraft.client.gui.screens.inventory.StonecutterScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 1,
+      "result_slot": 2,
+      "ingredient_slots": "0",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:stonecutter"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.minecraft.client.gui.screens.inventory.CartographyTableScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 2,
+      "result_slot": 3,
+      "ingredient_slots": "0-1",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:cartography_table"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.minecraft.client.gui.screens.inventory.LoomScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 3,
+      "result_slot": 4,
+      "ingredient_slots": "0-2",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:loom"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.mehvahdjukaar.sawmill.SawmillScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 1,
+      "result_slot": 2,
+      "ingredient_slots": "0",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:sawmill"
+    },
+    {
+      "enabled": true,
+      "screen_class": "com.teamabnormals.woodworks.client.gui.screens.inventory.SawmillScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 1,
+      "result_slot": 2,
+      "ingredient_slots": "0",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:sawmill"
+    },
+    {
+      "enabled": true,
+      "screen_class": "com.dolthhaven.easeldoesit.common.inventory.EaselScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 1,
+      "result_slot": 2,
+      "ingredient_slots": "0",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:easel"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.orcinus.galosphere.client.gui.CombustionTableScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 4,
+      "result_slot": 5,
+      "ingredient_slots": "0-3",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:combustion_table"
+    },
+    {
+      "enabled": true,
+      "screen_class": "com.teamabnormals.clayworks.client.gui.screens.inventory.PotteryScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 3,
+      "result_slot": 4,
+      "ingredient_slots": "0-2",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:pottery_table"
+    },
+    {
+      "enabled": true,
+      "screen_class": "com.momosoftworks.coldsweat.client.gui.SewingScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 2,
+      "result_slot": 3,
+      "ingredient_slots": "0-1",
+      "ingredient_mode": "slot",
+      "show_overlay": false,
+      "crafting_sound": "patience:sewing_table"
+    },
+    {
+      "enabled": true,
+      "screen_class": "net.joefoxe.hexerei.screen.WoodcutterScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 1,
+      "result_slot": 2,
+      "ingredient_slots": "0",
+      "ingredient_mode": "custom",
+      "show_overlay": false,
+      "crafting_sound": "patience:sawmill"
+    },
+    {
+      "enabled": true,
+      "screen_class": "de.rubixdev.inventorio.client.ui.InventorioScreen",
+      "time_multiplier": 1.0,
+      "output_slot": 0,
+      "result_slot": 9,
+      "ingredient_slots": "1-4",
+      "ingredient_mode": "slot",
+      "overlay_texture": "patience:textures/inventory.png",
+      "overlay_x": 154,
+      "overlay_y": 28,
+      "overlay_width": 18,
+      "overlay_height": 15
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "logbegone": {
+    "phrases": [
+      "[EMI/]: [EMI] [TMRV]",
+      "[ne.ne.ne.se.ServerLifecycleHooks/]: Detected quark:",
+      "[minecraft/GossipContainer]: Failed to deserialize gossips:",
+      "/ERROR] [minecraft/BlockAttachedEntity]:",
+      "[Iris/]: Failed to resolve uniform inPaleGarden, reason: Unknown variable: BIOME_PALE_GARDEN",
+      "Channels "
+    ],
+    "regex": [
+    ]
+  }
+}

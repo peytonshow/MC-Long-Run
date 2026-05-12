@@ -46,6 +46,7 @@ CRAFTING
 * Added the ability to craft Supplementaries' Bombs using Glass and Bricks, but at a worse rate per TNT spent.
 * Added the ability to cut Leather into Rabbit Hide. D
 * Fixed nirvana's rope recipe using Supplementaries' when it should be using farmer's delight. TD
+* Leather armor is now craftable out of Rabbit Hide OR Leather. TD
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
@@ -54,7 +55,7 @@ CREATE
 * Tripled Backtank S.U Storage.
 
 WORLD
-* Campfires are unlit by default. D
+* Campfires now require a fire charge/ flint & steel. They can also be constructed using firewood.
 * Added Tectonic, which adds large scale, realistic scenery. D
 * Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. D
 * Cannot sleep through bad Celestial events. D
@@ -69,6 +70,7 @@ WORLD
 * Added Quark, which adds Oretises (Among other things) that allow some ores to be 'sheered off' them with a pickaxe. D
 * Removed Iron equipment from Bunkers (A D&T Structure) and replaced it with gold. D
 * Removed Iron equipment from most overworld surface structures and replaced it with gold. PD
+* Significantly lowered chance for 
 
 FOOD
 * Most food items stack to 16, which is an improvement for some items and a negative for others. PD
@@ -76,8 +78,6 @@ FOOD
 * Added Farmers Delight w/ Create Integration. D
 * Hoes now have an area based harvest which doesn't dimension from their durability and increases based on the material.
 * Moved some hunger gained from Golden Carrots into saturation saturation. (Food heirarchy: Crops, Meat, Meat+crops / stews, golden foods & platters) (This makes g carrots more health recovery focused, in line with gapples, rather than a primary meal source)
-* May eat food past full hunger to fill saturation fully. (Farmers delight is actively adding this feature to nourished players, so IDK if this is even necessary. Probably not?) PD
-* Slighly increased hunger rate. (May not be necessary with amount of combat focused encounters, might also be axed)
 * May make Create's Wheat Flour manually by using a cutting board (1 wheat -> 1 flour).D
 * Completely removed most of Refurbished Furniture's cooking (Most recipes are completely locked behind creating the mod's furniture stuff when there's literally no reason to besides forcing people to use the mod. This is stupid, so I moved all the mod's 'Combining' recipes into a shapeless crafting table recipe, removed the cutting boards, and replaced multiple of this mod's duplicate ingrediants (Dough and cheeses) with those from other mods. This mod might actually have some of the worst mod compatability I've seen despite the developer claiming they started work on that >1 year ago) D
 
@@ -98,9 +98,11 @@ COMBAT
 * Gold Armor now has the same defense as Diamond, which is inline with golds 'short-term powerup' properties, like in gapples. PD
 * Iron Armor now has 1 Toughness. (For reference, Diamond has 2, netherite 3.) D
 * Netherite now provides 3 more armor on a full set. The added armor is not taken into account during slowdown calculation, which makes it very powerful, but still slow. This makes tanking an actually viable strategy.  D
-* Netherite's enchantability has been moved to Stone. This should promote building more, safer village infrastructure rather than relying on RNG.
 * Moved Electrum enchantability to Diamond Tier. This puts it in line as an equal alternative to netherite, rather than a total down/upgrade. Electrum avoids the massive slowdown of netherite, but is more involved to earn.
-* Leather armor is now craftable out of Rabbit Hide OR Leather. TD
+
+ENCHANTING
+* 
+* Netherite's enchantability has been moved to Stone. This should promote building more, safer village infrastructure rather than relying on RNG.
 
 TOOLS
 * Fist breaks blocks 50% slower.
