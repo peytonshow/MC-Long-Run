@@ -19,6 +19,8 @@
 	creaking_particle_color = 6250335
 	#creaking heart trail particle reverse color (orange by default)
 	creaking_particle_reverse_color = 16545810
+	#allow Creaking Hearts to generate Creakings even during the day
+	do_creaking_hearts_work_on_day = false
 
 ["Spring to Life"]
 	#allow bushes to generate in the overworld
@@ -75,3 +77,5 @@
 	do_sulfur_cubes_damage = true
 	#allow Wanderer traders to sell contents from Chaos Cubed
 	do_merchant_trade_chaos_cubed_contents = true
+	#allows the bounce music disc to generate on abandoned mineshafts
+	has_bounce_music_disc = true

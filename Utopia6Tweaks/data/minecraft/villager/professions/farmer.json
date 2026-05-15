@@ -1,0 +1,52 @@
+{
+  "levels": {
+    "1": {
+      "take": { "type": "constant", "value": 2 },
+      "trades": [
+        { "sells": { "item": "minecraft:emerald", "count": 2 }, "wants": [{ "item": "minecraft:hay_bale", "count": 1 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 2 }, "wants": [{ "item": "supplementaries:flax_block", "count": 1 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 2 }, "wants": [{ "item": "farmersdelight:rice_bale", "count": 1 }] }
+      ]
+    },
+    "2": {
+      "take": { "type": "constant", "value": 2 },
+      "trades": [
+        { "sells": { "item": "minecraft:emerald", "count": 4 }, "wants": [{ "item": "farmersdelight:tomato_crate", "count": 2 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 4 }, "wants": [{ "item": "farmersdelight:beetroot_crate", "count": 2 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 4 }, "wants": [{ "item": "farmersdelight:potato_crate", "count": 2 }] }
+      ]
+    },
+    "3": {
+      "take": { "type": "constant", "value": 2 },
+      "trades": [
+        { "sells": { "item": "minecraft:emerald", "count": 8 }, "wants": [{ "item": "quark:sweet_berry_sack", "count": 4 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 8 }, "wants": [{ "item": "quark:glow_berry_sack", "count": 4 }] }
+      ]
+    },
+    "4": {
+      "take": { "type": "constant", "value": 2 },
+      "trades": [
+        { "sells": { "item": "minecraft:emerald", "count": 14 }, "wants": [{ "item": "quark:sugar_cane_bundle", "count": 6 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 28 }, "wants": [{ "item": "quark:cocoa_beans_sack", "count": 6 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 24 }, "wants": [{ "item": "minecraft:cactus", "count": 6 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 16 }, "wants": [{ "item": "farmersdelight:rice_bag", "count": 6 }] }
+      ]
+    },
+    "5": {
+      "take": { "type": "constant", "value": 2 },
+      "trades": [
+        { "sells": { "item": "minecraft:emerald", "count": 20 }, "wants": [{ "item": "quark:apple_crate", "count": 12 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 24 }, "wants": [{ "item": "farmersdelight:carrot_crate", "count": 12 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 64 }, "wants": [{ "item": "quark:golden_apple_crate", "count": 12 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 64 }, "wants": [{ "item": "quark:golden_carrot_crate", "count": 12 }] }
+      ]
+    },
+    "6": {
+      "take": { "type": "constant", "value": 2 },
+      "trades": [
+        { "sells": { "item": "minecraft:emerald", "count": 48 }, "wants": [{ "item": "quark:nether_wart_sack", "count": 12 }] },
+        { "sells": { "item": "minecraft:emerald", "count": 48 }, "wants": [{ "item": "minecraft:chorus_fruit", "count": 12 }] }
+      ]
+    }
+  }
+}

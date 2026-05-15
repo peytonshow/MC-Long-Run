@@ -27,12 +27,23 @@
     "refurbished_furniture:wheat_flour",
     "!refurbished_furniture:.*_cutting_board",
     "refurbished_furniture:recycling_bin",
-    "brewinandchewing:pizza",
+    "!quark:vertical_*",
+    "brewinandchewin:pizza",
     "farmersdelight:wheat_dough",
     "vc_gliders:reinforced_paper_iron",
     "vc_gliders:reinforced_paper_gold",
     "vc_gliders:reinforced_paper_diamond",
-    "vc_gliders:reinforced_paper_netherite"
+    "vc_gliders:reinforced_paper_netherite",
+    "naturalist:cooked_egg",
+    "frame_changer:crying_obsidian_brick_slab",
+    "frame_changer:crying_polished_obsidian_stairs",
+    "frame_changer:crying_obsidian_brick_stairs",
+    "frame_changer:crying_polished_obsidian",
+    "frame_changer:crying_polished_obsidian_wall",
+    "frame_changer:crying_obsidian_bricks",
+    "frame_changer:crying_obsidian_brick_wall",
+    "frame_changer:crying_polished_obsidian_slab"
+
   ],
   // -----------------------------------------------------------
   // Removes an item if it contains certain nbt tag. If the whole entry (or expression) is present, the item gets removed.

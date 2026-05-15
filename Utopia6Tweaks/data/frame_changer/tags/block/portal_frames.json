@@ -1,0 +1,7 @@
+{
+  "replace": true,
+  "values": [
+    "quark:blaze_lantern",
+    "minecraft:glowstone"
+  ]
+}

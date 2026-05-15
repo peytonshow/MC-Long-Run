@@ -1,0 +1,11 @@
+{
+  "type": "emi:world_interaction",
+  "left": [
+    "item:diy_campfires:firewood",
+    "item:minecraft:soul_sand"
+  ],
+  "right": [
+    "item:minecraft:fire_charge"
+  ],
+  "output": "item:minecraft:soul_campfire"
+}

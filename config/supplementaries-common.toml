@@ -471,30 +471,21 @@
 	altimeter = true
 	confetti_popper = true
 
-	[tools.bomb]
-		#Do bombs break blocks like tnt?
-		#Allowed Values: ALL, WEAK, NONE
-		break_blocks = "ALL"
-		enabled = true
-		#Bomb explosion radius (damage depends on this)
-		# Default: 2.0
-		# Range: 0.1 ~ 10.0
-		explosion_radius = 2.0
-		#Put here any number other than 0 to have your bombs explode after a certain amount of ticks instead than on contact
-		# Default: 0
-		# Range: 0 ~ 100000
-		bomb_fuse = 0
-		#Enable bomb item cooldown
-		cooldown = true
+	[tools.rope_arrow]
+		#Rope arrows are automatically disabled if 'rope' feature is disabled
+		enabled = false
+		#Max number of rope items allowed to be stored inside a rope arrow
+		# Default: 32
+		# Range: 1 ~ 256
+		capacity = 32
+		#Makes rope arrows exclusive to crossbows
+		exclusive_to_crossbows = false
 
-		[tools.bomb.blue_bomb]
-			#Bomb explosion radius (damage depends on this)
-			# Default: 5.15
-			# Range: 0.1 ~ 10.0
-			explosion_radius = 8.0
-			#Do bombs break blocks like tnt?
-			#Allowed Values: ALL, WEAK, NONE
-			break_blocks = "ALL"
+	[tools.wrench]
+		enabled = false
+		#Allows wrenches to bypass a block interaction action prioritizing their own when on said hand
+		#Allowed Values: MAIN_HAND, OFF_HAND, BOTH, NONE
+		bypass_when_on = "MAIN_HAND"
 
 	[tools.quiver]
 		enabled = true
@@ -550,22 +541,6 @@
 			# Range: 1 ~ 1000000
 			max_charges = 200
 
-	[tools.wrench]
-		enabled = true
-		#Allows wrenches to bypass a block interaction action prioritizing their own when on said hand
-		#Allowed Values: MAIN_HAND, OFF_HAND, BOTH, NONE
-		bypass_when_on = "MAIN_HAND"
-
-	[tools.rope_arrow]
-		#Rope arrows are automatically disabled if 'rope' feature is disabled
-		enabled = true
-		#Max number of rope items allowed to be stored inside a rope arrow
-		# Default: 32
-		# Range: 1 ~ 256
-		capacity = 32
-		#Makes rope arrows exclusive to crossbows
-		exclusive_to_crossbows = false
-
 	[tools.flute]
 		enabled = true
 		#Allows flute to be unbound. Unbound flutes will search for pets in a radius and teleport them to the player
@@ -578,6 +553,31 @@
 		# Default: 64
 		# Range: 0 ~ 500
 		bound_distance = 64
+
+	[tools.bomb]
+		enabled = true
+		#Bomb explosion radius (damage depends on this)
+		# Default: 2.0
+		# Range: 0.1 ~ 10.0
+		explosion_radius = 2.0
+		#Do bombs break blocks like tnt?
+		#Allowed Values: ALL, WEAK, NONE
+		break_blocks = "WEAK"
+		#Put here any number other than 0 to have your bombs explode after a certain amount of ticks instead than on contact
+		# Default: 0
+		# Range: 0 ~ 100000
+		bomb_fuse = 0
+		#Enable bomb item cooldown
+		cooldown = true
+
+		[tools.bomb.blue_bomb]
+			#Bomb explosion radius (damage depends on this)
+			# Default: 5.15
+			# Range: 0.1 ~ 10.0
+			explosion_radius = 5.15
+			#Do bombs break blocks like tnt?
+			#Allowed Values: ALL, WEAK, NONE
+			break_blocks = "WEAK"
 
 	[tools.slingshot]
 		enabled = true

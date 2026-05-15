@@ -15,17 +15,49 @@ AXIOMS & GOALS
     * Industrial Age - Well funded defense and security networks. Everyone has diamonds by this point, and most are focused on industrialization in (relative) safety.
 * Should be performant on all systems, with an alternate client for maximizing performace.
 
+---------------------------------------------------------------------------------------------------------------
+
 KEYS
-D - Done
-PD - Partly Done
-TD - Test first, otherwise done
-ONHOLD - On hold, obv
-F - Final
+- D      - Done
+- PD     - Partly Done
+- TD     - Test first, otherwise done
+- F      - Final
+- ONHOLD - On hold, obv
 
 ----------------------------------------------------------------------------------------------------------------
 
+TRADING
+* Villager trades have been reworked completely.
+    * Seller Types. Only used for earning emeralds. Very profitable, has increased payout per volume.
+        - Farmer - Buy Crop Crates. D
+        - Butcher - Buys Raw, Cut and Cooked Meat.
+        - Shepherd - Buys Wool, Banners and Beds.
+        - Leatherworker
+        - Fisherman
+    * Mixed Types. Sell and buy materials and moderate rates.
+        - Toolsmith
+        - Fletcher
+        - Mason
+        - Cleric
+        - Cartographer
+    * Buyer Types. Used solely for purchasing items with emeralds. Very strong trades, but bad rates.
+        - Weaponsmith
+        - Armorer
+        - Librarian
+
+-----------------------------------------------------------------------------------------------------------------
+
+MATERIAL PROGRESSION CHANGES
+* Each material 
+    * Wood -> Abysmal durability, very abundant.
+    * Leather -> More flex
+    
+        
+-----------------------------------------------------------------------------------------------------------------
+
 CRAFTING
-* Due to the difficulty of getting lots of gunpowder, 2 recipes have been added (1 coal + 2 sugar -> 1 gunp, 1 bpowder + 2 sug -> 6) (Bombs shouldn't be super expensive, but have the obvious downside of literally blowing up your stuff.) D
+* 3 new recipes for gunpowder have been added (1 coal + 2 sugar -> 1 gunp | 1 bpowder + 2 sug -> 6 |  ) PD
+* Added the ability to cut Leather into Rabbit Hide (Small Hide). D
 * Removed chance of precision mechanism failing.
 * Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest. D
 * Sturdy Stone is now able to be crafted by blasting Cobblestone. D
@@ -47,6 +79,7 @@ CRAFTING
 * Added the ability to cut Leather into Rabbit Hide. D
 * Fixed nirvana's rope recipe using Supplementaries' when it should be using farmer's delight. TD
 * Leather armor is now craftable out of Rabbit Hide OR Leather. TD
+* Campfires are now crafted in world using Firewood, or via a crafting table with a Firecharge. The in-world campfire must be lit. D
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
@@ -68,7 +101,7 @@ WORLD
 * Altered amount of Iron Veins (Honestly I was just kind of eyeballing this one, but you should get way more iron at the new ideal depth than vanilla. The new best depth should be viewable on EMI)
 * Increased Ancient debris ore size by 40%. D
 * Added Quark, which adds Oretises (Among other things) that allow some ores to be 'sheered off' them with a pickaxe. D
-* Removed Iron equipment from Bunkers (A D&T Structure) and replaced it with gold. D
+* Removed Villages, Ruined Portals and D&T Bunkers. Villagers are now mainly found at pillager Bastilles, which are large fortresses found throughout the world. D
 * Removed Iron equipment from most overworld surface structures and replaced it with gold. PD
 * Significantly lowered chance for 
 
@@ -101,19 +134,18 @@ COMBAT
 * Moved Electrum enchantability to Diamond Tier. This puts it in line as an equal alternative to netherite, rather than a total down/upgrade. Electrum avoids the massive slowdown of netherite, but is more involved to earn.
 
 ENCHANTING
-* 
+* Sharpness and Protection now both cap out at level II. D
 * Netherite's enchantability has been moved to Stone. This should promote building more, safer village infrastructure rather than relying on RNG.
+* May Reroll enchantments at enchanting table for 1 lapis and a few EXP points (Not levels!) D
+* Nerfed Mending, Now its a one-use book that resets repair cost. (Mending in this modpack should be super easy to come by with a village, so keeping vanilla functionality is extremely overkill.) D
+* Gold tools benefits from Fortune II. Gold weapons have Looting II. D
 
 TOOLS
 * Fist breaks blocks 50% slower.
 * Wooden tools break blocks 50% Slower.
 * Wooden tools now have ~20 durability each. D
 * All Gold Tools durability upped to 225 (For ref, Iron is 250). D
-* Stone and Gold pickaxes can mine Gold Ore.
 * Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game, so spamming wood/stone hoes for a single field should be more annoying (Wood -60%, Stone -60%) D
-* May Reroll enchantments at enchanting table for 1 lapis and a few EXP points (Not levels!) D
-* Nerfed Mending, Now its a one-use book that resets repair cost. (Mending in this modpack should be super easy to come by with a village, so keeping vanilla functionality is extremely overkill.) D
-* All Gold equipment benefits from Fortune II, even if it's unenchanted. D
 * All cosmetic armor trims only require their filler material to duplicate.
 * Added Backpacked, which allows multiple backpacks to be worn/upgraded by spending Upgrade Tokens and Emeralds to unlock slots. Augments, which are basically soph. backpack upgrades, are unlocked w/ levels. D
 * Upgrade Tokens can be crafted with 6 Gold Ingots, 2 Emeralds and 1 Ender Eye. (May add more uses to tokens) D
@@ -131,7 +163,7 @@ MONSTERS
 * Increased the number of Leader monsters. D
 * Zombies have better rare loot, including ammunition and cannonballs. D
 * Skeletons drop twice as many arrows, and have a rare chance to drop bombs, fire arrows or Supplementaries Quivers.
-* Added Alex Mobs, which adds mobs (shocker). D
+* Added Naturalist, which adds some more mobs. D
 
 MOBS
 * Villagers may be converted into Villager Guards using a Sword. D
@@ -141,6 +173,7 @@ MOBS
 * Villagers have a 'Cycle Trades' button, which goes away after one trade. D
 * Snow Golem's snowballs cause damage. D
 * Added the ability to kidnap small children with Supplementaries Cages.
+* Horses have a 1/50 chance to drop Glue.
 
 TAGS
 * Added Golden Spear to quarks Gold fortune/looting buff. D
@@ -153,3 +186,4 @@ RESOURCE PACK & LANG
 * Replaced Poppies with Roses, and Blue Orchids with Cyan Roses. D
 * Replaced all non-C148 background music with the unreleased minecraft songs. D
 * Most vanilla sounds now use their unupdated equivilent. (Steves goes 'Oo!', doors are clicky, ect.)
+* Added context for entering the Nether.
