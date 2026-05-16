@@ -50,7 +50,13 @@ TRADING
 MATERIAL PROGRESSION CHANGES
 * Each material 
     * Wood -> Abysmal durability, very abundant.
-    * Leather -> More flex
+    * Leather -> More efficient and versatile recipes.
+    * Stone -> Mostly the same, craftable using any stone type.
+    * Chainmail -> Craftable using leather & chains. Less durable, but equal to iron.
+    * Iron -> Armor provides 1 toughness, worse enchantability. Iron equipment can be recycled with minor losses.
+    * Gold -> High enchantability, equal protection to diamond. Slightly worse durability than iron.
+    * Diamond -> Mostly the same, not as enchantable.
+    * Netherite -> Provides more protection on armor. Abysmal enchantability.
     
         
 -----------------------------------------------------------------------------------------------------------------
@@ -113,6 +119,7 @@ FOOD
 * Moved some hunger gained from Golden Carrots into saturation saturation. (Food heirarchy: Crops, Meat, Meat+crops / stews, golden foods & platters) (This makes g carrots more health recovery focused, in line with gapples, rather than a primary meal source)
 * May make Create's Wheat Flour manually by using a cutting board (1 wheat -> 1 flour).D
 * Completely removed most of Refurbished Furniture's cooking (Most recipes are completely locked behind creating the mod's furniture stuff when there's literally no reason to besides forcing people to use the mod. This is stupid, so I moved all the mod's 'Combining' recipes into a shapeless crafting table recipe, removed the cutting boards, and replaced multiple of this mod's duplicate ingrediants (Dough and cheeses) with those from other mods. This mod might actually have some of the worst mod compatability I've seen despite the developer claiming they started work on that >1 year ago) D
+* Sweet and Glow berries are now eaten twice as quick. PD
 
 COMBAT
 * Armor now causes a slowdown based on armor amount and toughness. Most armors have been buffed to compensate (below). D
