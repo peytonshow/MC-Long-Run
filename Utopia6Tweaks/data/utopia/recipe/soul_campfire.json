@@ -9,7 +9,7 @@
       "item": "minecraft:fire_charge"
     },
     "L": {
-      "tag": "minecraft:logs"
+      "item": "diy_campfires:firewood"
     },
     "S": {
       "item": "minecraft:stick"

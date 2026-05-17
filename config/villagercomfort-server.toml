@@ -9,7 +9,7 @@ minComfortPriceReduction = 10
 #Max percentage of original price that an item can go up in price. For example, a value of 0 means items cannot go up in price, and a value of 100 means items can at most double in price. 200 means tripling, etc.
 # Default: 300
 # Range: > 0
-maxComfortPriceIncrease = 300
+maxComfortPriceIncrease = 100
 #Max room volume to take into account when during bedroom calculations (includes air, objects in room and the walls themselves)
 # Default: 3000
 # Range: > 0

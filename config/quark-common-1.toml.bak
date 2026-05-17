@@ -49,7 +49,7 @@
 	Chute = false
 	"Dispensers Place Blocks" = true
 	"Ender Watcher" = false
-	"Feeding Trough" = true
+	"Feeding Trough" = false
 	Gravisand = false
 	"Iron Rod" = false
 	"Metal Buttons" = true
@@ -107,7 +107,7 @@
 	"Japanese Palette" = true
 	"Leaf Carpet" = true
 	Midori = true
-	"More Brick Types" = false
+	"More Brick Types" = true
 	"More Mud Blocks" = true
 	"More Potted Plants" = true
 	"Nether Brick Fence Gate" = true
@@ -171,15 +171,15 @@
 		"Generate In Nether Fortress" = true
 
 	[building.hollow_logs]
-		"Enable Auto Crawl" = true
+		"Enable Auto Crawl" = false
 
 	[building.industrial_palette]
-		"Enable Iron Plates" = true
+		"Enable Iron Plates" = false
 		"Enable Iron Ladder" = true
 
 	[building.japanese_palette]
 		"Enable Paper Blocks" = true
-		"Enable Bamboo Mats" = true
+		"Enable Bamboo Mats" = false
 
 	[building.leaf_carpet]
 		#This feature disables itself if any of the following mods are loaded:
@@ -195,7 +195,7 @@
 		#This also includes Red Sandstone Bricks and Soul Sandstone Bricks
 		"Enable Sandstone Bricks" = true
 		#This also includes Mossy Cobblestone Bricks
-		"Enable Cobblestone Bricks" = true
+		"Enable Cobblestone Bricks" = false
 		#Requires Cobblestone Bricks to be enabled
 		"Enable Blackstone Bricks" = true
 		#Requires Cobblestone Bricks to be enabled
@@ -266,9 +266,9 @@
 		"Allow Side Connections" = true
 
 	[building.more_stone_variants]
-		"Enable Bricks" = true
-		"Enable Chiseled Bricks" = true
-		"Enable Pillar" = true
+		"Enable Bricks" = false
+		"Enable Chiseled Bricks" = false
+		"Enable Pillar" = false
 
 [management]
 	"Automatic Tool Restock" = true
@@ -329,7 +329,7 @@
 [tools]
 	Abacus = true
 	"Ambient Discs" = true
-	"Ancient Tomes" = false
+	"Ancient Tomes" = true
 	"Beacon Redirection" = false
 	"Bottled Cloud" = true
 	"Color Runes" = true
@@ -337,7 +337,7 @@
 	"Parrot Eggs" = true
 	"Pathfinder Maps" = true
 	Pickarang = true
-	"Seed Pouch" = false
+	"Seed Pouch" = true
 	"Skull Pikes" = false
 	"Slime In A Bucket" = true
 	"Torch Arrow" = true
@@ -363,12 +363,12 @@
 		"Valid Enchantments" = ["minecraft:feather_falling", "minecraft:thorns", "minecraft:sharpness", "minecraft:smite", "minecraft:bane_of_arthropods", "minecraft:knockback", "minecraft:fire_aspect", "minecraft:looting", "minecraft:sweeping_edge", "minecraft:efficiency", "minecraft:unbreaking", "minecraft:fortune", "minecraft:power", "minecraft:punch", "minecraft:luck_of_the_sea", "minecraft:lure", "minecraft:loyalty", "minecraft:riptide", "minecraft:impaling", "minecraft:piercing", "minecraft:density", "minecraft:breach", "minecraft:wind_burst"]
 		"Overleveled Books Glow Rainbow" = true
 		#When enabled, Efficiency VI Diamond and Netherite pickaxes can instamine Deepslate when under Haste 2
-		"Deepslate Tweak" = true
-		"Deepslate Tweak Needs Haste2" = true
+		"Deepslate Tweak" = false
+		"Deepslate Tweak Needs Haste2" = false
 		#Master Librarians will offer to exchange Ancient Tomes, provided you give them a max-level Enchanted Book of the Tome's enchantment too.
 		"Librarians Exchange Ancient Tomes" = true
 		#Applying a tome will also randomly curse your item
-		"Curse Gear" = false
+		"Curse Gear" = true
 		#Allows combining tomes with normal books
 		"Combine With Books" = true
 		#Whether a sanity check is performed on the valid enchantments. If this is turned off, enchantments such as Silk Touch will be allowed to generate Ancient Tomes, if explicitly added to the Valid Enchantments.
@@ -500,7 +500,7 @@
 
 [tweaks]
 	"Armed Armor Stands" = true
-	"Automatic Recipe Unlock" = true
+	"Automatic Recipe Unlock" = false
 	"Better Elytra Rocket" = true
 	"Campfires Boost Elytra" = true
 	"Compasses Work Everywhere" = true
@@ -528,7 +528,7 @@
 	"Petals On Water" = true
 	"Pig Litters" = true
 	"Poison Potato Usage" = true
-	"Reacharound Placing" = true
+	"Reacharound Placing" = false
 	"Renewable Spore Blossoms" = true
 	"Replace Scaffolding" = true
 	"Safer Creatures" = true
@@ -561,7 +561,7 @@
 
 	[tweaks.compasses_work_everywhere]
 		"Enable Compass Nerf" = true
-		"Enable Clock Nerf" = true
+		"Enable Clock Nerf" = false
 		"Enable Nether" = true
 		"Enable End" = true
 
@@ -610,7 +610,7 @@
 		"Display Baked Enchantments In Tooltip" = true
 		"Italic Tooltip" = true
 		#Enchantments other than Gold's Fortune/Looting to bake into items. Format is "item+enchant@level", such as "minecraft:stick+minecraft:sharpness@10".
-		"Item Enchantments" = []
+		"Item Enchantments" = ["spearsmod:golden_spear+minecraft:looting@2", "spearsmod:stone_spear+minecraft:unbreaking@2", "minecraft:stone_sword+minecraft:unbreaking@2", "minecraft:stone_pickaxe+minecraft:unbreaking@2", "minecraft:stone_axe+minecraft:unbreaking@2", "minecraft:stone_shovel+minecraft:unbreaking@2", "minecraft:stone_hoe+minecraft:unbreaking@2"]
 
 	[tweaks.grab_chickens]
 		"Needs No Helmet" = true
@@ -736,7 +736,7 @@
 		#Can Coral be crafted into dye?
 		"Coral To Dye" = true
 		#Can cookies, paper, and bread be crafted in a 2x2 crafting table?
-		"Bent Recipes" = true
+		"Bent Recipes" = false
 		#Can Rotten Flesh and Poisonous Potatoes be composted?
 		"Compostable Toxins" = true
 		#Does Dragon Breath return a bottle when used as a reagent or material?
@@ -755,7 +755,7 @@
 		"Smelt Raw Ore Blocks" = true
 
 [world]
-	"Ancient Wood" = true
+	"Ancient Wood" = false
 	"Azalea Wood" = true
 	"Big Stone Clusters" = true
 	"Blossom Trees" = true
@@ -1530,9 +1530,9 @@
 	"Back Button Keybind" = false
 	"Buckets Show Inhabitants" = true
 	Camera = false
-	"Chest Searching" = true
+	"Chest Searching" = false
 	"Elytra Indicator" = true
-	"Greener Grass" = false
+	"Greener Grass" = true
 	"Improved Tooltips" = true
 	"Long Range Pick Block" = true
 	"Microcrafting Helper" = false
@@ -1565,13 +1565,16 @@
 	[client.greener_grass]
 		"Affect Leaves" = true
 		"Affect Water" = false
-		"Block List" = ["minecraft:large_fern", "minecraft:tall_grass", "minecraft:grass_block", "minecraft:fern", "minecraft:short_grass", "minecraft:potted_fern", "minecraft:sugar_cane", "environmental:giant_tall_grass", "grassslabs:grass_carpet", "grassslabs:grass_slab", "grassslabs:grass_stairs"]
-		"Leaves List" = ["minecraft:spruce_leaves", "minecraft:birch_leaves", "minecraft:oak_leaves", "minecraft:jungle_leaves", "minecraft:acacia_leaves", "minecraft:dark_oak_leaves", "atmospheric:rosewood_leaves", "atmospheric:morado_leaves", "atmospheric:yucca_leaves", "autumnity:maple_leaves", "environmental:willow_leaves", "environmental:hanging_willow_leaves", "minecraft:vine", "valhelsia_structures:hanging_vines"]
+		"Block List" = ["minecraft:large_fern", "minecraft:tall_grass", "minecraft:grass_block", "minecraft:fern", "minecraft:short_grass", "minecraft:potted_fern", "minecraft:sugar_cane", "environmental:giant_tall_grass"]
+		"Leaves List" = ["minecraft:spruce_leaves", "minecraft:birch_leaves", "minecraft:oak_leaves", "minecraft:jungle_leaves", "minecraft:acacia_leaves", "minecraft:dark_oak_leaves"]
 
 		[client.greener_grass.color_matrix]
-			R = [0.89, 0.0, 0.0]
-			G = [0.0, 1.11, 0.0]
-			B = [0.0, 0.0, 0.89]
+			R = [1.78, 0.0, 0.0]
+			G = [0.0, 2.0, 0.0]
+			B = [0.0, 0.0, 1.02]
+			#R = [0.89, 0.0, 0.0]
+			#G = [0.0, 1.11, 0.0]
+			#B = [0.0, 0.0, 0.89]
 
 		[client.greener_grass.water_matrix]
 			R = [0.86, 0.0, 0.0]
@@ -1641,13 +1644,15 @@
 [experimental]
 	"Adjustable Chat" = false
 	"Climate Control Remover" = false
-	"Game Nerfs" = false
+	"Game Nerfs" = true
 	"Narrator Readout" = false
 	"Overlay Shader" = false
 	"Spawner Replacer" = false
 	#Allows placing variant blocks automatically via a selector menu triggered from a keybind
 	"Variant Selector" = false
 	"Villager Rerolling Rework" = false
+	#Big Stone Clusters for Granite, Diorite, and Andesite, like Quark pre-1.18
+	"Vanilla Stone Clusters" = false
 
 	[experimental.adjustable_chat]
 		"Horizontal Shift" = 0
@@ -1688,13 +1693,13 @@
 		#Makes Sheep not drop Wool when killed
 		"Disable Wool Drops" = true
 		#Disables mob griefing for only specific entities
-		"Enable Selective Mob Griefing" = true
+		"Enable Selective Mob Griefing" = false
 		#Force Elytra to only work in specific dimensions
-		"Enable Dimension Locked Elytra" = true
+		"Enable Dimension Locked Elytra" = false
 		#Makes falling blocks not able to be duped via dimension crossing
-		"Disable Falling Block Dupe" = true
+		"Disable Falling Block Dupe" = false
 		#Fixes several piston physics exploits, most notably including TNT duping
-		"Disable Piston Physics Exploits" = true
+		"Disable Piston Physics Exploits" = false
 		#Fixes mushroom growth being able to replace blocks
 		"Disable Mushroom Block Removal" = true
 		#Makes tripwire hooks unable to be duplicated
@@ -1703,7 +1708,7 @@
 		"Village Spawn Nerf" = false
 		#Distance at which villages will spawn as normal. Effect scales linearly from world spawn
 		"Village Spawn Nerf Distance" = 7000
-		"Non Griefing Entities" = ["minecraft:creeper", "minecraft:enderman"]
+		"Non Griefing Entities" = []
 		"Elytra Allowed Dimensions" = ["minecraft:the_end"]
 
 	[experimental.overlay_shader]
@@ -1773,6 +1778,96 @@
 		"Reroll On Any Restock" = false
 		#If enabled, villagers will be able to reroll any trade that has been used AT ALL since the last restock.
 		"Reroll Even If Not Out Of Stock" = false
+
+	#Big Stone Clusters for Granite, Diorite, and Andesite, like Quark pre-1.18
+	[experimental.vanilla_stone_clusters]
+
+		[experimental.vanilla_stone_clusters.granite]
+			Enabled = true
+			#Allowed values: [0,)
+			Rarity = 4
+			"Min Y Level" = 20
+			"Max Y Level" = 80
+			#Allowed values: [0,)
+			"Horizontal Size" = 14
+			#Allowed values: [0,)
+			"Vertical Size" = 14
+			#Allowed values: [0,)
+			"Horizontal Variation" = 9
+			#Allowed values: [0,)
+			"Vertical Variation" = 9
+
+			[experimental.vanilla_stone_clusters.granite.dimensions]
+				"Is Blacklist" = false
+				Dimensions = ["minecraft:overworld"]
+
+				#Biome tags for which this should spawn in. Must match both this and 'biomes' to spawn.
+				[experimental.vanilla_stone_clusters.granite.biomes.tags]
+					"Biome Tags" = ["minecraft:is_mountain"]
+					"Is Blacklist" = false
+
+				#Biome names this should spawn in. Must match both this and 'types' to spawn.
+				[experimental.vanilla_stone_clusters.granite.biomes.biomes]
+					Biomes = []
+					"Is Blacklist" = true
+
+		[experimental.vanilla_stone_clusters.diorite]
+			Enabled = true
+			#Allowed values: [0,)
+			Rarity = 4
+			"Min Y Level" = 20
+			"Max Y Level" = 80
+			#Allowed values: [0,)
+			"Horizontal Size" = 14
+			#Allowed values: [0,)
+			"Vertical Size" = 14
+			#Allowed values: [0,)
+			"Horizontal Variation" = 9
+			#Allowed values: [0,)
+			"Vertical Variation" = 9
+
+			[experimental.vanilla_stone_clusters.diorite.dimensions]
+				"Is Blacklist" = false
+				Dimensions = ["minecraft:overworld"]
+
+				#Biome tags for which this should spawn in. Must match both this and 'biomes' to spawn.
+				[experimental.vanilla_stone_clusters.diorite.biomes.tags]
+					"Biome Tags" = ["c:is_savanna", "c:is_jungle", "c:is_mushroom"]
+					"Is Blacklist" = false
+
+				#Biome names this should spawn in. Must match both this and 'types' to spawn.
+				[experimental.vanilla_stone_clusters.diorite.biomes.biomes]
+					Biomes = []
+					"Is Blacklist" = true
+
+		[experimental.vanilla_stone_clusters.andesite]
+			Enabled = true
+			#Allowed values: [0,)
+			Rarity = 4
+			"Min Y Level" = 20
+			"Max Y Level" = 80
+			#Allowed values: [0,)
+			"Horizontal Size" = 14
+			#Allowed values: [0,)
+			"Vertical Size" = 14
+			#Allowed values: [0,)
+			"Horizontal Variation" = 9
+			#Allowed values: [0,)
+			"Vertical Variation" = 9
+
+			[experimental.vanilla_stone_clusters.andesite.dimensions]
+				"Is Blacklist" = false
+				Dimensions = ["minecraft:overworld"]
+
+				#Biome tags for which this should spawn in. Must match both this and 'biomes' to spawn.
+				[experimental.vanilla_stone_clusters.andesite.biomes.tags]
+					"Biome Tags" = ["minecraft:is_forest"]
+					"Is Blacklist" = false
+
+				#Biome names this should spawn in. Must match both this and 'types' to spawn.
+				[experimental.vanilla_stone_clusters.andesite.biomes.biomes]
+					Biomes = []
+					"Is Blacklist" = true
 
 [oddities]
 	Backpack = true

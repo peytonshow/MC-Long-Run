@@ -2,11 +2,19 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "item": "supplementaries:flint_block"
+      "item": "minecraft:flint"
     }
   ],
   "result": [
     {
+      "chance": 0.7,
+      "item": {
+        "count": 1,
+        "id": "minecraft:flint"
+      }
+    },
+    {
+      "chance": 0.1,
       "item": {
         "count": 1,
         "id": "minecraft:fire_charge"

@@ -6,7 +6,7 @@
       "tag": "minecraft:coals"
     },
     "L": {
-      "tag": "minecraft:logs"
+      "item": "diy_campfires:firewood"
     },
     "H": {
       "item": "minecraft:fire_charge"

@@ -27,42 +27,44 @@ KEYS
 ----------------------------------------------------------------------------------------------------------------
 
 TRADING
-* Villager trades have been reworked completely.
+* Villager trades have been reworked completely. Villagers use Comfort to determine prices rather than reputation. Villagers each have their own role in simulating an actual economy depending on their profession.
     * Seller Types. Only used for earning emeralds. Very profitable, has increased payout per volume.
         - Farmer - Buy Crop Crates. D
         - Butcher - Buys Raw, Cut and Cooked Meat.
         - Shepherd - Buys Wool, Banners and Beds.
-        - Leatherworker
-        - Fisherman
+        - Fisherman - Buy fish
     * Mixed Types. Sell and buy materials and moderate rates.
-        - Toolsmith
+        - Mason - Buys bulk stone building materials and bricks. Sells decorative blocks.
         - Fletcher
-        - Mason
-        - Cleric
-        - Cartographer
+        - Toolsmith - Sells all basic tools, buys bulk metals.
+        - Cartographer - Buys books, ink sacs and compasses.
+        - Leatherworker - Buys Hide and Saddles.
     * Buyer Types. Used solely for purchasing items with emeralds. Very strong trades, but bad rates.
-        - Weaponsmith
-        - Armorer
-        - Librarian
+        - Armorer - Mostly upgrades armor. Has 1 random high tier diamond equipment at max level.
+        - Weaponsmith - Sells higher and higher tier weapons, up to diamond tier. Sells enchanted muskets.
+    * Barter Types. Typically avoids using emeralds in exchange for other valuables.
+        - Cleric - Many trades use lapis, redstone and ender pearls in exchange for potions.
+        - Librarian - Sells books, e. books, bottles, tomes (+1 higher level on enchants, but curse the item.)
 
 -----------------------------------------------------------------------------------------------------------------
 
 MATERIAL PROGRESSION CHANGES
-* Each material 
-    * Wood -> Abysmal durability, very abundant.
-    * Leather -> More efficient and versatile recipes.
-    * Stone -> Mostly the same, craftable using any stone type.
-    * Chainmail -> Craftable using leather & chains. Less durable, but equal to iron.
-    * Iron -> Armor provides 1 toughness, worse enchantability. Iron equipment can be recycled with minor losses.
-    * Gold -> High enchantability, equal protection to diamond. Slightly worse durability than iron.
-    * Diamond -> Mostly the same, not as enchantable.
-    * Netherite -> Provides more protection on armor. Abysmal enchantability.
+* Each material has been tweaked to varying degrees to complement progression.
+    * Wood -> Abysmal durability, very abundant. Bows are the same, but much cheaper to use.
+    * Leather -> More efficient and versatile recipes. 
+    * Stone -> Same durability as wood, but all stone tools benefit from unbreaking II. How long they last is somewhat random.
+    * Chainmail -> Craftable using leather & chains. Less durable, but equal protection to iron.
+    * Iron -> Armor provides 1 toughness, worse enchantability. Iron equipment can be recycled with minor losses. Found deeper underground.
+    * Gold -> High enchantability, equal protection to diamond. Slightly worse durability than iron. Insane enchantability.
+    * Diamond -> Mostly the same, not as enchantable. Sub-optimal enchantability.
+    * Netherite -> Provides more protection on armor. Abysmal enchantability. Easier to gain scrap.
     
         
 -----------------------------------------------------------------------------------------------------------------
 
 CRAFTING
 * 3 new recipes for gunpowder have been added (1 coal + 2 sugar -> 1 gunp | 1 bpowder + 2 sug -> 6 |  ) PD
+* Readded orignal bed recipe (3x any wool + 3x any plank -> red bed) D
 * Added the ability to cut Leather into Rabbit Hide (Small Hide). D
 * Removed chance of precision mechanism failing.
 * Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest. D
@@ -98,18 +100,18 @@ WORLD
 * Added Tectonic, which adds large scale, realistic scenery. D
 * Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. D
 * Cannot sleep through bad Celestial events. D
-* Days last 25 minutes and nights last 20. D
+* Days last 20 minutes and nights last 15. PD
 * Nerfed Gold spawn by 25%. (This is in light of multiple buffs made to gold below, still testing to see if this is even necessary) ONHOLD
 * Significantly lowered chance of exposed diamonds being removed. D
 * Reduced Diamond Spawn by 40%. (This is to promote caving over strip mining) D
-* Increased Large and Small Iron veins to compensate for the removal of Create Iron Farms. (4 -> 6, 9 -> 12) D
+* Increased Large and Small Iron veins to compensate for the removal of Create Iron Farms. (4 -> 6, 9 -> 12) PD
 * Increased Iron depth to y40. D
 * Altered amount of Iron Veins (Honestly I was just kind of eyeballing this one, but you should get way more iron at the new ideal depth than vanilla. The new best depth should be viewable on EMI)
 * Increased Ancient debris ore size by 40%. D
 * Added Quark, which adds Oretises (Among other things) that allow some ores to be 'sheered off' them with a pickaxe. D
 * Removed Villages, Ruined Portals and D&T Bunkers. Villagers are now mainly found at pillager Bastilles, which are large fortresses found throughout the world. D
 * Removed Iron equipment from most overworld surface structures and replaced it with gold. PD
-* Significantly lowered chance for 
+* Alpha flowers replace default flowers in most biomes. D
 
 FOOD
 * Most food items stack to 16, which is an improvement for some items and a negative for others. PD
@@ -180,17 +182,22 @@ MOBS
 * Villagers have a 'Cycle Trades' button, which goes away after one trade. D
 * Snow Golem's snowballs cause damage. D
 * Added the ability to kidnap small children with Supplementaries Cages.
-* Horses have a 1/50 chance to drop Glue.
+* Horses have a 1/50 chance to drop Glue. D
+* Removed Iron Golem's chance to drop iron and Sheep dropping wool when killed. Wool . D
 
 TAGS
 * Added Golden Spear to quarks Gold fortune/looting buff. D
 
+ADVANCEMENTS
+* Added OG achievements. D
+
 RESOURCE PACK & LANG
+* Changed "Hot Stuff" achievement desc. to match new Furnace recipe. D
 * Added translation keys for Poor/Normal Energy Drink Bongs. D
 * Serene Seasons 'Growing Seasons' -> 'Best Growing Seasons' (All crops are still growable, but their speed is determined by the season. This change was to reflect that fact) D
 * Renamed Refurbished Furniture's Wrench to 'Multi-Tool'. D
 * Renamed Blast Furnace to Kiln. D
 * Replaced Poppies with Roses, and Blue Orchids with Cyan Roses. D
 * Replaced all non-C148 background music with the unreleased minecraft songs. D
-* Most vanilla sounds now use their unupdated equivilent. (Steves goes 'Oo!', doors are clicky, ect.)
-* Added context for entering the Nether.
+* Most vanilla sounds now use their unupdated equivilent. (Steves goes 'Oo!', doors are clicky, ect.) D
+* Added context for entering the Nether. D

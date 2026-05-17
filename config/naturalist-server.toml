@@ -1,10 +1,10 @@
 [disable_mobs]
 	alligator_removed = false
-	bass_removed = false
+	bass_removed = true
 	bear_removed = false
 	bird_removed = false
 	boar_removed = false
-	butterfly_removed = false
+	butterfly_removed = true
 	catfish_removed = false
 	deer_removed = false
 	dragonfly_removed = false

@@ -8,14 +8,14 @@
 		"verticalSpeed": 1.0
 	},
 	"collision": {
-		"ignoreTransparent": false,
+		"ignoreTransparent": true,
 		"ignoreOpenable": false,
 		"ignoreCustom": false,
 		"whitelist": {
 			"ids": [],
 			"patterns": []
 		},
-		"ignoreAll": true,
+		"ignoreAll": false,
 		"alwaysCheck": false
 	},
 	"visual": {

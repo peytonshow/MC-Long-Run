@@ -1,10 +1,10 @@
 {
   "type": "minecraft:smelting",
-  "category": "misc",
-  "cookingtime": 100,
+  "cookingtime": 600,
   "experience": 0.0,
-  "group": "iron_ingot",
-  "ingredient": "create:iron_sheet",
+  "ingredient": {
+    "item": "create:iron_sheet"
+  },
   "result": {
     "id": "minecraft:iron_ingot"
   }

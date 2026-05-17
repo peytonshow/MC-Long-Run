@@ -72,6 +72,21 @@ ItemEvents.modification(event => {
     event.modify('minecraft:flint_and_steel', item => {
         item.maxDamage = 12
     })
+    event.modify('spearsmod:stone_spear', item => {
+        item.maxDamage = 5
+    })
+    event.modify('minecraft:stone_sword', item => {
+        item.maxDamage = 16
+    })
+    event.modify('minecraft:stone_axe', item => {
+        item.maxDamage = 22
+    })
+    event.modify('minecraft:stone_pickaxe', item => {
+        item.maxDamage = 18
+    })
+    event.modify('minecraft:stone_shovel', item => {
+        item.maxDamage = 20
+    })
 
 })
 
