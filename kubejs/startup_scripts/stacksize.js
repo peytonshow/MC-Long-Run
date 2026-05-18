@@ -5,8 +5,6 @@ ItemEvents.modification(event => {
         "minecraft:apple",
         "minecraft:golden_apple",
         "minecraft:enchanted_golden_apple",
-        "minecraft:melon_slice",
-        "minecraft:chorus_fruit",
         "minecraft:carrot",
         "minecraft:golden_carrot",
         "minecraft:potato",
@@ -72,7 +70,6 @@ ItemEvents.modification(event => {
         "farmersdelight:fried_egg",
         "farmersdelight:tomato_sauce",
         "farmersdelight:raw_pasta",
-        "farmersdelight:pumpkin_slice",
         "farmersdelight:cabbage_leaf",
         "farmersdelight:minced_beef",
         "farmersdelight:beef_patty",
@@ -153,7 +150,6 @@ ItemEvents.modification(event => {
         "refurbished_furniture:bread_slice",
         "refurbished_furniture:cheese_sandwich",
         "refurbished_furniture:cheese_toastie",
-        "create:dough",
         "refurbished_furniture:meatlovers_pizza_slice",
         "refurbished_furniture:cooked_meatlovers_pizza",
         "refurbished_furniture:raw_meatlovers_pizza",
@@ -165,6 +161,7 @@ ItemEvents.modification(event => {
         "create:chocolate_glazed_berries",
         "create:honeyed_apple",
         "create:builders_tea"
+        // Why doesn't Minecraft bake tags yet '
     ]
 
     let procStarting = 0
@@ -184,5 +181,5 @@ ItemEvents.modification(event => {
 
         }
     })
-    console.log("[Utopia] Altering stacks --- Total items to check: ${procStarting} - Stacks altered to 16: $procAltered}.")
+   console.log("[Utopia] Altering stacks --- Total items to check: " + procStarting + " - Stacks altered to 16: " + procAltered + ".")
 })

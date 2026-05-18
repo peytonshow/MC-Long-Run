@@ -9,7 +9,7 @@
 	},
 	"collision": {
 		"ignoreTransparent": true,
-		"ignoreOpenable": false,
+		"ignoreOpenable": true,
 		"ignoreCustom": false,
 		"whitelist": {
 			"ids": [],

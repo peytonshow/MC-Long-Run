@@ -5,6 +5,7 @@ GOALS
 * Focus on in-world interactions, introducing underutilized mechanics into progrssion.
 * Automation and logistics are important. Automation shouldn't produce infinite resources from nothing (with a few exceptions).
 * Strong performance on all systems. And additional client is available with less fluff.
+* Built for multiplayer, with the goal of reducing individualist self-sustainment in exchange for player interaction. 
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -99,7 +100,6 @@ CREATE
 * Tripled Backtank S.U Storage.
 
 WORLD
-* Campfires now require a fire charge/ flint & steel. They can also be constructed using firewood.
 * Added Tectonic, which adds large scale, realistic scenery. D
 * Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. D
 * Cannot sleep through bad Celestial events. D
@@ -115,6 +115,7 @@ WORLD
 * Removed Villages, Ruined Portals and D&T Bunkers. Villagers are now mainly found at pillager Bastilles, which are large fortresses found throughout the world. D
 * Removed Iron equipment from most overworld surface structures and replaced it with gold. PD
 * Alpha flowers replace default flowers in most biomes. D
+* Added the abilty burn firewood (Idk why this wasn't already a feature) D
 
 FOOD
 * Most food items stack to 16, which is an improvement for some items and a negative for others. PD
@@ -151,10 +152,11 @@ ENCHANTING
 * May Reroll enchantments at enchanting table for 1 lapis and a few EXP points (Not levels!) D
 * Nerfed Mending, Now its a one-use book that resets repair cost. (Mending in this modpack should be super easy to come by with a village, so keeping vanilla functionality is extremely overkill.) D
 * Gold tools benefits from Fortune II. Gold weapons have Looting II. D
+* All stone tools benefit from Unbreaking II, though their durability matches wood. This makes stone more unpredictable to use due to it's shoddy nature. D
+* All spears above stone tier (not including the trident) benefit from Loyalty I.
 
 TOOLS
-* Fist breaks blocks 50% slower.
-* Wooden tools break blocks 50% Slower.
+* Fist breaks blocks 50% slower. ONHOLD
 * Wooden tools now have ~20 durability each. D
 * All Gold Tools durability upped to 225 (For ref, Iron is 250). D
 * Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game, so spamming wood/stone hoes for a single field should be more annoying (Wood -60%, Stone -60%) D
