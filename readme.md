@@ -1,19 +1,9 @@
 ~*~ LONG-RUN ~*~
 
-AXIOMS & GOALS
-* Combat should be larger scale, but easy to surmount with good planning. Difficult, but managable.
-* Players given ample time to prepare during the day for a potential night time assault by monsters.
-* Logistics and trade are super important. Villagers act as a primary resource that must be protected.
-* Machines would be tools that change or refine a player obtained input. Skyblock automation sux, stagnation sux.
-* Mob farms also suck, building them sux, using them sux. 
-* Collaberating with others is the most efficient way to survive. Isolation wont last in the long run.
-* Progression should roughly line up with human's tech progression:
-    * Hunter Gatherer - Creation of the first settlement(s). Some basic wooden tools, a campfire, and some nearby animals are all that's currently at your disposal.
-    * Stone Age - Creation of your first Kiln with some basic stone tools. Soon, you gather a backpack and your first bits of armor.
-    * Copper age - Small tech advances. Gold tools and armor alongside chainmail are the standard, with small advances in Create.
-    * Middle Ages - Defense and long-term infrastructure projects begin. Walls rise, professional armies begin to take root. Likely to have encountered a Blood Moon by this point.
-    * Industrial Age - Well funded defense and security networks. Everyone has diamonds by this point, and most are focused on industrialization in (relative) safety.
-* Should be performant on all systems, with an alternate client for maximizing performace.
+* Ongoing struggle for survival, early progression is longer.
+* Focus on in-world interactions, introducing underutilized mechanics into progrssion.
+* Automation and logistics are important. Automation should produce infinite resources from nothing (with a few exceptions).
+* Strong performance on all systems. Extra client for low-end computers.
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -99,6 +89,7 @@ CRAFTING
 * Campfires are now crafted in world using Firewood, or via a crafting table with a Firecharge. The in-world campfire must be lit. D
 * All dyes can now be crafted from Red, Green, Blue, Black and White dyes. D
 * All Musket weapons now have more accurate recipes. D
+* Cartridges now only requir D
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
