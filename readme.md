@@ -1,9 +1,10 @@
 ~*~ LONG-RUN ~*~
 
+GOALS
 * Ongoing struggle for survival, early progression is longer.
 * Focus on in-world interactions, introducing underutilized mechanics into progrssion.
-* Automation and logistics are important. Automation should produce infinite resources from nothing (with a few exceptions).
-* Strong performance on all systems. Extra client for low-end computers.
+* Automation and logistics are important. Automation shouldn't produce infinite resources from nothing (with a few exceptions).
+* Strong performance on all systems. And additional client is available with less fluff.
 
 ---------------------------------------------------------------------------------------------------------------
 
