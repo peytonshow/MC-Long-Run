@@ -1,4 +1,4 @@
-~*~ LONG-RUN / SIEGE UTOPIA ~*~
+~*~ LONG-RUN ~*~
 
 AXIOMS & GOALS
 * Combat should be larger scale, but easy to surmount with good planning. Difficult, but managable.
@@ -6,7 +6,7 @@ AXIOMS & GOALS
 * Logistics and trade are super important. Villagers act as a primary resource that must be protected.
 * Machines would be tools that change or refine a player obtained input. Skyblock automation sux, stagnation sux.
 * Mob farms also suck, building them sux, using them sux. 
-* Collaberating with others is key to survival. It's not feasible to maintain all aspects of a civilization alone, longterm.
+* Collaberating with others is the most efficient way to survive. Isolation wont last in the long run.
 * Progression should roughly line up with human's tech progression:
     * Hunter Gatherer - Creation of the first settlement(s). Some basic wooden tools, a campfire, and some nearby animals are all that's currently at your disposal.
     * Stone Age - Creation of your first Kiln with some basic stone tools. Soon, you gather a backpack and your first bits of armor.
@@ -50,9 +50,9 @@ TRADING
 
 MATERIAL PROGRESSION CHANGES
 * Each material has been tweaked to varying degrees to complement progression.
-    * Wood -> Abysmal durability, very abundant. Bows are the same, but much cheaper to use.
+    * Wood -> Abysmal durability, very abundant.
     * Leather -> More efficient and versatile recipes. 
-    * Stone -> Same durability as wood, but all stone tools benefit from unbreaking II. How long they last is somewhat random.
+    * Stone -> Same durability as wood, but all stone tools benefit from unbreaking II, how long they last is somewhat random.
     * Chainmail -> Craftable using leather & chains. Less durable, but equal protection to iron.
     * Iron -> Armor provides 1 toughness, worse enchantability. Iron equipment can be recycled with minor losses. Found deeper underground.
     * Gold -> High enchantability, equal protection to diamond. Slightly worse durability than iron. Insane enchantability.
@@ -60,6 +60,15 @@ MATERIAL PROGRESSION CHANGES
     * Netherite -> Provides more protection on armor. Abysmal enchantability. Easier to gain scrap.
     
         
+-----------------------------------------------------------------------------------------------------------------
+
+COMBAT
+* In vanilla, you never needed to use anything but a sword to survive, which drowns out other means of combat.
+* Spears are less powerful, craftable tridents with Loyalty I. Direct attacks are better than hands, but underwelming.
+* Arrows have several new recipes added to incentivize bow usage.
+* Shields raise instantly.
+* Protection and Sharpness both max out at II. 
+
 -----------------------------------------------------------------------------------------------------------------
 
 CRAFTING
@@ -83,11 +92,13 @@ CRAFTING
 * Smokers are now crafted using 4 Logs, and either 4 Brick Blocks, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
 * Farmers Delight Stoves can now be crafted using 3 copper blocks in place of the iron ingots in it's recipe. D
 * Backpacks now require 2 Copper blocks rather than 2 iron ingots. D
-* Added the ability to craft Supplementaries' Bombs using Glass and Bricks, but at a worse rate per TNT spent.
+* Added the ability to craft Supplementaries' Bombs using Glass and Bricks, but at a worse rate per TNT spent. D
 * Added the ability to cut Leather into Rabbit Hide. D
 * Fixed nirvana's rope recipe using Supplementaries' when it should be using farmer's delight. TD
 * Leather armor is now craftable out of Rabbit Hide OR Leather. TD
 * Campfires are now crafted in world using Firewood, or via a crafting table with a Firecharge. The in-world campfire must be lit. D
+* All dyes can now be crafted from Red, Green, Blue, Black and White dyes. D
+* All Musket weapons now have more accurate recipes. D
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
