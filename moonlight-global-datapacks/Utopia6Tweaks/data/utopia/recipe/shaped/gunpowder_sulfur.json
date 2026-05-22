@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 1200,
+  "experience": 0.05,
+  "ingredient": {
+    "item": "minecraft:sulfur_spike"
+  },
+  "result": {
+    "id": "minecraft:gunpowder"
+  }
+}

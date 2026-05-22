@@ -1,0 +1,96 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+      "item": "minecraft:diamond_chestplate"
+  },
+  "loops": 9,
+  "results": [
+    {
+      "id": "minecraft:netherite_chestplate"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_chestplate"
+        },
+        {
+          "item": "minecraft:golden_chestplate"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_chestplate"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_chestplate"
+        },
+        {
+          "type": "neoforge:single",
+          "amount": 750,
+          "fluid": "minecraft:lava"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_chestplate"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_chestplate"
+        },
+        {
+          "item": "minecraft:netherite_scrap"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_chestplate"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_chestplate"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_chestplate"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_chestplate"
+        },
+        {
+          "item": "oreganized:netherite_nugget"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_chestplate"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kubejs:incomplete_netherite_chestplate"
+  }
+}

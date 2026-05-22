@@ -5,66 +5,6 @@
   "toughnessWeight": 0.5,
   "knockbackWeight": 8.0,
   "itemOverrides": {
-    "alexsmobs:centipede_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 6.25
-    },
-    "alexsmobs:crocodile_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 7.5
-    },
-    "alexsmobs:emu_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 4.25
-    },
-    "alexsmobs:fedora": {
-      "useCustomWeight": false,
-      "customWeight": 2.25
-    },
-    "alexsmobs:flying_fish_boots": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "alexsmobs:frontier_cap": {
-      "useCustomWeight": false,
-      "customWeight": 4.25
-    },
-    "alexsmobs:froststalker_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 3.25
-    },
-    "alexsmobs:moose_headgear": {
-      "useCustomWeight": false,
-      "customWeight": 3.25
-    },
-    "alexsmobs:novelty_hat": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "alexsmobs:roadrunner_boots": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "alexsmobs:rocky_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 7.25
-    },
-    "alexsmobs:sombrero": {
-      "useCustomWeight": false,
-      "customWeight": 2.25
-    },
-    "alexsmobs:spiked_turtle_shell": {
-      "useCustomWeight": false,
-      "customWeight": 5.1
-    },
-    "alexsmobs:tarantula_hawk_elytra": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "alexsmobs:unsettling_kimono": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
     "create:cardboard_boots": {
       "useCustomWeight": false,
       "customWeight": 1.0
@@ -242,92 +182,44 @@
       "customWeight": 11.0
     },
     "oreganized:electrum_boots": {
-      "useCustomWeight": false,
-      "customWeight": 4.0
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "oreganized:electrum_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 9.0
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "oreganized:electrum_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 4.0
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "oreganized:electrum_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 7.0
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "quark:backpack": {
       "useCustomWeight": false,
       "customWeight": 0.0
     },
     "quark:forgotten_hat": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "railways:black_conductor_cap": {
-      "useCustomWeight": false,
+      "useCustomWeight": true,
       "customWeight": 0.0
     },
-    "railways:blue_conductor_cap": {
+    "royalvariations:royal_knight_boots": {
       "useCustomWeight": false,
-      "customWeight": 0.0
+      "customWeight": 4.25
     },
-    "railways:brown_conductor_cap": {
+    "royalvariations:royal_knight_cuirass": {
       "useCustomWeight": false,
-      "customWeight": 0.0
+      "customWeight": 10.25
     },
-    "railways:cyan_conductor_cap": {
+    "royalvariations:royal_knight_helmet": {
       "useCustomWeight": false,
-      "customWeight": 0.0
+      "customWeight": 5.25
     },
-    "railways:gray_conductor_cap": {
+    "royalvariations:royal_knight_leggings": {
       "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:green_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:light_blue_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:light_gray_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:lime_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:magenta_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:orange_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:pink_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:purple_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:red_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:white_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "railways:yellow_conductor_cap": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
+      "customWeight": 7.25
     }
   }
 }

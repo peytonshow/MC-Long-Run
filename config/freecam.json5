@@ -5,7 +5,7 @@
 	"movement": {
 		"flightMode": "DEFAULT",
 		"horizontalSpeed": 1.0,
-		"verticalSpeed": 1.0
+		"verticalSpeed": 0.8
 	},
 	"collision": {
 		"ignoreTransparent": true,

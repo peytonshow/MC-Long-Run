@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "campfire",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 3,
+    "id": "diy_campfires:firewood"
+  }
+}

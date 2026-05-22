@@ -1,0 +1,79 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+      "tag": "utopia:upgradable_to_nether_template"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "chance": 65.0,
+      "id": "minecraft:netherite_upgrade_smithing_template",
+      "count": 4,
+    },
+    {
+      "chance": 35.0,
+      "id": "minecraft:netherite_upgrade_smithing_template",
+      "count": 2,
+    },
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_upgrade_template"
+        },
+        {
+          "item": "minecraft:netherite_upgrade_smithing_template"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_upgrade_template"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create:cinder_flour"
+        },
+        {
+          "type": "neoforge:components",
+          "amount": 250,
+          "components": {
+            "create:potion_fluid_bottle_type": "regular",
+            "minecraft:potion_contents": {
+              "potion": "minecraft:strength"
+            }
+          },
+          "fluids": "create:potion"
+        }
+      ],
+      "results": [
+        {
+          "id": "minecraft:incomplete_netherite_upgrade_template"
+        }
+      ]
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "create:incomplete_netherite_upgrade_template"
+        }
+      ],
+      "processing_time": 5000,
+      "results": [
+        {
+          "count": 1,
+          "id": "kubejs:incomplete_netherite_upgrade_template"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kubejs:incomplete_netherite_upgrade_template"
+  }
+}

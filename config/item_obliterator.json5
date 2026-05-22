@@ -28,7 +28,6 @@
     "!refurbished_furniture:.*_cutting_board",
     "refurbished_furniture:recycling_bin",
     "!quark:vertical_*_planks",
-    "quark:backpack",
     "brewinandchewin:pizza",
     "farmersdelight:wheat_dough",
     "vc_gliders:reinforced_paper_iron",
@@ -44,6 +43,8 @@
     "frame_changer:crying_obsidian_bricks",
     "frame_changer:crying_obsidian_brick_wall",
     "frame_changer:crying_polished_obsidian_slab",
+    "artifacts:eternal_steak",
+    "artifacts:everlasting_beef",
     "supplementaries:quark/way_sign_ancient",
     "supplementaries:quark/cannon_boat_ancient",
     "supplementaries:quark/ancient_boat"

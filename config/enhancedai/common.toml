@@ -174,7 +174,7 @@
 
 [Blazes]
 	#Make blazes fire faster/more fireballs. Only mobs in enhancedai:blaze/change_attack entity type tag are affected by this feature.
-	"Enable Blaze attack" = false
+	"Enable Blaze attack" = true
 
 	#Make blazes fire faster/more fireballs. Only mobs in enhancedai:blaze/change_attack entity type tag are affected by this feature.
 	[Blazes."Blaze attack"]
@@ -201,10 +201,10 @@
 		[Blazes."Blaze attack"."Recharge time"]
 			# Default: 60.0
 			# Range: 1.0 ~ 600.0
-			Minimum = 60.0
+			Minimum = 80.0
 			# Default: 120.0
 			# Range: 1.0 ~ 600.0
-			Maximum = 120.0
+			Maximum = 140.0
 
 		#Time (in ticks) taken by the blaze to charge (while on fire before shooting fireballs). Vanilla is 60
 		[Blazes."Blaze attack"."Charge time"]
@@ -222,7 +222,7 @@
 			Minimum = 1.0
 			# Default: 2.0
 			# Range: 1.0 ~ 8.0
-			Maximum = 2.0
+			Maximum = 3.0
 
 		#The higher the more spread up shots will be. Setting both to -1 will use the vanilla behaviour (farther = more inaccuracy)
 		[Blazes."Blaze attack".Inaccuracy]
@@ -286,7 +286,7 @@
 		#At which distance from the witch will she start performing the Dark Art
 		# Default: 10
 		# Range: > 0
-		"Trigger distance" = 10
+		"Trigger distance" = 30
 		#At which distance from the villager will the witch will cancel the summoning
 		# Default: 16
 		# Range: > 0
@@ -315,7 +315,7 @@
 		#When below this health percentage Witches will throw Invisibility potions at their feet.
 		# Default: 0.4
 		# Range: 0.0 ~ 1.0
-		"Invisibility health threshold" = 0.4
+		"Invisibility health threshold" = 0.6
 
 		#Speed at which Witches throw potions (in ticks).
 		[Witches."Witch potion throwing"."Attack cooldown"]
@@ -349,14 +349,14 @@
 	[Creepers."Tnt like creepers"]
 		# Default: 0.25
 		# Range: 0.0 ~ 1.0
-		Chance = 0.98
+		Chance = 0.9
 
 	#Creepers can ignite and throw themselves at players. Only entity types in the enhancedai:creeper/can_launch tag will be affected by this feature.
 	[Creepers."Creeper launch"]
 		#Launching creepers will try ignite and throw themselves at the player. Only creepers in the enhancedai:creeper/can_launch
 		# Default: 0.05
 		# Range: 0.0 ~ 1.0
-		Chance = 0.1
+		Chance = 0.072
 		#If true, Launching Creepers emit particles
 		Particles = true
 		#The explosion radius of launching creepers. Set to 0 to not change. (Overrides Cena creepers explosion radius)
@@ -506,11 +506,11 @@
 		#How far away from any player monsters will instantly despawn? Vanilla is 128. Reducing this makes mobs more crowded around players.
 		# Default: 112
 		# Range: 0 ~ 128
-		"Monsters despawning distance" = 60
+		"Monsters despawning distance" = 80
 		#How far away from any player monsters will be able to randomly despawn? Vanilla is 32
 		# Default: 48
 		# Range: 0 ~ 128
-		"Min monsters despawning distance" = 32
+		"Min monsters despawning distance" = 36
 		#Spawn types in this list will not get AI changes. Valid values: NATURAL, CHUNK_GENERATION, SPAWNER, STRUCTURE, BREEDING, MOB_SUMMONED, JOCKEY, EVENT, CONVERSION, REINFORCEMENT, TRIGGERED, BUCKET, SPAWN_EGG, COMMAND, DISPENSER, PATROL.
 		"Blacklisted spawn types" = []
 
@@ -526,31 +526,31 @@
 		#Chance for a mob the get the xray range override.
 		# Default: 0.5
 		# Range: 0.0 ~ 1.0
-		"Xray range override chance" = 0.05
+		"Xray range override chance" = 0.02
 		"See glowing entities" = true
 		#Mobs in the entity type tag `enhancedai:mobs/targeting/alert_nearby` will alert nearby mobs in this range and target the player.
 		# Default: 32
 		# Range: > 0
-		"Alert range" = 32
+		"Alert range" = 26
 		#Mobs will be able to find better and longer paths to the target the higher this value is. The higher the more performance heavy. Only entity types in the tag `enhancedai:mobs/targeting/visited_nodes_multiplier` tag will be affected by this. Vanilla is 1.0
 		# Default: 4.0
 		# Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
-		"Max visited nodes multiplier" = 3.0
+		"Max visited nodes multiplier" = 2.25
 
 		#How far away can the mobs see targets. This overrides the vanilla value (16 for most mobs). Setting 'Max' to 0 will leave the follow range as vanilla. Use mods like Mobs Properties Randomness to have more control over the attribute. Only mobs in the entity type tag `enhancedai:mobs/targeting/follow_range_override` will be affected by this override
 		[Mobs.Targeting."Follow range override"]
 			# Default: 32.0
 			# Range: 0.0 ~ 128.0
-			Minimum = 28.0
+			Minimum = 20.0
 			# Default: 64.0
 			# Range: 0.0 ~ 128.0
-			Maximum = 38.0
+			Maximum = 28.0
 
 		#How far away can the mobs see targets even through walls. This only works with 'Better Nearby Targeting' enabled. Setting 'Max' to 0 will make mobs not able to see through walls. Use mods like Mobs Properties Randomness to have more control over the attribute; the attribute name is 'enhancedai:xray_follow_range'. Only mobs in the entity type tag `enhancedai:mobs/targeting/apply_xray` will be affected by this override.
 		[Mobs.Targeting."Xray range override"]
 			# Default: 12.0
 			# Range: 0.0 ~ 128.0
-			Minimum = 18.0
+			Minimum = 22.0
 			# Default: 24.0
 			# Range: 0.0 ~ 128.0
 			Maximum = 40.0
@@ -592,7 +592,7 @@
 		#Chance for a mob to spawn with the ability to avoid the target
 		# Default: 0.5
 		# Range: 0.0 ~ 1.0
-		"Avoid target chance" = 0.5
+		"Avoid target chance" = 0.05
 		#Chance for a mob to be able to attack while running from a target. This only works for ranged mobs
 		# Default: 0.5
 		# Range: 0.0 ~ 1.0
@@ -619,7 +619,7 @@
 		#Chance for a mob in the entity type tag enhancedai:can_be_miner to spawn with the miner ability
 		# Default: 0.07
 		# Range: 0.0 ~ 1.0
-		"Miner chance" = 0.07
+		"Miner chance" = 0.06
 		#NONE: No item is required. ANY_TOOL: Any item that can break blocks in the off-hand is required. CORRECT_TOOL_FOR_REQUIRED: The mob is able to mine any blocks that don't require a tool, and require a tool for blocks that require it (e.g. can always mine dirt but can't mine stone). CORRECT_TOOL_FOR_ANY_BLOCK: The mob can only mine blocks if the tool is the right one for the block (e.g. can mine dirt only with a shovel).
 		#Allowed Values: NONE, ANY_TOOL, CORRECT_TOOL_FOR_REQUIRED, CORRECT_TOOL_FOR_ANY_BLOCK
 		"Tool requirement" = "CORRECT_TOOL_FOR_ANY_BLOCK"

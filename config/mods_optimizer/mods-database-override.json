@@ -1,12 +1,43 @@
 {
   "description": "Override entries from mods-database.json. This file is never modified automatically.",
   "server": [
-    "server-override-mod-id"
+    "structure_layout_optimizer",
+    "lithostitched",
+    "tectonic",
+    "imfast",
+    "cerulean",
+    "letmedespawn"
   ],
   "client": [
-    "client-override-mod-id"
+    "sound_physics_perfected",
+    "coolrain",
+    "scribble",
+    "skinlayers3d",
+    "colorwheel",
+    "distraction_free_recipes"
   ],
   "both": [
-    "both-override-mod-id"
+    "krypton_fnp",
+    "parcool-compatibilityaddon",
+    "createlazytick",
+    "mr_dungeons_andtaverns",
+    "mr_dungeons_andtavernsswamphutoverhaul",
+    "mr_dungeons_andtavernswoodlandmansionreplacement",
+    "mr_dungeons_andtavernsstrongholdoverhaul",
+    "mr_dungeons_andtavernsdeserttemplereplacement",
+    "mr_dungeons_andtavernsnetherfortressoverhaul",
+    "mr_dungeons_andtavernspillageroutpostoverhaul",
+    "mr_dungeons_andtavernsancientcityoverhaul",
+    "mr_dungeons_andtavernsjungletemplereplacement",
+    "mr_dungeons_andtavernsoceanmonumentreplacement",
+    "backpacked",
+    "kubejs_create",
+    "create_compatible_storage",
+    "create_central_kitchen",
+    "tradeworks",
+    "create",
+    "create_dragons_plus",
+    "txnilib",
+    "yet_another_config_lib_v3"
   ]
 }

@@ -5,7 +5,7 @@ GOALS
 * Focus on in-world interactions, introducing underutilized mechanics into progrssion.
 * Automation and logistics are important. Automation shouldn't produce infinite resources from nothing (with a few exceptions).
 * Strong performance on all systems. And additional client is available with less fluff.
-* Built for multiplayer, with the goal of reducing individualist self-sustainment in exchange for player interaction. 
+* Built for multiplayer, with the goal of reducing individualist self-sustainment in exchange for player interaction build upon specialization and necessity. 
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ KEYS
 - PD     - Partly Done
 - TD     - Test first, otherwise done
 - F      - Final
-- ONHOLD - On hold, obv
+- ONHOLD - May not make it to being tested, potentially unnecessary.
 
 ----------------------------------------------------------------------------------------------------------------
 
@@ -67,7 +67,6 @@ CRAFTING
 * 3 new recipes for gunpowder have been added (1 coal + 2 sugar -> 1 gunp | 1 bpowder + 2 sug -> 6 |  ) PD
 * Readded orignal bed recipe (3x any wool + 3x any plank -> red bed) D
 * Added the ability to cut Leather into Rabbit Hide (Small Hide). D
-* Removed chance of precision mechanism failing.
 * Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest. D
 * Sturdy Stone is now able to be crafted by blasting Cobblestone. D
 * Removed normal crafting recipes involving sturdy stone (Shaped recipe + decompressing). D
@@ -79,7 +78,7 @@ CRAFTING
 * May craft 2 arrows using 1 Flint, 1 Arrow and 1 Leather. D
 * Mud is now craftable using 8 dirt and a water bucket or sugar cane. (This is inline with multiple changes made to furnaces) D
 * Terracotta can be made using a Clay Block on a campfire. D
-* Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 Brick Blocks, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) D
+* Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 (Ash) Brick Blocks, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) PD
 * Furnaces are now crafted using a Kiln, 4 Sturdy Stone and 4 Blocks of Copper. (The furnace is just objectively better than a vanilla blast furnace because of it's versatility, so I think it would make sense if it was something you worked up to. Plus, the usage of Sturdy Stone introduces it's crafting recipe to players early on) D
 * Smokers are now crafted using 4 Logs, and either 4 Brick Blocks, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
 * Farmers Delight Stoves can now be crafted using 3 copper blocks in place of the iron ingots in it's recipe. D
@@ -91,29 +90,29 @@ CRAFTING
 * Campfires are now crafted in world using Firewood, or via a crafting table with a Firecharge. The in-world campfire must be lit. D
 * All dyes can now be crafted from Red, Green, Blue, Black and White dyes. D
 * All Musket weapons now have more accurate recipes. D
-* Cartridges now only requir D
+* Cartridges now only require 2 'nail' items (Iron, brass, copper, gold nugget), 1 paper and 1 gunpowder for 1 Cartridge. PD
+* Froglights and Naturalist's Froglass now have duplicating recipes. D
+* Added sequenced recipes for netherite armor that don't require diamonds, but instead have a much higher netherite cost. (This shouldn't replace your first set of netherite armor, but it streamlines the process of getting a bunch of sets for your troops. It may be more convinient to only farm for a handful of materials rather than the diamonds, netherite, gold + a template. It also requires a factory and a drill to (feasibly) get the most out of these recipes, so I think its worth a shot) D
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
 * Netherite Diving gear now has slighly less protection than Iron Armor rather than sharing stats with Netherite (The immortal netherite chestplate, for starters, was always really confusing to me because there was really no reason not to have one. It costs less than making a normal netherite chestplate for a permanent upgrade to your armor. You may not have noticed this originally, but you can literally just combine the copper pieces of armor with one netherite ingot and an upgrade template. As for the diving helmet, which is also a direct upgrade due to not requiring a diamond helmet, it combined with the backtank lets you breath under lava, undermining potions in the process. All in all, the netherite diving gear in create is kind of baffling to me.)
-* Removed Netherite Diving Gear recipe that uses diamond gear as a base. Now only the  + template + copper diving gear recipes remain, which explain the lower defense.
+* Removed Netherite Diving Gear recipe that uses diamond gear as a base. Now only the  + template + copper diving gear recipes remain, which explain the lower defense as it doesn't use diamond armor as a component.
 * Tripled Backtank S.U Storage.
 
 WORLD
 * Added Tectonic, which adds large scale, realistic scenery. D
-* Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. D
-* Cannot sleep through bad Celestial events. D
+* Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. Cannot sleep through bad Celestial events. D
 * Days last 20 minutes and nights last 15. PD
-* Nerfed Gold spawn by 25%. (This is in light of multiple buffs made to gold below, still testing to see if this is even necessary) ONHOLD
 * Significantly lowered chance of exposed diamonds being removed. D
 * Reduced Diamond Spawn by 40%. (This is to promote caving over strip mining) D
 * Increased Large and Small Iron veins to compensate for the removal of Create Iron Farms. (4 -> 6, 9 -> 12) PD
 * Increased Iron depth to y40. D
 * Altered amount of Iron Veins (Honestly I was just kind of eyeballing this one, but you should get way more iron at the new ideal depth than vanilla. The new best depth should be viewable on EMI)
-* Increased Ancient debris ore size by 40%. D
+* Increased Ancient debris ore size by 100%. (Diamonds are going to be the bottlneck in upgrading to netherite. An alternative way to make netherite is purely out of scrap and netherite ingot + template) PD 
 * Added Quark, which adds Oretises (Among other things) that allow some ores to be 'sheered off' them with a pickaxe. D
 * Removed Villages, Ruined Portals and D&T Bunkers. Villagers are now mainly found at pillager Bastilles, which are large fortresses found throughout the world. D
-* Removed Iron equipment from most overworld surface structures and replaced it with gold. PD
+* Removed Iron tools from most overworld surface structures and replaced it with gold. PD
 * Alpha flowers replace default flowers in most biomes. D
 * Added the abilty burn firewood (Idk why this wasn't already a feature) D
 
@@ -121,16 +120,16 @@ FOOD
 * Most food items stack to 16, which is an improvement for some items and a negative for others. PD
 * Added Serene Seasons. Each season lasts 18 IRL hours.
 * Added Farmers Delight w/ Create Integration. D
-* Hoes now have an area based harvest which doesn't dimension from their durability and increases based on the material.
-* Moved some hunger gained from Golden Carrots into saturation saturation. (Food heirarchy: Crops, Meat, Meat+crops / stews, golden foods & platters) (This makes g carrots more health recovery focused, in line with gapples, rather than a primary meal source)
+* Hoes now have an area based harvest which doesn't dimension from their durability and increases based on the material. D
+* Golden carrots new refill 1 hunger bar but completely max out saturation. This should make g carrots fulfil a health recovery role during a fight rather than just he meta food item.
 * May make Create's Wheat Flour manually by using a cutting board (1 wheat -> 1 flour).D
 * Completely removed most of Refurbished Furniture's cooking (Most recipes are completely locked behind creating the mod's furniture stuff when there's literally no reason to besides forcing people to use the mod. This is stupid, so I moved all the mod's 'Combining' recipes into a shapeless crafting table recipe, removed the cutting boards, and replaced multiple of this mod's duplicate ingrediants (Dough and cheeses) with those from other mods. This mod might actually have some of the worst mod compatability I've seen despite the developer claiming they started work on that >1 year ago) D
-* Sweet and Glow berries are now eaten twice as quick. PD
+* Sweet and Glow berries are now eaten quickly. D
 
 COMBAT
 * Armor now causes a slowdown based on armor amount and toughness. Most armors have been buffed to compensate (below). D
 * Significantly increased healing rate thru saturation.
-* Added Musket Mod. Provide very strong ranged attacks, but requires infrastructure to reliably use. D
+* Added Musket Mod. Provide very strong ranged attacks, but requires infrastructure for frequent use, and skill to effectively use (headshots). D
 * Added OreGanized, which adds Lead Bolts. Lead bolts are a more powerful, cheaper alternative to arrows exclusive to Crossbows, but require an empty offhand to reload. D
 * Added Artifacts, which provides many combat and utility accessories. D
 * Oreganized also adds Electrum armor and tools, which receive bonuses according to Speed (which is increased while wearing its armor) D
@@ -140,17 +139,24 @@ COMBAT
 * Blue Bombs are now mini-nukes. D
 * Chainmail armor is craftable from upgrading Leather Armor w/ chain. Costs ~16 iron, vs 24 for full iron normally. D
 * Chainmail armor now shares stats with iron, with a minor difference in durability. (This is to help chainmails really weird place in progression. Like, when are we even supposed to use this in vanilla?) D
-* Gold Armor's durability is now 220 (Iron is 240) D
+* Gold Armor's durability is now roughly 9/10 of Iron (Iron Chestplate = 240 -> Gold Chestplate = 220) D
 * Gold Armor now has the same defense as Diamond, which is inline with golds 'short-term powerup' properties, like in gapples. PD
 * Iron Armor now has 1 Toughness. (For reference, Diamond has 2, netherite 3.) D
 * Netherite now provides 3 more armor on a full set. The added armor is not taken into account during slowdown calculation, which makes it very powerful, but still slow. This makes tanking an actually viable strategy.  D
 * Moved Electrum enchantability to Diamond Tier. This puts it in line as an equal alternative to netherite, rather than a total down/upgrade. Electrum avoids the massive slowdown of netherite, but is more involved to earn.
+* Increased Leather armor durability to diamond. Leather serves very breifly as actual armor, so this shouldn't really impact the early game. Past that point, leather is mainly cosmetic, so I felt like it should probably last longer if you make the choice to wear it. D
 
 ENCHANTING
-* Sharpness and Protection now both cap out at level II. D
-* Netherite's enchantability has been moved to Stone. This should promote building more, safer village infrastructure rather than relying on RNG.
+* Each item may only have up to 3 Enchantments, not including material-inherit buffs. D
+* Sharpness now caps out at level III. PD
+* Protection now caps out at level II. D
+* Netherite's enchantability has been moved to Stone. This should promote building more, safer village infrastructure rather than relying on RNG for enchnants.
 * May Reroll enchantments at enchanting table for 1 lapis and a few EXP points (Not levels!) D
 * Nerfed Mending, Now its a one-use book that resets repair cost. (Mending in this modpack should be super easy to come by with a village, so keeping vanilla functionality is extremely overkill.) D
+* Fortune's max level is capped at I. This cap does not apply to gold's fortuitous nature. TD
+* Unbreaking is now able to max out at level V. TD
+* Added Dungeons and Taverns, which adds multiple treasure and normal enchants as well as curses. D
+* Added Path Speed (Soul speed but for path blocks) and Freezing (Slows targets, incompatible w/ fire aspect) enchants. D
 * Gold tools benefits from Fortune II. Gold weapons have Looting II. D
 * All stone tools benefit from Unbreaking II, though their durability matches wood. This makes stone more unpredictable to use due to it's shoddy nature. D
 * All spears above stone tier (not including the trident) benefit from Loyalty I.
@@ -168,7 +174,7 @@ TOOLS
 MONSTERS
 * Skeletons and Pillagers have increased range, but much worse accuracy. Zombies and other melee units tend to give time for ranged unit # to grow quickly, and may create a need for a player owned backline of ranged troops D
 * Some spiders fire webs to slow down targets. D
-* Some creepers may launch themselves at their target if they're above them. D
+* Some creepers may lunge at their target (albiet with pretty bad accuracy). D
 * Some creepers are john cena (?) D
 * Some zombies may use stone tools after spotting a player (typically to dig or mine to them). The best way to defend against this is Quark's Sturdy Stone). D
 * Some zombies may use a fishing rod or enderpearl to get close to players. D

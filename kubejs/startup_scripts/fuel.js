@@ -1,5 +1,5 @@
 ItemEvents.modification(event => {
-    event.modify('diy_campfire:firewood', item => {
+    event.modify('diy_campfires:firewood', item => {
         item.burnTime = 600
     })
 })

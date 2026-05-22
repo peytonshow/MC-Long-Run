@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "quark:chorus_fruit_block",
+    "quark:golden_carrot_crate",
+    "quark:golden_apple_crate"
+  ]
+}

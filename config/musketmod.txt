@@ -1,17 +1,17 @@
 version = 4
 
 # Maximum bullet travel distance (in blocks)
-bulletMaxDistance = 512.0
+bulletMaxDistance = 256.0
 
 # Number of loading stages
-loadingStages = 6
+loadingStages = 3
 # Loading stage duration (in seconds)
-loadingStageDuration = 0.2
+loadingStageDuration = 0.25
 
 # Damage multiplier for pvp
 pvpDamageMultiplier = 0.75
 # Damage multiplier for monsters
-mobDamageMultiplier = 0.25
+mobDamageMultiplier = 0.6
 
 # Probability of Pillager having a pistol
 pistolPillagerChance = 0.6
@@ -25,13 +25,13 @@ damagePerPowerLevel = 0.5
 # Standard deviation of bullet spread (in degrees)
 musketBulletStdDev = 0.5
 # Muzzle velocity of bullet (in blocks per second)
-musketBulletSpeed = 240.0
+musketBulletSpeed = 400.0
 # Damage at point-blank range
-musketDamage = 12.0
+musketDamage = 12.5
 # Headshot damage multiplier
-headshotDamageMultiplier = 1.8
+headshotDamageMultiplier = 2.5
 # Durability (applied on restart)
-musketDurability = 275
+musketDurability = 500
 
 # Musket with bayonet
 
@@ -50,7 +50,7 @@ scopeZoom = 3.0
 # Bullet gravity multiplier
 bulletGravityMultiplier = 0.5
 # Durability (applied on restart)
-scopedMusketDurability = 150
+scopedMusketDurability = 500
 
 # Blunderbuss
 
@@ -63,7 +63,7 @@ blunderbussDamage = 20.0
 # Pellet count
 blunderbussPelletCount = 8
 # Durability (applied on restart)
-blunderbussDurability = 190
+blunderbussDurability = 550
 
 # Pistol
 
@@ -76,7 +76,7 @@ pistolDamage = 10.0
 # Loading time reduction per Quick Charge level (in seconds)
 reductionPerQuickChargeLevel = 0.15
 # Durability (applied on restart)
-pistolDurability = 230
+pistolDurability = 180
 
 # Dispenser
 

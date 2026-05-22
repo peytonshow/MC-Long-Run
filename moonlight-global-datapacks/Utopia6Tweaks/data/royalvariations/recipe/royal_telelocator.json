@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GPG",
+    "GCG",
+    "NBN"
+  ],
+  "key": {
+    "P": {
+      "item": "royalvariations:royal_ender_pearl"
+    },
+    "B": {
+      "item": "royalvariations:royal_bone"
+    },
+    "C": {
+      "item": "minecraft:compass"
+    },
+    "G": {
+      "tag": "c:ingots/gold"
+    },
+    "N": {
+      "tag": "c:nuggets/gold"
+    }
+  },
+  "result": {
+    "id": "royalvariations:royal_telelocator"
+  }
+}

@@ -1,0 +1,41 @@
+filename = 'Xbox 360 Advancement SFX.zip'
+name = 'Xbox 360 Advancement SFX'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-mc-versions = [
+    '1.20',
+    '1.20.1',
+    '1.20.2',
+    '1.20.3',
+    '1.20.4',
+    '1.20.5',
+    '1.20.6',
+    '1.21',
+    '1.21.1',
+    '1.21.2',
+    '1.21.3',
+    '1.21.4',
+    '1.21.5',
+    '1.21.6',
+    '1.21.7',
+    '1.21.8',
+    '1.21.9',
+    '1.21.10',
+    '1.21.11',
+    '26.1',
+    '26.1.1',
+    '26.1.2'
+]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'v1.0.1'
+
+[download]
+hash = '457f802735e3a8cc115d2845ad9506b0789e93e45e6e6ba973e642f2cee989b0e43fe3e95aaf80ce576a09f8e3e4a505a5cccc03724bbeffe5c239425331c727'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/OOSyMY0k/versions/tK1TNALn/Xbox 360 Advancement SFX.zip'
+
+[update.modrinth]
+mod-id = 'OOSyMY0k'
+version = 'tK1TNALn'

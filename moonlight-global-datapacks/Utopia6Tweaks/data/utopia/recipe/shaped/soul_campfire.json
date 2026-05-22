@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "campfire",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:soul_fire_base_blocks"
+    },
+    "H": {
+      "item": "minecraft:fire_charge"
+    },
+    "L": {
+      "item": "diy_campfires:firewood"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " SH",
+    "S#S",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:soul_campfire"
+  }
+}

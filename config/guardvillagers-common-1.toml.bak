@@ -4,7 +4,7 @@
 	#Witches Attack Villagers?
 	"Witches attack villagers?" = true
 	#This makes Illagers run from polar bears, as anyone with common sense would.
-	"Have Illagers have some common sense?" = true
+	"Have Illagers have some common sense?" = false
 
 ["mob ai in general"]
 	#Guards will attack all hostiles with this option, when set to false guards will only attack zombies and illagers.
@@ -43,14 +43,14 @@
 	"Allow Iron Golems to float on water?" = true
 
 ["guard stuff"]
-	"Allow the player to right click on bells to mass order guards to follow them?" = true
+	"Allow the player to right click on bells to mass order guards to follow them?" = false
 	# Default: 100.0
 	# Range: -999.9000244140625 ~ 999.0
 	"Chance to drop equipment" = 100.0
 	#This makes Guards run from polar bears, as anyone with common sense would.
 	"Have Guards have some common sense?" = false
 	#This lets Guards open doors.
-	"Have Guards open doors?" = true
+	"Have Guards open doors?" = false
 	#This will make guards raise their shields all the time, on default they will only raise their shields under certain conditions
 	"Have Guards raise their shield all the time?" = false
 	# Default: 1.0
@@ -93,7 +93,7 @@
 	"How many guards should spawn in a village?" = 6
 	"Allow guards to convert to zombie villagers upon being killed by zombies?" = true
 	#If a guard is fighting a mob underwater and the vertical distance between that mob and the guard is larger than this, the guard will instead float up to not take the risk of drowning
-	# Default: 8
+	# Default: 5
 	# Range: 0 ~ 100000000
 	"Depth value for guards fighting underwater mobs" = 8
 	#Angle is determined by taking the arccos of the inputted value, for example -1 is a straight 180 degree angle thus if that value is inputted guards will only check straight ahead to see if any friendly mobs are in the way.

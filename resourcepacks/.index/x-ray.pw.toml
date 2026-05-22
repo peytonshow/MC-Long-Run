@@ -1,0 +1,48 @@
+filename = '§b§lSpectator Xray §7v1.2.1.zip'
+name = 'Xray (Spectator)'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-mc-versions = [
+    '1.17',
+    '1.17.1',
+    '1.18',
+    '1.18.1',
+    '1.18.2',
+    '1.19',
+    '1.19.1',
+    '1.19.2',
+    '1.19.3',
+    '1.19.4',
+    '1.20',
+    '1.20.1',
+    '1.20.2',
+    '1.20.3',
+    '1.20.4',
+    '1.20.5',
+    '1.20.6',
+    '1.21',
+    '1.21.1',
+    '1.21.2',
+    '1.21.3',
+    '1.21.4',
+    '1.21.5',
+    '1.21.6',
+    '1.21.7',
+    '1.21.8',
+    '1.21.9',
+    '1.21.10',
+    '1.21.11'
+]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '1.2.1'
+
+[download]
+hash = '356fa425562e8a8afd803e81e4bfb9c1becebf9ec6cd03e81fa66748901d17056603761ab9dc12e154d6c59c5aa56111f59ff19a248005a1f146d44f5902a5e1'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/u6RWzf7M/versions/uLQMkfCi/§b§lSpectator Xray §7v1.2.1.zip'
+
+[update.modrinth]
+mod-id = 'u6RWzf7M'
+version = 'uLQMkfCi'

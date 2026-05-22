@@ -1,0 +1,118 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+      "item": "minecraft:diamond_leggings"
+  },
+  "loops": 9,
+  "results": [
+    {
+      "chance": 95.0,
+      "id": "minecraft:netherite_leggings"
+    },
+    {
+      "chance": 5.0,
+      "id": "minecraft:netherite_ingot"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_leggings"
+        },
+        {
+          "item": "minecraft:golden_leggings"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_leggings"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_leggings"
+        },
+        {
+          "type": "neoforge:single",
+          "amount": 500,
+          "fluid": "minecraft:lava"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_leggings"
+        }
+      ]
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_leggings"
+        }
+      ],
+      "processing_time": 5000,
+      "results": [
+        {
+          "count": 1,
+          "id": "kubejs:incomplete_netherite_leggings"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_leggings"
+        },
+        {
+          "item": "minecraft:netherite_scrap"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_leggings"
+        }
+      ]
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "create:andesite_alloy"
+        }
+      ],
+      "processing_time": 5000,
+      "results": [
+        {
+          "count": 1,
+          "id": "kubejs:incomplete_netherite_leggings"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:incomplete_netherite_leggings"
+        },
+        {
+          "item": "oreganized:netherite_nugget"
+        }
+      ],
+      "results": [
+        {
+          "id": "kubejs:incomplete_netherite_leggings"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kubejs:incomplete_netherite_leggings"
+  }
+}

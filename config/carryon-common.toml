@@ -69,11 +69,11 @@
 	allowedStacking = []
 
 [blacklist]
+	#Entities that cannot be picked up
+	forbiddenEntities = ["#c:capturing_not_supported", "#c:teleporting_not_supported", "minecraft:end_crystal", "minecraft:ender_dragon", "minecraft:ghast", "minecraft:shulker", "minecraft:leash_knot", "minecraft:armor_stand", "minecraft:item_frame", "minecraft:painting", "minecraft:shulker_bullet", "animania:hamster", "animania:ferret*", "animania:hedgehog*", "animania:cart", "animania:wagon", "mynko:*", "pixelmon:*", "mocreatures:*", "quark:totem", "vehicle:*", "securitycraft:*", "taterzens:npc", "easy_npc:*", "bodiesbodies:dead_body", "astikorcartsredux:animal_cart", "astikorcartsredux:hand_cart", "astikorcartsredux:supply_cart", "astikorcartsredux:plow", "astikorcartsredux:postilion", "astikorcartsredux:reaper", "astikorcartsredux:seed_drill", "guardvillagers:guard"]
 	#Blacklist. Read about the format here: https://github.com/Tschipp/CarryOn/wiki/Black---and-Whitelist-Config
 	#Blocks that cannot be picked up
 	forbiddenTiles = ["#forge:immovable", "#forge:relocation_not_supported", "#neoforge:immovable", "#neoforge:relocation_not_supported", "minecraft:end_portal", "minecraft:piston_head", "#c:relocation_not_supported", "minecraft:end_gateway", "minecraft:tall_grass", "minecraft:large_fern", "minecraft:peony", "minecraft:rose_bush", "minecraft:lilac", "minecraft:sunflower", "minecraft:*_bed", "minecraft:*_door", "minecraft:big_dripleaf_stem", "minecraft:waterlily", "minecraft:cake", "minecraft:nether_portal", "minecraft:tall_seagrass", "animania:block_trough", "animania:block_invisiblock", "colossalchests:*", "ic2:*", "bigreactors:*", "forestry:*", "tconstruct:*", "rustic:*", "botania:*", "astralsorcery:*", "quark:colored_bed_*", "immersiveengineering:*", "create:*", "create*:*", "storagedrawers:*"]
-	#Entities that cannot be picked up
-	forbiddenEntities = ["#c:capturing_not_supported", "#c:teleporting_not_supported", "minecraft:end_crystal", "minecraft:ender_dragon", "minecraft:ghast", "minecraft:shulker", "minecraft:leash_knot", "minecraft:armor_stand", "minecraft:item_frame", "minecraft:painting", "minecraft:shulker_bullet", "animania:hamster", "animania:ferret*", "animania:hedgehog*", "animania:cart", "animania:wagon", "mynko:*", "pixelmon:*", "mocreatures:*", "quark:totem", "vehicle:*", "securitycraft:*", "taterzens:npc", "easy_npc:*", "bodiesbodies:dead_body"]
 	#Entities that cannot have other entities stacked on top of them
 	forbiddenStacking = ["minecraft:horse"]
 
