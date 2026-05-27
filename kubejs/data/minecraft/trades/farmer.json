@@ -1,0 +1,189 @@
+{
+  "tiers": [
+    {
+      "total_exp_required": 0,
+      "groups": [
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_a_export",
+                "expand": true,
+                "functions": [{"function": "minecraft:set_count","count": 2}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "functions": [{"function": "minecraft:set_count","count": 2}]},
+              "trader_experience": 1
+            },
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_a_weak_export",
+                "expand": true,
+                "functions": [{"function": "minecraft:set_count","count": 2}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "functions": [{"function": "minecraft:set_count","count": 1}]},
+              "trader_experience": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "total_exp_required": 16,
+      "groups": [
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_b_export",
+                "expand": false,
+                "functions": [{"function": "minecraft:set_count","count": 4}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "functions": [{"function": "minecraft:set_count","count": 6}]},
+              "trader_experience": 22
+            },
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_b_weak_export",
+                "expand": false,
+                "functions": [{"function": "minecraft:set_count","count": 4}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "conditions": [],
+                "functions": [{"function": "minecraft:set_count","count": 4}]},
+              "trader_experience": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "total_exp_required": 40,
+      "groups": [
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_c_export",
+                "expand": false,
+                "functions": [{"function": "minecraft:set_count","count": 16}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "functions": [{"function": "minecraft:set_count","count": 28}]},
+              "trader_experience": 22
+            },
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_c_weak_export",
+                "expand": false,
+                "functions": [{"function": "minecraft:set_count","count": 16}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "conditions": [],
+                "functions": [{"function": "minecraft:set_count","count": 8}]},
+              "trader_experience": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "total_exp_required": 220,
+      "groups": [
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_d_export",
+                "expand": false,
+                "functions": [{"function": "minecraft:set_count","count": 22}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "functions": [{"function": "minecraft:set_count","count": 42}]},
+              "trader_experience": 32
+            },
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_d_weak_export",
+                "expand": false,
+                "functions": [{"function": "minecraft:set_count","count": 20}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "conditions": [],
+                "functions": [{"function": "minecraft:set_count","count": 30}]},
+              "trader_experience": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "total_exp_required": 870,
+      "groups": [
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_e_export",
+                "expand": false,
+                "functions": [{"function": "minecraft:set_count","count": 2}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "functions": [{"function": "minecraft:set_count","count": 38}]},
+              "trader_experience": 1
+            },
+            {
+              "cost_a": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "functions": [{"function": "minecraft:set_count","count": 40}]},
+              "result": {
+                "type": "minecraft:loot_table",
+                "value": "utopia:generic/trader/farmer_legendary_trade"
+              },
+              "trader_experience": 10
+            },
+            {
+              "cost_a": {
+                "type": "minecraft:tag",
+                "name": "utopia:farmer/tier_e_weak_export",
+                "expand": false,
+                "functions": [{"function": "minecraft:set_count","count": 10}]},
+              "result": {
+                "type": "minecraft:item",
+                "name": "minecraft:emerald",
+                "conditions": [],
+                "functions": [{"function": "minecraft:set_count","count": 32}]},
+              "trader_experience": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -11,12 +11,12 @@ loadingStageDuration = 0.25
 # Damage multiplier for pvp
 pvpDamageMultiplier = 0.75
 # Damage multiplier for monsters
-mobDamageMultiplier = 0.6
+mobDamageMultiplier = 0.38
 
 # Probability of Pillager having a pistol
 pistolPillagerChance = 0.6
 # Probability of Skeleton having a musket
-musketSkeletonChance = 0.18
+musketSkeletonChance = 0.08
 
 # Extra damage per Power enchantment level
 damagePerPowerLevel = 0.5

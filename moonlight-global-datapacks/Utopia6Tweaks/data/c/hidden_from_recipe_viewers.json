@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "kubejs:incomplete_netherite_helmet",
-    "kubejs:incomplete_netherite_chestplate",
-    "kubejs:incomplete_netherite_leggings",
-    "kubejs:incomplete_netherite_boots"
-  ]
-}

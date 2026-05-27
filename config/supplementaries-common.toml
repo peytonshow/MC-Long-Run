@@ -276,7 +276,7 @@
 			glowing_duration = 200
 
 [building]
-	lapis_bricks = true
+	lapis_bricks = false
 	deepslate_lamp = true
 	end_stone_lamp = true
 	blackstone_lamp = true
@@ -383,7 +383,7 @@
 	[building.notice_board]
 		enabled = true
 		#Allows notice boards to accept and display any item, not just maps and books
-		allow_any_item = false
+		allow_any_item = true
 		#Enables a GUI for the block. Not needed as the block just holds one item which you can place by clicking on it
 		gui = true
 
@@ -422,7 +422,7 @@
 		allow_drinking = true
 
 	[building.globe]
-		enabled = true
+		enabled = false
 		#Displays current coordinates when using a globe
 		show_coordinates = true
 		sepia_globe = true
@@ -467,7 +467,7 @@
 
 [tools]
 	candy = true
-	stasis = true
+	stasis = false
 	altimeter = true
 	confetti_popper = true
 
@@ -559,7 +559,7 @@
 		#Bomb explosion radius (damage depends on this)
 		# Default: 2.0
 		# Range: 0.1 ~ 10.0
-		explosion_radius = 2.0
+		explosion_radius = 4.0
 		#Do bombs break blocks like tnt?
 		#Allowed Values: ALL, WEAK, NONE
 		break_blocks = "WEAK"
@@ -574,17 +574,17 @@
 			#Bomb explosion radius (damage depends on this)
 			# Default: 5.15
 			# Range: 0.1 ~ 10.0
-			explosion_radius = 5.15
+			explosion_radius = 9.6
 			#Do bombs break blocks like tnt?
 			#Allowed Values: ALL, WEAK, NONE
-			break_blocks = "WEAK"
+			break_blocks = "ALL"
 
 	[tools.slingshot]
-		enabled = true
+		enabled = false
 		#Slingshot range multiplier. Affect the initial projectile speed
 		# Default: 1.0
 		# Range: 0.0 ~ 5.0
-		range_multiplier = 1.0
+		range_multiplier = 3.2
 		#Time in ticks to fully charge a slingshot
 		# Default: 20
 		# Range: 0 ~ 100
@@ -610,7 +610,7 @@
 		#Allows snowballs to be thrown by slingshots
 		allow_snowballs = false
 		#Allows enderpearls to be thrown by slingshots
-		allow_enderpearls = false
+		allow_enderpearls = true
 
 	[tools.antique_ink]
 		enabled = true
@@ -638,7 +638,7 @@
 		block_map_markers = true
 		#Shows a death marker on your map when you die. Requires a recovery compass in player inventory or similar
 		#Allowed Values: OFF, WITH_COMPASS, ALWAYS
-		death_marker = "WITH_COMPASS"
+		death_marker = "OFF"
 		#Makes blocks tagged as 'tinted_on_map' use their tint color. This allows for accurate biome colors for water and grass as well as other custom block that use any tint
 		tinted_blocks_on_maps = true
 
@@ -708,11 +708,11 @@
 
 	[tweaks.bottle_xp]
 		#Allow bottling up xp by using a bottle on an enchanting table
-		enabled = false
+		enabled = true
 		#bottling health cost
 		# Default: 2
 		# Range: 0 ~ 20
-		cost = 2
+		cost = 1
 		#Block that should be clicked on for bottling to work. Leave blank for enchanting table. You can put another block here from another mod if you find it more fitting
 		target_block = ""
 
@@ -736,7 +736,7 @@
 
 	[tweaks.noteblocks_scare]
 		#Noteblocks with a zombie head will scare off villagers
-		enabled = true
+		enabled = false
 
 	[tweaks.bad_luck_tweaks]
 		#Hit a void cat, get the unluck
@@ -750,7 +750,7 @@
 
 	[tweaks.sus_recipes]
 		#Adds recipes to craft suspicious gravel and suspicious sand
-		enabled = true
+		enabled = false
 
 	[tweaks.slimed_effect]
 		enabled = true

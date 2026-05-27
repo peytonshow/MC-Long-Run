@@ -28,7 +28,7 @@
 	#allow firefly bushes to generate in the overworld
 	firefly_bushes = true
 	#allow wildflowers to generate in the overworld
-	wildflowers = true
+	wildflowers = false
 	#allow dry grass to generate in the overworld
 	dry_grass = true
 	#allow fallen trees to generate in the overworld
@@ -56,7 +56,7 @@
 	#allows ghasts drop the tears music disc
 	tears_music_disc = true
 	#apply a modifier to the speed of happy ghasts when ridden, 1.0 is default speed
-	happy_ghast_speed_modifier = 1.0
+	happy_ghast_speed_modifier = 1.5
 
 ["Hot as Lava"]
 	#allows chicken jockeys to drop the lava chicken music disc

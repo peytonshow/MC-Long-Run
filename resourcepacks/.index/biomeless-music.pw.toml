@@ -1,0 +1,18 @@
+filename = 'Biomless Music 1.21.zip'
+name = 'Biomeless Music'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '1.1.0'
+
+[download]
+hash = '072345c824dfbd71a3c2adb30b0b19867cec8e7aa07c8cd2a3c24a0f66aa755c1e47ab9e5b92a63ded51673537f626abb41ede75aa1ab8f3bef9a198f893e16c'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/rOrpkz28/versions/IPS5laMn/Biomless Music 1.21.zip'
+
+[update.modrinth]
+mod-id = 'rOrpkz28'
+version = 'IPS5laMn'

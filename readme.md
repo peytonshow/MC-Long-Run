@@ -27,7 +27,7 @@ TRADING
         - Fisherman - Buy fish
     * Mixed Types. Sell and buy materials and moderate rates.
         - Mason - Buys bulk stone building materials and bricks. Sells decorative blocks.
-        - Fletcher
+        - Fletcher - Buys and sells arrows, guns and ammo.
         - Toolsmith - Sells all basic tools, buys bulk metals.
         - Cartographer - Buys books, ink sacs and compasses.
         - Leatherworker - Buys Hide and Saddles.
@@ -58,8 +58,7 @@ COMBAT
 * In vanilla, you never needed to use anything but a sword to survive, which drowns out other means of combat.
 * Spears are less powerful, craftable tridents with Loyalty I. Direct attacks are better than hands, but underwelming.
 * Arrows have several new recipes added to incentivize bow usage.
-* Shields raise instantly.
-* Protection and Sharpness both max out at II. 
+* Added serveral features from the mojang combat tests. Shields raise instantly, swords have longer reach, swords instantly cut grass, snowballs, eggs, and potions stack higher, crits aren't wasted on miss, and several more changes.
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -72,7 +71,7 @@ CRAFTING
 * Removed normal crafting recipes involving sturdy stone (Shaped recipe + decompressing). D
 * Added the ability to make a firecharge from using a pickaxe on a cutting board with a flint block. D
 * Added the ability to 'De-Sheet' most create sheets to recycle metals. D
-* Added the ability to smash flint blocks into Fire Charges using a cutting board. D
+* Added the ability to smash flint into Fire Charges using a cutting board. D
 * Added the ability to use Coal on a campfire to make fire charges. D
 * Added the ability to use Clay on a campfire to make Bricks (Which are usable as weapons) D
 * May craft 2 arrows using 1 Flint, 1 Arrow and 1 Leather. D
@@ -138,7 +137,7 @@ COMBAT
 * Added Supplementaries, which adds Slingshot, Cannons (+Cannon boat), Bombs, Spiky Bombs and Blue Bombs. D
 * Blue Bombs are now mini-nukes. D
 * Chainmail armor is craftable from upgrading Leather Armor w/ chain. Costs ~16 iron, vs 24 for full iron normally. D
-* Chainmail armor now shares stats with iron, with a minor difference in durability. (This is to help chainmails really weird place in progression. Like, when are we even supposed to use this in vanilla?) D
+* Chainmail armor now has slightly less durability than Iron. D
 * Gold Armor's durability is now roughly 9/10 of Iron (Iron Chestplate = 240 -> Gold Chestplate = 220) D
 * Gold Armor now has the same defense as Diamond, which is inline with golds 'short-term powerup' properties, like in gapples. PD
 * Iron Armor now has 1 Toughness. (For reference, Diamond has 2, netherite 3.) D
@@ -158,6 +157,7 @@ ENCHANTING
 * Added Dungeons and Taverns, which adds multiple treasure and normal enchants as well as curses. D
 * Added Path Speed (Soul speed but for path blocks) and Freezing (Slows targets, incompatible w/ fire aspect) enchants. D
 * Gold tools benefits from Fortune II. Gold weapons have Looting II. D
+* Chainmail armor benefits from Projectile protection III. D
 * All stone tools benefit from Unbreaking II, though their durability matches wood. This makes stone more unpredictable to use due to it's shoddy nature. D
 * All spears above stone tier (not including the trident) benefit from Loyalty I.
 

@@ -220,6 +220,10 @@
     "royalvariations:royal_knight_leggings": {
       "useCustomWeight": false,
       "customWeight": 7.25
+    },
+    "utopia:crown": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
     }
   }
 }
