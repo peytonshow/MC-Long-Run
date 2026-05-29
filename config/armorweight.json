@@ -222,8 +222,12 @@
       "customWeight": 7.25
     },
     "utopia:crown": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "utopia:shattering_crown": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
     }
   }
 }

@@ -2320,7 +2320,7 @@
   "chat.type.team.hover": "Message Team",
   "chat.type.team.sent": "-> %s <%s> %s",
   "chat.type.team.text": "%s <%s> %s",
-  "chat.type.text": "<%s> %s",
+  "chat.type.text": "%s: %s",
   "chat.type.text.narrate": "%s says %s",
   "chat.validation_error": "Chat validation error",
   "chunk.toast.checkLog": "See log for more details",

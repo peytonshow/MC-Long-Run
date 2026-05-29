@@ -1,0 +1,8 @@
+{
+  "defaultSkin": "duzo",
+  "maxHealth": 25.0,
+  "movementSpeed": 0.2,
+  "attackDamage": 1.0,
+  "persistFakePlayers": true,
+  "allowLocalSkinUploadOpOnly": true
+}

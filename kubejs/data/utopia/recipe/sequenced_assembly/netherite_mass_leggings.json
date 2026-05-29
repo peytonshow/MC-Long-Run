@@ -19,7 +19,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "kubejs:incomplete_netherite_leggings"
+          "item": "utopia:incomplete_netherite_leggings"
         },
         {
           "item": "minecraft:golden_leggings"
@@ -27,7 +27,7 @@
       ],
       "results": [
         {
-          "id": "kubejs:incomplete_netherite_leggings"
+          "id": "utopia:incomplete_netherite_leggings"
         }
       ]
     },
@@ -35,7 +35,7 @@
       "type": "create:filling",
       "ingredients": [
         {
-          "item": "kubejs:incomplete_netherite_leggings"
+          "item": "utopia:incomplete_netherite_leggings"
         },
         {
           "type": "neoforge:single",
@@ -45,7 +45,7 @@
       ],
       "results": [
         {
-          "id": "kubejs:incomplete_netherite_leggings"
+          "id": "utopia:incomplete_netherite_leggings"
         }
       ]
     },
@@ -53,14 +53,14 @@
       "type": "create:cutting",
       "ingredients": [
         {
-          "item": "kubejs:incomplete_netherite_leggings"
+          "item": "utopia:incomplete_netherite_leggings"
         }
       ],
       "processing_time": 5000,
       "results": [
         {
           "count": 1,
-          "id": "kubejs:incomplete_netherite_leggings"
+          "id": "utopia:incomplete_netherite_leggings"
         }
       ]
     },
@@ -68,7 +68,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "kubejs:incomplete_netherite_leggings"
+          "item": "utopia:incomplete_netherite_leggings"
         },
         {
           "item": "minecraft:netherite_scrap"
@@ -76,7 +76,7 @@
       ],
       "results": [
         {
-          "id": "kubejs:incomplete_netherite_leggings"
+          "id": "utopia:incomplete_netherite_leggings"
         }
       ]
     },
@@ -91,7 +91,7 @@
       "results": [
         {
           "count": 1,
-          "id": "kubejs:incomplete_netherite_leggings"
+          "id": "utopia:incomplete_netherite_leggings"
         }
       ]
     },
@@ -99,7 +99,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "kubejs:incomplete_netherite_leggings"
+          "item": "utopia:incomplete_netherite_leggings"
         },
         {
           "item": "oreganized:netherite_nugget"
@@ -107,12 +107,12 @@
       ],
       "results": [
         {
-          "id": "kubejs:incomplete_netherite_leggings"
+          "id": "utopia:incomplete_netherite_leggings"
         }
       ]
     }
   ],
   "transitional_item": {
-    "id": "kubejs:incomplete_netherite_leggings"
+    "id": "utopia:incomplete_netherite_leggings"
   }
 }

@@ -6,6 +6,7 @@ GOALS
 * Automation and logistics are important. Automation shouldn't produce infinite resources from nothing (with a few exceptions).
 * Strong performance on all systems. And additional client is available with less fluff.
 * Built for multiplayer, with the goal of reducing individualist self-sustainment in exchange for player interaction build upon specialization and necessity. 
+* Offer players the tools to build society, featuring a Coronation mechanic as well as minting currency.
 
 ---------------------------------------------------------------------------------------------------------------
 
