@@ -210,13 +210,6 @@ function showDashboard(ctx, showStamps) {
     let maxDiamond = getCapacity('diamond', lvl);
     let maxNetherite = getCapacity('netherite', lvl);
 
-    player.tell(' ');
-    player.tell(' ');
-    player.tell(Text.gold('=== ').append(Text.white(`Treasury Status [Level ${lvl}]`).bold()).append(Text.gold(' ===')));
-    player.tell(' ');
-    player.tell(Text.white(`Goal: Fill the vault with `).append(Text.yellow(`${targetAmt} ${targetLabel}`)).append(Text.white(` to reach Level ${lvl + 1}.`)));
-    player.tell(' ');
-
     const makeBar = (letter, letterColor, cur, max, isTarget) => {
         if (max === 0) {
             return Text.white(' ').append(Text.of(`[${letter}]`).color(letterColor).bold()).append(Text.gray(' [Locked]'));
@@ -239,10 +232,16 @@ function showDashboard(ctx, showStamps) {
         .append(Text.gray(`(${cur}/${max})`));
     };
 
-    player.tell(Text.gold('--- Vault Capacity Meters ---'));
-    player.tell(makeBar('I', 'gray', curIron, maxIron, targetType === 'iron'));
-    player.tell(makeBar('D', 'aqua', curDiamond, maxDiamond, targetType === 'diamond'));
-    player.tell(makeBar('N', 'dark_purple', curNetherite, maxNetherite, targetType === 'netherite'));
+    // Chain everything into a single message component separated by newlines
+    let message = Text.of(' \n \n')
+    .append(Text.gold('=== ').append(Text.white(`Treasury Status [Level ${lvl}]`).bold()).append(Text.gold(' ===\n')))
+    .append(Text.of(' \n'))
+    .append(Text.white(`Goal: Fill the vault with `).append(Text.yellow(`${targetAmt} ${targetLabel}`)).append(Text.white(` to reach Level ${lvl + 1}.\n`)))
+    .append(Text.of(' \n'))
+    .append(Text.gold('--- Vault Capacity Meters ---\n'))
+    .append(makeBar('I', 'gray', curIron, maxIron, targetType === 'iron')).append('\n')
+    .append(makeBar('D', 'aqua', curDiamond, maxDiamond, targetType === 'diamond')).append('\n')
+    .append(makeBar('N', 'dark_purple', curNetherite, maxNetherite, targetType === 'netherite'));
 
     if (showStamps) {
         let curEnc = safeNum(server.persistentData.tres_encoders, 0);
@@ -250,11 +249,14 @@ function showDashboard(ctx, showStamps) {
         let maxEnc = getCapacity('encoders', lvl);
         let maxDec = getCapacity('decoders', lvl);
 
-        player.tell(' ');
-        player.tell(Text.gold('--- Stamps ---'));
-        player.tell(Text.yellow('• Encoders: ').append(Text.white(`${curEnc}/${maxEnc}`)));
-        player.tell(Text.yellow('• Decoders: ').append(Text.white(`${curDec}/${maxDec}`)));
+        message.append('\n \n')
+        .append(Text.gold('--- Stamps ---\n'))
+        .append(Text.yellow('• Encoders: ').append(Text.white(`${curEnc}/${maxEnc}\n`)))
+        .append(Text.yellow('• Decoders: ').append(Text.white(`${curDec}/${maxDec}`)));
     }
+
+    // Fire exactly once
+    player.tell(message);
 
     return 1;
 }
