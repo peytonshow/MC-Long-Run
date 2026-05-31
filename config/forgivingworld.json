@@ -9,7 +9,7 @@
   },
   "instantTeleport": {
     "desc:": "Instantly teleports instead of notifying the user over time,(Note this causes some lag, due to loading chunks directly) default:false",
-    "instantTeleport": false
+    "instantTeleport": true
   },
   "teleportedRidden": {
     "desc:": "Teleport ridden entities too, default:true",

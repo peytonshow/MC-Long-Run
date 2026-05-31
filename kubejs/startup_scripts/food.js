@@ -1,5 +1,7 @@
 /* const $MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
 
+
+
 ItemEvents.modification(event => {
     event.modify('minecraft:chorus_fruit', item => {
         item.setFood({
@@ -27,8 +29,40 @@ ItemEvents.modification(event => {
     })
 */
 
-
+const $MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
 ItemEvents.modification(event => {
+    event.modify('create:super_glue', item => {
+        item.setFood({
+            eatSeconds: 6.4,
+            saturation: 0,
+            nutrition: 1,
+            canAlwaysEat: false,
+            effects: [
+                {
+                    probability: 1, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        /* Effect:         */ 'oreganized:stunning',
+                        /* Duration:       */ 1200,
+                        /* Level:          */ 0,
+                        /* Is ambient:     */ false,
+                        /* Hide particles: */ true
+                    ),
+                },
+                {
+                    probability: 1, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        /* Effect:         */ 'oreganized:lung_damage',
+                        /* Duration:       */ 3000,
+                        /* Level:          */ 0,
+                        /* Is ambient:     */ false,
+                        /* Hide particles: */ true
+                    ),
+                },
+            ],
+        })
+    })
     event.modify('minecraft:sweet_berries', item => {
         item.setFood({
             eatSeconds: .8,

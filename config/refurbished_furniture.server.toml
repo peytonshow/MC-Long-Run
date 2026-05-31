@@ -1,8 +1,5 @@
 # Mailing related properties
 [mailing]
-	# The maximum amount of mailboxes a player is allowed to register/own.
-	# Valid range: 1 to 2147483647 (inclusive)
-	maxMailboxesPerPlayer = 16
 	# The amount of inventory rows in a mailbox. If you change this value from a larger to
 	# a smaller value, items contained in the removed rows will be deleted. Use caution
 	# when changing this value to avoid inconvenience and backup your saves.
@@ -12,11 +9,9 @@
 	# queued when the receiving mailbox's inventory is full. This is to prevent infinite storage.
 	# Valid range: 0 to 256 (inclusive)
 	deliveryQueueSize = 32
-	# If enabled, this will ban items with an inventory (like a Shulker Box) being sent through
-	# a Post Box. This prevents players from creating massive NBT on a single item, which can
-	# cause issues for your server/world save.
-	# Valid values: true, false
-	banSendingItemsWithInventories = true
+	# The maximum amount of mailboxes a player is allowed to register/own.
+	# Valid range: 1 to 2147483647 (inclusive)
+	maxMailboxesPerPlayer = 8
 	# Prevents items contained in this list from being sent through a Post Box.
 	# An example of how the list is defined:
 	# bannedItems = [
@@ -27,6 +22,11 @@
 	# ]
 	# ^ Note: This is just an example. Write your list below.
 	bannedItems = []
+	# If enabled, this will ban items with an inventory (like a Shulker Box) being sent through
+	# a Post Box. This prevents players from creating massive NBT on a single item, which can
+	# cause issues for your server/world save.
+	# Valid values: true, false
+	banSendingItemsWithInventories = true
 	# A list of dimensions you are allowed to place mailboxes. An empty list means that
 	# mailboxes can be placed in any dimension.
 	# An example of how the list is defined:
@@ -50,9 +50,6 @@
 	# links to be powered, this config value just determines the acceptable area.
 	# Valid range: 1 to 256 (inclusive)
 	powerableAreaRadius = 80
-	# The maximum amount of links that can be connected to a single electricity node.
-	# Valid range: 1 to 64 (inclusive)
-	maximumLinksPerElectricityNode = 6
 	# The maximum amount of links that can be connected to an Electricity Generator.
 	# Valid range: 1 to 64 (inclusive)
 	maximumLinksPerElectricityGenerator = 12
@@ -61,7 +58,10 @@
 	# 6400 units of power. The default value of 8 means that the electricity generator
 	# would consume almost 2 coal per in-game day.
 	# Valid range: 1 to 128 (inclusive)
-	fuelToPowerRatio = 16
+	fuelToPowerRatio = 64
+	# The maximum amount of links that can be connected to a single electricity node.
+	# Valid range: 1 to 64 (inclusive)
+	maximumLinksPerElectricityNode = 6
 	# The maximum amount of nodes in a network that can be powered by an electricity
 	# source, like the electricity generator.
 	# Valid range: 1 to 512 (inclusive)

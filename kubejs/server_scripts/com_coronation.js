@@ -47,7 +47,8 @@ ServerEvents.commandRegistry(event => {
                     if (rawValue != null) {
                         crownIdStr = String(rawValue).split('.')[0].replace(/[^0-9]/g, '');
                     } else {
-                        let match = String(customData).match(/crown_id["']?\s*[:=]\s*(\d+)/);
+                        // Regex fix to capture stringified quotes around crown IDs
+                        let match = String(customData).match(/crown_id["']?\s*[:=]\s*["']?(\d+)/);
                         if (match) crownIdStr = match[1];
                     }
                 }
@@ -67,6 +68,19 @@ ServerEvents.commandRegistry(event => {
 
                 // REAL CROWN: Stamps the crown with the current King's username
                 player.headArmorItem.set('minecraft:lore', [`§6§lKing: ${player.username}`]);
+
+                // === NEW FEATURE: SHATTER OTHER WORN CROWNS ===
+                server.players.forEach(p => {
+                    // Skip the newly crowned King
+                    if (p.username !== player.username) {
+                        // Check if an opponent/ex-king is wearing an un-shattered crown
+                        if (p.headArmorItem.id === 'utopia:crown') {
+                            p.setHeadArmorItem(Item.of('utopia:shattering_crown'));
+                            p.tell(Text.red('Your crown violently shatters as a new monarch ascends the throne!'));
+                        }
+                    }
+                });
+                // =============================================
 
                 server.runCommandSilent(`tellraw @a {"text":"${player.username} has claimed the throne and is now the King!","color":"gold"}`);
 
@@ -110,10 +124,9 @@ ServerEvents.commandRegistry(event => {
         .then(Commands.literal('who')
         .executes(ctx => {
             const player = ctx.source.player;
-            const server = ctx.source.server;
             if (!player) return 0;
 
-            let currentKing = server.persistentData.current_king;
+            let currentKing = ctx.source.server.persistentData.current_king;
 
             if (currentKing && currentKing !== '') {
                 player.tell(Text.gold(`The current King is ${currentKing}.`));
@@ -132,8 +145,8 @@ ServerEvents.commandRegistry(event => {
             let player = ctx.source.player;
             let target = Arguments.PLAYER.getResult(ctx, 'target');
 
-            // Generates a strictly unique numeric ID using the current timestamp
-            let uniqueId = Date.now() + Math.floor(Math.random() * 1000);
+            // Fix: Wrap in String() to prevent the trillion-size NBT rounding errors
+            let uniqueId = String(Date.now() + Math.floor(Math.random() * 1000));
 
             let crown = Item.of('utopia:crown');
             crown.set('minecraft:custom_data', { crown_id: uniqueId });
@@ -143,7 +156,13 @@ ServerEvents.commandRegistry(event => {
 
             target.give(crown);
 
-            player.tell(Text.green(`Promoted! ${target.username} has been given an initialized crown with ID: ${uniqueId}.`));
+            // Fix: Check if player exists to support console & Royal Killswitch execution
+            if (player) {
+                player.tell(Text.green(`Promoted! ${target.username} has been given an initialized crown with ID: ${uniqueId}.`));
+            } else {
+                console.info(`Promoted! ${target.username} has been given an initialized crown with ID: ${uniqueId}.`);
+            }
+
             target.tell(Text.gold('You have been granted the Royal Crown. Put it on and use /coronation begin to claim the throne!'));
             return 1;
         })

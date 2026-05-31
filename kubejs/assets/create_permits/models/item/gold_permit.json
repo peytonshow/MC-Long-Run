@@ -1,0 +1,7 @@
+{
+  "parent": "create_permits:custom/gold_permit",
+  "textures": {
+    "1": "create_permits:block/goldpermit",
+    "particle": "create_permits:item/goldpermit"
+  }
+}

@@ -221,6 +221,22 @@
       "useCustomWeight": false,
       "customWeight": 7.25
     },
+    "snatched:bag_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 0.0
+    },
+    "snatched:handcuff_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 0.0
+    },
+    "snatched:rope_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 0.0
+    },
+    "snatched:rope_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 0.0
+    },
     "utopia:crown": {
       "useCustomWeight": true,
       "customWeight": 0.0

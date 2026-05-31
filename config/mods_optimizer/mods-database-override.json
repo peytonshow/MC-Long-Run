@@ -6,7 +6,8 @@
     "tectonic",
     "imfast",
     "cerulean",
-    "letmedespawn"
+    "letmedespawn",
+    "luckperms"
   ],
   "client": [
     "sound_physics_perfected",

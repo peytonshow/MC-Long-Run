@@ -63,6 +63,15 @@ COMBAT
 
 -----------------------------------------------------------------------------------------------------------------
 
+SOCIETY
+* In Long Run, society revolves around the whims of a King. The King has control over the treasury, appointing officials (Like Judges), spending treasury upgrade points.
+* Treasury: People are given access to officially backed Coins and Bills.
+    * Coins: Coins are created using an item specific to the king, Encoder Stamps, to turn raw material into coins. Coins may be freely melted down back into their full form. Coins are useful because they allow consumers to get the best price for a good without relying on the government to cash out.
+    * Bills: Bills are Printed money that do not hold any inherit value, but can be exchanged for raw materials using Paper stamps issued by the king. Paper Stamps cost a certain amount of material to take out. Because not everyone withdraws after a transaction, it can be safe to print more money than the treasury can support, but too much can cause bank runs and crash the economy :) . Much like Coins, because bills are worth a portion of a raw material, it allows people to get the best price buying or selling.
+* The Law: Players have access to a strong legal framework. Players who learn and uphold the law embolden the kings power.
+
+-----------------------------------------------------------------------------------------------------------------
+
 CRAFTING
 * 3 new recipes for gunpowder have been added (1 coal + 2 sugar -> 1 gunp | 1 bpowder + 2 sug -> 6 |  ) PD
 * Readded orignal bed recipe (3x any wool + 3x any plank -> red bed) D
@@ -125,6 +134,7 @@ FOOD
 * May make Create's Wheat Flour manually by using a cutting board (1 wheat -> 1 flour).D
 * Completely removed most of Refurbished Furniture's cooking (Most recipes are completely locked behind creating the mod's furniture stuff when there's literally no reason to besides forcing people to use the mod. This is stupid, so I moved all the mod's 'Combining' recipes into a shapeless crafting table recipe, removed the cutting boards, and replaced multiple of this mod's duplicate ingrediants (Dough and cheeses) with those from other mods. This mod might actually have some of the worst mod compatability I've seen despite the developer claiming they started work on that >1 year ago) D
 * Sweet and Glow berries are now eaten quickly. D
+* Glue is now edible. D
 
 COMBAT
 * Armor now causes a slowdown based on armor amount and toughness. Most armors have been buffed to compensate (below). D
@@ -213,3 +223,4 @@ RESOURCE PACK & LANG
 * Replaced all non-C148 background music with the unreleased minecraft songs. D
 * Most vanilla sounds now use their unupdated equivilent. (Steves goes 'Oo!', doors are clicky, ect.) D
 * Added context for entering the Nether. D
+* Altered Permit name, description, lore and rarity to fit their role. D

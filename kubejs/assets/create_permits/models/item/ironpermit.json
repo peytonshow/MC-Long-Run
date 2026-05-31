@@ -1,0 +1,7 @@
+{
+  "parent": "create_permits:custom/iron_permit",
+  "textures": {
+    "1": "create_permits:block/ironpermit",
+    "particle": "create_permits:item/ironpermit"
+  }
+}

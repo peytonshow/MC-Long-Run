@@ -1573,8 +1573,8 @@
 		"Leaves List" = ["minecraft:spruce_leaves", "minecraft:birch_leaves", "minecraft:oak_leaves", "minecraft:jungle_leaves", "minecraft:acacia_leaves", "minecraft:dark_oak_leaves"]
 
 		[client.greener_grass.color_matrix]
-			R = [1.13, 0.0, 0.0]
-			G = [0.13, 0.96, 1.28]
+			R = [1.0, 0.0, 0.0]
+			G = [0.0, 1.18, 0.24]
 			B = [0.0, 0.0, 0.6]
 
 		[client.greener_grass.water_matrix]
