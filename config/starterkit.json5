@@ -8,9 +8,9 @@
 	// If kit names should be formatted. Each word will be capitalized.
 	"formatKitNames": true,
 	// The text used above the kit choice screen, or if the mod is not installed in the chat. %s will be replaced with the player's name.
-	"chooseKitText": "%s, you can choose a starter kit!",
+	"chooseKitText": "You open your eyes...",
 	// Whether an announcement should be broadcasted to the server whenever a new player makes a kit choice. 'randomizeMultipleKitsToggle' must be disabled, and there must be at least 2 starter kits available.
-	"announcePlayerKitChoiceInDedicatedServer": false,
+	"announcePlayerKitChoiceInDedicatedServer": true,
 	// Whether the starter kit should be re-set after the '/ftbteamislands create' command from FTB Team Islands. Does nothing when it's not installed.
 	"enableFTBIslandCreateCompatibility": true
 }

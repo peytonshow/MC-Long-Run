@@ -23,7 +23,7 @@
 		enabled = false
 
 	[redstone.bellows]
-		enabled = false
+		enabled = true
 		#bellows pushes air following this equation: 
 		#air=(sin(2PI*ticks/period)<0), with period = base_period-(redstone_power-1)*power_scaling 
 		#represents base period at 1 power
@@ -64,7 +64,7 @@
 		#Maximum block range
 		# Default: 64
 		# Range: 0 ~ 100000000
-		range = 64
+		range = 80
 
 	[redstone.spring_launcher]
 		enabled = true
@@ -422,7 +422,7 @@
 		allow_drinking = true
 
 	[building.globe]
-		enabled = false
+		enabled = true
 		#Displays current coordinates when using a globe
 		show_coordinates = true
 		sepia_globe = true
@@ -502,18 +502,18 @@
 		#If enabled, the quiver skeleton spawn chance will depend on the local difficulty of the world. If disabled, it will always be the same
 		quiver_skeleton_spawn_depend_on_global_difficulty = true
 		#Allows quiver to only be used when in offhand or in curio invSlot
-		only_works_in_curio = false
+		only_works_in_curio = true
 		#Arrows you pickup will try to go in a quiver if available provided it has some arrow of the same explosionType
 		quiver_pickup = true
 
 	[tools.lunch_basket]
-		enabled = true
+		enabled = false
 		#Allows lunch baskets to be placed on the ground
-		placeable = true
+		placeable = false
 		#Arrow stacks that can fit inside a lunch basket. Requires reboot
 		# Default: 6
 		# Range: 1 ~ 9
-		slots = 6
+		slots = 1
 
 	[tools.slice_map]
 		enabled = true

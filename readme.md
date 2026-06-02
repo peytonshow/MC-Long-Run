@@ -130,7 +130,7 @@ FOOD
 * Added Serene Seasons. Each season lasts 18 IRL hours.
 * Added Farmers Delight w/ Create Integration. D
 * Hoes now have an area based harvest which doesn't dimension from their durability and increases based on the material. D
-* Golden carrots new refill 1 hunger bar but completely max out saturation. This should make g carrots fulfil a health recovery role during a fight rather than just he meta food item.
+* Golden carrots new refill 1 hunger bar but completely max out saturation. This should make g carrots fulfil a health recovery role during a fight rather than just the meta food item.
 * May make Create's Wheat Flour manually by using a cutting board (1 wheat -> 1 flour).D
 * Completely removed most of Refurbished Furniture's cooking (Most recipes are completely locked behind creating the mod's furniture stuff when there's literally no reason to besides forcing people to use the mod. This is stupid, so I moved all the mod's 'Combining' recipes into a shapeless crafting table recipe, removed the cutting boards, and replaced multiple of this mod's duplicate ingrediants (Dough and cheeses) with those from other mods. This mod might actually have some of the worst mod compatability I've seen despite the developer claiming they started work on that >1 year ago) D
 * Sweet and Glow berries are now eaten quickly. D
@@ -149,7 +149,7 @@ COMBAT
 * Blue Bombs are now mini-nukes. D
 * Chainmail armor is craftable from upgrading Leather Armor w/ chain. Costs ~16 iron, vs 24 for full iron normally. D
 * Chainmail armor now has slightly less durability than Iron. D
-* Gold Armor's durability is now roughly 9/10 of Iron (Iron Chestplate = 240 -> Gold Chestplate = 220) D
+* Gold Armor's durability is now roughly 8/10 of Iron (Iron Chestplate = 240 -> Gold Chestplate = 200) D
 * Gold Armor now has the same defense as Diamond, which is inline with golds 'short-term powerup' properties, like in gapples. PD
 * Iron Armor now has 1 Toughness. (For reference, Diamond has 2, netherite 3.) D
 * Netherite now provides 3 more armor on a full set. The added armor is not taken into account during slowdown calculation, which makes it very powerful, but still slow. This makes tanking an actually viable strategy.  D
@@ -175,7 +175,7 @@ ENCHANTING
 TOOLS
 * Fist breaks blocks 50% slower. ONHOLD
 * Wooden tools now have ~20 durability each. D
-* All Gold Tools durability upped to 225 (For ref, Iron is 250). D
+* All Gold Tools durability upped to 255 (For ref, Iron is 250). D
 * Altered lower Hoe material's durability to match their place in mat heirarchy and gives a reason to make hoes out of better materials. Even with diamonds and netherite, there is never really a reason to waste that on hoes in base game, so spamming wood/stone hoes for a single field should be more annoying (Wood -60%, Stone -60%) D
 * All cosmetic armor trims only require their filler material to duplicate.
 * Added Backpacked, which allows multiple backpacks to be worn/upgraded by spending Upgrade Tokens and Emeralds to unlock slots. Augments, which are basically soph. backpack upgrades, are unlocked w/ levels. D
