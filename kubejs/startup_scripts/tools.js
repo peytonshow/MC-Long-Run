@@ -28,28 +28,28 @@ ItemEvents.modification(event => {
     })
 
     event.modify('minecraft:golden_sword', item => {
-        item.maxDamage = 225
+        item.maxDamage = 255
     })
     event.modify('minecraft:golden_axe', item => {
-        item.maxDamage = 225
+        item.maxDamage = 255
     })
     event.modify('minecraft:golden_pickaxe', item => {
-        item.maxDamage = 225
+        item.maxDamage = 255
     })
     event.modify('minecraft:golden_shovel', item => {
-        item.maxDamage = 225
+        item.maxDamage = 255
     })
     event.modify('minecraft:golden_helmet', item => {
-        item.maxDamage = 152
+        item.maxDamage = 142
     })
     event.modify('minecraft:golden_chestplate', item => {
-        item.maxDamage = 220
+        item.maxDamage = 200
     })
     event.modify('minecraft:golden_leggings', item => {
-        item.maxDamage = 206
+        item.maxDamage = 196
     })
     event.modify('minecraft:golden_boots', item => {
-        item.maxDamage = 179
+        item.maxDamage = 169
     })
 
 

@@ -2,11 +2,11 @@
 //                      TREASURY EXCHANGE SYSTEM
 // ============================================================================
 const EX_BILLS = [
-    { id: 'utopia:bill_one_thousand', val: 1000 },
-{ id: 'utopia:bill_one_hundred', val: 100 },
-{ id: 'utopia:bill_twenty', val: 20 },
-{ id: 'utopia:bill_five', val: 5 },
-{ id: 'utopia:bill_one', val: 1 }
+    { id: 'utopia:1000_dollar_bill', val: 1000 },
+    { id: 'utopia:100_dollar_bill', val: 100 },
+    { id: 'utopia:20_dollar_bill', val: 20 },
+    { id: 'utopia:5_dollar_bill', val: 5 },
+    { id: 'utopia:1_dollar_bill', val: 1 }
 ];
 
 function safeNum(val, fallback) {

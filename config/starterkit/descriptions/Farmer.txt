@@ -1,1 +1,1 @@
-You can edit this description in ./config/starterkit/description/Farmer.txt!
+A tender of an aristocrats plot of land before a bad harvest.

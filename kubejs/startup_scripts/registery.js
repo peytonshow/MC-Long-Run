@@ -45,14 +45,19 @@ StartupEvents.registry('item', event => {
     event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').tooltip("§7Used to turn RSD Currency back into material").rarity('epic')
     event.create('utopia:paper_stamp').displayName('Paper Stamp').texture('utopia:item/paper_stamp').tooltip("§7Used to trade in Paper Money.").rarity('rare')
 
-
+    // Copper tools.
+    event.create('minecraft:copper_sword', 'sword').tier('stone').maxDamage(100)
+    event.create('minecraft:copper_axe', 'axe').tier('stone').maxDamage(100)
+    event.create('minecraft:copper_pickaxe', 'pickaxe').tier('stone').maxDamage(100)
+    event.create('minecraft:copper_shovel', 'shovel').tier('stone').maxDamage(100)
+    event.create('minecraft:copper_hoe', 'hoe').tier('stone').maxDamage(100)
 
     // FIAT!!!!
-    event.create('utopia:bill_one').displayName('1$ Bill').texture('utopia:item/bill_one').tooltip("§7May be exchanged using /Treasury").burnTime(20).maxStackSize(50)
-    event.create('utopia:bill_five').displayName('5$ Bill').texture('utopia:item/bill_five').tooltip("§7May be exchanged using /Treasury").burnTime(20).maxStackSize(50)
-    event.create('utopia:bill_twenty').displayName('20$ Bill').texture('utopia:item/bill_twenty').tooltip("§7May be exchanged using /Treasury").rarity('uncommon').burnTime(30).maxStackSize(50)
-    event.create('utopia:bill_one_hundred').displayName('100$ Bill').texture('utopia:item/bill_one_hundred').tooltip("§7May be exchanged using /Treasury").rarity('uncommon').burnTime(30).maxStackSize(50)
-    event.create('utopia:bill_one_thousand').displayName('1000$ Bill').texture('utopia:item/bill_one_thousand').tooltip("§7May be exchanged using /Treasury").rarity('uncommon').burnTime(30).maxStackSize(50)
+    event.create('utopia:1_dollar_bill').displayName('1$ Bill').texture('utopia:item/bill_one').tooltip("§7May be exchanged using /Treasury").burnTime(20).maxStackSize(50)
+    event.create('utopia:5_dollar_bill').displayName('5$ Bill').texture('utopia:item/bill_five').tooltip("§7May be exchanged using /Treasury").burnTime(20).maxStackSize(50)
+    event.create('utopia:20_dollar_bill').displayName('20$ Bill').texture('utopia:item/bill_twenty').tooltip("§7May be exchanged using /Treasury").rarity('uncommon').burnTime(30).maxStackSize(50)
+    event.create('utopia:100_dollar_bill').displayName('100$ Bill').texture('utopia:item/bill_one_hundred').tooltip("§7May be exchanged using /Treasury").rarity('uncommon').burnTime(30).maxStackSize(50)
+    event.create('utopia:1000_dollar_bill').displayName('1000$ Bill').texture('utopia:item/bill_one_thousand').tooltip("§7May be exchanged using /Treasury").rarity('uncommon').burnTime(30).maxStackSize(50)
 
 
     // Money thats technically actually worth something!

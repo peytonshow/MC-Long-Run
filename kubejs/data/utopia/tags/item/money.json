@@ -1,12 +1,11 @@
 {
   "replace": false,
   "values": [
-    "utopia:bills_netherite",
-    "utopia:bills_netherite_slip",
+    "utopia:coin_netherite",
+    "utopia:coin_netherite_fractional",
     "utopia:coin_diamond",
     "utopia:coin_diamond_fractional",
     "utopia:coin_iron",
-    "utopia:coin_iron_fractional",
-    "minecraft:emerald"
+    "utopia:coin_iron_fractional"
   ]
 }

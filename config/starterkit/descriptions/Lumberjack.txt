@@ -1,1 +1,1 @@
-You can edit this description in ./config/starterkit/description/Lumberjack.txt!
+There's no need to punch a tree, use an axe instead!

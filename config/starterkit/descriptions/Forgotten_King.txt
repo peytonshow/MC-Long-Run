@@ -1,2 +1,2 @@
 Some sort of
-"§bFallen Kingdom§r".
+"§b§lFallen Kingdom§r".

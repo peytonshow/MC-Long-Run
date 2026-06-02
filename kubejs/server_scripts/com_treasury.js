@@ -40,7 +40,30 @@ function assignNextGoal(server, level) {
     server.persistentData.tres_target_amount = getCapacity(choice, level);
 }
 
-// Runs AFTER the newly inserted coins have been added to the total persistent balance
+// Internal Local Storage Mirror to map UUID strings back to their latest usernames
+function cachePlayerName(server, uuid, username) {
+    let cache = {};
+    if (server.persistentData.contains('tres_name_cache')) {
+        try { cache = JSON.parse(server.persistentData.getString('tres_name_cache')); } catch(e) {}
+    }
+
+    // Strip any single or double quotes natively included by KubeJS text components
+    let cleanName = String(username).replace(/['"]/g, '');
+
+    cache[String(uuid)] = cleanName;
+    server.persistentData.putString('tres_name_cache', JSON.stringify(cache));
+}
+
+function getCachedName(server, uuid, fallback) {
+    if (server.persistentData.contains('tres_name_cache')) {
+        try {
+            let cache = JSON.parse(server.persistentData.getString('tres_name_cache'));
+            if (cache[String(uuid)]) return cache[String(uuid)];
+        } catch(e) {}
+    }
+    return fallback;
+}
+
 function attemptLevelUp(server, player) {
     let currentLevel = safeNum(server.persistentData.tres_level, 1);
     let targetType = String(server.persistentData.tres_target_resource || 'iron').replace(/['"]/g, '');
@@ -49,20 +72,44 @@ function attemptLevelUp(server, player) {
     let vaultKey = 'tres_' + targetType;
     let currentAmt = safeNum(server.persistentData[vaultKey], 0);
 
-    // STRICT CHECK: Ensure the targeted goal has been met
     if (currentAmt >= targetAmt) {
-
-        // Deduct the target amount to "spend" it on the level up
-        server.persistentData[vaultKey] = currentAmt - targetAmt;
-
-        // Increase Level
         server.persistentData.tres_level = currentLevel + 1;
-
-        // Assign new goal for the next level
         assignNextGoal(server, currentLevel + 1);
 
+        // Keep depositor name cached
+        cachePlayerName(server, player.uuid, player.username);
+
+        let kingUUID = server.persistentData.current_king ? String(server.persistentData.current_king).trim() : null;
+        let honorReward = 5;
+
+        if (kingUUID && kingUUID !== '') {
+            let balances = {};
+            if (server.persistentData.contains('honor_balances')) {
+                try { balances = JSON.parse(server.persistentData.getString('honor_balances')); } catch(e) {}
+            }
+
+            // Award honor directly to the King's UUID entry in the global registry
+            let currentHonor = safeNum(balances[kingUUID], 0);
+            let newBalance = currentHonor + honorReward;
+            balances[kingUUID] = newBalance;
+            server.persistentData.putString('honor_balances', JSON.stringify(balances));
+
+            // Fix the redundant "King The King" grammar
+            let rawKingName = getCachedName(server, kingUUID, null);
+            let displayTitle = rawKingName ? `King ${rawKingName}` : "The King";
+
+            // Alert the King directly if they are currently online
+            let onlineKing = server.players.find(p => String(p.uuid) === kingUUID);
+            if (onlineKing) {
+                onlineKing.tell(Text.gold(`[+ ${honorReward} Honor Points] You have been personally rewarded because the Treasury expanded during your reign!`));
+            }
+
+            server.runCommandSilent(`tellraw @a {"text":"[!] The Kingdom's Treasury has expanded to Level ${currentLevel + 1}! ${displayTitle} earns +${honorReward} Honor!","color":"gold","bold":true}`);
+        } else {
+            server.runCommandSilent(`tellraw @a {"text":"[!] The Kingdom's Treasury has expanded to Level ${currentLevel + 1}! (No active King to claim Honor)","color":"gold","bold":true}`);
+        }
+
         player.tell(Text.green(`Treasury leveled up to Level ${currentLevel + 1}!`));
-        server.runCommandSilent(`tellraw @a {"text":"[!] The Kingdom's Treasury has expanded to Level ${currentLevel + 1}!","color":"gold","bold":true}`);
         return true;
     }
 
@@ -94,7 +141,6 @@ ServerEvents.loaded(event => {
 
     if (server.persistentData.tres_initialized == null) {
         server.persistentData.tres_level = 1;
-        server.persistentData.tres_honor = 0;
 
         server.persistentData.tres_maxEncoders = TREASURY_CONFIG.vault.encoders.defaultMax;
         server.persistentData.tres_encoders = TREASURY_CONFIG.vault.encoders.defaultMax;
@@ -142,9 +188,9 @@ ServerEvents.commandRegistry(event => {
 
     const registerTreasuryTree = (baseCommandName) => {
         event.register(C.literal(baseCommandName)
-        .executes(ctx => showDashboard(ctx, true)) // Show stamps on /tres
+        .executes(ctx => showDashboard(ctx, true))
         .then(C.literal('level')
-        .executes(ctx => showDashboard(ctx, true)) // Show stamps on /tres level
+        .executes(ctx => showDashboard(ctx, true))
         .then(C.literal('info').executes(ctx => showLevelInfo(ctx)))
         )
         .then(C.literal('stamp')
@@ -152,12 +198,13 @@ ServerEvents.commandRegistry(event => {
         .then(buildActionNode('withdraw', ['encoders', 'decoders']))
         .then(C.literal('resolve')
         .executes(ctx => handleResolve(ctx, null))
-        .then(C.argument('target', A.PLAYER.create(event))
-        .executes(ctx => handleResolve(ctx, A.PLAYER.getResult(ctx, 'target'))))
+        // UPGRADED: Swapped A.PLAYER to A.STRING to process offline players via text input
+        .then(C.argument('target', A.STRING.create(event))
+        .executes(ctx => handleResolve(ctx, A.STRING.getResult(ctx, 'target'))))
         )
         )
         .then(C.literal('vault')
-        .executes(ctx => showDashboard(ctx, false)) // HIDE stamps on /tres vault
+        .executes(ctx => showDashboard(ctx, false))
         .then(buildActionNode('add', ['iron', 'diamond', 'netherite']))
         .then(buildActionNode('withdraw', ['iron', 'diamond', 'netherite']))
         )
@@ -227,7 +274,6 @@ function showDashboard(ctx, showStamps) {
         .append(Text.aqua(`${Math.floor(percentage * 100)}% `))
         .append(Text.gray(`(${cur}/${max})`));
 
-        // Append the goal inline if this is the target resource
         if (isTarget) {
             line.append(Text.yellow(` (Goal: ${tAmt} Coins)`));
         }
@@ -235,7 +281,6 @@ function showDashboard(ctx, showStamps) {
         return line;
     };
 
-    // Chain everything into a single message component separated by newlines
     let message = Text.of(' \n \n')
     .append(Text.gold('=== ').append(Text.white(`Treasury [Level ${lvl}]`).bold()).append(Text.gold(' ===\n')))
     .append(Text.of(' \n'))
@@ -256,12 +301,10 @@ function showDashboard(ctx, showStamps) {
         .append(Text.yellow('• Decoders: ').append(Text.white(`${curDec}/${maxDec}`)));
     }
 
-    // --- NEW: Dynamic Exchange Rate Display ---
     let ironRate = server.persistentData.contains('tres_rate_iron') ? server.persistentData.getDouble('tres_rate_iron') : 0;
     let diamondRate = server.persistentData.contains('tres_rate_diamond') ? server.persistentData.getDouble('tres_rate_diamond') : 0;
     let netheriteRate = server.persistentData.contains('tres_rate_netherite') ? server.persistentData.getDouble('tres_rate_netherite') : 0;
 
-    // Only append the UI block if at least one material is pegged/trading
     if (ironRate > 0 || diamondRate > 0 || netheriteRate > 0) {
         message.append(Text.gold('\n--- Active Exchange Rates ---\n'));
 
@@ -275,19 +318,19 @@ function showDashboard(ctx, showStamps) {
             message.append(Text.green(`[ ${netheriteRate} R$D ] `).append(Text.white(`= 1 Netherite Coin\n`)));
         }
     }
-    // ------------------------------------------
 
-    // Fire exactly once
     player.tell(message);
-
     return 1;
 }
 
 function handleEquip(ctx, type, amt) {
     const player = ctx.source.player;
     const server = ctx.source.server;
+    if (!player) return 0;
 
-    // FIX: Use Number() so the Java Integer evaluates properly against JS 0
+    // Cache names anytime an asset is interacted with
+    cachePlayerName(server, player.uuid, player.username);
+
     if (Number(amt) === 0) {
         player.tell(Text.red('You cannot deposit or withdraw 0 items!'));
         return 0;
@@ -295,6 +338,13 @@ function handleEquip(ctx, type, amt) {
 
     const isAdding = amt > 0;
     const absAmt = Math.abs(amt);
+
+    // UPGRADED: Expecting current_king variable to hold a clean string UUID
+    let currentKingUUID = server.persistentData.current_king;
+    if (isAdding && (!currentKingUUID || String(currentKingUUID).trim() === '')) {
+        player.tell(Text.red('There is currently no active King! Deposits into the Treasury are suspended.'));
+        return 0;
+    }
 
     const vaultConfig = TREASURY_CONFIG.vault[type];
     if (!vaultConfig) return 0;
@@ -309,7 +359,8 @@ function handleEquip(ctx, type, amt) {
     let currentAmt = safeNum(server.persistentData['tres_' + type], 0);
     let max = getCapacity(type, currentLevel);
 
-    if (!isAdding && player.username != server.persistentData.current_king) {
+    // UPGRADED: Strictly verifies withdrawal rights via King UUID comparison
+    if (!isAdding && String(player.uuid) !== String(currentKingUUID)) {
         player.tell(Text.red('Only the King can remove assets from the Treasury!'));
         return 0;
     }
@@ -331,7 +382,6 @@ function handleEquip(ctx, type, amt) {
         }
         server.runCommandSilent(`clear "${player.username}" ${itemId} ${absAmt}`);
     } else {
-        // FIX: Issue items in batches of 64 so massive withdrawals don't get truncated
         let remaining = absAmt;
         while (remaining > 0) {
             let chunk = Math.min(remaining, 64);
@@ -347,13 +397,15 @@ function handleEquip(ctx, type, amt) {
         try { ledger = JSON.parse(server.persistentData.getString('tres_ledger')); } catch(e) {}
     }
 
-    if (!ledger[player.username]) ledger[player.username] = {};
-    if (!ledger[player.username][type]) ledger[player.username][type] = 0;
+    // UPGRADED: Store individual debts inside the JSON ledger indexed by player UUID
+    let pUUID = String(player.uuid);
+    if (!ledger[pUUID]) ledger[pUUID] = {};
+    if (!ledger[pUUID][type]) ledger[pUUID][type] = 0;
 
     if (isAdding) {
-        ledger[player.username][type] -= absAmt;
+        ledger[pUUID][type] -= absAmt;
     } else {
-        ledger[player.username][type] += absAmt;
+        ledger[pUUID][type] += absAmt;
     }
 
     server.persistentData.putString('tres_ledger', JSON.stringify(ledger));
@@ -363,7 +415,6 @@ function handleEquip(ctx, type, amt) {
 
     player.tell(Text.green(`Successfully ${isAdding ? 'deposited' : 'withdrawn'} ${absAmt} ${type}. Vault Balance: ${currentAmt + amt}/${max}`));
 
-    // FIRE CORRECTED LEVEL UP LOGIC
     if (isAdding && type !== 'encoders' && type !== 'decoders') {
         attemptLevelUp(server, player);
     }
@@ -371,22 +422,35 @@ function handleEquip(ctx, type, amt) {
     return 1;
 }
 
-function handleResolve(ctx, target) {
+function handleResolve(ctx, targetName) {
     const player = ctx.source.player;
     const server = ctx.source.server;
 
-    if (!target) {
+    if (!targetName) {
         player.tell(' ');
         player.tell(Text.gold('--- Ledger Resolution System ---'));
         player.tell(Text.white('Use this command to fix ledger discrepancies after trading with another player.'));
-        player.tell(Text.yellow('Usage: ').append(Text.white('/tres stamp resolve <player>')));
+        player.tell(Text.yellow('Usage: ').append(Text.white('/tres stamp resolve <player_name>')));
         return 1;
     }
 
-    if (player.username === target.username) {
+    targetName = String(targetName).trim();
+    cachePlayerName(server, player.uuid, player.username);
+
+    // UPGRADED: Calling the function residing inside uuid_resolver.js to translate text args
+    let targetUUID = parseUsernameToUUID(server, targetName);
+    if (!targetUUID) {
+        player.tell(Text.red(`Could not resolve a unique UUID for "${targetName}". Ensure the name is spelled correctly and they have joined before.`));
+        return 0;
+    }
+
+    if (String(player.uuid) === targetUUID) {
         player.tell(Text.red('You cannot resolve your ledger with yourself.'));
         return 0;
     }
+
+    // Capture newest text mapping for the target UUID
+    cachePlayerName(server, targetUUID, targetName);
 
     if (!server.persistentData.contains('tres_ledger')) {
         player.tell(Text.red('No assets are currently tracked in the ledger.'));
@@ -397,8 +461,10 @@ function handleResolve(ctx, target) {
     try { ledger = JSON.parse(server.persistentData.getString('tres_ledger')); }
     catch(e) { player.tell(Text.red('[!] Ledger data corrupted.')); return 0; }
 
-    let pData = ledger[player.username] || {};
-    let tData = ledger[target.username] || {};
+    // UPGRADED: Pull sub-records out via strict UUID indexing
+    let pUUID = String(player.uuid);
+    let pData = ledger[pUUID] || {};
+    let tData = ledger[targetUUID] || {};
 
     let msgParts = [];
     let keys = ['encoders', 'decoders', 'iron', 'diamond', 'netherite'];
@@ -416,20 +482,25 @@ function handleResolve(ctx, target) {
     }
 
     if (msgParts.length === 0) {
-        player.tell(Text.red(`You cannot resolve a deficit unless you have contributed excess assets to the Kingdom, and ${target.username} has a negative balance.`));
+        player.tell(Text.red(`You cannot resolve a deficit unless you have contributed excess assets to the Kingdom, and ${targetName} has an active negative balance.`));
         return 0;
     }
 
-    ledger[player.username] = pData;
-    ledger[target.username] = tData;
+    ledger[pUUID] = pData;
+    ledger[targetUUID] = tData;
 
     server.persistentData.putString('tres_ledger', JSON.stringify(ledger));
 
     let msgStr = msgParts.join(' and ');
-    player.tell(Text.green(`Successfully resolved ${msgStr} with ${target.username}.`));
-    target.tell(Text.green(`${player.username} has resolved ${msgStr} between your ledgers.`));
+    player.tell(Text.green(`Successfully resolved ${msgStr} with ${targetName}.`));
 
-    logAudit(server, 'vault', `${player.username} & ${target.username} resolved ${msgStr}`);
+    // Safely alerts target only if they are currently logged in
+    let onlineTarget = server.players.find(p => String(p.uuid) === targetUUID);
+    if (onlineTarget) {
+        onlineTarget.tell(Text.green(`${player.username} has resolved ${msgStr} between your ledgers.`));
+    }
+
+    logAudit(server, 'vault', `${player.username} & ${targetName} resolved ${msgStr}`);
     return 1;
 }
 
@@ -450,15 +521,17 @@ function showVaultLedger(ctx) {
     catch(e) { player.tell(Text.red('Ledger data corrupted.')); return 0; }
 
     let anythingTracked = false;
-    for (let user in ledger) {
+
+    // UPGRADED: Loops through structural UUID keys, but builds strings using cached usernames
+    for (let userUUID in ledger) {
         let hasAssets = false;
         let pStr = [];
         let kStr = [];
 
-        for (let key in ledger[user]) {
+        for (let key in ledger[userUUID]) {
             if (!TREASURY_CONFIG.vault[key]) continue;
 
-            let val = ledger[user][key];
+            let val = ledger[userUUID][key];
             if (val !== 0) {
                 hasAssets = true;
                 let label = TREASURY_CONFIG.vault[key].label;
@@ -469,8 +542,15 @@ function showVaultLedger(ctx) {
 
         if (hasAssets) {
             anythingTracked = true;
-            if (pStr.length > 0) player.tell(Text.yellow(`- ${user} owes the vault: `).append(Text.white(pStr.join(', '))));
-            if (kStr.length > 0) player.tell(Text.green(`- Vault holds for ${user}: `).append(Text.white(kStr.join(', '))));
+            let readableName = getCachedName(server, userUUID, `Player (${userUUID.substring(0, 6)})`);
+
+            if (pStr.length > 0) {
+                player.tell(Text.yellow(`- ${readableName} owes the vault: `).append(Text.white(pStr.join(', '))));
+            }
+            if (kStr.length > 0) {
+                let identity = (userUUID === String(player.uuid)) ? 'you' : readableName;
+                player.tell(Text.green(`- Vault holds for ${identity}: `).append(Text.white(kStr.join(', '))));
+            }
         }
     }
 
@@ -512,25 +592,32 @@ function handleAdminReset(ctx, password) {
         return 0;
     }
 
-    server.persistentData.tres_level = 1;
-    server.persistentData.tres_honor = 0;
+    // Attempt to dynamically fetch and remove absolutely every key in persistent data
+    let allKeys = [];
+    try {
+        allKeys = server.persistentData.getAllKeys();
+    } catch(e) {
+        // Fallback for differing KubeJS NBT versions
+        try { allKeys = server.persistentData.nbt.getAllKeys(); } catch(err) {}
+    }
 
-    server.persistentData.tres_maxEncoders = TREASURY_CONFIG.vault.encoders.defaultMax;
-    server.persistentData.tres_encoders = TREASURY_CONFIG.vault.encoders.defaultMax;
+    if (allKeys && allKeys.length > 0) {
+        allKeys.forEach(k => server.persistentData.remove(k));
+    } else {
+        // Failsafe: Hardcoded wipe if dynamic key fetch is unsupported by your modloader version
+        let knownKeys = [
+            'tres_level', 'tres_maxEncoders', 'tres_encoders', 'tres_maxDecoders', 'tres_decoders',
+            'tres_iron', 'tres_diamond', 'tres_netherite', 'tres_initialized', 'tres_audit_v2_vault',
+            'tres_ledger', 'tres_name_cache', 'tres_target_resource', 'tres_target_amount',
+            'honor_balances', 'current_king'
+        ];
+        knownKeys.forEach(k => server.persistentData.remove(k));
+    }
 
-    server.persistentData.tres_maxDecoders = TREASURY_CONFIG.vault.decoders.defaultMax;
-    server.persistentData.tres_decoders = TREASURY_CONFIG.vault.decoders.defaultMax;
+    server.runCommandSilent(`tellraw @a {"text":"[!] The Server's Persistent Data has been completely wiped by an Admin. Reloading server...","color":"dark_red","bold":true}`);
 
-    server.persistentData.tres_iron = 0;
-    server.persistentData.tres_diamond = 0;
-    server.persistentData.tres_netherite = 0;
+    // Trigger KubeJS/Server reload
+    server.runCommandSilent('reload');
 
-    server.persistentData.remove('tres_audit_v2_vault');
-    server.persistentData.remove('tres_ledger');
-
-    assignNextGoal(server, 1);
-    server.persistentData.tres_initialized = true;
-
-    server.runCommandSilent(`tellraw @a {"text":"[!] The Treasury has been reset by an Admin.","color":"red","bold":true}`);
     return 1;
 }

@@ -59,6 +59,8 @@
 	offset_v_light_hud = 0
 
 [Animations]
+	#Enable rotation of camera by Roll
+	enable_camera_rotation_roll = false
 	#Enable custom animations
 	enable_animation = true
 	#Enable custom animation of falling
@@ -71,8 +73,6 @@
 	enable_camera_rotation_dodge = false
 	#Enable rotation of camera by Backward Wall-Jump
 	enable_camera_rotation_back_wall_jump = true
-	#Enable rotation of camera by Roll
-	enable_camera_rotation_roll = true
 	#Enable rotation of camera by Flipping
 	enable_camera_rotation_flipping = false
 	#Enable animation of camera by Vault
