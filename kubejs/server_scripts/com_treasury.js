@@ -22,9 +22,9 @@ function safeNum(val, fallback) {
 }
 
 function getCapacity(type, level) {
-    if (type === 'iron') return Math.min(level * TREASURY_CONFIG.vault.iron.base, 2000);
-    if (type === 'diamond') return level >= 5 ? Math.min((level - 4) * TREASURY_CONFIG.vault.diamond.base, 2000) : 0;
-    if (type === 'netherite') return level >= 10 ? Math.min((level - 9) * TREASURY_CONFIG.vault.netherite.base, 2000) : 0;
+    if (type === 'iron') return level * TREASURY_CONFIG.vault.iron.base;
+    if (type === 'diamond') return level >= 5 ? (level - 4) * TREASURY_CONFIG.vault.diamond.base : 0;
+    if (type === 'netherite') return level >= 10 ? (level - 9) * TREASURY_CONFIG.vault.netherite.base : 0;
     if (type === 'encoders') return TREASURY_CONFIG.vault.encoders.defaultMax + ((level - 1) * TREASURY_CONFIG.vault.encoders.growthPerLevel);
     if (type === 'decoders') return TREASURY_CONFIG.vault.decoders.defaultMax + ((level - 1) * TREASURY_CONFIG.vault.decoders.growthPerLevel);
     return 0;
@@ -40,36 +40,33 @@ function assignNextGoal(server, level) {
     server.persistentData.tres_target_amount = getCapacity(choice, level);
 }
 
-function checkLevelUp(server) {
-    let level = safeNum(server.persistentData.tres_level, 1);
-    let rawTarget = String(server.persistentData.tres_target_resource || 'iron');
-    let targetType = TREASURY_CONFIG.vault[rawTarget] ? rawTarget : 'iron';
+// Runs AFTER the newly inserted coins have been added to the total persistent balance
+function attemptLevelUp(server, player) {
+    let currentLevel = safeNum(server.persistentData.tres_level, 1);
+    let targetType = String(server.persistentData.tres_target_resource || 'iron').replace(/['"]/g, '');
     let targetAmt = safeNum(server.persistentData.tres_target_amount, 500);
-    let currentAmt = safeNum(server.persistentData['tres_' + targetType], 0);
 
+    let vaultKey = 'tres_' + targetType;
+    let currentAmt = safeNum(server.persistentData[vaultKey], 0);
+
+    // STRICT CHECK: Ensure the targeted goal has been met
     if (currentAmt >= targetAmt) {
-        level++;
-        server.persistentData.tres_level = level;
-        server.persistentData.tres_honor = safeNum(server.persistentData.tres_honor, 0) + 5;
 
-        // Level up stamps
-        let encGrowth = TREASURY_CONFIG.vault.encoders.growthPerLevel;
-        server.persistentData.tres_maxEncoders = safeNum(server.persistentData.tres_maxEncoders, TREASURY_CONFIG.vault.encoders.defaultMax) + encGrowth;
-        server.persistentData.tres_encoders = safeNum(server.persistentData.tres_encoders, TREASURY_CONFIG.vault.encoders.defaultMax) + encGrowth;
+        // Deduct the target amount to "spend" it on the level up
+        server.persistentData[vaultKey] = currentAmt - targetAmt;
 
-        let decGrowth = TREASURY_CONFIG.vault.decoders.growthPerLevel;
-        server.persistentData.tres_maxDecoders = safeNum(server.persistentData.tres_maxDecoders, TREASURY_CONFIG.vault.decoders.defaultMax) + decGrowth;
-        server.persistentData.tres_decoders = safeNum(server.persistentData.tres_decoders, TREASURY_CONFIG.vault.decoders.defaultMax) + decGrowth;
+        // Increase Level
+        server.persistentData.tres_level = currentLevel + 1;
 
-        assignNextGoal(server, level);
+        // Assign new goal for the next level
+        assignNextGoal(server, currentLevel + 1);
 
-        let newTarget = String(server.persistentData.tres_target_resource).replace(/['"]/g, '');
-        let validTarget = TREASURY_CONFIG.vault[newTarget] ? newTarget : 'iron';
-        let newReq = server.persistentData.tres_target_amount;
-        let label = TREASURY_CONFIG.vault[validTarget].label;
-
-        server.runCommandSilent(`tellraw @a {"text":"[!] The Treasury reached its Hoard Goal and leveled up to ${level}! (+5 Honor, +${encGrowth} Encoders/Decoders). New Goal: Fill vault with ${newReq} ${label}.","color":"gold","bold":true}`);
+        player.tell(Text.green(`Treasury leveled up to Level ${currentLevel + 1}!`));
+        server.runCommandSilent(`tellraw @a {"text":"[!] The Kingdom's Treasury has expanded to Level ${currentLevel + 1}!","color":"gold","bold":true}`);
+        return true;
     }
+
+    return false;
 }
 
 function logAudit(server, category, msg) {
@@ -200,7 +197,6 @@ function showDashboard(ctx, showStamps) {
     let rawTarget = String(server.persistentData.tres_target_resource || 'iron').replace(/['"]/g, '');
     let targetType = TREASURY_CONFIG.vault[rawTarget] ? rawTarget : 'iron';
     let targetAmt = safeNum(server.persistentData.tres_target_amount, 500);
-    let targetLabel = TREASURY_CONFIG.vault[targetType].label;
 
     let curIron = safeNum(server.persistentData.tres_iron, 0);
     let curDiamond = safeNum(server.persistentData.tres_diamond, 0);
@@ -210,7 +206,7 @@ function showDashboard(ctx, showStamps) {
     let maxDiamond = getCapacity('diamond', lvl);
     let maxNetherite = getCapacity('netherite', lvl);
 
-    const makeBar = (letter, letterColor, cur, max, isTarget) => {
+    const makeBar = (letter, letterColor, cur, max, isTarget, tAmt) => {
         if (max === 0) {
             return Text.white(' ').append(Text.of(`[${letter}]`).color(letterColor).bold()).append(Text.gray(' [Locked]'));
         }
@@ -222,7 +218,7 @@ function showDashboard(ctx, showStamps) {
         let eBar = '|'.repeat(Math.max(0, empty));
         let barColor = isTarget ? 'gold' : 'green';
 
-        return Text.white(' ')
+        let line = Text.white(' ')
         .append(Text.of(`[${letter}]`).color(letterColor).bold())
         .append(Text.white(' ['))
         .append(Text.of(fBar).color(barColor).bold())
@@ -230,18 +226,23 @@ function showDashboard(ctx, showStamps) {
         .append(Text.white('] '))
         .append(Text.aqua(`${Math.floor(percentage * 100)}% `))
         .append(Text.gray(`(${cur}/${max})`));
+
+        // Append the goal inline if this is the target resource
+        if (isTarget) {
+            line.append(Text.yellow(` (Goal: ${tAmt} Coins)`));
+        }
+
+        return line;
     };
 
     // Chain everything into a single message component separated by newlines
     let message = Text.of(' \n \n')
-    .append(Text.gold('=== ').append(Text.white(`Treasury Status [Level ${lvl}]`).bold()).append(Text.gold(' ===\n')))
+    .append(Text.gold('=== ').append(Text.white(`Treasury [Level ${lvl}]`).bold()).append(Text.gold(' ===\n')))
     .append(Text.of(' \n'))
-    .append(Text.white(`Goal: Fill the vault with `).append(Text.yellow(`${targetAmt} ${targetLabel}`)).append(Text.white(` to reach Level ${lvl + 1}.\n`)))
-    .append(Text.of(' \n'))
-    .append(Text.gold('--- Vault Capacity Meters ---\n'))
-    .append(makeBar('I', 'gray', curIron, maxIron, targetType === 'iron')).append('\n')
-    .append(makeBar('D', 'aqua', curDiamond, maxDiamond, targetType === 'diamond')).append('\n')
-    .append(makeBar('N', 'dark_purple', curNetherite, maxNetherite, targetType === 'netherite'));
+    .append(Text.gold('--- Vault Capacity ---\n'))
+    .append(makeBar('I', 'gray', curIron, maxIron, targetType === 'iron', targetAmt)).append('\n')
+    .append(makeBar('D', 'aqua', curDiamond, maxDiamond, targetType === 'diamond', targetAmt)).append('\n')
+    .append(makeBar('N', 'dark_purple', curNetherite, maxNetherite, targetType === 'netherite', targetAmt));
 
     if (showStamps) {
         let curEnc = safeNum(server.persistentData.tres_encoders, 0);
@@ -249,11 +250,32 @@ function showDashboard(ctx, showStamps) {
         let maxEnc = getCapacity('encoders', lvl);
         let maxDec = getCapacity('decoders', lvl);
 
-        message.append('\n \n')
-        .append(Text.gold('--- Stamps ---\n'))
+        message.append('')
+        .append(Text.gold('\n--- Stamps ---\n'))
         .append(Text.yellow('• Encoders: ').append(Text.white(`${curEnc}/${maxEnc}\n`)))
         .append(Text.yellow('• Decoders: ').append(Text.white(`${curDec}/${maxDec}`)));
     }
+
+    // --- NEW: Dynamic Exchange Rate Display ---
+    let ironRate = server.persistentData.contains('tres_rate_iron') ? server.persistentData.getDouble('tres_rate_iron') : 0;
+    let diamondRate = server.persistentData.contains('tres_rate_diamond') ? server.persistentData.getDouble('tres_rate_diamond') : 0;
+    let netheriteRate = server.persistentData.contains('tres_rate_netherite') ? server.persistentData.getDouble('tres_rate_netherite') : 0;
+
+    // Only append the UI block if at least one material is pegged/trading
+    if (ironRate > 0 || diamondRate > 0 || netheriteRate > 0) {
+        message.append(Text.gold('\n--- Active Exchange Rates ---\n'));
+
+        if (ironRate > 0) {
+            message.append(Text.green(`[ ${ironRate} R$D ] `).append(Text.white(`= 1 Iron Coin\n`)));
+        }
+        if (diamondRate > 0) {
+            message.append(Text.green(`[ ${diamondRate} R$D ] `).append(Text.white(`= 1 Diamond Coin\n`)));
+        }
+        if (netheriteRate > 0) {
+            message.append(Text.green(`[ ${netheriteRate} R$D ] `).append(Text.white(`= 1 Netherite Coin\n`)));
+        }
+    }
+    // ------------------------------------------
 
     // Fire exactly once
     player.tell(message);
@@ -261,40 +283,91 @@ function showDashboard(ctx, showStamps) {
     return 1;
 }
 
-function handleAdminReset(ctx, password) {
-    const server = ctx.source.server;
+function handleEquip(ctx, type, amt) {
     const player = ctx.source.player;
+    const server = ctx.source.server;
 
-    if (player && !player.hasPermissions('4')) {
-        player.tell(Text.red('[!] Access Denied. Your Rank does not have the power to reset the Treasury.'));
+    // FIX: Use Number() so the Java Integer evaluates properly against JS 0
+    if (Number(amt) === 0) {
+        player.tell(Text.red('You cannot deposit or withdraw 0 items!'));
         return 0;
     }
 
-    if (password !== 'CONFIRM') {
-        if (player) player.tell(Text.red('Reset aborted. You must add "CONFIRM" in all caps to execute an admin reset.'));
+    const isAdding = amt > 0;
+    const absAmt = Math.abs(amt);
+
+    const vaultConfig = TREASURY_CONFIG.vault[type];
+    if (!vaultConfig) return 0;
+    const itemId = vaultConfig.id;
+
+    let currentLevel = safeNum(server.persistentData.tres_level, 1);
+    if (vaultConfig.unlock && currentLevel < vaultConfig.unlock) {
+        player.tell(Text.red(`The Treasury cannot accept ${vaultConfig.label} until Level ${vaultConfig.unlock}.`));
         return 0;
     }
 
-    server.persistentData.tres_level = 1;
-    server.persistentData.tres_honor = 0;
+    let currentAmt = safeNum(server.persistentData['tres_' + type], 0);
+    let max = getCapacity(type, currentLevel);
 
-    server.persistentData.tres_maxEncoders = TREASURY_CONFIG.vault.encoders.defaultMax;
-    server.persistentData.tres_encoders = TREASURY_CONFIG.vault.encoders.defaultMax;
+    if (!isAdding && player.username != server.persistentData.current_king) {
+        player.tell(Text.red('Only the King can remove assets from the Treasury!'));
+        return 0;
+    }
 
-    server.persistentData.tres_maxDecoders = TREASURY_CONFIG.vault.decoders.defaultMax;
-    server.persistentData.tres_decoders = TREASURY_CONFIG.vault.decoders.defaultMax;
+    if (isAdding && currentAmt + absAmt > max) {
+        player.tell(Text.red(`The Treasury is full! Vault capacity for ${vaultConfig.label} is ${currentAmt}/${max}. Level up to expand.`));
+        return 0;
+    }
+    if (!isAdding && currentAmt - absAmt < 0) {
+        player.tell(Text.red(`The Treasury doesn't have enough! Only ${currentAmt} available.`));
+        return 0;
+    }
 
-    server.persistentData.tres_iron = 0;
-    server.persistentData.tres_diamond = 0;
-    server.persistentData.tres_netherite = 0;
+    if (isAdding) {
+        let invCount = player.inventory.count(itemId);
+        if (invCount < absAmt) {
+            player.tell(Text.red(`You don't have enough in your inventory! You have ${invCount}, but need ${absAmt}.`));
+            return 0;
+        }
+        server.runCommandSilent(`clear "${player.username}" ${itemId} ${absAmt}`);
+    } else {
+        // FIX: Issue items in batches of 64 so massive withdrawals don't get truncated
+        let remaining = absAmt;
+        while (remaining > 0) {
+            let chunk = Math.min(remaining, 64);
+            player.give(Item.of(itemId, chunk));
+            remaining -= chunk;
+        }
+    }
 
-    server.persistentData.remove('tres_audit_v2_vault');
-    server.persistentData.remove('tres_ledger');
+    server.persistentData['tres_' + type] = currentAmt + amt;
 
-    assignNextGoal(server, 1);
-    server.persistentData.tres_initialized = true;
+    let ledger = {};
+    if (server.persistentData.contains('tres_ledger')) {
+        try { ledger = JSON.parse(server.persistentData.getString('tres_ledger')); } catch(e) {}
+    }
 
-    server.runCommandSilent(`tellraw @a {"text":"[!] The Treasury has been reset by an Admin.","color":"red","bold":true}`);
+    if (!ledger[player.username]) ledger[player.username] = {};
+    if (!ledger[player.username][type]) ledger[player.username][type] = 0;
+
+    if (isAdding) {
+        ledger[player.username][type] -= absAmt;
+    } else {
+        ledger[player.username][type] += absAmt;
+    }
+
+    server.persistentData.putString('tres_ledger', JSON.stringify(ledger));
+
+    const actionStr = isAdding ? 'dep' : 'with';
+    logAudit(server, 'vault', `${player.username} ${actionStr} ${absAmt} ${type}`);
+
+    player.tell(Text.green(`Successfully ${isAdding ? 'deposited' : 'withdrawn'} ${absAmt} ${type}. Vault Balance: ${currentAmt + amt}/${max}`));
+
+    // FIRE CORRECTED LEVEL UP LOGIC
+    if (isAdding && type !== 'encoders' && type !== 'decoders') {
+        attemptLevelUp(server, player);
+    }
+
     return 1;
 }
 
@@ -427,5 +500,37 @@ function showAudit(ctx, category) {
     } else {
         arr.forEach(log => player.tell(Text.yellow(log)));
     }
+    return 1;
+}
+
+function handleAdminReset(ctx, password) {
+    const server = ctx.source.server;
+    const player = ctx.source.player;
+
+    if (password !== 'CONFIRM') {
+        if (player) player.tell(Text.red('Reset aborted. You must add "CONFIRM" in all caps to execute an admin reset.'));
+        return 0;
+    }
+
+    server.persistentData.tres_level = 1;
+    server.persistentData.tres_honor = 0;
+
+    server.persistentData.tres_maxEncoders = TREASURY_CONFIG.vault.encoders.defaultMax;
+    server.persistentData.tres_encoders = TREASURY_CONFIG.vault.encoders.defaultMax;
+
+    server.persistentData.tres_maxDecoders = TREASURY_CONFIG.vault.decoders.defaultMax;
+    server.persistentData.tres_decoders = TREASURY_CONFIG.vault.decoders.defaultMax;
+
+    server.persistentData.tres_iron = 0;
+    server.persistentData.tres_diamond = 0;
+    server.persistentData.tres_netherite = 0;
+
+    server.persistentData.remove('tres_audit_v2_vault');
+    server.persistentData.remove('tres_ledger');
+
+    assignNextGoal(server, 1);
+    server.persistentData.tres_initialized = true;
+
+    server.runCommandSilent(`tellraw @a {"text":"[!] The Treasury has been reset by an Admin.","color":"red","bold":true}`);
     return 1;
 }

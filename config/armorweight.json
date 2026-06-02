@@ -241,6 +241,14 @@
       "useCustomWeight": true,
       "customWeight": 0.0
     },
+    "utopia:handcuffs": {
+      "useCustomWeight": false,
+      "customWeight": 2.5
+    },
+    "utopia:leg_restraints": {
+      "useCustomWeight": false,
+      "customWeight": 2.5
+    },
     "utopia:shattering_crown": {
       "useCustomWeight": true,
       "customWeight": 0.0

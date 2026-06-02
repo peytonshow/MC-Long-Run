@@ -610,7 +610,7 @@
 		"Display Baked Enchantments In Tooltip" = true
 		"Italic Tooltip" = true
 		#Enchantments other than Gold's Fortune/Looting to bake into items. Format is "item+enchant@level", such as "minecraft:stick+minecraft:sharpness@10".
-		"Item Enchantments" = ["spearsmod:golden_spear+minecraft:looting@2", "spearsmod:stone_spear+minecraft:unbreaking@2", "minecraft:stone_sword+minecraft:unbreaking@2", "minecraft:stone_pickaxe+minecraft:unbreaking@2", "minecraft:stone_axe+minecraft:unbreaking@2", "minecraft:stone_shovel+minecraft:unbreaking@2", "minecraft:stone_hoe+minecraft:unbreaking@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3"]
+		"Item Enchantments" = ["spearsmod:golden_spear+minecraft:looting@2", "spearsmod:stone_spear+minecraft:unbreaking@2", "minecraft:stone_sword+minecraft:unbreaking@2", "minecraft:stone_pickaxe+minecraft:unbreaking@2", "minecraft:stone_axe+minecraft:unbreaking@2", "minecraft:stone_shovel+minecraft:unbreaking@2", "minecraft:stone_hoe+minecraft:unbreaking@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3", "spearsmod:iron_spear+minecraft:loyalty@1", "spearsmod:golden_spear+minecraft:loyalty@1", "spearsmod:diamond_spear+minecraft:loyalty@1", "spearsmod:netherite_spear+minecraft:loyalty@1", "minecraft:trident+minecraft:loyalty@1"]
 
 	[tweaks.grab_chickens]
 		"Needs No Helmet" = true
@@ -622,9 +622,9 @@
 
 	[tweaks.hoe_harvesting]
 		#Allowed values: [1,5]
-		"Regular Hoe Radius" = 2
+		"Regular Hoe Radius" = 1
 		#Allowed values: [1,5]
-		"High Tier Hoe Radius" = 3
+		"High Tier Hoe Radius" = 1
 
 	[tweaks.improved_sponges]
 		#The maximum number of water tiles that a sponge can soak up. Vanilla default is 64.

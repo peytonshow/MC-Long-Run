@@ -1,13 +1,12 @@
 ServerEvents.recipes(event => {
-    event.recipes.create.deploying('8x utopia:bills_netherite', ['minecraft:netherite_ingot', 'utopia:encoder_stamp'])
+    event.recipes.create.deploying('8x utopia:coin_netherite', ['minecraft:netherite_ingot', 'utopia:encoder_stamp'])
     event.shaped(Item.of('minecraft:netherite_ingot', 1),[
         'BBB',
         'BAB',
         'BBB'
-    ],{A: 'utopia:decoder_stamp',B: 'utopia:bills_netherite'})
-    event.shapeless(Item.of('utopia:bills_netherite_slip', 2),['utopia:bills_netherite'])
-    event.shapeless(Item.of('utopia:bills_netherite', 1),['utopia:bills_netherite_slip','utopia:bills_netherite_slip'])
-    event.shapeless(Item.of('utopia:coin_diamond', 5),['utopia:bills_netherite'])
+    ],{A: 'utopia:decoder_stamp',B: 'utopia:coin_netherite'})
+    event.shapeless(Item.of('utopia:coin_netherite_fractional', 2),['utopia:coin_netherite'])
+    event.shapeless(Item.of('utopia:coin_netherite', 1),['utopia:coin_netherite_fractional','utopia:coin_netherite_fractional'])
 
 
     event.recipes.create.deploying('8x utopia:coin_diamond', ['minecraft:diamond', 'utopia:encoder_stamp'])
@@ -18,7 +17,7 @@ ServerEvents.recipes(event => {
             A: 'utopia:decoder_stamp',B: 'utopia:coin_diamond'})
     event.shapeless(Item.of('utopia:coin_diamond_fractional', 2),['utopia:coin_diamond'])
     event.shapeless(Item.of('utopia:coin_diamond', 1),['utopia:coin_diamond_fractional','utopia:coin_diamond_fractional'])
-    event.shapeless(Item.of('utopia:coin_iron', 5),['utopia:coin_diamond'])
+
 
 
     event.recipes.create.deploying('8x utopia:coin_iron', ['minecraft:iron_ingot', 'utopia:encoder_stamp'])
