@@ -43,15 +43,17 @@ TRADING
 
 MATERIAL PROGRESSION CHANGES
 * Each material has been tweaked to varying degrees to complement progression.
-    * Wood -> Abysmal durability, very abundant.
-    * Leather -> More efficient and versatile recipes. 
-    * Stone -> Same durability as wood, but all stone tools benefit from unbreaking II, how long they last is somewhat random.
+    * Wood Armor -> Abysmal durability, very abundant.
+    * Leather Armor -> More efficient and versatile recipes. 
+    * Stone Tools -> Same durability as wood, but all stone tools benefit from unbreaking II, how long they last is somewhat random.
     * Chainmail -> Craftable using leather & chains. Less durable, but equal protection to iron.
     * Iron -> Armor provides 1 toughness, worse enchantability. Iron equipment can be recycled with minor losses. Found deeper underground.
-    * Gold -> High enchantability, equal protection to diamond. Slightly worse durability than iron. Insane enchantability.
+    * Gold -> Equal protection to diamond. Slightly better durability than iron. Insane enchantability.
     * Diamond -> Mostly the same, not as enchantable. Sub-optimal enchantability.
     * Netherite -> Provides more protection on armor. Abysmal enchantability. Easier to gain scrap.
-    
+* New Materials
+    * Electrum -> Doesn't suffer from weight-related speed penalties and increases movement speed. Tools do higher damage at higher speeds.
+    * Knight Armor -> Perfected Iron. Insane durability, and boosts the strength of nearby pets.
         
 -----------------------------------------------------------------------------------------------------------------
 
