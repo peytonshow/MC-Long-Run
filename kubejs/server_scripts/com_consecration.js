@@ -1,22 +1,4 @@
 // ============================================================================
-//                          HELPER FUNCTIONS
-// ============================================================================
-function getConsecrated(server) {
-    if (server.persistentData.contains('tres_consecrated')) {
-        try {
-            return JSON.parse(server.persistentData.getString('tres_consecrated'));
-        } catch (e) {
-            return {};
-        }
-    }
-    return {};
-}
-
-function saveConsecrated(server, data) {
-    server.persistentData.putString('tres_consecrated', JSON.stringify(data));
-}
-
-// ============================================================================
 //                          COMMAND REGISTRY
 // ============================================================================
 ServerEvents.commandRegistry(event => {
@@ -117,7 +99,8 @@ function handleAdd(ctx, rawName) {
     let y = globalPos.pos().getY();
     let z = globalPos.pos().getZ();
 
-    let sites = getConsecrated(server);
+    // UPDATED: Using global JSON handler
+    let sites = readJSON(server, 'tres_consecrated', {});
     let keys = Object.keys(sites);
 
     if (keys.length >= 50 && !sites[name]) {
@@ -126,7 +109,9 @@ function handleAdd(ctx, rawName) {
     }
 
     sites[name] = { dim: dim, x: x, y: y, z: z };
-    saveConsecrated(server, sites);
+
+    // UPDATED: Using global JSON handler
+    writeJSON(server, 'tres_consecrated', sites);
 
     player.tell(Text.green(`Successfully consecrated '`).append(Text.gold(name)).append(Text.green(`'. Players can now find it.`)));
     return 1;
@@ -143,14 +128,17 @@ function handleRemove(ctx, name) {
         return 0;
     }
 
-    let sites = getConsecrated(server);
+    // UPDATED: Using global JSON handler
+    let sites = readJSON(server, 'tres_consecrated', {});
     if (!sites[name]) {
         player.tell(Text.red(`No consecrated site found with the name '${name}'.`));
         return 0;
     }
 
     delete sites[name];
-    saveConsecrated(server, sites);
+
+    // UPDATED: Using global JSON handler
+    writeJSON(server, 'tres_consecrated', sites);
 
     player.tell(Text.green(`Revoked consecration for '${name}'.`));
     return 1;
@@ -161,33 +149,18 @@ function handleList(ctx, page) {
     let server = ctx.source.server;
     if (!player) return 0;
 
-    let sites = getConsecrated(server);
+    let sites = readJSON(server, 'tres_consecrated', {});
     let keys = Object.keys(sites);
 
-    if (keys.length === 0) {
-        player.tell(Text.gray('There are currently no consecrated buildings.'));
-        return 1;
-    }
-
-    let maxPerPage = 10;
-    let maxPages = Math.ceil(keys.length / maxPerPage);
-    let p = Math.max(1, Math.min(page, maxPages));
-
-    player.tell(Text.gold(`\n=== Consecrated Sites (Page ${p}/${maxPages}) ===`));
-
-    let start = (p - 1) * maxPerPage;
-    let end = Math.min(start + maxPerPage, keys.length);
-
-    for (let i = start; i < end; i++) {
-        let key = keys[i];
+    // Map raw data into standardized KubeJS text components
+    let textItems = keys.map(key => {
         let data = sites[key];
         let dimName = data.dim.replace('minecraft:', '');
-        player.tell(Text.yellow(`- ${key}`).append(Text.gray(` [${dimName} | X: ${data.x}, Z: ${data.z}]`)));
-    }
+        return Text.yellow(`- ${key}`).append(Text.gray(` [${dimName} | X: ${data.x}, Z: ${data.z}]`));
+    });
 
-    if (p < maxPages) {
-        player.tell(Text.gray(`Use /consecrate list ${p + 1} to see the next page.`));
-    }
+    // Fire it to the global pagination engine
+    displayPaginatedMenu(player, "Consecrated Sites", textItems, page, 10, "/consecrate list %s");
 
     return 1;
 }
@@ -200,7 +173,8 @@ function handleFind(ctx, rawName) {
     // Force the Java String into a native JavaScript string for safe lookups
     let name = String(rawName).trim();
 
-    let sites = getConsecrated(server);
+    // UPDATED: Using global JSON handler
+    let sites = readJSON(server, 'tres_consecrated', {});
     if (!sites[name]) {
         player.tell(Text.red(`No consecrated site found with the name '${name}'. Type /consecrate list to see the available options.`));
         return 0;
@@ -223,8 +197,7 @@ function handleFind(ctx, rawName) {
         tracked: true
     });
 
-    // 1.20.5+ FIX: Inject the lore component instead of custom_name
-    // Lore expects an array of text lines, so we wrap it in brackets []
+    // Inject the lore component instead of custom_name
     item.set('minecraft:lore', [Text.gold(name)]);
 
     player.tell(Text.green(`Your compass is now magically tuned to '`).append(Text.gold(name)).append(Text.green(`'.`)));

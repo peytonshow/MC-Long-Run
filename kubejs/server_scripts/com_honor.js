@@ -12,26 +12,6 @@ const HONOR_ORDER_SHOP_CONFIG = {
 };
 
 // ============================================================================
-//                          HELPER FUNCTIONS
-// ============================================================================
-function safeNum(val, fallback) {
-    if (val == null) return fallback;
-    let str = String(val).split('.')[0].replace(/[^0-9-]/g, '');
-    let num = parseInt(str, 10);
-    return isNaN(num) ? fallback : num;
-}
-
-// UPGRADED: Now accepts a UUID string instead of a username string
-function updateHonorLedger(server, uuidStr, newBalance) {
-    let balances = {};
-    if (server.persistentData.contains('honor_balances')) {
-        try { balances = JSON.parse(server.persistentData.getString('honor_balances')); } catch(e) {}
-    }
-    balances[uuidStr] = newBalance;
-    server.persistentData.putString('honor_balances', JSON.stringify(balances));
-}
-
-// ============================================================================
 //                          COMMAND REGISTRY
 // ============================================================================
 ServerEvents.commandRegistry(event => {

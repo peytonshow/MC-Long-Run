@@ -154,6 +154,44 @@ ItemEvents.modification(event => {
         item.maxDamage = IRON_BOOTS_DURABILITY
     })
 
+
+    // --- Royal Armor  ---
+    event.modify('royalvariations:royal_knight_helmet', item => {
+        item.addAttributeModifier('minecraft:generic.armor', { amount: IRON_HELMET_ARMOR, id: 'kubejs:utop_knight_head', operation: 'add_value' }, 'head')
+        item.addAttributeModifier('minecraft:generic.armor_toughness', { amount: IRON_TOUGHNESS, id: 'kubejs:utop_knight_head_t', operation: 'add_value' }, 'head')
+        item.maxDamage = NETHERITE_HELMET_DURABILITY
+        item.modifyTier(tier => {
+            tier.repairIngredient = 'oreganized:silver_ingot';
+        });
+    })
+
+    event.modify('royalvariations:royal_knight_cuirass', item => {
+        item.addAttributeModifier('minecraft:generic.armor', { amount: IRON_CHESTPLATE_ARMOR, id: 'kubejs:utop_knight_chest', operation: 'add_value' }, 'chest')
+        item.addAttributeModifier('minecraft:generic.armor_toughness', { amount: IRON_TOUGHNESS, id: 'kubejs:utop_knight_chest_t', operation: 'add_value' }, 'chest')
+        item.maxDamage = NETHERITE_CHESTPLATE_DURABILITY
+        item.modifyTier(tier => {
+            tier.repairIngredient = 'oreganized:silver_ingot';
+        });
+    })
+
+    event.modify('royalvariations:royal_knight_leggings', item => {
+        item.addAttributeModifier('minecraft:generic.armor', { amount: IRON_LEGGINGS_ARMOR, id: 'kubejs:utop_knight_legs', operation: 'add_value' }, 'legs')
+        item.addAttributeModifier('minecraft:generic.armor_toughness', { amount: IRON_TOUGHNESS, id: 'kubejs:utop_knight_legs_t', operation: 'add_value' }, 'legs')
+        item.maxDamage = NETHERITE_LEGGINGS_DURABILITY
+        item.modifyTier(tier => {
+            tier.repairIngredient = 'oreganized:silver_ingot';
+        });
+    })
+
+    event.modify('royalvariations:royal_knight_boots', item => {
+        item.addAttributeModifier('minecraft:generic.armor', { amount: IRON_BOOTS_ARMOR, id: 'kubejs:utop_knight_boots', operation: 'add_value' }, 'feet')
+        item.addAttributeModifier('minecraft:generic.armor_toughness', { amount: IRON_TOUGHNESS, id: 'kubejs:utop_knight_boots_t', operation: 'add_value' }, 'feet')
+        item.maxDamage = NETHERITE_BOOTS_DURABILITY
+        item.modifyTier(tier => {
+            tier.repairIngredient = 'oreganized:silver_ingot';
+        });
+    })
+
     // --- Golden armor: Defense mostly matches diamond, but it's toughness isn't quite the same ---
     event.modify('minecraft:golden_helmet', item => {
         item.addAttributeModifier('minecraft:generic.armor', { amount: GOLDEN_HELMET_ARMOR, id: 'kubejs:utop_golden_head', operation: 'add_value' }, 'head')

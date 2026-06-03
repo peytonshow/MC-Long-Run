@@ -16,7 +16,7 @@
   // Items here will be unusable completely
   //    Example: minecraft:diamond
   "blacklisted_items": [
-    "royalvariations:spiritual_crown",
+    //"royalvariations:spiritual_crown",
     "refurbished_furniture:glow_berry_jam_toast",
     "refurbished_furniture:glow_berry_jam",
     "refurbished_furniture:sweet_berry_jam_toast",

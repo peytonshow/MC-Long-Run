@@ -14,12 +14,6 @@ const TREASURY_CONFIG = {
 // ============================================================================
 //                          HELPER FUNCTIONS
 // ============================================================================
-function safeNum(val, fallback) {
-    if (val == null) return fallback;
-    let str = String(val).split('.')[0].replace(/[^0-9-]/g, '');
-    let num = parseInt(str, 10);
-    return isNaN(num) ? fallback : num;
-}
 
 function getCapacity(type, level) {
     if (type === 'iron') return level * TREASURY_CONFIG.vault.iron.base;
@@ -40,29 +34,6 @@ function assignNextGoal(server, level) {
     server.persistentData.tres_target_amount = getCapacity(choice, level);
 }
 
-// Internal Local Storage Mirror to map UUID strings back to their latest usernames
-function cachePlayerName(server, uuid, username) {
-    let cache = {};
-    if (server.persistentData.contains('tres_name_cache')) {
-        try { cache = JSON.parse(server.persistentData.getString('tres_name_cache')); } catch(e) {}
-    }
-
-    // Strip any single or double quotes natively included by KubeJS text components
-    let cleanName = String(username).replace(/['"]/g, '');
-
-    cache[String(uuid)] = cleanName;
-    server.persistentData.putString('tres_name_cache', JSON.stringify(cache));
-}
-
-function getCachedName(server, uuid, fallback) {
-    if (server.persistentData.contains('tres_name_cache')) {
-        try {
-            let cache = JSON.parse(server.persistentData.getString('tres_name_cache'));
-            if (cache[String(uuid)]) return cache[String(uuid)];
-        } catch(e) {}
-    }
-    return fallback;
-}
 
 function attemptLevelUp(server, player) {
     let currentLevel = safeNum(server.persistentData.tres_level, 1);
@@ -323,101 +294,69 @@ function showDashboard(ctx, showStamps) {
     return 1;
 }
 
-function handleEquip(ctx, type, amt) {
-    const player = ctx.source.player;
-    const server = ctx.source.server;
+function handleEquip(ctx, type, rawAmount, isAdding) {
+    let player = ctx.source.player;
+    let server = ctx.source.server;
     if (!player) return 0;
 
-    // Cache names anytime an asset is interacted with
-    cachePlayerName(server, player.uuid, player.username);
-
-    if (Number(amt) === 0) {
-        player.tell(Text.red('You cannot deposit or withdraw 0 items!'));
+    // Utilize the global safeNum helper
+    let absAmt = safeNum(rawAmount, 0);
+    if (absAmt <= 0) {
+        player.tell(Text.red("The amount must be greater than zero."));
         return 0;
     }
 
-    const isAdding = amt > 0;
-    const absAmt = Math.abs(amt);
+    // Standardize treasury item mappings
+    let itemMap = {
+        'iron': 'minecraft:iron_ingot',
+        'gold': 'minecraft:gold_ingot',
+        'diamond': 'minecraft:diamond',
+        'emerald': 'minecraft:emerald'
+    };
 
-    // UPGRADED: Expecting current_king variable to hold a clean string UUID
-    let currentKingUUID = server.persistentData.current_king;
-    if (isAdding && (!currentKingUUID || String(currentKingUUID).trim() === '')) {
-        player.tell(Text.red('There is currently no active King! Deposits into the Treasury are suspended.'));
+    let itemId = itemMap[type.toLowerCase()];
+    if (!itemId) {
+        player.tell(Text.red(`Invalid treasury type: ${type}`));
         return 0;
     }
 
-    const vaultConfig = TREASURY_CONFIG.vault[type];
-    if (!vaultConfig) return 0;
-    const itemId = vaultConfig.id;
+    let pUUID = String(player.uuid);
 
-    let currentLevel = safeNum(server.persistentData.tres_level, 1);
-    if (vaultConfig.unlock && currentLevel < vaultConfig.unlock) {
-        player.tell(Text.red(`The Treasury cannot accept ${vaultConfig.label} until Level ${vaultConfig.unlock}.`));
-        return 0;
-    }
-
-    let currentAmt = safeNum(server.persistentData['tres_' + type], 0);
-    let max = getCapacity(type, currentLevel);
-
-    // UPGRADED: Strictly verifies withdrawal rights via King UUID comparison
-    if (!isAdding && String(player.uuid) !== String(currentKingUUID)) {
-        player.tell(Text.red('Only the King can remove assets from the Treasury!'));
-        return 0;
-    }
-
-    if (isAdding && currentAmt + absAmt > max) {
-        player.tell(Text.red(`The Treasury is full! Vault capacity for ${vaultConfig.label} is ${currentAmt}/${max}. Level up to expand.`));
-        return 0;
-    }
-    if (!isAdding && currentAmt - absAmt < 0) {
-        player.tell(Text.red(`The Treasury doesn't have enough! Only ${currentAmt} available.`));
-        return 0;
-    }
+    // 1. Fetch the overall Treasury Ledger using the global helper
+    let ledger = readJSON(server, 'tres_ledger', {});
+    if (!ledger[pUUID]) ledger[pUUID] = {};
 
     if (isAdding) {
-        let invCount = player.inventory.count(itemId);
-        if (invCount < absAmt) {
-            player.tell(Text.red(`You don't have enough in your inventory! You have ${invCount}, but need ${absAmt}.`));
+        // --- DEPOSIT LOGIC ---
+        // Safely check the player's inventory without using raw commands
+        let count = player.inventory.count(itemId);
+        if (count < absAmt) {
+            player.tell(Text.red(`You do not have enough ${type} to deposit. You have ${count}, but need ${absAmt}.`));
             return 0;
         }
-        server.runCommandSilent(`clear "${player.username}" ${itemId} ${absAmt}`);
+
+        // Safely extract ONLY the base item, ignoring custom NBT/enchanted variants
+        player.inventory.clear(Item.of(itemId), absAmt);
+
+        // Update ledger: Subtracting from their debt
+        ledger[pUUID][type] = (ledger[pUUID][type] || 0) - absAmt;
+        player.tell(Text.green(`Successfully deposited `).append(Text.gold(`${absAmt} ${type}`)).append(Text.green(` into the Treasury.`)));
+
     } else {
-        let remaining = absAmt;
-        while (remaining > 0) {
-            let chunk = Math.min(remaining, 64);
-            player.give(Item.of(itemId, chunk));
-            remaining -= chunk;
-        }
+        // --- WITHDRAW LOGIC ---
+        // Native KubeJS item granting
+        player.give(Item.of(itemId, absAmt));
+
+        // Update ledger: Adding to their debt
+        ledger[pUUID][type] = (ledger[pUUID][type] || 0) + absAmt;
+        player.tell(Text.green(`Successfully withdrew `).append(Text.gold(`${absAmt} ${type}`)).append(Text.green(` from the Treasury.`)));
     }
 
-    server.persistentData['tres_' + type] = currentAmt + amt;
+    // 2. Save the updated ledger back to persistent data
+    writeJSON(server, 'tres_ledger', ledger);
 
-    let ledger = {};
-    if (server.persistentData.contains('tres_ledger')) {
-        try { ledger = JSON.parse(server.persistentData.getString('tres_ledger')); } catch(e) {}
-    }
-
-    // UPGRADED: Store individual debts inside the JSON ledger indexed by player UUID
-    let pUUID = String(player.uuid);
-    if (!ledger[pUUID]) ledger[pUUID] = {};
-    if (!ledger[pUUID][type]) ledger[pUUID][type] = 0;
-
-    if (isAdding) {
-        ledger[pUUID][type] -= absAmt;
-    } else {
-        ledger[pUUID][type] += absAmt;
-    }
-
-    server.persistentData.putString('tres_ledger', JSON.stringify(ledger));
-
-    const actionStr = isAdding ? 'dep' : 'with';
-    logAudit(server, 'vault', `${player.username} ${actionStr} ${absAmt} ${type}`);
-
-    player.tell(Text.green(`Successfully ${isAdding ? 'deposited' : 'withdrawn'} ${absAmt} ${type}. Vault Balance: ${currentAmt + amt}/${max}`));
-
-    if (isAdding && type !== 'encoders' && type !== 'decoders') {
-        attemptLevelUp(server, player);
-    }
+    // 3. Cache their latest username so the King can still read the ledger easily
+    cachePlayerName(server, pUUID, player.username);
 
     return 1;
 }
