@@ -38,7 +38,8 @@ TRADING
     * Barter Types. Typically avoids using emeralds in exchange for other valuables.
         - Cleric - Many trades use lapis, redstone and ender pearls in exchange for potions.
         - Librarian - Sells books, e. books, bottles, tomes (+1 higher level on enchants, but curse the item.)
-
+* Bonus: Bartering
+        - Piglin bartering has more, better high tier trades, including occasional netherite items and diamonds. 
 -----------------------------------------------------------------------------------------------------------------
 
 MATERIAL PROGRESSION CHANGES
@@ -70,7 +71,7 @@ SOCIETY
 * Treasury: People are given access to officially backed Coins and Bills.
     * Coins: Coins are created using an item specific to the king, Encoder Stamps, to turn raw material into coins. Coins may be freely melted down back into their full form. Coins are useful because they allow consumers to get the best price for a good without relying on the government to cash out.
     * Bills: Bills are Printed money that do not hold any inherit value, but can be exchanged for raw materials using Paper stamps issued by the king. Paper Stamps cost a certain amount of material to take out. Because not everyone withdraws after a transaction, it can be safe to print more money than the treasury can support, but too much can cause bank runs and crash the economy :) . Much like Coins, because bills are worth a portion of a raw material, it allows people to get the best price buying or selling.
-* The Law: Players have access to a strong legal framework. Players who learn and uphold the law embolden the kings power.
+* The Law: Players have access to a strong legal framework. 
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -89,21 +90,22 @@ CRAFTING
 * May craft 2 arrows using 1 Flint, 1 Arrow and 1 Leather. D
 * Mud is now craftable using 8 dirt and a water bucket or sugar cane. (This is inline with multiple changes made to furnaces) D
 * Terracotta can be made using a Clay Block on a campfire. D
-* Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 (Ash) Brick Blocks, Packed Mud, Smooth Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) PD
+* Blast Furnaces (Which are renamed to Kiln) are now crafted using a campfire and either 8 (Ash) Brick Blocks, Packed Mud, Sturdy Stone or Blackstone. (This plus a campfire makes up most recipes you need early game. The normal Furnace should only be unlocked afterwards as it's generally more powerful anyways.) PD
 * Furnaces are now crafted using a Kiln, 4 Sturdy Stone and 4 Blocks of Copper. (The furnace is just objectively better than a vanilla blast furnace because of it's versatility, so I think it would make sense if it was something you worked up to. Plus, the usage of Sturdy Stone introduces it's crafting recipe to players early on) D
 * Smokers are now crafted using 4 Logs, and either 4 Brick Blocks, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
-* Farmers Delight Stoves can now be crafted using 3 copper blocks in place of the iron ingots in it's recipe. D
-* Backpacks now require 2 Copper blocks rather than 2 iron ingots. D
+* Many items that require a few iron ingots have been given the option to use copper blocks instead. This extends to Stoves, Backpacks and shields.  PD
 * Added the ability to craft Supplementaries' Bombs using Glass and Bricks, but at a worse rate per TNT spent. D
 * Added the ability to cut Leather into Rabbit Hide. D
 * Fixed nirvana's rope recipe using Supplementaries' when it should be using farmer's delight. TD
 * Leather armor is now craftable out of Rabbit Hide OR Leather. TD
 * Campfires are now crafted in world using Firewood, or via a crafting table with a Firecharge. The in-world campfire must be lit. D
-* All dyes can now be crafted from Red, Green, Blue, Black and White dyes. D
-* All Musket weapons now have more accurate recipes. D
-* Cartridges now only require 2 'nail' items (Iron, brass, copper, gold nugget), 1 paper and 1 gunpowder for 1 Cartridge. PD
-* Froglights and Naturalist's Froglass now have duplicating recipes. D
-* Added sequenced recipes for netherite armor that don't require diamonds, but instead have a much higher netherite cost. (This shouldn't replace your first set of netherite armor, but it streamlines the process of getting a bunch of sets for your troops. It may be more convinient to only farm for a handful of materials rather than the diamonds, netherite, gold + a template. It also requires a factory and a drill to (feasibly) get the most out of these recipes, so I think its worth a shot) D
+* All dyes can now be crafted from Red, Yellow, Blue, Black and White dyes. D
+* All Musket and Bow weapons now have more accurate recipes to how theyre actually depicted. D
+* Cartridges now only require 2 'nail' items (Iron, brass, copper, gold nugget), 1 paper and 1 gunpowder for 2 Cartridge. PD
+* Froglights and Naturalist's Froglass now have duplicating recipes for less tedious farming. D
+* Added sequenced recipes for netherite armor that don't require diamonds, but instead have a much higher netherite cost. (This shouldn't replace your first set of netherite armor, but it streamlines the process of getting a bunch of sets for your troops. It may be more convinient to only farm for a handful of materials rather than the diamonds, netherite, gold + a template. It also requires a factory and a drill to (feasibly) get the most out of these recipes. This new Automation line uses Overworld templates and roughly 3~4 netherite ingots a pop.
+
+* Overworld Templates a new item obtained from superheated mixing. Overworld templates are used in multiple automation lines.
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
@@ -112,7 +114,7 @@ CREATE
 * Tripled Backtank S.U Storage.
 
 WORLD
-* Added Tectonic, which adds large scale, realistic scenery. D
+* Added tectonic (may switch out) pd
 * Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. Cannot sleep through bad Celestial events. D
 * Days last 20 minutes and nights last 15. PD
 * Significantly lowered chance of exposed diamonds being removed. D
@@ -121,11 +123,10 @@ WORLD
 * Increased Iron depth to y40. D
 * Altered amount of Iron Veins (Honestly I was just kind of eyeballing this one, but you should get way more iron at the new ideal depth than vanilla. The new best depth should be viewable on EMI)
 * Increased Ancient debris ore size by 100%. (Diamonds are going to be the bottlneck in upgrading to netherite. An alternative way to make netherite is purely out of scrap and netherite ingot + template) PD 
-* Added Quark, which adds Oretises (Among other things) that allow some ores to be 'sheered off' them with a pickaxe. D
+* Added Quark, which adds a bunch of stuff. D
 * Removed Villages, Ruined Portals and D&T Bunkers. Villagers are now mainly found at pillager Bastilles, which are large fortresses found throughout the world. D
 * Removed Iron tools from most overworld surface structures and replaced it with gold. PD
-* Alpha flowers replace default flowers in most biomes. D
-* Added the abilty burn firewood (Idk why this wasn't already a feature) D
+* Alpha style flowers replace default flowers in most biomes. D
 
 FOOD
 * Most food items stack to 16, which is an improvement for some items and a negative for others. PD
