@@ -70,7 +70,7 @@ SOCIETY
 * Treasury: People are given access to officially backed Coins and Bills.
     * Coins: Coins are created using an item specific to the king, Encoder Stamps, to turn raw material into coins. Coins may be freely melted down back into their full form. Coins are useful because they allow consumers to get the best price for a good without relying on the government to cash out.
     * Bills: Bills are Printed money that do not hold any inherit value, but can be exchanged for raw materials using Paper stamps issued by the king. Paper Stamps cost a certain amount of material to take out. Because not everyone withdraws after a transaction, it can be safe to print more money than the treasury can support, but too much can cause bank runs and crash the economy :) . Much like Coins, because bills are worth a portion of a raw material, it allows people to get the best price buying or selling.
-* The Law: Players have access to a strong legal framework. Players who learn and uphold the law embolden the kings power.
+* The Law: Players have access to a strong legal framework. 
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -101,8 +101,8 @@ CRAFTING
 * Campfires are now crafted in world using Firewood, or via a crafting table with a Firecharge. The in-world campfire must be lit. D
 * All dyes can now be crafted from Red, Green, Blue, Black and White dyes. D
 * All Musket weapons now have more accurate recipes. D
-* Cartridges now only require 2 'nail' items (Iron, brass, copper, gold nugget), 1 paper and 1 gunpowder for 1 Cartridge. PD
-* Froglights and Naturalist's Froglass now have duplicating recipes. D
+* Cartridges now only require 2 'nail' items (Iron, brass, copper, gold nugget), 1 paper and 1 gunpowder for 2 Cartridge. PD
+* Froglights and Naturalist's Froglass now have duplicating recipes for less tedious farming. D
 * Added sequenced recipes for netherite armor that don't require diamonds, but instead have a much higher netherite cost. (This shouldn't replace your first set of netherite armor, but it streamlines the process of getting a bunch of sets for your troops. It may be more convinient to only farm for a handful of materials rather than the diamonds, netherite, gold + a template. It also requires a factory and a drill to (feasibly) get the most out of these recipes, so I think its worth a shot) D
 
 CREATE
