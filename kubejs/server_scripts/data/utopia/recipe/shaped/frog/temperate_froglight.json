@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "boat",
+  "key": {
+    "#": {
+      "item": "minecraft:magma_cream"
+    },
+    "F": {
+      "item": "minecraft:ochre_froglight"
+    },
+    "S": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "pattern": [
+    "S#S",
+    "#F#",
+    "S#S"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:ochre_froglight"
+  }
+}

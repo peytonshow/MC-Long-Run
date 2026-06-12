@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " R#",
+    "R X",
+    "#X "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:string"
+    },
+    "R": {
+      "item": "royalvariations:royal_bone"
+    }
+  },
+  "result": {
+    "id": "royalvariations:royal_bow"
+  }
+}

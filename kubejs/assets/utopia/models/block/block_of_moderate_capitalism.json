@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "north": "utopia:block/moderate/block_of_capitalism_side",
+    "south": "utopia:block/moderate/block_of_capitalism_front",
+    "east": "utopia:block/normal/block_of_capitalism",
+    "west": "utopia:block/normal/block_of_capitalism",
+    "up": "utopia:block/moderate/block_of_capitalism_top",
+    "pallet": "utopia:block/pallet",
+    "pallet_bottom": "utopia:block/pallet_bottom",
+    "particle": "utopia:block/moderate/block_of_capitalism_top"
+  },
+  "elements": [
+    {
+      "name": "pallet_base",
+      "from": [0, 0, 0],
+      "to": [16, 3, 16],
+      "faces": {
+        "north": {"uv": [0, 13, 16, 16], "texture": "#pallet"},
+        "south": {"uv": [0, 13, 16, 16], "texture": "#pallet"},
+        "east": {"uv": [0, 13, 16, 16], "texture": "#pallet"},
+        "west": {"uv": [0, 13, 16, 16], "texture": "#pallet"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#pallet_bottom"},
+        "up": {"uv": [0, 13, 16, 16], "texture": "#pallet"}
+      }
+    },
+    {
+      "name": "main_block",
+      "from": [1, 3, 1],
+      "to": [15, 16, 15],
+      "faces": {
+        "north": {"uv": [1, 0, 15, 13], "texture": "#north"},
+        "south": {"uv": [1, 0, 15, 13], "texture": "#south"},
+        "east": {"uv": [1, 0, 15, 13], "texture": "#east"},
+        "west": {"uv": [1, 0, 15, 13], "texture": "#west"},
+        "up": {"uv": [1, 1, 15, 15], "texture": "#up"},
+        "down": {"uv": [1, 1, 15, 15], "texture": "#pallet"}
+      }
+    }
+  ]
+}

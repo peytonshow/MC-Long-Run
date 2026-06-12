@@ -28,16 +28,16 @@ ItemEvents.modification(event => {
     })
 
     event.modify('minecraft:golden_sword', item => {
-        item.maxDamage = 255
+        item.maxDamage = 170
     })
     event.modify('minecraft:golden_axe', item => {
-        item.maxDamage = 255
+        item.maxDamage = 170
     })
     event.modify('minecraft:golden_pickaxe', item => {
-        item.maxDamage = 255
+        item.maxDamage = 170
     })
     event.modify('minecraft:golden_shovel', item => {
-        item.maxDamage = 255
+        item.maxDamage = 170
     })
     event.modify('minecraft:golden_helmet', item => {
         item.maxDamage = 142

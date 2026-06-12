@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "gliders",
+  "key": {
+    "L": [
+      {
+        "item": "minecraft:leather"
+      },
+      {
+        "item": "farmersdelight:canvas"
+      }
+    ],
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "pattern": [
+    "LPL",
+    "PLP",
+    "LPL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vc_gliders:reinforced_paper"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "royalvariations:royal_armor_fragments"
+  },
+  "base": {
+    "item": "minecraft:chainmail_leggings"
+  },
+  "result": {
+    "id": "royalvariations:royal_knight_leggings"
+  },
+  "template": {
+    "item": "royalvariations:royal_upgrade_smithing_template"
+  }
+}

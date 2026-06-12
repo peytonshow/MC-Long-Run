@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 20,
+  "experience": 0.05,
+  "ingredient": {
+    "item": "utopia:cookie_dough"
+  },
+  "result": {
+    "id": "minecraft:cookie"
+  }
+}

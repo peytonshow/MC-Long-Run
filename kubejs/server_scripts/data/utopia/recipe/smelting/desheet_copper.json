@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 600,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "create:copper_sheet"
+  },
+  "result": {
+    "id": "minecraft:copper_ingot"
+  }
+}

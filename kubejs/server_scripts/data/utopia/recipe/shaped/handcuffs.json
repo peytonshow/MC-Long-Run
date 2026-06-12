@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "E E",
+    "EXE",
+    "E E"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:chain"
+    },
+    "E": {
+      "item": "oreganized:silver_nugget"
+    }
+  },
+  "result": {
+    "id": "utopia:handcuffs"
+  }
+}

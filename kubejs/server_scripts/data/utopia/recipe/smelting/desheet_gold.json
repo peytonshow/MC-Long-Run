@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 600,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "create:golden_sheet"
+  },
+  "result": {
+    "id": "minecraft:gold_ingot"
+  }
+}

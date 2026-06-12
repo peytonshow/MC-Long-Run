@@ -57,6 +57,186 @@
       "useCustomWeight": false,
       "customWeight": 5.0
     },
+    "minecraft:chainmail_boots": {
+      "useCustomWeight": false,
+      "customWeight": 1.0
+    },
+    "minecraft:chainmail_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 5.0
+    },
+    "minecraft:chainmail_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "minecraft:chainmail_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 4.0
+    },
+    "minecraft:diamond_boots": {
+      "useCustomWeight": false,
+      "customWeight": 4.0
+    },
+    "minecraft:diamond_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 9.0
+    },
+    "minecraft:diamond_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 4.0
+    },
+    "minecraft:diamond_horse_armor": {
+      "useCustomWeight": false,
+      "customWeight": 12.0
+    },
+    "minecraft:diamond_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 7.0
+    },
+    "minecraft:golden_boots": {
+      "useCustomWeight": false,
+      "customWeight": 1.0
+    },
+    "minecraft:golden_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 5.0
+    },
+    "minecraft:golden_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "minecraft:golden_horse_armor": {
+      "useCustomWeight": false,
+      "customWeight": 7.0
+    },
+    "minecraft:golden_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
+    },
+    "minecraft:iron_boots": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "minecraft:iron_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 6.0
+    },
+    "minecraft:iron_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "minecraft:iron_horse_armor": {
+      "useCustomWeight": false,
+      "customWeight": 5.0
+    },
+    "minecraft:iron_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 5.0
+    },
+    "minecraft:leather_boots": {
+      "useCustomWeight": false,
+      "customWeight": 1.0
+    },
+    "minecraft:leather_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
+    },
+    "minecraft:leather_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 1.0
+    },
+    "minecraft:leather_horse_armor": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
+    },
+    "minecraft:leather_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "minecraft:netherite_boots": {
+      "useCustomWeight": false,
+      "customWeight": 5.3
+    },
+    "minecraft:netherite_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 10.3
+    },
+    "minecraft:netherite_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 5.3
+    },
+    "minecraft:netherite_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 8.3
+    },
+    "minecraft:shulker_shell": {
+      "useCustomWeight": false,
+      "customWeight": 2.1
+    },
+    "minecraft:turtle_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "minecraft:wolf_armor": {
+      "useCustomWeight": false,
+      "customWeight": 11.0
+    },
+    "oreganized:electrum_boots": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "oreganized:electrum_chestplate": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "oreganized:electrum_helmet": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "oreganized:electrum_leggings": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "quark:backpack": {
+      "useCustomWeight": false,
+      "customWeight": 0.0
+    },
+    "quark:forgotten_hat": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "royalvariations:royal_knight_boots": {
+      "useCustomWeight": false,
+      "customWeight": 4.25
+    },
+    "royalvariations:royal_knight_cuirass": {
+      "useCustomWeight": false,
+      "customWeight": 10.25
+    },
+    "royalvariations:royal_knight_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 5.25
+    },
+    "royalvariations:royal_knight_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 7.25
+    },
+    "utopia:crown": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "utopia:shattering_crown": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "utopia:used_handcuffs": {
+      "useCustomWeight": false,
+      "customWeight": 2.5
+    },
+    "utopia:used_shackles": {
+      "useCustomWeight": false,
+      "customWeight": 2.5
+    },
     "luckyswardrobe:bee_hat": {
       "useCustomWeight": false,
       "customWeight": 0.0
@@ -257,174 +437,6 @@
       "useCustomWeight": false,
       "customWeight": 0.0
     },
-    "minecraft:chainmail_boots": {
-      "useCustomWeight": true,
-      "customWeight": 2.0
-    },
-    "minecraft:chainmail_chestplate": {
-      "useCustomWeight": true,
-      "customWeight": 6.0
-    },
-    "minecraft:chainmail_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "minecraft:chainmail_leggings": {
-      "useCustomWeight": true,
-      "customWeight": 5.0
-    },
-    "minecraft:diamond_boots": {
-      "useCustomWeight": false,
-      "customWeight": 4.0
-    },
-    "minecraft:diamond_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 9.0
-    },
-    "minecraft:diamond_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 4.0
-    },
-    "minecraft:diamond_horse_armor": {
-      "useCustomWeight": false,
-      "customWeight": 12.0
-    },
-    "minecraft:diamond_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 7.0
-    },
-    "minecraft:golden_boots": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "minecraft:golden_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 5.0
-    },
-    "minecraft:golden_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "minecraft:golden_horse_armor": {
-      "useCustomWeight": false,
-      "customWeight": 7.0
-    },
-    "minecraft:golden_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "minecraft:iron_boots": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "minecraft:iron_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 6.0
-    },
-    "minecraft:iron_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "minecraft:iron_horse_armor": {
-      "useCustomWeight": false,
-      "customWeight": 5.0
-    },
-    "minecraft:iron_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 5.0
-    },
-    "minecraft:leather_boots": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "minecraft:leather_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "minecraft:leather_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "minecraft:leather_horse_armor": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "minecraft:leather_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "minecraft:netherite_boots": {
-      "useCustomWeight": false,
-      "customWeight": 5.3
-    },
-    "minecraft:netherite_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 10.3
-    },
-    "minecraft:netherite_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 5.3
-    },
-    "minecraft:netherite_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 8.3
-    },
-    "minecraft:shulker_shell": {
-      "useCustomWeight": false,
-      "customWeight": 2.1
-    },
-    "minecraft:turtle_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "minecraft:wolf_armor": {
-      "useCustomWeight": false,
-      "customWeight": 11.0
-    },
-    "oreganized:electrum_boots": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
-    },
-    "oreganized:electrum_chestplate": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
-    },
-    "oreganized:electrum_helmet": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
-    },
-    "oreganized:electrum_leggings": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
-    },
-    "quark:backpack": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "quark:forgotten_hat": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
-    },
-    "royalvariations:royal_knight_boots": {
-      "useCustomWeight": false,
-      "customWeight": 4.25
-    },
-    "royalvariations:royal_knight_cuirass": {
-      "useCustomWeight": false,
-      "customWeight": 10.25
-    },
-    "royalvariations:royal_knight_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 5.25
-    },
-    "royalvariations:royal_knight_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 7.25
-    },
-    "utopia:crown": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
-    },
     "utopia:handcuffs": {
       "useCustomWeight": false,
       "customWeight": 2.5
@@ -432,10 +444,6 @@
     "utopia:leg_restraints": {
       "useCustomWeight": false,
       "customWeight": 2.5
-    },
-    "utopia:shattering_crown": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
     },
     "snatched:bag_helmet": {
       "useCustomWeight": false,

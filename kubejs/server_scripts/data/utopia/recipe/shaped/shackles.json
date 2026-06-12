@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "EXE"
+  ],
+  "key": {
+    "#": {
+      "item": "oreganized:lead_block"
+    },
+    "X": {
+      "item": "minecraft:chain"
+    },
+    "E": {
+      "item": "oreganized:lead_ingot"
+    }
+  },
+  "result": {
+    "id": "utopia:shackles"
+  }
+}

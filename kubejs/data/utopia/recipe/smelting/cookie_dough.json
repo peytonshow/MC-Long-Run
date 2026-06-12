@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "create:dough"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "id": "utopia:cookie_dough"
+  }
+}

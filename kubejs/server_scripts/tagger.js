@@ -1,10 +1,26 @@
 ServerEvents.tags('item', event => {
+
+    const addBill = (item) => {
+        event.add('utopia:bills', item)
+        event.add('utopia:currency', item)
+    };
+    const addCoin = (item) => {
+        event.add('utopia:coins', item)
+        event.add('utopia:currency', item)
+    };
+
+    event.removeAllTagsFrom('utopia:used_handcuffs')
+    event.removeAllTagsFrom('utopia:used_shackles')
+    event.removeAllTagsFrom('utopia:crown')
+    event.removeAllTagsFrom('utopia:shattering_crown')
+
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_helmet')
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_chestplate')
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_leggings')
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_boots')
     event.add('c:hidden_from_recipe_viewers', 'utopia:shattered_crown')
-
+    event.add('c:hidden_from_recipe_viewers', 'utopia:used_handcuffs')
+    event.add('c:hidden_from_recipe_viewers', 'utopia:used_shackles')
     event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:glow_berry_jam_toast')
     event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:glow_berry_jam')
     event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:sweet_berry_jam_toast')
@@ -35,5 +51,21 @@ ServerEvents.tags('item', event => {
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/way_sign_ancient')
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/cannon_boat_ancient')
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/ancient_boat')
+    
+    addBill('utopia:1_dollar_bill')
+    addBill('utopia:5_dollar_bill')
+    addBill('utopia:20_dollar_bill')
+    addBill('utopia:100_dollar_bill')
+    addBill('utopia:500_dollar_bill')
 
+    addCoin('utopia:coin_iron')
+    addCoin('utopia:coin_iron_fractional')
+    addCoin('utopia:coin_diamond')
+    addCoin('utopia:coin_diamond_fractional')
+    addCoin('utopia:coin_netherite')
+    addCoin('utopia:coin_netherite_fractional')
+
+    event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')
+    event.add('minecraft:needs_iron_tool', 'quark:sturdy_stone')
+    event.add('minecraft:mineable/pickaxe', 'quark:sturdy_stone')
 })

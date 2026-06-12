@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "$": {
+      "tag": "c:chests"
+    },
+    "X": {
+      "tag": "artifacts:artifacts"
+    },
+    "A": [
+      {
+        "item": "minecraft:golden_apple"
+      },
+      {
+        "item": "minecraft:enchanted_golden_apple"
+      }
+    ]
+  },
+  "pattern": [
+    "#X#",
+    "#$#",
+    "#A#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "artifacts:mimic_spawn_egg"
+  }
+}

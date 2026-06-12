@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "gliders",
+  "key": {
+    "O": {
+      "item": "create:golden_sheet"
+    },
+    "R": {
+      "item": "vc_gliders:reinforced_paper"
+    },
+    "S": {
+      "item": "minecraft:chain"
+    },
+    "W": {
+      "item": "minecraft:gold_ingot"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "pattern": [
+    "RRR",
+    "WOW",
+    "SFS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vc_gliders:paraglider_gold"
+  }
+}

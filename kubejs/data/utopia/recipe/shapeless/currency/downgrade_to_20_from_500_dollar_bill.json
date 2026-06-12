@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "currency",
+  "ingredients": [
+    {
+      "item": "utopia:500_dollar_bill"
+    }
+  ],
+  "result": {
+    "count": 25,
+    "id": "utopia:20_dollar_bill"
+  }
+}

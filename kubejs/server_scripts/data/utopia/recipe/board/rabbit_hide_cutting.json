@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "leather"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 4,
+        "id": "minecraft:rabbit_hide"
+      }
+    }
+  ],
+  "tool": {
+    "item": "minecraft:shears"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": [
+      {
+        "item": "quark:moss_paste"
+      }
+    ],
+    "M": [
+      {
+        "tag": "c:eggs"
+      },
+      {
+        "item": "create:dough"
+      }
+    ]
+  },
+  "pattern": [
+    "###",
+    "#M#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:slime_ball"
+  }
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "user": {
+      "type": "player",
+      "name": "peytonshow",
+      "uniqueId": "3ff4f6b7-7244-4aae-b996-ff1c6c5254a9"
+    },
+    "time": 1780696784200,
+    "type": "Heap dump summary",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/zabOSherkN"
+    }
+  }
+]

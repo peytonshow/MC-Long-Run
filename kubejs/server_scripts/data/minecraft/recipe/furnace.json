@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "quark:sturdy_stone"
+    },
+    "$": {
+      "item": "minecraft:blast_furnace"
+    },
+    "%": {
+      "item": "minecraft:copper_block"
+    }
+  },
+  "pattern": [
+    "%#%",
+    "#$#",
+    "%#%"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:furnace"
+  }
+}

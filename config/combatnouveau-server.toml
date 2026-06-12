@@ -88,11 +88,11 @@ no_projectile_immunity = true
 [sweeping]
 	#Is the sweeping edge enchantment required to perform a sweep attack.
 	#Default Value: true
-	require_sweeping_edge = true
+	require_sweeping_edge = false
 	#Allow sweep attack without hitting mobs, just by attacking air basically.
 	#This attack will not work when the attack button is held for continuous attacking.
 	#Default Value: true
 	air_sweep_attack = true
 	#Do not perform sweep attacks when sneaking.
 	#Default Value: false
-	no_sweeping_when_sneaking = false
+	no_sweeping_when_sneaking = true

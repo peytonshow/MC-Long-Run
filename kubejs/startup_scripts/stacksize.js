@@ -1,3 +1,5 @@
+
+global.MAXFOODSIZE = 16;
 ItemEvents.modification(event => {
     const itemsToProcess = [
         "minecraft:glow_berries",
@@ -32,8 +34,8 @@ ItemEvents.modification(event => {
         "minecraft:cookie",
         "minecraft:cake",
         "minecraft:pumpkin_pie",
-        //"supplementaries:pancake",
-        //"supplementaries:candy",
+        "supplementaries:pancake",
+        "supplementaries:candy",
         "minecraft:rotten_flesh",
         "minecraft:spider_eye",
         "minecraft:mushroom_stew",
@@ -174,7 +176,7 @@ ItemEvents.modification(event => {
             // The conditional check: only modify if the current max stack is greater than 16
             if (itemStack.maxStackSize > 16) {
                 event.modify(itemId, item => {
-                    item.maxStackSize = 16
+                    item.maxStackSize = global.MAXFOODSIZE
                     procAltered++
                 })
             }

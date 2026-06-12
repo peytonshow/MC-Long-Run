@@ -121,10 +121,14 @@ PlayerEvents.tick(event => {
                         player.potionEffects.add('minecraft:darkness', 160, nextLevel - 1);
                     }
                 } else {
-                    server.runCommandSilent(`effect clear ${player.username} minecraft:darkness`);
+                    if (player.hasEffect('minecraft:darkness')) {
+                        server.runCommandSilent(`effect clear ${player.username} minecraft:darkness`);
+                    }
                 }
             } else {
-                server.runCommandSilent(`effect clear ${player.username} minecraft:darkness`);
+                if (player.hasEffect('minecraft:darkness')) {
+                    server.runCommandSilent(`effect clear ${player.username} minecraft:darkness`);
+                }
             }
         }
     }

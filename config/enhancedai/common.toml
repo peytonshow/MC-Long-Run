@@ -105,10 +105,10 @@
 		[Skeletons."Skeleton shoot"."Shooting range"]
 			# Default: 24.0
 			# Range: 1.0 ~ 64.0
-			Minimum = 20.0
+			Minimum = 16.0
 			# Default: 32.0
 			# Range: 1.0 ~ 64.0
-			Maximum = 26.0
+			Maximum = 20.0
 
 		#The ticks cooldown after shooting
 		[Skeletons."Skeleton shoot"."Shooting cooldown"]
@@ -439,19 +439,19 @@
 
 [Mobs]
 	#Mobs will run away from exploding creepers / TNT. Only entity types in `enhancedai:mobs/can_run_from_explosions` tag will be affected by this feature
-	"Enable Avoid explosions" = true
+	"Enable Avoid explosions" = false
 	#Only entity types in `enhancedai:mobs/can_open_doors` tag are affected by this feature.
 	"Enable Open doors" = true
 	#Makes mobs pick up targets to drown them. Only entity types in the enhancedai:mobs/drowning_targets tag are affected by this feature.
 	"Enable Drowning targets" = true
 	#Make mobs angry when a block is broken. Check the mod's config folder Mobs/Break Anger/break_anger_config.json to change blocks and entities triggered.
-	"Enable Break anger" = true
+	"Enable Break anger" = false
 	#Makes drowned swim speed based off swim speed attribute instead of movement speed.
-	"Enable Swimmers" = true
+	"Enable Swimmers" = false
 	#Gives mobs a chance to negate damage when equipped with a shield. Only entity types in `enhancedai:mobs/can_equip_shield` tag will be equipped a shield.
 	"Enable Shielding" = true
 	#Makes mobs teleport other mobs close to the target. Mobs in the `enhancedai:mobs/teleport_to_target/can_be_teleported` tag will be able to be picked up, while mobs in the `enhancedai:mobs/teleport_to_target/can_teleport` tag will be able to pick up other mobs.
-	"Enable Teleport to target" = true
+	"Enable Teleport to target" = false
 	#Use `config/enhancedai/Custom targeting` to set custom targeting
 	"Enable Custom targeting" = true
 	#Makes mobs ride other mobs. Mobs in the `enhancedai:mobs/riding/can_be_mounted` tag will be able to be mounted, while mobs in the `enhancedai:mobs/riding/can_mount` tag will be able to mount other mobs.
@@ -462,19 +462,19 @@
 	#Prevent players from abusing water or 2 high gaps to bully endermen.
 	"Enable Teleport anti-cheese" = true
 	#Changes mobs attacks to use the attack speed attribute. Only entities in the `enhancedai:mobs/melee_attacking` entity type tag will be affected.
-	"Enable Melee attacking" = true
+	"Enable Melee attacking" = false
 	#Make mobs flee from the target. Use the enhancedai:mobs/can_flee entity type tag to add/remove entities that are affected by this feature. Mobs like animals have they're own feature for fleeing the target due to having different conditions.
-	"Enable Flee target" = true
+	"Enable Flee target" = false
 	#Makes mobs be able to move in more ways, like climbing or swim. Only entity types in `enhancedai:mobs/can_sprint` tag are affected by this feature.
-	"Enable Sprint" = true
+	"Enable Sprint" = false
 	#Change how mobs target players. Check the config options below for entity type tags.
 	"Enable Targeting" = true
 	#Makes mobs follow range actually affected by blindness effect. Only entity types in `enhancedai:mobs/blindness_range_multiplier` tag will be affected by this.
-	"Enable Actual blindness" = true
+	"Enable Actual blindness" = false
 	#Makes mobs be able to jump in place when their target is a few blocks above them. Only entity types in the `enhancedai:mobs/can_jump_in_place` tag can jump
 	"Enable Jump" = true
 	#Let mobs use Fishing Rods, reeling players in. Either put a Fishing Rod in main or off hand and when near enough from the target they will use it. Only mobs in enhancedai:mobs/can_equip_fishing_rod entity type tag are affected by this feature.
-	"Enable Fisher mobs" = true
+	"Enable Fisher mobs" = false
 	#Let mobs use ender pearls as long as they have them in the off hand and when far enough from the target. Only mobs in the enhancedai:mobs/can_equip_pearl entity type tag will try to be equipped ender pearls.
 	"Enable Pearler mobs" = true
 	#Makes mobs throw a web at a player, slowing them. Only entity types in the `enhancedai:mobs/throwing_web/can_throw_webs` tag will be affected. Entity types in `enhancedai:mobs/throwing_web/poisonous_webs` will throw poisonous webs and apply poison the same way as when a cave spider attacks an entity.
@@ -522,7 +522,7 @@
 		#The maximum distance from the target at which the Mobs can mine. Set to 0 to always mine.
 		# Default: 0
 		# Range: 0 ~ 128
-		"Max target distance" = 0
+		"Max target distance" = 12
 		#Dimensions where mobs can mine.
 		"Dimension whitelist" = ["minecraft:overworld", "minecraft:the_nether", "minecraft:the_end"]
 		#If true, the block tag `enhancedai:miner_mobs/blacklist` will be treated as a whitelist instead of blacklist
@@ -537,7 +537,7 @@
 		#Chance for a mob to be able to run from explosions.
 		# Default: 0.8
 		# Range: 0.0 ~ 1.0
-		Chance = 0.8
+		Chance = 0.0
 		#Speed multiplier when the mob runs from explosions and it's within 7 blocks from him.
 		# Default: 1.1
 		# Range: 0.0 ~ 10.0
@@ -565,7 +565,7 @@
 
 	#Gives mobs a chance to negate damage when equipped with a shield. Only entity types in `enhancedai:mobs/can_equip_shield` tag will be equipped a shield.
 	[Mobs.Shielding]
-		"Chance to equip" = 0.08
+		"Chance to equip" = 0.05
 
 	#Makes mobs teleport other mobs close to the target. Mobs in the `enhancedai:mobs/teleport_to_target/can_be_teleported` tag will be able to be picked up, while mobs in the `enhancedai:mobs/teleport_to_target/can_teleport` tag will be able to pick up other mobs.
 	[Mobs."Teleport to target"]
@@ -695,7 +695,7 @@
 		#Chance for a mob the get the xray range override.
 		# Default: 0.5
 		# Range: 0.0 ~ 1.0
-		"Xray range override chance" = 0.5
+		"Xray range override chance" = 0.1
 		"See glowing entities" = true
 		#Mobs in the entity type tag `enhancedai:mobs/targeting/alert_nearby` will alert nearby mobs in this range and target the player.
 		# Default: 32
@@ -704,16 +704,16 @@
 		#Mobs will be able to find better and longer paths to the target the higher this value is. The higher the more performance heavy. Only entity types in the tag `enhancedai:mobs/targeting/visited_nodes_multiplier` tag will be affected by this. Vanilla is 1.0
 		# Default: 4.0
 		# Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
-		"Max visited nodes multiplier" = 4.0
+		"Max visited nodes multiplier" = 1.0
 
 		#How far away can the mobs see targets. This overrides the vanilla value (16 for most mobs). Setting 'Max' to 0 will leave the follow range as vanilla. Use mods like Mobs Properties Randomness to have more control over the attribute. Only mobs in the entity type tag `enhancedai:mobs/targeting/follow_range_override` will be affected by this override
 		[Mobs.Targeting."Follow range override"]
 			# Default: 32.0
 			# Range: 0.0 ~ 128.0
-			Minimum = 32.0
+			Minimum = 16.0
 			# Default: 64.0
 			# Range: 0.0 ~ 128.0
-			Maximum = 64.0
+			Maximum = 32.0
 
 		#How far away can the mobs see targets even through walls. This only works with 'Better Nearby Targeting' enabled. Setting 'Max' to 0 will make mobs not able to see through walls. Use mods like Mobs Properties Randomness to have more control over the attribute; the attribute name is 'enhancedai:xray_follow_range'. Only mobs in the entity type tag `enhancedai:mobs/targeting/apply_xray` will be affected by this override.
 		[Mobs.Targeting."Xray range override"]
@@ -738,7 +738,7 @@
 			#1 in x chance every other tick for a mob to target a nearby entity. Vanilla is 10. Setting to 0 will make the mob instantly target entities. The higher the more time will take mobs to target entities.
 			# Default: 7
 			# Range: > -2147483648
-			"Target chance" = 7
+			"Target chance" = 15
 
 		[Mobs.Targeting."Better nearby targeting"]
 			#Mobs NearestAttackableTargetGoal will be replaced with mod's one for better configuration and targeting.
@@ -905,11 +905,11 @@
 		#How far away from any player monsters will instantly despawn? Vanilla is 128. Reducing this makes mobs more crowded around players.
 		# Default: 112
 		# Range: 0 ~ 128
-		"Monsters despawning distance" = 112
+		"Monsters despawning distance" = 50
 		#How far away from any player monsters will be able to randomly despawn? Vanilla is 32
 		# Default: 48
 		# Range: 0 ~ 128
-		"Min monsters despawning distance" = 48
+		"Min monsters despawning distance" = 32
 		#Spawn types in this list will not get AI changes. Valid values: NATURAL, CHUNK_GENERATION, SPAWNER, STRUCTURE, BREEDING, MOB_SUMMONED, JOCKEY, EVENT, CONVERSION, REINFORCEMENT, TRIGGERED, BUCKET, SPAWN_EGG, COMMAND, DISPENSER, PATROL.
 		"Blacklisted spawn types" = []
 
@@ -977,7 +977,7 @@
 			Normal = 0.05
 			# Default: 0.1
 			# Range: 0.0 ~ 1.0
-			Hard = 0.1
+			Hard = 0.08
 
 	#Allows mobs to call reinforcements (like vanilla zombies can, but better) and have leaders that have a high chance to call reinforcements. Only entity types in the `enhancedai:mobs/leaders` tag can jump. PLEASE NOTE that this feature uses a custom attribute (enhancedai:spawn_reinforcements_chance) instead of the vanilla one. This feature has also an MPR condition `enhancedai:is_leader` to check if the mob is a leader.
 	[Mobs.Leaders]

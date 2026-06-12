@@ -1,7 +1,7 @@
 #Only apply half the sweeping damage to indirectly hit mobs for better balancing of the sweeping feature.
 #Default Value: true
 #Requires Restart: Game
-halve_sweeping_damage = true
+halve_sweeping_damage = false
 #Increase snowball and egg stack size from 16 to 64, and potion stack size from 1 to 16 (only for potions of the same type of course).
 #Default Value: true
 #Requires Restart: Game

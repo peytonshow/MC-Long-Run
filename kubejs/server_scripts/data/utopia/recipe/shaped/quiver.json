@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "tag": "utopia:leathers"
+    },
+    "Q": {
+      "tag": "utopia:twine"
+    },
+    "B": {
+      "item": "minecraft:bundle"
+    }
+  },
+  "pattern": [
+    " Q#",
+    "Q #",
+    " QB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "supplementaries:quiver"
+  }
+}

@@ -1,0 +1,4 @@
+#farlands location
+# Default: 1000000
+# Range: > 1
+farlandsLocation = 1000000

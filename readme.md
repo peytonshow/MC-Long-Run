@@ -70,8 +70,11 @@ SOCIETY
 * In Long Run, society revolves around the whims of a King. The King has control over the treasury, appointing officials (Like Judges), spending treasury upgrade points.
 * Treasury: People are given access to officially backed Coins and Bills.
     * Coins: Coins are created using an item specific to the king, Encoder Stamps, to turn raw material into coins. Coins may be freely melted down back into their full form. Coins are useful because they allow consumers to get the best price for a good without relying on the government to cash out.
-    * Bills: Bills are Printed money that do not hold any inherit value, but can be exchanged for raw materials using Paper stamps issued by the king. Paper Stamps cost a certain amount of material to take out. Because not everyone withdraws after a transaction, it can be safe to print more money than the treasury can support, but too much can cause bank runs and crash the economy :) . Much like Coins, because bills are worth a portion of a raw material, it allows people to get the best price buying or selling.
-* The Law: Players have access to a strong legal framework. 
+    * Bills: Bills are Printed money that do not hold any inherit value, but can be exchanged for coins in the Treasury. Because not everyone withdraws after a transaction, it can be safe to print more money than the treasury can support, but with the down side that too many withdraws can cause bank runs and crash the economy. The King can also crash or prevent a market crash by locking the exchange.
+    * Honor: Honor is a very limited currency that circulates around the crown. When the treasury is upgraded by storing money inside it, Honor is given to the current King. Honor can be traded in the honor shop for some items or for favours (Mainly calling in troops and mercenaries to fight for you or attack other players)
+* The Law: Players have access to a strong legal framework. Players who learn and uphold the law embolden the King's power, or maybe become Judges or the Sheriff. Players who commit crimes may be imprisoned or sactioned. Depending on how the law is used, it may empower and legitimize the King or turn the people against him.
+* Consecration: Consecrated buidings are officially owned or endorsed by the King marked using a lodestone.
+
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -103,8 +106,7 @@ CRAFTING
 * All Musket and Bow weapons now have more accurate recipes to how theyre actually depicted. D
 * Cartridges now only require 2 'nail' items (Iron, brass, copper, gold nugget), 1 paper and 1 gunpowder for 2 Cartridge. PD
 * Froglights and Naturalist's Froglass now have duplicating recipes for less tedious farming. D
-* Added sequenced recipes for netherite armor that don't require diamonds, but instead have a much higher netherite cost. (This shouldn't replace your first set of netherite armor, but it streamlines the process of getting a bunch of sets for your troops. It may be more convinient to only farm for a handful of materials rather than the diamonds, netherite, gold + a template. It also requires a factory and a drill to (feasibly) get the most out of these recipes. This new Automation line uses Overworld templates and roughly 3~4 netherite ingots a pop.
-
+* Added sequenced recipes for netherite armor that don't require diamonds, but instead have a much higher netherite cost. (This shouldn't replace your first set of netherite armor, but it streamlines the process of getting a bunch of sets for your troops, or for backups. It may be more convinient to only farm for a handful of materials rather than the diamonds, netherite, gold + a template. It also requires a factory and a drill to (feasibly) get the most out of these recipes. This new Automation line uses Overworld templates and roughly 3~4 netherite ingots a pop.
 * Overworld Templates a new item obtained from superheated mixing. Overworld templates are used in multiple automation lines.
 
 CREATE
@@ -136,7 +138,7 @@ FOOD
 * Golden carrots new refill 1 hunger bar but completely max out saturation. This should make g carrots fulfil a health recovery role during a fight rather than just the meta food item.
 * May make Create's Wheat Flour manually by using a cutting board (1 wheat -> 1 flour).D
 * Completely removed most of Refurbished Furniture's cooking (Most recipes are completely locked behind creating the mod's furniture stuff when there's literally no reason to besides forcing people to use the mod. This is stupid, so I moved all the mod's 'Combining' recipes into a shapeless crafting table recipe, removed the cutting boards, and replaced multiple of this mod's duplicate ingrediants (Dough and cheeses) with those from other mods. This mod might actually have some of the worst mod compatability I've seen despite the developer claiming they started work on that >1 year ago) D
-* Sweet and Glow berries are now eaten quickly. D
+* Melon+Pumpkin Slices, Sweet and Glow berries are now eaten quickly. PD
 * Glue is now edible. D
 
 COMBAT

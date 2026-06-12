@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "stick"
+    }
+  ],
+  "result": [
+    {
+      "chance": 0.015,
+      "item": {
+        "count": 1,
+        "id": "minecraft:fire_charge"
+      }
+    },
+    {
+      "chance": 0.18,
+      "item": {
+        "count": 1,
+        "id": "supplementaries:ash"
+      }
+    }
+  ],
+  "tool": {
+    "item": "minecraft:bow"
+  }
+}
