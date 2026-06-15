@@ -1,0 +1,82 @@
+§4§l§m================
+§r§4§lR§r§0§lules of
+§r§4§lP§r§0§lrocedure§r§4§l§m
+================§r
+§8§l§oV1.0§r   ..  ...  ..
+        '||||''||!||''||||'
+         ||  |||  ||
+        {..} |!| {..}
+            |||
+         [:::|O|:::]
+
+§0Official Rules of Criminal and Civil        Procedure.§r§4§l§m================
+§r§0§lTable of Contents§r§4§l§m
+
+================§r
+
+§l03.§r .. Complaints ...............
+§l09.§r .. Affidavit ...................
+§l13.§r .. Trajectory ...........
+§l17.§r .. Fact Finding ..........
+§l21.§r .. Trial Body ...............
+§l25.§r .. Verdict ......................
+§l29.§r .. Sentencing .............
+§l33.§r .. Post-Trial ...............
+§l37.§r .. Making Courts ......§4§l§m================§r§0§l
+ Filing a Complaint
+§r§4§l§m================
+§r
+In order to begin the litigation process, a first formal complaint must be filed and approved by either The King, or a representative appointed by The King (A.k.a a Judge). A complaint must contain:§l1. Parties:
+§rThe Plaintiffs and Defendent.§l
+2. Allegations:§r
+Alleged Crimes.
+§l3. Alleged Facts:§r
+Stated Facts.
+§l4. Articulation:§r
+How do facts allegedly prove wrongdoing?
+§l5. Wherefore:§r
+What the Plaintiff wants for damages.The initial complaint must be signed by the plaintiff as proof of identity. Any new documents may be signed by a stated legal representative.
+
+A template is available using the command '§6/template complaint§r' and holding a Book & Quill. After the complaint is signed,the Judge may approve the Complaint, or deny it. If a complaint is not against the law or the alleged facts are not adequete enough to prove the crime, a judge may turn it down. It may also be turned down if the requested damages are deemed excessive for the acts commited.Complaints that violate the written law are criminal, meaning only a King appointed §nDistrict Attorney§r can file a complaint. Acts that cause harm, whether legal or illegal, allow the §nPlaintiff§r (The Victim) to pursue damages civilly. This means one act can be tried Criminally by the stateand prosecuted civilly by the Victim. After Judge approval of the complaint, an §nAffadavit§r is required to go forward If the complaint is criminal and has already been tried in court criminally, the acts cannot be prosecuted again. This is known as §ndouble jeopardy§r, and results in dismissal.§4§l§m================
+§r§0§lFiling an Affidavit§r§4§l§m
+================
+§r
+An Affidavit is a document written with sworn testimony from the Plaintiff(s) describing what took place and how they were actually harmed. 
+
+An affidavit must include the following:§l1. Header:§r
+The name of the case given by the Judge.
+(ex. Joe v. Bob)
+§l2. Identification:§r
+Identify the Plaintiff giving the testimony.
+§l3. Event & Exhibits:§r
+Firsthand, bulleted, known events as well as physical evidence.
+§l4. Repeat:
+§rRepeat 2 and 3 for each Plaintiff.Any information written in an Affidavit must be 100% and totally accurate to the beliefs of the defendents to the best of their ability. Any misinformation can tank your case at trial and potentially risk criminal liability for lying to the court. Just like complaints, you can find anaffidavit template by running the command '§6/template affidavit§r'§4§l§m================
+§r§0§l     Trajectory§r§4§l§m
+================§r
+
+After the affidavit is provided to the Judge and Defendant, it is up to both recipiants to decide how to proceed. If the defendant reviews the evidence and decides to plea Guily, this process advances tothe §nVerdict§r stage where sentencing is decided soon after. If the Defendant wishes not to plead guilty, the Judge will assign a Court date and decide whether a §nBench Trial§r or §nJury Trial§r will take place. The Judge may compel up to 6 people to appear in court to observe the Trial and deliver a verdict, whilein a Bench Trial, the Judge assumes the role of a Jury. Most cases wind up in a Bench Trial. The King may override the Judge's decision for which type of trial will take place, additionally the Judge has the power to convene in a special meeting with the prosecution and defense.§4§l§m================
+§r§0§l    Fact-Finding§r§4§l§m
+================§r
+
+The first sessions of court are dedicated towards determining the facts of a case. The Plaintiff and Defendant will try to get evidence that supports their side into evidence while denying harmful orirrelevant information from being entered. Both sides will appeal to the Judge for each piece of information in both found in the original §nComplaint§r as well as the §nAffidavit§r. This is includes physical, testimonial or document evidence pertaining to the case. No new evidence can be admitted after thefact finding phase unless a special intermittent session is held that follows much the same process as before, but with a slightly higher standard in order to be approved. This is only available for new, previously unknown evidence. If evidence is overlooked it is the fault of the partyresponsible. New evidence can only be added during §nAppeals§r of Criminal charges.§4§l§m================
+§r§0§l    Trial Body§r§4§l§m
+================§r
+
+The Body phase is, §owell,§r the actual trial itself. After the Fact-Finding phase, the Judge will order all participants, including the Jury and any number of listed Witnesses to appear in court on a specifieddate and time. If a party doesn't show up court does not have to be rescheduled. If a criminal act prevented a party from appearing then a mistrial is declared and the process must restart from the begining. Any criminal activity during the trial will also result in a mistrial. There is nopenalty for either party when a mistrial is declared.§4§l§m================
+§r§0§l      Verdict§r§4§l§m
+================§r
+
+Once all the evidence is presented, it is up to the Judge or the Jury to come a decision on the guilt or innocence of the defendant. During a Jury trial there are 2 different ways an outcome is decided. Ifa Jury is hearing a Criminal case, they must come to full agreement on guilty or innocent. If the outcome is mixed, this is known as a §nHung Jury§r. The Jury may reconviene up to 3 times until the case may either be deemed a mistrial OR the jury may be discharged and replaced with abench trial with the King's approval. If a Juror intentionally tries to interupt court by causing a hung jury, they can rack up Contempt of Court charges by the state, basically a fine for wasting the court's time. A Hung Jury is the goal of a defense in a Jury trial while a prosecutor is set onproving intent beyond a reasonable doubt. In a Bench Trial, the goals of each party are largely the same, but instead focused upon convincing the Judge in their favor. When a verdict is decided, sentencing may begin. The Verdict may be used in other cases to influence the Law.§4§l§m================
+§r§0§l    Sentencing§r§4§l§m
+================§r
+
+If a Guilty plea occurs, a defendant moves onto sentencing phase. Sentencing allows each party to determine damages or punishment with the knowledge of the facts deliberate throughout the case.For example, if a thief had to choose between stealing or starving, the nature of their circumstance reduces the harmful intent of the act. For this person it wasn't really a choice, so a court may choose a lesser punishment in light of these facts. This is called a §nMitgating Factor§r.Many times trials may skip right to sentencing following a §nPlea Deal§r, where an accused criminal may confess to one or more crimes to drop charges. Taking a Plea Deal is beneficial to both the accuser and the accused as it shrinks punishment in exchange for the prosecution nothaving to risk a Hung Jury and letting the accused become acquitted of all charges.§4§l§m================
+§r§0§l     Post-Trial§r§4§l§m
+================§r
+
+After sentencing, court is officially over. Punishment must be enforced by the state according to the sentencing. Fines, seizures, or potential jail time is then enforced.During this time, criminals are offered an Appeals process, where they attempt to have their case heard by the King themself instead of a Judge, as only they have the power to overturn the outcome of the case. The Appeals process works much the same way as a normal trial, but instead of aJudge overseeing the case, it's the King. If the accused is now found innocent of certain charges, the punishment of those is cancelled/dropped. If criminal records are being kept, then those must reflect the changes made to the dropped charges. If a case fails in appeals, then it officially dies and is set in stone indefinitely. The outcome at that point in time may not be changed unless Pardoned by the King.§4§l§m================
+§r§0§l   Making Courts§r§4§l§m
+================§r
+
+A Court consists of several components to carry out the law. One large, central podium with two smaller desks on the side. Council tables situated on each side of the Judge's podium. Behind the council tables are3 rows of seats for spectators. Seating for the jury is placed alongside the walls of the Court. In another area of the Court must be an evidence room. The evidence room must be kept behind locked doors. A King can approve a Court by placing a lodestone and tuning a Compass to it.Hold the tuned compass and run the command '§6/consecrate add court§r'. Now anyone who runs the command '§6/consecrate find court§r' with a held compass will point to the lodestone as an Official Court. This can also be used to mark other buildings as official.

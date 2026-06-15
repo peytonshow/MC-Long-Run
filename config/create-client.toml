@@ -140,7 +140,7 @@
 		showExtendedTrackGraphOnF3 = false
 		#.
 		#Display Track Networks and Trains on supported map mods
-		showTrainMapOverlay = false
+		showTrainMapOverlay = true
 		#.
 		#Track Network Color on maps
 		#Allowed Values: RED, GREY, WHITE

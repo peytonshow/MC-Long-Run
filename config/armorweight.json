@@ -221,6 +221,22 @@
       "useCustomWeight": false,
       "customWeight": 7.25
     },
+    "utopia:civilian_hat": {
+      "useCustomWeight": false,
+      "customWeight": 1.5
+    },
+    "utopia:civilian_pants": {
+      "useCustomWeight": false,
+      "customWeight": 1.5
+    },
+    "utopia:civilian_shoes": {
+      "useCustomWeight": false,
+      "customWeight": 1.5
+    },
+    "utopia:civilian_suit": {
+      "useCustomWeight": false,
+      "customWeight": 1.5
+    },
     "utopia:crown": {
       "useCustomWeight": true,
       "customWeight": 0.0
@@ -236,6 +252,22 @@
     "utopia:used_shackles": {
       "useCustomWeight": false,
       "customWeight": 2.5
+    },
+    "utopia:leather_gown": {
+      "useCustomWeight": false,
+      "customWeight": 2.5
+    },
+    "utopia:leather_robes": {
+      "useCustomWeight": false,
+      "customWeight": 0.5
+    },
+    "utopia:leather_shoes": {
+      "useCustomWeight": false,
+      "customWeight": 2.5
+    },
+    "utopia:leather_veil": {
+      "useCustomWeight": false,
+      "customWeight": 0.5
     },
     "luckyswardrobe:bee_hat": {
       "useCustomWeight": false,

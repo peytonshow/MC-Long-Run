@@ -1,3 +1,5 @@
+
+
 ItemEvents.modification(event => {
 
     const LEATHER_HELMET_ARMOR = 1;
@@ -225,3 +227,57 @@ ItemEvents.modification(event => {
     })
 })
 
+StartupEvents.registry("armor_material", (event) => {
+    event.create('crown')
+    .defense({
+        helmet: 4
+    })
+    .enchantmentValue(0)
+    .equipSound('minecraft:item.armor.equip_netherite')
+    .toughness(4)
+    .knockbackResistance(0.3);
+
+    event.create('shattered_crown')
+    .defense({
+        helmet: 1
+    })
+    .enchantmentValue(0)
+    .equipSound('minecraft:item.armor.equip_iron')
+    .toughness(1)
+    .knockbackResistance(0.1);
+
+    event.create('cuffs')
+    .defense({
+        chestplate: 2,
+        boots: 2
+    })
+    .enchantmentValue(0)
+    .equipSound('minecraft:item.armor.equip_iron')
+    .toughness(1)
+    .knockbackResistance(0.0);
+
+    event.create('suit')
+    .defense({
+        helmet: 1,
+        chestplate: 1,
+        leggings: 1,
+        boots: 1
+    })
+    .enchantmentValue(0)
+    .equipSound('minecraft:item.armor.equip_iron')
+    .toughness(1)
+    .knockbackResistance(0.0);
+});
+
+StartupEvents.registry('item', event => {
+    event.create('utopia:crown', 'helmet').displayName('Royal Crown').texture('utopia:item/crown').rarity('epic').material('kubejs:crown')
+    event.create('utopia:shattering_crown', 'helmet').displayName('Shattered Crown').texture('utopia:item/shattering_crown').material('kubejs:shattered_crown').maxDamage(50)
+
+    event.create('utopia:used_handcuffs', 'chestplate').displayName('Handcuffs').texture('utopia:item/handcuffs').material('kubejs:cuffs').maxDamage(120)
+    event.create('utopia:used_shackles', 'boots').displayName('Shackles').texture('utopia:item/leg_restraints').material('kubejs:cuffs').maxDamage(100)
+    
+    event.create('utopia:civilian_hat', 'helmet').texture('utopia:item/armor/civilian_hat').material('kubejs:suit').maxDamage(80)
+    event.create('utopia:civilian_suit', 'chestplate').texture('utopia:item/armor/civilian_suit').material('kubejs:suit').maxDamage(80)
+    event.create('utopia:civilian_pants', 'leggings').texture('utopia:item/armor/civilian_hat').material('kubejs:suit').maxDamage(80)
+    event.create('utopia:civilian_shoes', 'boots').texture('utopia:item/armor/leather_shoes').material('kubejs:suit').maxDamage(80)
+})

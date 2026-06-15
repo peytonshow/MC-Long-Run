@@ -5,5 +5,6 @@ ServerEvents.recipes(event => {
 
 
     event.remove({ input: 'minecraft:gravel', type: 'create:splashing' })
+    event.remove({ output: 'oreganized:glance'})
 
 })

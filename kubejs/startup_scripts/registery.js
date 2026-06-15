@@ -1,32 +1,4 @@
-StartupEvents.registry("armor_material", (event) => {
-    event.create('crown')
-    .defense({
-        helmet: 4
-    })
-    .enchantmentValue(0)
-    .equipSound('minecraft:item.armor.equip_netherite')
-    .toughness(4)
-    .knockbackResistance(0.3);
 
-    event.create('shattered_crown')
-    .defense({
-        helmet: 1
-    })
-    .enchantmentValue(0)
-    .equipSound('minecraft:item.armor.equip_iron')
-    .toughness(1)
-    .knockbackResistance(0.1);
-
-    event.create('cuffs')
-    .defense({
-        chestplate: 2,
-        boots: 2
-    })
-    .enchantmentValue(0)
-    .equipSound('minecraft:item.armor.equip_iron')
-    .toughness(1)
-    .knockbackResistance(0.0);
-});
 
 StartupEvents.registry('item', event => {
 
@@ -36,19 +8,13 @@ StartupEvents.registry('item', event => {
     event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings')
     event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots')
     event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
-    event.create('utopia:catalyst').displayName('Nature Catalyst').texture('utopia:item/catalyst')
+    event.create('utopia:catalyst').displayName('Nature Catalyst').texture('utopia:item/catalyst').rarity('uncommon').glow(true)
 
     event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare')
     event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').rarity('rare')
     event.create('utopia:paper_stamp').displayName('Paper Stamp').texture('utopia:item/paper_stamp').rarity('rare')
 
-    // Armor
-    event.create('utopia:crown', 'helmet').displayName('Royal Crown').texture('utopia:item/crown').rarity('epic').material('kubejs:crown')
-    event.create('utopia:shattering_crown', 'helmet').displayName('Shattered Crown').texture('utopia:item/shattering_crown').material('kubejs:shattered_crown').maxDamage(50)
-
     // Jail
-    event.create('utopia:used_handcuffs', 'chestplate').displayName('Handcuffs').texture('utopia:item/handcuffs').material('kubejs:cuffs').maxDamage(120)
-    event.create('utopia:used_shackles', 'boots').displayName('Shackles').texture('utopia:item/leg_restraints').material('kubejs:cuffs').maxDamage(100)
     event.create('utopia:handcuffs').displayName('Silver Cuffs').texture('utopia:item/cuffs')
     event.create('utopia:shackles').displayName('Lead Shackles').texture('utopia:item/shackles')
 
@@ -118,8 +84,7 @@ StartupEvents.registry('block', event => {
     .resistance(0)
     .notSolid()
     .fullBlock(false)
-    .item(ctx => {ctx.maxStackSize(25)})
-    .maxStackSize(50)
+    .item(ctx => {ctx.maxStackSize(25).maxStackSize(50)})
   event.create('utopia:block_of_capitalism', "kubejs:cardinal") 
     .displayName('Block of Capitalism') //1
     .soundType('wool') 
