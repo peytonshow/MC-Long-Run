@@ -276,7 +276,6 @@ StartupEvents.registry('item', event => {
     event.create('utopia:used_handcuffs', 'chestplate').displayName('Handcuffs').texture('utopia:item/handcuffs').material('kubejs:cuffs').maxDamage(120)
     event.create('utopia:used_shackles', 'boots').displayName('Shackles').texture('utopia:item/leg_restraints').material('kubejs:cuffs').maxDamage(100)
     
-    event.create('utopia:civilian_hat', 'helmet').texture('utopia:item/armor/civilian_hat').material('kubejs:suit').maxDamage(80)
     event.create('utopia:civilian_suit', 'chestplate').texture('utopia:item/armor/civilian_suit').material('kubejs:suit').maxDamage(80)
     event.create('utopia:civilian_pants', 'leggings').texture('utopia:item/armor/civilian_hat').material('kubejs:suit').maxDamage(80)
     event.create('utopia:civilian_shoes', 'boots').texture('utopia:item/armor/leather_shoes').material('kubejs:suit').maxDamage(80)
