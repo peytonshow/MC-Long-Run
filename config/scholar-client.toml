@@ -15,4 +15,4 @@
 #Settings in this category are automatically updated by the mod itself. You don't need to change them, unless the desire is irresistible.
 [tutorial]
 	#Extra tools button is flashing red to grab attention until the player toggles it.
-	extra_tools = true
+	extra_tools = false

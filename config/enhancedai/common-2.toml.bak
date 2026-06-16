@@ -454,7 +454,7 @@
 	"Enable Teleport to target" = false
 	#Use `config/enhancedai/Custom targeting` to set custom targeting
 	"Enable Custom targeting" = true
-	#Makes mobs ride other mobs. Mobs in the `enhancedai:mobs/riding/can_be_mounted` tag will be ablee to be mounted, while mobs in the `enhancedai:mobs/riding/can_mount` tag will be able to mount other mobs.
+	#Makes mobs ride other mobs. Mobs in the `enhancedai:mobs/riding/can_be_mounted` tag will be able to be mounted, while mobs in the `enhancedai:mobs/riding/can_mount` tag will be able to mount other mobs.
 	"Enable Riding" = true
 	"Enable Fire immune ticks" = true
 	#Endermen will make the player's item fall from his hands. Add/remove mobs via the enhancedai:mobs/can_disrupt_item entity type tag

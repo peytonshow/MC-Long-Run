@@ -34,9 +34,7 @@ ServerEvents.recipes(event => {
         'utopia:catalyst', 'minecraft:iron_nugget'
     ])
 
-
-    event.recipes.create.splashing(CreateItem.of('utopia:civilian_suit'),'utopia:civilian_suit')
-    event.recipes.create.splashing(CreateItem.of('utopia:civilian_pants'),'utopia:civilian_pants')
-    event.recipes.create.splashing(CreateItem.of('utopia:civilian_shoes'),'utopia:civilian_shoes')
-
+    Ingredient.of('#utopia:washable').stacks.forEach(item => {
+        event.recipes.create.splashing(item, item)
+    })
 })

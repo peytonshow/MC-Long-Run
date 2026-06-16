@@ -38,7 +38,7 @@
 
 [modRenderExclusions]
 	#Specific item IDs to exclude from custom rendering (e.g. 'modid:itemname').
-	excludedItemIds = ["farmersdelight:skillet", "supplementaries:quiver", "supplementaries:cannon","supplementaries:ash", "naturalist:glow_goop", "supplementaries:flax_seeds", "supplementaries:slingshot", "supplementaries:bubble_blower"]
+	excludedItemIds = ["farmersdelight:skillet", "supplementaries:quiver", "supplementaries:cannon", "supplementaries:ash", "naturalist:glow_goop", "supplementaries:flax_seeds", "supplementaries:slingshot", "supplementaries:bubble_blower", "minecraft:written_book"]
 	#Mod IDs that should be excluded from custom rendering (entire mod).
 	excludedModIds = ["pointblank", "jeg", "cataclysm"]
 	#Skips the blockItem renderer, useful especially for create items because they're already 3D.

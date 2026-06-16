@@ -9,6 +9,11 @@ ServerEvents.tags('item', event => {
         event.add('utopia:currency', item)
     };
 
+    const makeWashable = (item) => {
+        event.removeAllTagsFrom(item)
+        event.add('utopia:washable', item)
+    };
+
     event.removeAllTagsFrom('utopia:used_handcuffs')
     event.removeAllTagsFrom('utopia:used_shackles')
     event.removeAllTagsFrom('utopia:crown')
@@ -68,4 +73,12 @@ ServerEvents.tags('item', event => {
     event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')
     event.add('minecraft:needs_iron_tool', 'quark:sturdy_stone')
     event.add('minecraft:mineable/pickaxe', 'quark:sturdy_stone')
+
+    makeWashable('nirvana:deerstalker')
+    makeWashable('utopia:gilded_suit')
+    makeWashable('utopia:gilded_pants')
+    makeWashable('utopia:gilded_shoes')
+    makeWashable('utopia:detective_suit')
+    makeWashable('utopia:detective_pants')
+    makeWashable('utopia:detective_shoes')
 })

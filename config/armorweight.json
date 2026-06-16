@@ -221,6 +221,46 @@
       "useCustomWeight": false,
       "customWeight": 7.25
     },
+    "utopia:crown": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "utopia:detective_pants": {
+      "useCustomWeight": false,
+      "customWeight": 3.1
+    },
+    "utopia:detective_shoes": {
+      "useCustomWeight": false,
+      "customWeight": 3.1
+    },
+    "utopia:detective_suit": {
+      "useCustomWeight": false,
+      "customWeight": 4.1
+    },
+    "utopia:gilded_pants": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
+    },
+    "utopia:gilded_shoes": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
+    },
+    "utopia:gilded_suit": {
+      "useCustomWeight": false,
+      "customWeight": 4.0
+    },
+    "utopia:shattering_crown": {
+      "useCustomWeight": true,
+      "customWeight": 0.0
+    },
+    "utopia:used_handcuffs": {
+      "useCustomWeight": false,
+      "customWeight": 2.5
+    },
+    "utopia:used_shackles": {
+      "useCustomWeight": false,
+      "customWeight": 2.5
+    },
     "utopia:civilian_hat": {
       "useCustomWeight": false,
       "customWeight": 1.5
@@ -236,22 +276,6 @@
     "utopia:civilian_suit": {
       "useCustomWeight": false,
       "customWeight": 1.5
-    },
-    "utopia:crown": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
-    },
-    "utopia:shattering_crown": {
-      "useCustomWeight": true,
-      "customWeight": 0.0
-    },
-    "utopia:used_handcuffs": {
-      "useCustomWeight": false,
-      "customWeight": 2.5
-    },
-    "utopia:used_shackles": {
-      "useCustomWeight": false,
-      "customWeight": 2.5
     },
     "utopia:leather_gown": {
       "useCustomWeight": false,
