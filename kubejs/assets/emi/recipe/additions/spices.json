@@ -1,0 +1,9 @@
+{
+  "type": "emi:info",
+  "stacks": [
+    "item:utopia:cinnamon",
+    "item:utopia:pepper",
+    "item:utopia:sea_salt"
+  ],
+  "text": "utopia.info.spices"
+}

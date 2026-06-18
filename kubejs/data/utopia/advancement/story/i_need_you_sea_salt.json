@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:story/root",
+  "display": {
+    "icon": {
+      "id": "utopia:sea_salt"
+    },
+    "title": {
+      "text": "SEA SALT!"
+    },
+    "description": {
+      "text": "Obtain Sea Salt."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "sea_salt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "refurbished_furniture:sea_salt"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sea_salt"
+    ]
+  ]
+}

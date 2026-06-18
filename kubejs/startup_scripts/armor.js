@@ -46,16 +46,6 @@ ItemEvents.modification(event => {
 
 
 
-
-
-
-
-
-
-
-
-
-
     // Durability Values
     const LEATHER_HELMET_DURABILITY = 190; // 55
     const LEATHER_CHESTPLATE_DURABILITY = 200; //80
@@ -264,6 +254,7 @@ StartupEvents.registry("armor_material", (event) => {
     })
     .enchantmentValue(0)
     .equipSound('minecraft:item.armor.equip_leather')
+    .repairIngredient(() => Ingredient.of('minecraft:string').or('minecraft:leather'))
     .knockbackResistance(0.25);
 
     event.create('detective_suit')
@@ -272,11 +263,11 @@ StartupEvents.registry("armor_material", (event) => {
         leggings: 1,
         boots: 1
     })
-    .enchantmentValue(0)
     .toughness(1)
+    .enchantmentValue(0)
     .equipSound('minecraft:item.armor.equip_leather')
-    .repairIngredient([Ingredient.of('#utopia:twine'), Ingredient.of('#utopia:leathers')])
-    .knockbackResistance(0.20);
+    .repairIngredient(() => Ingredient.of('minecraft:string').or('minecraft:leather'))
+    .knockbackResistance(0.25);
 });
 
 StartupEvents.registry('item', event => {

@@ -74,6 +74,7 @@ SOCIETY
     * Honor: Honor is a very limited currency that circulates around the crown. When the treasury is upgraded by storing money inside it, Honor is given to the current King. Honor can be traded in the honor shop for some items or for favours (Mainly calling in troops and mercenaries to fight for you or attack other players)
 * The Law: Players have access to a strong legal framework. Players who learn and uphold the law embolden the King's power, or maybe become Judges or the Sheriff. Players who commit crimes may be imprisoned or sactioned. Depending on how the law is used, it may empower and legitimize the King or turn the people against him.
 * Consecration: Consecrated buidings are officially owned or endorsed by the King marked using a lodestone.
+* Swag: Added clothes, which provide heavy knockback resistance and minor defense. Clothes can be repaired by throwing them into the wash without cost.
 
 
 -----------------------------------------------------------------------------------------------------------------

@@ -56,7 +56,10 @@ ServerEvents.tags('item', event => {
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/way_sign_ancient')
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/cannon_boat_ancient')
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/ancient_boat')
+    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:sea_salt')
     
+    event.add('utopia:spices', 'utopia:cinnamon')
+
     addBill('utopia:1_dollar_bill')
     addBill('utopia:5_dollar_bill')
     addBill('utopia:20_dollar_bill')

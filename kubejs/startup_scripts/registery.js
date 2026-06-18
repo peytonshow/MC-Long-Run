@@ -3,22 +3,18 @@
 StartupEvents.registry('item', event => {
 
     // Production
-    event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet')
-    event.create('utopia:incomplete_netherite_chestplate', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_chestplate')
-    event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings')
-    event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots')
+    event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet').displayName('Patchwork Netherite Helmet')
+    event.create('utopia:incomplete_netherite_chestplate', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_chestplate').displayName('Patchwork Netherite Chestplate')
+    event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings').displayName('Patchwork Netherite Leggings')
+    event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots').displayName('Patchwork Netherite Boots')
     event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
-    event.create('utopia:catalyst').displayName('Nature Catalyst').texture('utopia:item/catalyst').rarity('uncommon').glow(true)
+    event.create('utopia:catalyst').displayName('Nature Catalyst').texture('utopia:item/catalyst').rarity('uncommon')
+    event.create('utopia:uneven_raw_brass_precursor').displayName('Uneven Brass Precursor').texture('utopia:item/uneven_brass_precursor')
 
     event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare')
     event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').rarity('rare')
     event.create('utopia:paper_stamp').displayName('Paper Stamp').texture('utopia:item/paper_stamp').rarity('rare')
 
-    // Jail
-    event.create('utopia:handcuffs').displayName('Silver Cuffs').texture('utopia:item/cuffs')
-    event.create('utopia:shackles').displayName('Lead Shackles').texture('utopia:item/shackles')
-
-  
 
     // Copper tools.
     event.create('minecraft:copper_sword', 'sword').tier('stone').maxDamage(100)
@@ -43,13 +39,34 @@ StartupEvents.registry('item', event => {
     event.create('utopia:coin_iron').displayName('Iron Coin').texture('utopia:item/coin_iron')
     event.create('utopia:coin_iron_fractional').displayName('Iron Fractional').texture('utopia:item/coin_iron_fractional')
 
+    // Jail
+    event.create('utopia:handcuffs').displayName('Silver Cuffs').texture('utopia:item/cuffs')
+    event.create('utopia:shackles').displayName('Lead Shackles').texture('utopia:item/shackles')
+
     // Raw Food
-    event.create('utopia:cookie_dough').displayName("Cookie Dough").maxStackSize(global.MAXFOODSIZE).food(food =>food
+    event.create('utopia:cookie_dough').maxStackSize(global.MAXFOODSIZE).food(food =>food
         .nutrition(0.5)
         .saturation(1)
-        .effect("minecraft:hunger", 10, 240, 0.1)
+        .effect("minecraft:hunger", 10, 240, 0.02).eatSeconds(2)
     )
     
+    // Gordon, I need spices!
+    event.create('utopia:cinnamon').food(food =>food
+        .nutrition(1)
+        .saturation(2.5)
+        .eatSeconds(1.6)
+    )
+    event.create('utopia:pepper').food(food =>food
+        .nutrition(3)
+        .saturation(1)
+        .eatSeconds(0.8)
+    )
+    event.create('utopia:sea_salt').food(food => food
+      .nutrition(0.5)
+      .saturation(3.0)
+      .eatSeconds(3.2)
+    )
+
 })
 
 StartupEvents.registry('block', event => {

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_copper"
+    },
+    {
+      "item": "create:crushed_raw_zinc"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "utopia:uneven_raw_brass_precursor"
+  }
+}

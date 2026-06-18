@@ -1,0 +1,31 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "B": {
+      "item": "create:brass_block"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "S": {
+      "item": "utopia:catalyst"
+    }
+  },
+  "pattern": [
+    " ABA ",
+    "AAPAA",
+    "BPSPB",
+    "AAPAA",
+    " ABA "
+  ],
+  "result": {
+    "count": 2,
+    "id": "create:crushing_wheel"
+  },
+  "show_notification": false
+}

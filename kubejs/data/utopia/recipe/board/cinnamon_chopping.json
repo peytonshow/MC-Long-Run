@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "farmersdelight:tree_bark"
+    }
+  ],
+  "result": [
+    {
+      "chance": 0.15,
+      "item": {
+        "count": 1,
+        "id": "utopia:cinnamon"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

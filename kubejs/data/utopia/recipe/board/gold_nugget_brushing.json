@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:red_sand"
+    }
+  ],
+  "result": [
+    {
+      "chance": 0.1,
+      "item": {
+        "count": 1,
+        "id": "minecraft:raw_gold"
+      }
+    }
+  ],
+  "tool": [
+    {
+      "action": "pickaxe_dig"
+    },
+    {
+      "item": "minecraft:brush"
+    }
+  ]
+}
