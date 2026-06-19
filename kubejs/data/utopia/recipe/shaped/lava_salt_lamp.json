@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "utopia:sea_salt_block"
+    },
+    "X": {
+      "item": "minecraft:verdant_froglight"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "utopia:lava_salt_lamp"
+  }
+}

@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "utopia:block/salt_lamp",
-    "inner": "utopia:block/salt_lamp",
-    "outer": "utopia:block/salt_lamp_transparent"
+    "particle": "utopia:block/iodide_salt_lamp",
+    "inner": "utopia:block/iodide_salt_lamp",
+    "outer": "utopia:block/iodide_salt_lamp_transparent"
   },
   "elements": [
     {

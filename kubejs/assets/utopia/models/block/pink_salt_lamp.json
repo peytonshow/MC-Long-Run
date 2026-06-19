@@ -1,0 +1,49 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "utopia:block/pink_salt_lamp",
+    "inner": "utopia:block/pink_salt_lamp",
+    "outer": "utopia:block/pink_salt_lamp_transparent"
+  },
+  "elements": [
+    {
+      "name": "inner_core",
+      "from": [ 1, 1, 1 ],
+      "to": [ 15, 15, 15 ],
+      "faces": {
+        "down":  { "uv": [ 1, 1, 15, 15 ], "texture": "#inner" },
+        "up":    { "uv": [ 1, 1, 15, 15 ], "texture": "#inner" },
+        "north": { "uv": [ 1, 1, 15, 15 ], "texture": "#inner" },
+        "south": { "uv": [ 1, 1, 15, 15 ], "texture": "#inner" },
+        "west":  { "uv": [ 1, 1, 15, 15 ], "texture": "#inner" },
+        "east":  { "uv": [ 1, 1, 15, 15 ], "texture": "#inner" }
+      }
+    },
+    {
+      "name": "middle_layer",
+      "from": [ 0.5, 0.5, 0.5 ],
+      "to": [ 15.5, 15.5, 15.5 ],
+      "faces": {
+        "down":  { "uv": [ 0.5, 0.5, 15.5, 15.5 ], "texture": "#outer" },
+        "up":    { "uv": [ 0.5, 0.5, 15.5, 15.5 ], "texture": "#outer" },
+        "north": { "uv": [ 0.5, 0.5, 15.5, 15.5 ], "texture": "#outer" },
+        "south": { "uv": [ 0.5, 0.5, 15.5, 15.5 ], "texture": "#outer" },
+        "west":  { "uv": [ 0.5, 0.5, 15.5, 15.5 ], "texture": "#outer" },
+        "east":  { "uv": [ 0.5, 0.5, 15.5, 15.5 ], "texture": "#outer" }
+      }
+    },
+    {
+      "name": "outer_shell",
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#outer", "cullface": "down" },
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#outer", "cullface": "up" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#outer", "cullface": "north" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#outer", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#outer", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#outer", "cullface": "east" }
+      }
+    }
+  ]
+}

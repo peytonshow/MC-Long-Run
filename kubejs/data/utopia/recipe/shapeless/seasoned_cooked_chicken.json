@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_chicken"
+    },
+    {
+      "tag": "utopia:spices"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "utopia:seasoned_cooked_chicken"
+  }
+}

@@ -154,18 +154,25 @@ ItemEvents.modification(event => {
         "create:sweet_roll",
         "create:chocolate_glazed_berries",
         "create:honeyed_apple",
-        "create:builders_tea"
-        // Why doesn't Minecraft bake tags yet '
+        "create:builders_tea",
+        "naturalist:cooked_bushmeat",
+        "naturalist:bushmeat",
+        "naturalist:cooked_duck",
+        "naturalist:duck",
+        "naturalist:cooked_venison",
+        "naturalist:venison",
+        "naturalist:cooked_lizard_tail",
+        "naturalist:lizard_tail",
+        "naturalist:bass",
+        "naturalist:cooked_bass"
     ]
 
     let procStarting = 0
     let procAltered = 0
     itemsToProcess.forEach(itemId => {
         let itemStack = Item.of(itemId)
-        // Ensure the item exists in the registry to prevent crashes
         if (!itemStack.isEmpty()) {
             procStarting++
-            // The conditional check: only modify if the current max stack is greater than 16
             if (itemStack.maxStackSize > 16) {
                 event.modify(itemId, item => {
                     item.maxStackSize = global.MAXFOODSIZE

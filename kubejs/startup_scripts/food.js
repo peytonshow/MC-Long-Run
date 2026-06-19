@@ -179,40 +179,40 @@ ItemEvents.modification(event => {
     event.modify('utopia:seasoned_cooked_mutton', item => {
         item.setFood({
             eatSeconds: 1.6,
-            saturation: 6,
             nutrition: 5,
+            saturation: 6,
             canAlwaysEat: false
         })
     })
     event.modify('minecraft:cooked_rabbit', item => {
         item.setFood({
             eatSeconds: 1.6,
-            saturation: 5,
             nutrition: 5,
+            saturation: 5,
             canAlwaysEat: false
         })
     })
     event.modify('utopia:seasoned_cooked_rabbit', item => {
         item.setFood({
             eatSeconds: 1.6,
-            saturation: 7,
             nutrition: 5,
+            saturation: 7,
             canAlwaysEat: false
         })
     })
     event.modify('naturalist:cooked_bushmeat', item => {
         item.setFood({
             eatSeconds: 1.6,
-            saturation: 3,
             nutrition: 8,
+            saturation: 3,
             canAlwaysEat: false
         })
     })
     event.modify('utopia:seasoned_cooked_bushmeat', item => {
         item.setFood({
             eatSeconds: 1.6,
-            saturation: 8,
             nutrition: 8,
+            saturation: 8,
             canAlwaysEat: false
         })
     })
