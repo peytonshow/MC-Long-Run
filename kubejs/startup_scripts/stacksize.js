@@ -2,18 +2,10 @@
 global.MAXFOODSIZE = 16;
 ItemEvents.modification(event => {
     const itemsToProcess = [
-        "minecraft:glow_berries",
-        "minecraft:sweet_berries",
-        "minecraft:apple",
-        "minecraft:golden_apple",
         "minecraft:enchanted_golden_apple",
-        "minecraft:carrot",
-        "minecraft:golden_carrot",
-        "minecraft:potato",
         "minecraft:baked_potato",
         "minecraft:poisonous_potato",
         "minecraft:beetroot",
-        "minecraft:dried_kelp",
         "minecraft:beef",
         "minecraft:cooked_beef",
         "minecraft:porkchop",

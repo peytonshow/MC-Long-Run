@@ -8,8 +8,8 @@ StartupEvents.registry('item', event => {
     event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings').displayName('Patchwork Netherite Leggings')
     event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots').displayName('Patchwork Netherite Boots')
     event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
-    event.create('utopia:catalyst').displayName('Nature Catalyst').texture('utopia:item/catalyst').rarity('uncommon')
-    event.create('utopia:uneven_raw_brass_precursor').displayName('Uneven Brass Precursor').texture('utopia:item/uneven_brass_precursor')
+    event.create('utopia:catalyst').displayName('Catalyst').texture('utopia:item/catalyst').rarity('uncommon')
+    event.create('utopia:uneven_raw_brass_precursor').displayName('Crushed Raw Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
 
     event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare')
     event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').rarity('rare')
@@ -43,41 +43,36 @@ StartupEvents.registry('item', event => {
     event.create('utopia:handcuffs').displayName('Silver Cuffs').texture('utopia:item/cuffs')
     event.create('utopia:shackles').displayName('Lead Shackles').texture('utopia:item/shackles')
 
-    // Raw Food
-    event.create('utopia:cookie_dough').maxStackSize(global.MAXFOODSIZE).food(food =>food
-        .nutrition(0.5)
-        .saturation(1)
-        .effect("minecraft:hunger", 10, 240, 0.02).eatSeconds(2)
-    )
-    
     // Gordon, I need spices!
-    event.create('utopia:cinnamon').food(food =>food
-        .nutrition(1)
-        .saturation(2.5)
-        .eatSeconds(1.6)
-    )
-    event.create('utopia:pepper').food(food =>food
-        .nutrition(3)
-        .saturation(1)
-        .eatSeconds(0.8)
-    )
-    event.create('utopia:sea_salt').food(food => food
-      .nutrition(0.5)
-      .saturation(3.0)
-      .eatSeconds(3.2)
-    )
+    // (Food values are defined in food.js)
+    event.create('utopia:cinnamon')
+    event.create('utopia:pepper')
+    event.create('utopia:sea_salt')
+    event.create('utopia:seasoned_cooked_beef').maxStackSize(global.MAXFOODSIZE)
+    event.create('utopia:seasoned_cooked_porkchop').maxStackSize(global.MAXFOODSIZE)
+    event.create('utopia:seasoned_cooked_chicken').maxStackSize(global.MAXFOODSIZE)
+    event.create('utopia:seasoned_cooked_mutton').maxStackSize(global.MAXFOODSIZE)
+    event.create('utopia:seasoned_cooked_rabbit').maxStackSize(global.MAXFOODSIZE)
+    event.create('utopia:seasoned_cooked_bushmeat').maxStackSize(global.MAXFOODSIZE)
+    event.create('utopia:cookie_dough').maxStackSize(global.MAXFOODSIZE)
 
 })
 
 StartupEvents.registry('block', event => {
-  event.create('utopia:block_of_hyper_capitalism', "kubejs:cardinal") 
-    .displayName('Block of Hyper-Capitalism') //1000
-    .soundType('metal') 
+  event.create('utopia:salt_lamp') 
+    .displayName('Salt Rock Lamp')
+    .soundType('glass') 
     .hardness(3) 
     .resistance(0)
-    .notSolid()
-    .fullBlock(false)
-    .item(ctx => {ctx.rarity("rare").unstackable()})
+    .lightLevel(12/15)
+    .renderType('translucent')
+
+  event.create('utopia:block_of_hyper_capitalism', "kubejs:cardinal") 
+    .displayName('Block of Hyper-Capitalism') //1000
+    .soundType('glass') 
+    .hardness(1) 
+    .resistance(1)
+    .lightLevel(8)
   event.create('utopia:block_of_extreme_capitalism', "kubejs:cardinal") 
     .displayName('Block of Extreme Capitalism') //100
     .soundType('metal') 

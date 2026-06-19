@@ -1,8 +1,18 @@
 {
-  "utopia.info.the_nether": "The Nether.\nThe only way to reach The Nether is to stand on the bottom of the world or build a 4x5 Glowstone portal.\n\nThe portal needs to be lit, but corners do not need to be filled.",
+  "utopia.info.the_nether": "The Nether.\nThe only way to reach The Nether is to stand on the bottom of the world or build portal made of Glowstone. The portal needs to be lit, but corners do not need to be filled.",
   "utopia.info.campfire_normal": "Campfires can be built manually with Firewood, a piece of coal and a light. Campfires can also be built using a Firecharge in a crafting table.",
   "utopia.info.campfire_nether": "Soul Campfires can be built manually with Firewood, a piece of soul sand and a light. Soul Campfires can also be built using a Firecharge in a crafting table.",
   "utopia.info.mimic": "Mimics are capable of being Re-summoned to reroll artifacts dropped by them.",
-  "utopia.info.spices": "Spices are a good way to increase the saturation from meats and sandwiches, but aren't a great food option on their own.",
-  "farmersdelight.tooltip.cooking_pot.empty": "Empty"
+  "utopia.info.spices": "Spices are a good way to increase the saturation revieved from eating meats and sandwiches, but aren't a great food option on their own.",
+  "utopia.info.catalyst": "Catalyst contain special living compounds that react with water to grow certain surrounding minerals on its surface.",
+  "utopia.info.tumbling": "Amethysts can be used a process called tumbling. They're used to slowly grind away rock to dust, which is absorbed by water and drained, leaving only metal or gems.",
+  "farmersdelight.tooltip.cooking_pot.empty": "Empty",
+  "stat.minecraft.interact_with_blast_furnace": "Interactions with Kiln",
+  "subtitles.block.blastfurnace.fire_crackle": "Kiln crackles",
+  "block.minecraft.blast_furnace": "Kiln",
+  "container.blast_furnace": "Kiln",
+  "block.minecraft.poppy": "Rose",
+  "block.minecraft.potted_poppy": "Potted Rose"
+  "block.minecraft.potted_blue_orchid": "Potted Cyan Rose",
+  "block.minecraft.blue_orchid": "Cyan Rose",
 }

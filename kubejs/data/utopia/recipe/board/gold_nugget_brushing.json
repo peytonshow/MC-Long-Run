@@ -10,14 +10,18 @@
       "chance": 0.1,
       "item": {
         "count": 1,
-        "id": "minecraft:raw_gold"
+        "id": "create:crushed_raw_gold"
+      }
+    },
+    {
+      "chance": 0.1,
+      "item": {
+        "count": 3,
+        "id": "minecraft:gold_nugget"
       }
     }
   ],
   "tool": [
-    {
-      "action": "pickaxe_dig"
-    },
     {
       "item": "minecraft:brush"
     }

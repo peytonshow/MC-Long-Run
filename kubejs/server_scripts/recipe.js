@@ -35,56 +35,79 @@ ServerEvents.recipes(event => {
         Item.of('quark:diamond_heart', 3),
         'utopia:catalyst']).heated()
     event.recipes.create.mixing([
-        CreateItem.of('5x minecraft:iron_nugget', 0.20),
-        CreateItem.of('3x create:zinc_nugget', 0.20),
-        CreateItem.of('2x minecraft:gold_nugget', 0.20),
-        CreateItem.of('utopia:catalyst', 0.99)
+        CreateItem.of('2x create:crushed_raw_iron', 0.75),
+        CreateItem.of('utopia:catalyst', 0.95)
     ], [
-        'utopia:catalyst', 'minecraft:gravel'
+        'utopia:catalyst', 'create:crushed_raw_iron'
+    ])
+    event.recipes.create.mixing([
+        CreateItem.of('2x create:crushed_raw_zinc', 0.75),
+        CreateItem.of('utopia:catalyst', 0.95)
+    ], [
+        'utopia:catalyst', 'create:crushed_raw_zinc'
+    ])
+    event.recipes.create.mixing([
+        CreateItem.of('2x create:crushed_raw_gold', 0.75),
+        CreateItem.of('utopia:catalyst', 0.95)
+    ], [
+        'utopia:catalyst', 'create:crushed_raw_gold'
     ])
     //
 
     // Tumbling
     event.recipes.create.mixing([
-        CreateItem.of('minecraft:raw_iron', 0.05),
-        CreateItem.of('minecraft:amethyst_shard', 0.95)
+        CreateItem.of('minecraft:amethyst_shard', 0.90),
+        CreateItem.of('create:crushed_raw_iron', 0.05)
     ], [
-       Fluid.of('minecraft:water', 20), 'minecraft:amethyst_shard', 'minecraft:gravel'
+       Fluid.of('minecraft:water', 10), 'minecraft:amethyst_shard', 'minecraft:gravel'
     ])
     event.recipes.create.mixing([
-        CreateItem.of('minecraft:raw_gold', 0.05),
-        CreateItem.of('minecraft:amethyst_shard', 0.95)
+        CreateItem.of('minecraft:amethyst_shard', 0.80),
+        CreateItem.of('create:crushed_raw_gold', 0.075)
     ], [
-        Fluid.of('minecraft:water', 20),'minecraft:amethyst_shard', 'minecraft:red_sand'
+        Fluid.of('minecraft:water', 10),'minecraft:amethyst_shard', 'minecraft:red_sand'
     ])
     event.recipes.create.mixing([
-        CreateItem.of('2x minecraft:quartz', 0.2),
-        CreateItem.of('minecraft:amethyst_shard', 0.95)
+        CreateItem.of('minecraft:amethyst_shard', 0.90),
+        CreateItem.of('1x minecraft:bone', 0.075)
     ], [
-        Fluid.of('minecraft:water', 20),'minecraft:amethyst_shard', Ingredient.of('#minecraft:soul_fire_base_blocks')
+        Fluid.of('minecraft:water', 10),'minecraft:amethyst_shard', Ingredient.of('#minecraft:soul_fire_base_blocks')
     ])
     event.recipes.create.mixing([
-        CreateItem.of('minecraft:gunpowder', 0.75),
-        CreateItem.of('2x minecraft:gunpowder', 0.1)
+        CreateItem.of('minecraft:amethyst_shard', 0.25),
+        CreateItem.of('1x minecraft:diamond', 0.005)
+    ], [
+        Fluid.of('minecraft:water', 10),'minecraft:amethyst_shard',  'minecraft:cobbled_deepslate'
+    ])
+    event.recipes.create.mixing([
+        CreateItem.of('2x minecraft:gunpowder', 0.5),
+        CreateItem.of('minecraft:gunpowder', 0.5)
     ], [
         '2x minecraft:sugar',
         '#minecraft:coals'
     ]).heated()
 
 
-
-
-
+    
     event.recipes.create.milling([
-        CreateItem.of('utopia:pepper', 0.20),
+        CreateItem.of('2x utopia:pepper', 0.20),
         CreateItem.of('utopia:pepper', 0.40)], [
         'minecraft:blackstone'
     ])
     event.recipes.create.milling([
-        CreateItem.of('utopia:sea_salt', 0.10),
-        CreateItem.of('utopia:sea_salt', 0.30)], [
+        CreateItem.of('2x utopia:sea_salt', 0.10),
+        CreateItem.of('utopia:sea_salt', 0.60)], [
         'minecraft:calcite'
     ])
+
+
+
+    event.recipes.create.milling([
+        CreateItem.of('2x minecraft:gravel'),
+        CreateItem.of('minecraft:gravel', 0.30)], [
+        'minecraft:cobbled_deepslate'
+    ])
+
 
     Ingredient.of('#utopia:spices').stacks.forEach(item => {
         event.remove({ input: item, type: 'create:crush' })

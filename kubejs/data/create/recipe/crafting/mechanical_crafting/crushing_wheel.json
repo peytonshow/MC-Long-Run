@@ -6,22 +6,19 @@
     "A": {
       "item": "create:andesite_alloy"
     },
-    "B": {
-      "item": "create:brass_block"
-    },
     "P": {
-      "tag": "minecraft:planks"
+      "item": "create:brass_block"
     },
     "S": {
       "item": "utopia:catalyst"
     }
   },
   "pattern": [
-    " ABA ",
+    " AAA ",
     "AAPAA",
-    "BPSPB",
+    "APSPA",
     "AAPAA",
-    " ABA "
+    " AAA "
   ],
   "result": {
     "count": 2,

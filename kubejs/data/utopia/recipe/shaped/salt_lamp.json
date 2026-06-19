@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "hanging_sign",
+  "key": {
+    "#": {
+      "item": "utopia:sea_salt"
+    },
+    "X": {
+      "tag": "minecraft:candles"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "utopia:salt_lamp"
+  }
+}
