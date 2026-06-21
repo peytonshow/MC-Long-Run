@@ -123,15 +123,15 @@ CREATE
 * Crushing Wheels now require an additional 4 blocks of Brass. D
 * Added the ability to crush Cobbled Deepslate into 3x Gravel. D
 * Added Catalysts, which can be mixxed with some crushed ores to have a chance (Roughly 60%) of doubling them. Catalysts have a high (but not garunteed) chance of not being used each time. Catalysts can be made using a Heart of The Sea, or duplicated from a pre-exisitng Catalyst by using Hearts of Diamond (Mob Drop added by Quark). On average, a singular Catalyst can net you ~20 of each crushed raw mineral. If you're especially unlucky, Catalysts could wind up losing all of the materials put into it. (Iron, Zinc, Gold) D
-* Added Tumbling Recipes, which generate materials similarly to Catalysts (Iron, Zinc, Quartz, Gold, Diamond). D
+* Added Tumbling Recipes, which generate materials similarly to Catalysts, but use Amethysts. Amethysts are much more likely to be consumed than Catalysts, but are technically farmable. (Gravel -> Iron, Cobblestone -> Zinc, Red Sand -> Gold Soul Blocks -> Bones, Red Sand -> Gold, Cobbled Deepslate -> Diamond). D
 * Removed an Oreganized recipe that allowed you to infinitely duplicate lead. D
 
 WORLD
 * Added tectonic (may switch out) pd
-* Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. Cannot sleep through bad Celestial events. D
+* Added EnhancedCelestials, which causes the moon to randomly cause buffs or full scale invasions some nights. Cannot sleep through bad Celestial events. ONHOLD
 * Days last 20 minutes and nights last 15. PD
-* Significantly lowered chance of exposed diamonds being removed. D
-* Reduced Diamond Spawn by 40%. (This is to promote caving over strip mining) D
+* Significantly lowered chance of exposed diamonds being removed during worldgen. D
+* Reduced Diamond Spawn by 40%. (This alongside the previous change promotes caving over strip mining) D
 * Increased Large and Small Iron veins to compensate for the removal of Create Iron Farms. (4 -> 6, 9 -> 12) PD
 * Increased Iron depth to y40. D
 * Altered amount of Iron Veins (Honestly I was just kind of eyeballing this one, but you should get way more iron at the new ideal depth than vanilla. The new best depth should be viewable on EMI)
