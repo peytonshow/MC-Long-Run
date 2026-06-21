@@ -15,6 +15,7 @@ KEYS
 - PD     - Partly Done
 - TD     - Test first, otherwise done
 - F      - Final
+- CON      - Conceptual, still being built upon
 - ONHOLD - May not make it to being tested, potentially unnecessary.
 
 ----------------------------------------------------------------------------------------------------------------
@@ -80,7 +81,7 @@ SOCIETY
 -----------------------------------------------------------------------------------------------------------------
 
 CRAFTING
-* 3 new recipes for gunpowder have been added (1 coal + 2 sugar -> 1 gunp | 1 bpowder + 2 sug -> 6 |  ) PD
+* 3 new recipes for gunpowder have been added (1 coal + 2 sugar -> 1 gunp | 1 bpowder + 2 sug -> 3 | (HeatedMixing)-> 1 coal + 8 sugar -> (40%)4x gunp + (40%)3x gunp + (60%)2x gunp) PD
 * Readded orignal bed recipe (3x any wool + 3x any plank -> red bed) D
 * Added the ability to cut Leather into Rabbit Hide (Small Hide). D
 * Added the ability to craft Artifact's Mimic egg with 6 rotten flesh, an Artifact, and a Chest. D
@@ -99,7 +100,7 @@ CRAFTING
 * Smokers are now crafted using 4 Logs, and either 4 Brick Blocks, Packed mud or Black/Cobblestone. (Smokers IRL aren't hot enough to crack cobblestone, so you could actually use it here. ) D
 * Many items that require a few iron ingots have been given the option to use copper blocks instead. This extends to Stoves, Backpacks and shields.  PD
 * Added the ability to craft Supplementaries' Bombs using Glass and Bricks, but at a worse rate per TNT spent. D
-* Added the ability to cut Leather into Rabbit Hide. D
+* Added the ability to cut Leather into Rabbit Hide (Cutting Board + Shears). D
 * Fixed nirvana's rope recipe using Supplementaries' when it should be using farmer's delight. TD
 * Leather armor is now craftable out of Rabbit Hide OR Leather. TD
 * Campfires are now crafted in world using Firewood, or via a crafting table with a Firecharge. The in-world campfire must be lit. D
@@ -108,13 +109,22 @@ CRAFTING
 * Cartridges now only require 2 'nail' items (Iron, brass, copper, gold nugget), 1 paper and 1 gunpowder for 2 Cartridge. PD
 * Froglights and Naturalist's Froglass now have duplicating recipes for less tedious farming. D
 * Added sequenced recipes for netherite armor that don't require diamonds, but instead have a much higher netherite cost. (This shouldn't replace your first set of netherite armor, but it streamlines the process of getting a bunch of sets for your troops, or for backups. It may be more convinient to only farm for a handful of materials rather than the diamonds, netherite, gold + a template. It also requires a factory and a drill to (feasibly) get the most out of these recipes. This new Automation line uses Overworld templates and roughly 3~4 netherite ingots a pop.
-* Overworld Templates a new item obtained from superheated mixing. Overworld templates are used in multiple automation lines.
+* Overworld Templates a new item obtained from superheated mixing. Overworld templates are used in multiple automation lines, specifically in terms of warfare (Mass production of Rifles and Netherite Armor) CON
+* Added Graphite, which is used to make Pencils. Pencils can be used to craft book and quills without ink sacs, and are needed to craft clipboards. Pencils can be used as weapons, dealing minor damage. Graphite has a 20% to be made when pressing Coal (Not charcoal!).
+
 
 CREATE
 * Removed Create Washing Gravel into iron. (Automation in this pack shouldn't be indefinite/infinite output from no input. Mining is a more important aspect of Minecraft than automating everything, even if thats what create aims to do. With minor tweaks create should serve to complement vanilla moreso than replace parts of it) D
 * Netherite Diving gear now has slighly less protection than Iron Armor rather than sharing stats with Netherite (The immortal netherite chestplate, for starters, was always really confusing to me because there was really no reason not to have one. It costs less than making a normal netherite chestplate for a permanent upgrade to your armor. You may not have noticed this originally, but you can literally just combine the copper pieces of armor with one netherite ingot and an upgrade template. As for the diving helmet, which is also a direct upgrade due to not requiring a diamond helmet, it combined with the backtank lets you breath under lava, undermining potions in the process. All in all, the netherite diving gear in create is kind of baffling to me.)
 * Removed Netherite Diving Gear recipe that uses diamond gear as a base. Now only the  + template + copper diving gear recipes remain, which explain the lower defense as it doesn't use diamond armor as a component.
 * Tripled Backtank S.U Storage.
+* Added Milling Recipes for Raw Ores with an 80% chance of success each time. D
+* Reworked Brass. Brass is made by superheating Brass Precursor, which is made by mixing Crushed Raw Brass + Zinc. D
+* Crushing Wheels now require an additional 4 blocks of Brass. D
+* Added the ability to crush Cobbled Deepslate into 3x Gravel. D
+* Added Catalysts, which can be mixxed with some crushed ores to have a chance (Roughly 60%) of doubling them. Catalysts have a high (but not garunteed) chance of not being used each time. Catalysts can be made using a Heart of The Sea, or duplicated from a pre-exisitng Catalyst by using Hearts of Diamond (Mob Drop added by Quark). On average, a singular Catalyst can net you ~20 of each crushed raw mineral. If you're especially unlucky, Catalysts could wind up losing all of the materials put into it. (Iron, Zinc, Gold) D
+* Added Tumbling Recipes, which generate materials similarly to Catalysts (Iron, Zinc, Quartz, Gold, Diamond). D
+* Removed an Oreganized recipe that allowed you to infinitely duplicate lead. D
 
 WORLD
 * Added tectonic (may switch out) pd
@@ -132,6 +142,8 @@ WORLD
 * Alpha style flowers replace default flowers in most biomes. D
 
 FOOD
+* Added Spices: Cinnamon, Pepper and Salt. Spices have almost no nutrition, but decent saturation for how you obtain them (crushing rocks or aging tree bark). Spices can be used to make Season variants of most meats (exluding fish), which are slightly better than their vanilla counterparts. D
+* Tweaked saturation of meats that can be Seasoned to be ~30-75% lower. D
 * Most food items stack to 16, which is an improvement for some items and a negative for others. PD
 * Added Serene Seasons. Each season lasts 18 IRL hours.
 * Added Farmers Delight w/ Create Integration. D
@@ -141,6 +153,8 @@ FOOD
 * Completely removed most of Refurbished Furniture's cooking (Most recipes are completely locked behind creating the mod's furniture stuff when there's literally no reason to besides forcing people to use the mod. This is stupid, so I moved all the mod's 'Combining' recipes into a shapeless crafting table recipe, removed the cutting boards, and replaced multiple of this mod's duplicate ingrediants (Dough and cheeses) with those from other mods. This mod might actually have some of the worst mod compatability I've seen despite the developer claiming they started work on that >1 year ago) D
 * Melon+Pumpkin Slices, Sweet and Glow berries are now eaten quickly. PD
 * Glue is now edible. D
+* Slighly altered nutrition and saturation of (Glow) Berries.
+* Chocolate Glazed Berries from create are no longer insanely busted. (Originally 7 hunger and 9 saturation) D
 
 COMBAT
 * Armor now causes a slowdown based on armor amount and toughness. Most armors have been buffed to compensate (below). D
@@ -161,6 +175,7 @@ COMBAT
 * Netherite now provides 3 more armor on a full set. The added armor is not taken into account during slowdown calculation, which makes it very powerful, but still slow. This makes tanking an actually viable strategy.  D
 * Moved Electrum enchantability to Diamond Tier. This puts it in line as an equal alternative to netherite, rather than a total down/upgrade. Electrum avoids the massive slowdown of netherite, but is more involved to earn.
 * Increased Leather armor durability to diamond. Leather serves very breifly as actual armor, so this shouldn't really impact the early game. Past that point, leather is mainly cosmetic, so I felt like it should probably last longer if you make the choice to wear it. D
+* Added Formalwear: Gilded Suit, Classic Suit. Formalwear doesn't do much to protect the wearer and can't be enchanted, but it doesn't slow you down and decreases knockback from damage. Formalwear can be washed to repair it for free.
 
 ENCHANTING
 * Each item may only have up to 3 Enchantments, not including material-inherit buffs. D
@@ -187,6 +202,7 @@ TOOLS
 * Added Backpacked, which allows multiple backpacks to be worn/upgraded by spending Upgrade Tokens and Emeralds to unlock slots. Augments, which are basically soph. backpack upgrades, are unlocked w/ levels. D
 * Upgrade Tokens can be crafted with 6 Gold Ingots, 2 Emeralds and 1 Ender Eye. (May add more uses to tokens) D
 * Added Gliders and simplified recipes for them. (The original had some crazy recipes for something that never even got close to overtaking elytas. Like, I need 6 ingots of netherite for a netherite glider?!) D
+* Added Cuffs and Leg Restraints, which can be used to imprison people for trial.
 
 MONSTERS
 * Skeletons and Pillagers have increased range, but much worse accuracy. Zombies and other melee units tend to give time for ranged unit # to grow quickly, and may create a need for a player owned backline of ranged troops D
@@ -213,11 +229,20 @@ MOBS
 * Horses have a 1/50 chance to drop Glue. D
 * Removed Iron Golem's chance to drop iron and Sheep dropping wool when killed. Wool . D
 
+DECORATION
+* Blocks of Capitalism: Bills can be condensed into pallets of 25 of the same bill of various denominations. D
+* Added Sea Salt Blocks, including 3 different color Salt Lamps for each kind of froglight. D
+
 TAGS
 * Added Golden Spear to quarks Gold fortune/looting buff. D
+* Added Spices tag. D
 
 ADVANCEMENTS
 * Added OG achievements. D
+* [-1 Range] -> Craft a Copper Pickaxe. D
+* [Poorly Behaved Copper Salesman] -> Craft a Copper Sword. D
+* [Sticky Situation] -> Eat a Tube of Glue. D
+* [SEA SALT!] -> Obtain Sea Salt D
 
 RESOURCE PACK & LANG
 * Changed "Hot Stuff" achievement desc. to match new Furnace recipe. D
