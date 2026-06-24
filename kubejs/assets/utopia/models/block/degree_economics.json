@@ -1,0 +1,144 @@
+{
+  "gui_light": "front",
+"display": {
+    "gui": {
+      "rotation": [ 30, 135, 0 ],
+      "translation": [ -3.5, -2.0, 0 ],
+      "scale": [ 0.75, 0.75, 0.75 ]
+    },
+    "ground": {
+      "rotation": [ 0, 90, 0 ],
+      "translation": [ 0, 3, 0 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    },
+    "fixed": {
+      "rotation": [ 0, 180, 0 ],
+      "translation": [ -7.5, 0, 0 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, 90, 0 ],
+      "translation": [ -2.0, 2.0, 0 ],
+      "scale": [ 0.65, 0.65, 0.65 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, 0 ],
+      "translation": [ -2.0, 2.0, 0 ],
+      "scale": [ 0.65, 0.65, 0.65 ]
+    },
+"thirdperson_righthand": {
+      "rotation": [ 75, 335, 0 ],
+      "translation": [ 2.0, 0.0, -4.0 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 75, 315, 0 ],
+      "translation": [ 10.0, 0.0, 0.0 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    }
+  },
+  "textures": {
+    "particle": "block/spruce_planks",
+    "frame": "block/spruce_planks",
+    "canvas": "utopia:block/degree/economics_paper",
+    "ribbon": "utopia:block/degree/ribbon"
+  },
+  "elements": [
+    {
+      "name": "Frame Top",
+      "from": [0, 14, 15],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 2], "texture": "#frame"},
+        "south": {"uv": [0, 0, 16, 2], "texture": "#frame"},
+        "west": {"uv": [0, 0, 1, 2], "texture": "#frame"},
+        "east": {"uv": [0, 0, 1, 2], "texture": "#frame"},
+        "up": {"uv": [0, 0, 16, 1], "texture": "#frame"},
+        "down": {"uv": [0, 0, 16, 1], "texture": "#frame"}
+      }
+    },
+    {
+      "name": "Frame Bottom",
+      "from": [0, 0, 15],
+      "to": [16, 2, 16],
+      "faces": {
+        "north": {"uv": [0, 14, 16, 16], "texture": "#frame"},
+        "south": {"uv": [0, 14, 16, 16], "texture": "#frame"},
+        "west": {"uv": [0, 14, 1, 16], "texture": "#frame"},
+        "east": {"uv": [0, 14, 1, 16], "texture": "#frame"},
+        "up": {"uv": [0, 0, 16, 1], "texture": "#frame"},
+        "down": {"uv": [0, 0, 16, 1], "texture": "#frame"}
+      }
+    },
+    {
+      "name": "Frame Left",
+      "from": [0, 2, 15],
+      "to": [2, 14, 16],
+      "faces": {
+        "north": {"uv": [0, 2, 2, 14], "texture": "#frame"},
+        "south": {"uv": [0, 2, 2, 14], "texture": "#frame"},
+        "west": {"uv": [0, 2, 1, 14], "texture": "#frame"},
+        "east": {"uv": [0, 2, 1, 14], "texture": "#frame"}
+      }
+    },
+    {
+      "name": "Frame Right",
+      "from": [14, 2, 15],
+      "to": [16, 14, 16],
+      "faces": {
+        "north": {"uv": [14, 2, 16, 14], "texture": "#frame"},
+        "south": {"uv": [14, 2, 16, 14], "texture": "#frame"},
+        "west": {"uv": [0, 2, 1, 14], "texture": "#frame"},
+        "east": {"uv": [0, 2, 1, 14], "texture": "#frame"}
+      }
+    },
+    {
+      "name": "Canvas",
+      "from": [2, 2, 15.5],
+      "to": [14, 14, 16],
+      "faces": {
+        "north": {"uv": [2, 2, 14, 14], "texture": "#canvas"},
+        "south": {"uv": [2, 2, 14, 14], "texture": "#frame"},
+        "west": {"uv": [15.5, 2, 16, 14], "texture": "#canvas"},
+        "east": {"uv": [15.5, 2, 16, 14], "texture": "#canvas"},
+        "up": {"uv": [2, 15.5, 14, 16], "texture": "#canvas"},
+        "down": {"uv": [2, 15.5, 14, 16], "texture": "#canvas"}
+      }
+    },
+    {
+      "name": "Badge Knot Base",
+      "from": [9.5, 2, 14.5],
+      "to": [13.5, 6, 15.5],
+      "faces": {
+        "north": {"uv": [0, 0, 4, 4], "texture": "#ribbon"},
+        "south": {"uv": [0, 0, 4, 4], "texture": "#ribbon"},
+        "west": {"uv": [4, 0, 5, 4], "texture": "#ribbon"},
+        "east": {"uv": [5, 0, 6, 4], "texture": "#ribbon"},
+        "up": {"uv": [0, 4, 4, 5], "texture": "#ribbon"},
+        "down": {"uv": [0, 4, 4, 5], "texture": "#ribbon"}
+      }
+    },
+    {
+      "name": "Tassel Left",
+      "from": [10, -1, 14.75],
+      "to": [11, 2, 15.25],
+      "faces": {
+        "north": {"uv": [0, 5, 1, 8], "texture": "#ribbon"},
+        "south": {"uv": [0, 5, 1, 8], "texture": "#ribbon"},
+        "west": {"uv": [1, 5, 1.5, 8], "texture": "#ribbon"},
+        "east": {"uv": [1, 5, 1.5, 8], "texture": "#ribbon"}
+      }
+    },
+    {
+      "name": "Tassel Right",
+      "from": [12, -1, 14.75],
+      "to": [13, 2, 15.25],
+      "faces": {
+        "north": {"uv": [2, 5, 3, 8], "texture": "#ribbon"},
+        "south": {"uv": [2, 5, 3, 8], "texture": "#ribbon"},
+        "west": {"uv": [3, 5, 3.5, 8], "texture": "#ribbon"},
+        "east": {"uv": [3, 5, 3.5, 8], "texture": "#ribbon"}
+  }
+}
+  ]
+}

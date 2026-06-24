@@ -153,7 +153,7 @@ FOOD
 * Completely removed most of Refurbished Furniture's cooking (Most recipes are completely locked behind creating the mod's furniture stuff when there's literally no reason to besides forcing people to use the mod. This is stupid, so I moved all the mod's 'Combining' recipes into a shapeless crafting table recipe, removed the cutting boards, and replaced multiple of this mod's duplicate ingrediants (Dough and cheeses) with those from other mods. This mod might actually have some of the worst mod compatability I've seen despite the developer claiming they started work on that >1 year ago) D
 * Melon+Pumpkin Slices, Sweet and Glow berries are now eaten quickly. PD
 * Glue is now edible. D
-* Slighly altered nutrition and saturation of (Glow) Berries.
+* Slighly altered nutrition and saturation of (Glow) Berries. D
 * Chocolate Glazed Berries from create are no longer insanely busted. (Originally 7 hunger and 9 saturation) D
 
 COMBAT

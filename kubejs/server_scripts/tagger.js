@@ -9,15 +9,23 @@ ServerEvents.tags('item', event => {
         event.add('utopia:currency', item)
     };
 
+    event.removeAllTagsFrom('utopia:used_handcuffs')
+    event.removeAllTagsFrom('utopia:used_shackles')
+    event.removeAllTagsFrom('utopia:crown')
+    event.removeAllTagsFrom('utopia:shattering_crown')
+
     const makeWashable = (item) => {
         event.removeAllTagsFrom(item)
         event.add('utopia:washable', item)
     };
 
-    event.removeAllTagsFrom('utopia:used_handcuffs')
-    event.removeAllTagsFrom('utopia:used_shackles')
-    event.removeAllTagsFrom('utopia:crown')
-    event.removeAllTagsFrom('utopia:shattering_crown')
+    makeWashable('utopia:gilded_suit')
+    makeWashable('utopia:gilded_pants')
+    makeWashable('utopia:gilded_shoes')
+    makeWashable('nirvana:deerstalker')
+    makeWashable('utopia:detective_suit')
+    makeWashable('utopia:detective_pants')
+    makeWashable('utopia:detective_shoes')
 
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_helmet')
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_chestplate')
@@ -57,10 +65,6 @@ ServerEvents.tags('item', event => {
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/cannon_boat_ancient')
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/ancient_boat')
     event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:sea_salt')
-    
-    event.add('utopia:spices', 'utopia:sea_salt')
-    event.add('utopia:spices', 'utopia:pepper')
-    event.add('utopia:spices', 'utopia:cinnamon')
 
     addBill('utopia:1_dollar_bill')
     addBill('utopia:5_dollar_bill')
@@ -78,12 +82,4 @@ ServerEvents.tags('item', event => {
     event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')
     event.add('minecraft:needs_iron_tool', 'quark:sturdy_stone')
     event.add('minecraft:mineable/pickaxe', 'quark:sturdy_stone')
-
-    makeWashable('nirvana:deerstalker')
-    makeWashable('utopia:gilded_suit')
-    makeWashable('utopia:gilded_pants')
-    makeWashable('utopia:gilded_shoes')
-    makeWashable('utopia:detective_suit')
-    makeWashable('utopia:detective_pants')
-    makeWashable('utopia:detective_shoes')
 })

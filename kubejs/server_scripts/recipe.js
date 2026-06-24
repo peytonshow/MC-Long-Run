@@ -79,12 +79,15 @@ ServerEvents.recipes(event => {
     ], [
         Fluid.of('minecraft:water', 10),'minecraft:amethyst_shard',  'minecraft:cobbled_deepslate'
     ])
+
+    // Gunpowder
     event.recipes.create.mixing([
-        CreateItem.of('2x minecraft:gunpowder', 0.5),
-        CreateItem.of('minecraft:gunpowder', 0.5)
+        CreateItem.of('4x minecraft:gunpowder', 0.35),
+        CreateItem.of('3x minecraft:gunpowder', 0.5),
+        CreateItem.of('2x minecraft:gunpowder', 0.6),
     ], [
-        '2x minecraft:sugar',
-        '#minecraft:coals'
+        '8x minecraft:sugar',
+        Ingredient.of('#minecraft:coals')
     ]).heated()
 
 
@@ -99,20 +102,18 @@ ServerEvents.recipes(event => {
         CreateItem.of('utopia:sea_salt', 0.60)], [
         'minecraft:calcite'
     ])
-
-
-
-    event.recipes.create.milling([
-        CreateItem.of('2x minecraft:gravel'),
-        CreateItem.of('minecraft:gravel', 0.30)], [
-        'minecraft:cobbled_deepslate'
-    ])
-
-
     Ingredient.of('#utopia:spices').stacks.forEach(item => {
         event.remove({ input: item, type: 'create:crush' })
     })
+
+
+
+    event.recipes.create.crushing([
+        CreateItem.of('3x minecraft:gravel')], [
+        'minecraft:cobbled_deepslate'
+    ])
+
     Ingredient.of('#utopia:washable').stacks.forEach(item => {
-        event.recipes.create.splashing(item, item)
+        event.recipes.create.mixing(item, [item, Fluid.of('minecraft:water', 250)]).processingTime(3000)
     })
 })

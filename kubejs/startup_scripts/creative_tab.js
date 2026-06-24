@@ -20,7 +20,16 @@ StartupEvents.modifyCreativeTab('minecraft:combat', event => {
     ])
 })
 
-
 StartupEvents.modifyCreativeTab('kubejs:kubejs', event => {
-	event.remove(['utopia:incomplete_netherite_boots','utopia:incomplete_netherite_leggings', 'utopia:incomplete_netherite_chestplate', 'utopia:incomplete_netherite_helmet'])
+	event.remove('utopia:incomplete_netherite_boots','utopia:incomplete_netherite_leggings', 'utopia:incomplete_netherite_chestplate', 'utopia:incomplete_netherite_helmet')
 })
+
+StartupEvents.modifyCreativeTab('minecraft:food_and_drinks', event => {
+    event.addAfter('minecraft:cooked_beef',['utopia:seasoned_cooked_beef'])
+    event.addAfter('minecraft:cooked_porkchop',['utopia:seasoned_cooked_porkchop'])
+    event.addAfter('minecraft:cooked_chicken',['utopia:seasoned_cooked_chicken'])
+    event.addAfter('minecraft:cooked_mutton',['utopia:seasoned_cooked_mutton'])
+    event.addAfter('minecraft:cooked_rabbit',['utopia:seasoned_cooked_rabbit'])
+    event.addAfter('minecraft:cooked_bushmeat',['utopia:seasoned_cooked_bushmeat'])
+})
+
