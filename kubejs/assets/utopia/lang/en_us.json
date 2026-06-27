@@ -1,11 +1,16 @@
 {
+
+  "item.create_permits.diamondpermit": "Royal Production Permit",
+  "item.create_permits.gold_permit": "Arms Production Permit",
+  "item.create_permits.ironpermit": "Law Degree",
   "utopia.info.the_nether": "The Nether.\nThe only way to reach The Nether is to stand on the bottom of the world or build portal made of Glowstone. The portal needs to be lit, but corners do not need to be filled.",
   "utopia.info.campfire_normal": "Campfires can be built manually with Firewood, a piece of coal and a light. Campfires can also be built using a Firecharge in a crafting table.",
   "utopia.info.campfire_nether": "Soul Campfires can be built manually with Firewood, a piece of soul sand and a light. Soul Campfires can also be built using a Firecharge in a crafting table.",
   "utopia.info.mimic": "Mimics are capable of being Re-summoned to reroll artifacts dropped by them.",
   "utopia.info.spices": "Spices are a good way to increase the saturation revieved from eating meats and sandwiches, but aren't a great food option on their own.",
-  "utopia.info.catalyst": "Catalysts contain special living compounds that react with certain surrounding minerals on its surface.",
-  "utopia.info.tumbling": "Amethysts can be used to produce minerals through a process called tumbling. They slowly grind away rock to dust, which is absorbed by water and drained, leaving only metal or gems.",
+  "utopia.info.catalyst": "Catalysts contain special living compounds that react with certain surrounding minerals on its surface.",//nf
+  "utopia.info.tumbling": "Amethysts can be used to produce minerals through a process called tumbling. They slowly grind away rock to dust, which is absorbed by water and drained, leaving only metal or gems.",//nf
+  "utopia.info.tumbling": "Infinite fluid can be achieved by using a Spout to suck up water from a a source",//nf
   "farmersdelight.tooltip.cooking_pot.empty": "Empty",
   "block.minecraft.blast_furnace": "Kiln",
   "container.blast_furnace": "Kiln",
@@ -14,5 +19,12 @@
   "block.minecraft.poppy": "Rose",
   "block.minecraft.blue_orchid": "Cyan Rose",
   "block.minecraft.potted_poppy": "Potted Rose",
-  "block.minecraft.potted_blue_orchid": "Potted Cyan Rose"
+  "block.minecraft.potted_blue_orchid": "Potted Cyan Rose",
+  "block.minecraft.gilded_blackstone": "Gold Gilded Blackstone",
+  "advancements.utop.flowerman_flowerman.title": "How did you like my jarona!?",
+  "advancements.utop.flowerman_flowerman.description": "Obtain a Cyan Rose.",
+  "advancements.utop.i_need_you_sea_salt.title": "SEA SALT",
+  "advancements.utop.i_need_you_sea_salt.description": "Obtain Salt.",
+  "advancements.utop.lend_me_your_power.title": "LEND ME YOUR POWER!!!",
+  "advancements.utop.lend_me_your_power.description": "Obtain a block of Neon."
 }

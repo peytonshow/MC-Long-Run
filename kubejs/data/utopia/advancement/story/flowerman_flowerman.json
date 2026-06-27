@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:story/root",
   "criteria": {
-    "sea_salt": {
+    "cyan_rose": {
       "conditions": {
         "items": [
           {
-            "items": "utopia:sea_salt"
+            "items": "minecraft:blue_orchid"
           }
         ]
       },
@@ -14,19 +14,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.utop.i_need_you_sea_salt.description"
+      "translate": "advancements.utop.flowerman_flowerman.description"
     },
     "frame": "goal",
     "icon": {
-      "id": "utopia:sea_salt"
+      "id": "minecraft:blue_orchid"
     },
     "title": {
-      "translate": "advancements.utop.i_need_you_sea_salt.title"
+      "translate": "advancements.utop.flowerman_flowerman.title"
     }
   },
   "requirements": [
     [
-      "sea_salt"
+      "cyan_rose"
     ]
   ],
   "sends_telemetry_event": true

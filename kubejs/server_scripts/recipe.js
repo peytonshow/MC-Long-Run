@@ -91,7 +91,7 @@ ServerEvents.recipes(event => {
     ]).heated()
 
 
-    
+    // Spices    
     event.recipes.create.milling([
         CreateItem.of('2x utopia:pepper', 0.20),
         CreateItem.of('utopia:pepper', 0.40)], [
@@ -107,13 +107,15 @@ ServerEvents.recipes(event => {
     })
 
 
-
+    // Gravel
     event.recipes.create.crushing([
         CreateItem.of('3x minecraft:gravel')], [
         'minecraft:cobbled_deepslate'
     ])
 
+    // Clothes Washing
     Ingredient.of('#utopia:washable').stacks.forEach(item => {
         event.recipes.create.mixing(item, [item, Fluid.of('minecraft:water', 250)]).processingTime(3000)
     })
+
 })

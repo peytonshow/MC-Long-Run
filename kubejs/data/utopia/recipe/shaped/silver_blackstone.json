@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "boat",
+  "key": {
+    "#": {
+      "item": "minecraft:blackstone"
+    },
+    "G": {
+      "item": "oreganized:silver_ingot"
+    },
+    "C": {
+      "item": "minecraft:cinnabar"
+    }
+  },
+  "pattern": [
+    "#G#",
+    "GCG",
+    "#G#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "utopia:silver_gilded_blackstone"
+  }
+}

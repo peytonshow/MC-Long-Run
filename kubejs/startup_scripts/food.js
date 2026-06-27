@@ -100,23 +100,23 @@ ItemEvents.modification(event => {
         item.setFood({
             eatSeconds: 3.2,
             nutrition: 1,
-            saturation: 4,
+            saturation: 5,
             canAlwaysEat: false
         })
     })
     event.modify('utopia:pepper', item => {
         item.setFood({
             eatSeconds: 3.2,
-            nutrition: 1,
-            saturation: 5,
+            nutrition: 2,
+            saturation: 4,
             canAlwaysEat: false
         })
     })
     event.modify('utopia:cinnamon', item => {
         item.setFood({
             eatSeconds: 1.6,
-            nutrition: 0,
-            saturation: 6,
+            nutrition: 1,
+            saturation: 7,
             canAlwaysEat: false
         })
     })

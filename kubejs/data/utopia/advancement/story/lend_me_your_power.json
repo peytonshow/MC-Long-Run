@@ -1,0 +1,55 @@
+{
+  "parent": "minecraft:story/root",
+  "criteria": {
+    "neon_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "utopia:neon_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.utop.lend_me_your_power.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "utopia:neon_block"
+    },
+    "title": [
+      {"text": "L", "color": "#FF0000"},
+      {"text": "E", "color": "#FF5500"},
+      {"text": "N", "color": "#FFAA00"},
+      {"text": "D", "color": "#FFFF00"},
+      {"text": " ", "color": "white"},
+      {"text": "M", "color": "#AAFF00"},
+      {"text": "E", "color": "#55FF00"},
+      {"text": " ", "color": "white"},
+      {"text": "Y", "color": "#00FF00"},
+      {"text": "O", "color": "#00FFAA"},
+      {"text": "U", "color": "#00FFFF"},
+      {"text": "R", "color": "#00AAFF"},
+      {"text": " ", "color": "white"},
+      {"text": "P", "color": "#0000FF"},
+      {"text": "O", "color": "#5500FF"},
+      {"text": "W", "color": "#AA00FF"},
+      {"text": "E", "color": "#FF00FF"},
+      {"text": "R", "color": "#FF00AA"},
+      {"text": "!", "color": "#FF0055"},
+      {"text": "!", "color": "#FF0000"},
+      {"text": "!", "color": "#FF5500"}
+    ]
+  },
+  "requirements": [
+    [
+      "neon_block"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

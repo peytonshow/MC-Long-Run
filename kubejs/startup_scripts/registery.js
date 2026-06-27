@@ -1,3 +1,19 @@
+ItemEvents.toolTierRegistry(event => {
+  event.add('pencil', tier => {
+    tier.uses = 12                 // Durability
+    tier.speed = 2.0                 // Mining speed (matters if they clear cobwebs/leaves)
+    tier.attackDamageBonus = 3.0     // Base damage bonus added to weapons
+    tier.enchantmentValue = 0       // Enchantability level
+    tier.repairIngredient = 'minecraft:oak_log' // Item used to fix it in an anvil (or '#c:gems/ruby')
+  })
+  event.add('utopia:hammer', tier => {
+    tier.uses = 128
+    tier.speed = 1.0
+    tier.attackDamageBonus = 2.0
+    tier.enchantmentValue = 0
+    tier.repairIngredient = 'minecraft:oak_log'
+  })
+})
 
 
 StartupEvents.registry('item', event => {
@@ -10,6 +26,7 @@ StartupEvents.registry('item', event => {
     event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
     event.create('utopia:catalyst').displayName('Catalyst').texture('utopia:item/catalyst').rarity('uncommon')
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
+    event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica')
 
     event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare').tag('utopia:stamp')
     event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').rarity('rare').tag('utopia:stamp')
@@ -46,15 +63,22 @@ StartupEvents.registry('item', event => {
     // Gordon, I need spices!
     // (Food values are defined in food.js)
     event.create('utopia:cookie_dough').maxStackSize(global.MAXFOODSIZE).displayName('Cookie Dough')
-    event.create('utopia:cinnamon').tag('utopia:spices')
     event.create('utopia:pepper').tag('utopia:spices')
     event.create('utopia:sea_salt').tag('utopia:spices')
+    event.create('utopia:cinnamon').tag('utopia:spices')
     event.create('utopia:seasoned_cooked_beef').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Steak')
     event.create('utopia:seasoned_cooked_porkchop').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Porkchop')
     event.create('utopia:seasoned_cooked_chicken').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Chicken')
     event.create('utopia:seasoned_cooked_mutton').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Mutton')
     event.create('utopia:seasoned_cooked_rabbit').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Rabbit')
     event.create('utopia:seasoned_cooked_bushmeat').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Bushmeat')
+
+    // I may not know much about nuclear reactors, but I know a lot about concrete
+    event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite')
+    event.create('utopia:pencil', 'sword').tier('pencil')
+
+    // 
+    event.create('utopia:hammer').maxDamage(32)
 })
 
 StartupEvents.registry('block', event => {
@@ -92,6 +116,10 @@ StartupEvents.registry('block', event => {
     .hardness(3) 
     .resistance(5)
 
+  event.create('utopia:neon_block') 
+    .displayName('Neon Block')
+    .soundType('heavy_core') 
+    .resistance(1)
 
   event.create('utopia:degree_law', "kubejs:cardinal") 
     .displayName('Law Degree')
