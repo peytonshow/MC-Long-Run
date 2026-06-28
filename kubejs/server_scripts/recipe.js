@@ -5,7 +5,10 @@ ServerEvents.recipes(event => {
     event.remove({ input: 'minecraft:gravel', type: 'create:splashing' })
     event.remove({ output: 'oreganized:glance'})
     event.remove({ output: 'create:brass_ingot', type: 'create:mixing' })
-
+    event.remove({ output: 'minecraft:paper', type: 'minecraft:crafting_shaped' })
+    event.remove({ output: 'minecraft:paper', type: 'minecraft:crafting_shapeless' })
+    event.remove({ output: 'minecraft:glass_bottle', type: 'minecraft:crafting_shaped' })
+    
     event.recipes.create.mixing('create:brass_ingot', [
         'utopia:uneven_raw_brass_precursor'
     ]).heated()        
@@ -130,10 +133,12 @@ ServerEvents.recipes(event => {
         '12x utopia:silica_dust',
         '12x utopia:graphite_ingot'
     ]).superheated()
+     event.recipes.create.deploying('utopia:pencil', ['minecraft:stick', 'utopia:graphite_nugget'])
 
     // Silica
     event.recipes.create.crushing([
-        CreateItem.of('utopia:silica_dust', 0.20),
+        CreateItem.of('farmersdelight:rice', 0.50),
+        CreateItem.of('utopia:silica_dust', 0.15)
     ], [
         'farmersdelight:rice_panicle'
     ])
@@ -147,15 +152,20 @@ ServerEvents.recipes(event => {
     ], [
         'minecraft:sand'
     ])
+    event.recipes.create.compacting([
+        CreateItem.of('minecraft:glass_bottle'),
+    ], [
+        'utopia:silica_dust'
+    ]).heated()
 
     // Neon
     event.recipes.create.compacting([
         CreateItem.of('utopia:neon_block', 0.85),
     ], [
-        '15x quark:bottled_cloud',
-        'royalvariations:spiritual_crown_shard',
-        '3x minecraft:blue_ice'
-    ]).heated()
+        '16x quark:bottled_cloud',
+        '8x minecraft:blue_ice',
+        '8x minecraft:glow_ink_sac'
+    ])
 
     // Remove crushing for milled-only items
     event.remove({ output: 'utopia:sea_salt', type: 'create:crush' })

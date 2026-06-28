@@ -1,0 +1,19 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "create:pulp"
+    },
+    {
+      "item": "create:pulp"
+    },
+    []
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:paper"
+  },
+  "temperature": 4
+}

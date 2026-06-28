@@ -1,23 +1,31 @@
 {
-  "parent": "minecraft:story/root",
+  "parent": "minecraft:adventure/root",
   "criteria": {
     "ate_glue": {
       "conditions": {
-        "item": {
-          "items": "create:super_glue"
-        }
+        "items": [
+          {
+            "items": [
+              "create:super_glue"
+            ]
+          }
+        ]
       },
       "trigger": "minecraft:consume_item"
     }
   },
   "display": {
-    "description": "Consume an entire tube of super glue.",
+    "description": {
+      "translate": "advancements.utop.sticky_situation.description"
+    },
     "frame": "task",
     "icon": {
       "count": 1,
       "id": "create:super_glue"
     },
-    "title": "Sticky Situation",
+    "title": {
+      "translate": "advancements.utop.sticky_situation.title"
+    },
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false

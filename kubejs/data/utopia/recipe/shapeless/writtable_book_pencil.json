@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "utopia:pencil"
+    }
+  ],
+  "result": {
+    "components": {},
+    "count": 1,
+    "id": "minecraft:writable_book"
+  }
+}

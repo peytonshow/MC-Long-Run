@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
   "key": {
     "#": {
-      "item": "utopia:moissanite"
+      "item": "utopia:graphite_nugget"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "utopia:moissanite_block"
+    "id": "utopia:graphite_ingot"
   }
 }

@@ -1,6 +1,5 @@
 ServerEvents.recipes(event => {
-    event.replaceInput(
-        {
+    event.replaceInput( {
             input: 'minecraft:diamond',
             not: [
                 { output: 'minecraft:enchanting_table' },
@@ -10,5 +9,19 @@ ServerEvents.recipes(event => {
         },
         'minecraft:diamond',   // What to replace
         '#utopia:diamonds'     // What to replace it with
+    );
+    event.replaceInput({
+            output: 'oreganized:scribe',
+            type: 'minecraft:crafting_shaped'
+        },
+        'minecraft:amethyst_shard',
+        'utopia:moissanite'
+    );
+    event.replaceInput({
+            output: 'minecraft:glass',
+            input: 'minecraft:sand'
+        },
+        'minecraft:sand',
+        'utopia:silica_dust'
     );
 });

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_door",
+  "key": {
+    "#": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "X": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "X  ",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "supplementaries:jar"
+  }
+}

@@ -29,6 +29,7 @@ testPerformance = false
 	#Specifies whether to apply filtering to System.out (treated as INFO level) and System.err (treated as ERROR level.)
 	#Note that if `wrapSysOutSysErr` is disabled, filtering would happen on the caller thread.
 	sysout = false
+	#Note: you can also add filters in `config/asynclogger/*.toml`. That way you can freely add comments and format them as you wish.
 	#The specified logging levels will be filtered out and not logged. Valid values: TRACE, DEBUG, INFO, WARN, ERROR, FATAL
 	levels = []
 	#Messages logged by loggers with the specified names will be filtered out and not logged.

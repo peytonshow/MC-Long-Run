@@ -1,12 +1,12 @@
 {
-  "parent": "minecraft:story/root",
+  "parent": "minecraft:story/mine_diamond",
   "criteria": {
-    "sea_salt": {
+    "moissanite": {
     "conditions": {
       "items": [
         {
           "items": [
-            "utopia:sea_salt"
+            "utopia:moissanite"
           ]
         }
       ]
@@ -16,19 +16,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.utop.i_need_you_sea_salt.description"
+      "translate": "advancements.utop.almost_diamond.description"
     },
     "frame": "goal",
     "icon": {
-      "id": "utopia:sea_salt"
+      "id": "utopia:moissanite"
     },
     "title": {
-      "translate": "advancements.utop.i_need_you_sea_salt.title"
+      "translate": "advancements.utop.almost_diamond.title"
     }
   },
   "requirements": [
     [
-      "sea_salt"
+      "moissanite"
     ]
   ],
   "sends_telemetry_event": true

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "utopia:moissanite_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "utopia:moissanite"
+  }
+}

@@ -1,6 +1,9 @@
 ItemEvents.modification(event => {
 
-
+    // Scribe
+    event.modify('oreganized:scribe', item => {
+        item.maxDamage = 750
+    })
 
     // Hoez
     event.modify('minecraft:wooden_hoe', item => {

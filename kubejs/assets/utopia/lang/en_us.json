@@ -1,5 +1,8 @@
 {
-
+  "create_central_kitchen.recipe.farmersdelight.automatic_food_cutting": "Automatic Board Application",
+  "chat.type.advancement.challenge": "%s has completed %s",
+  "chat.type.advancement.goal": "%s has reached %s",
+  "chat.type.advancement.task": "%s has earned %s",
   "item.create_permits.diamondpermit": "Royal Production Permit",
   "item.create_permits.gold_permit": "Arms Production Permit",
   "item.create_permits.ironpermit": "Law Degree",
@@ -10,7 +13,7 @@
   "utopia.info.spices": "Spices are a good way to increase the saturation revieved from eating meats and sandwiches, but aren't a great food option on their own.",
   "utopia.info.catalyst": "Catalysts contain special living compounds that react with certain surrounding minerals on its surface.",//nf
   "utopia.info.tumbling": "Amethysts can be used to produce minerals through a process called tumbling. They slowly grind away rock to dust, which is absorbed by water and drained, leaving only metal or gems.",//nf
-  "utopia.info.tumbling": "Infinite fluid can be achieved by using a Spout to suck up water from a a source",//nf
+  "utopia.info.fluid": "Infinite fluid can be achieved by using a Spout to suck up water from a a source",//nf
   "farmersdelight.tooltip.cooking_pot.empty": "Empty",
   "block.minecraft.blast_furnace": "Kiln",
   "container.blast_furnace": "Kiln",
@@ -21,10 +24,14 @@
   "block.minecraft.potted_poppy": "Potted Rose",
   "block.minecraft.potted_blue_orchid": "Potted Cyan Rose",
   "block.minecraft.gilded_blackstone": "Gold Gilded Blackstone",
-  "advancements.utop.flowerman_flowerman.title": "How did you like my jarona!?",
-  "advancements.utop.flowerman_flowerman.description": "Obtain a Cyan Rose.",
+  "advancements.utop.flowerman_flowerman.title": "How'd you like my jarona!?",
+  "advancements.utop.flowerman_flowerman.description": "Obtain a Cyan Rose",
   "advancements.utop.i_need_you_sea_salt.title": "SEA SALT",
-  "advancements.utop.i_need_you_sea_salt.description": "Obtain Salt.",
-  "advancements.utop.lend_me_your_power.title": "LEND ME YOUR POWER!!!",
-  "advancements.utop.lend_me_your_power.description": "Obtain a block of Neon."
+  "advancements.utop.i_need_you_sea_salt.description": "Obtain Salt",
+  "advancements.utop.lend_me_your_power.title": "LEND ME YOUR POWER!!!",  // Just in case
+  "advancements.utop.lend_me_your_power.description": "Obtain a noble gas",
+  "advancements.utop.sticky_situation.title": "Glue!",
+  "advancements.utop.sticky_situation.description": "Eat Glue. My favorite tube!",
+  "advancements.utop.almost_diamond.title": "Hexagonal Silicon Carbides!",
+  "advancements.utop.almost_diamond.description": "Make artificial Diamonds using Science"
 }

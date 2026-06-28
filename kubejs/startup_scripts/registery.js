@@ -4,7 +4,7 @@ ItemEvents.toolTierRegistry(event => {
     tier.speed = 2.0                 // Mining speed (matters if they clear cobwebs/leaves)
     tier.attackDamageBonus = 3.0     // Base damage bonus added to weapons
     tier.enchantmentValue = 0       // Enchantability level
-    tier.repairIngredient = 'minecraft:oak_log' // Item used to fix it in an anvil (or '#c:gems/ruby')
+    tier.repairIngredient = 'minecraft:stick' // Item used to fix it in an anvil (or '#c:gems/ruby')
   })
   event.add('utopia:hammer', tier => {
     tier.uses = 128
@@ -26,8 +26,9 @@ StartupEvents.registry('item', event => {
     event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
     event.create('utopia:catalyst').displayName('Catalyst').texture('utopia:item/catalyst').rarity('uncommon')
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
-    event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica_dust')
-    event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite')
+    event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite_ingot')
+    event.create('utopia:graphite_nugget').displayName('Graphite Rod').texture('utopia:item/graphite_nugget')
+    event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica')
     event.create('utopia:moissanite').displayName('Moissanite').texture('utopia:item/moissanite')
 
     event.create('utopia:pencil', 'sword').tier('pencil')
@@ -117,7 +118,7 @@ event.create('utopia:moissanite_block')
     .requiresTool(true) 
     .tagBlock('minecraft:mineable/pickaxe') 
     .tagBlock('minecraft:needs_iron_tool')
-
+    
   event.create('utopia:sea_salt_block') 
     .displayName('Sea Salt Block')
     .soundType('sand') 
