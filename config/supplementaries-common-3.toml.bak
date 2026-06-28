@@ -574,10 +574,10 @@
 			#Bomb explosion radius (damage depends on this)
 			# Default: 5.15
 			# Range: 0.1 ~ 10.0
-			explosion_radius = 5.15
+			explosion_radius = 9.0
 			#Do bombs break blocks like tnt?
 			#Allowed Values: ALL, WEAK, NONE
-			break_blocks = "WEAK"
+			break_blocks = "ALL"
 
 	[tools.slingshot]
 		enabled = true
@@ -602,15 +602,15 @@
 		# Range: 0.0 ~ 100.0
 		damageable_damage = 0.5
 		#Allows splash potions to be thrown by slingshots
-		allow_splash_potions = false
+		allow_splash_potions = true
 		#Allows bombs to be thrown by slingshots
-		allow_bombs = false
+		allow_bombs = true
 		#Allows fire charges to be thrown by slingshots
-		allow_fire_charges = false
+		allow_fire_charges = true
 		#Allows snowballs to be thrown by slingshots
-		allow_snowballs = false
+		allow_snowballs = true
 		#Allows enderpearls to be thrown by slingshots
-		allow_enderpearls = false
+		allow_enderpearls = true
 
 	[tools.antique_ink]
 		enabled = true

@@ -638,7 +638,7 @@
 		block_map_markers = true
 		#Shows a death marker on your map when you die. Requires a recovery compass in player inventory or similar
 		#Allowed Values: OFF, WITH_COMPASS, ALWAYS
-		death_marker = "WITH_COMPASS"
+		death_marker = "OFF"
 		#Makes blocks tagged as 'tinted_on_map' use their tint color. This allows for accurate biome colors for water and grass as well as other custom block that use any tint
 		tinted_blocks_on_maps = true
 
@@ -708,11 +708,11 @@
 
 	[tweaks.bottle_xp]
 		#Allow bottling up xp by using a bottle on an enchanting table
-		enabled = false
+		enabled = true
 		#bottling health cost
 		# Default: 2
 		# Range: 0 ~ 20
-		cost = 2
+		cost = 1
 		#Block that should be clicked on for bottling to work. Leave blank for enchanting table. You can put another block here from another mod if you find it more fitting
 		target_block = ""
 
@@ -736,7 +736,7 @@
 
 	[tweaks.noteblocks_scare]
 		#Noteblocks with a zombie head will scare off villagers
-		enabled = true
+		enabled = false
 
 	[tweaks.bad_luck_tweaks]
 		#Hit a void cat, get the unluck
@@ -750,7 +750,7 @@
 
 	[tweaks.sus_recipes]
 		#Adds recipes to craft suspicious gravel and suspicious sand
-		enabled = true
+		enabled = false
 
 	[tweaks.slimed_effect]
 		enabled = true

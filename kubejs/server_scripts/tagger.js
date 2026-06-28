@@ -79,6 +79,9 @@ ServerEvents.tags('item', event => {
     addCoin('utopia:coin_netherite')
     addCoin('utopia:coin_netherite_fractional')
 
+    event.add('utopia:diamonds', 'minecraft:diamond')
+    event.add('utopia:diamonds', 'utopia:moissanite')
+
     event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')
     event.add('minecraft:needs_iron_tool', 'quark:sturdy_stone')
     event.add('minecraft:mineable/pickaxe', 'quark:sturdy_stone')

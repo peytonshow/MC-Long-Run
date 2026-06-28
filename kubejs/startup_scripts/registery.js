@@ -26,7 +26,12 @@ StartupEvents.registry('item', event => {
     event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
     event.create('utopia:catalyst').displayName('Catalyst').texture('utopia:item/catalyst').rarity('uncommon')
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
-    event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica')
+    event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica_dust')
+    event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite')
+    event.create('utopia:moissanite').displayName('Moissanite').texture('utopia:item/moissanite')
+
+    event.create('utopia:pencil', 'sword').tier('pencil')
+    event.create('utopia:hammer').maxDamage(32)
 
     event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare').tag('utopia:stamp')
     event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').rarity('rare').tag('utopia:stamp')
@@ -73,12 +78,6 @@ StartupEvents.registry('item', event => {
     event.create('utopia:seasoned_cooked_rabbit').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Rabbit')
     event.create('utopia:seasoned_cooked_bushmeat').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Bushmeat')
 
-    // I may not know much about nuclear reactors, but I know a lot about concrete
-    event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite')
-    event.create('utopia:pencil', 'sword').tier('pencil')
-
-    // 
-    event.create('utopia:hammer').maxDamage(32)
 })
 
 StartupEvents.registry('block', event => {
@@ -109,6 +108,15 @@ StartupEvents.registry('block', event => {
     .renderType('translucent')
     .notSolid()
     .fullBlock(false)
+
+event.create('utopia:moissanite_block')
+    .displayName('Moissanite Block')
+    .soundType('metal')
+    .hardness(5.0)
+    .resistance(6.0)
+    .requiresTool(true) 
+    .tagBlock('minecraft:mineable/pickaxe') 
+    .tagBlock('minecraft:needs_iron_tool')
 
   event.create('utopia:sea_salt_block') 
     .displayName('Sea Salt Block')

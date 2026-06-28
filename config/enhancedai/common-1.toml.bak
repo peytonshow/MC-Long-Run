@@ -717,10 +717,10 @@
 
 		#How far away can the mobs see targets even through walls. This only works with 'Better Nearby Targeting' enabled. Setting 'Max' to 0 will make mobs not able to see through walls. Use mods like Mobs Properties Randomness to have more control over the attribute; the attribute name is 'enhancedai:xray_follow_range'. Only mobs in the entity type tag `enhancedai:mobs/targeting/apply_xray` will be affected by this override.
 		[Mobs.Targeting."Xray range override"]
-			# Default: 16.0
+			# Default: 8.0
 			# Range: 0.0 ~ 128.0
 			Minimum = 12.0
-			# Default: 24.0
+			# Default: 16.0
 			# Range: 0.0 ~ 128.0
 			Maximum = 24.0
 

@@ -444,7 +444,7 @@
 	"Enable Open doors" = true
 	#Makes mobs pick up targets to drown them. Only entity types in the enhancedai:mobs/drowning_targets tag are affected by this feature.
 	"Enable Drowning targets" = true
-	#Make mobs angry when a block is broken. Check the mod's config folder Mobs/Break Anger/break_anger_config.json to change blocks and entities triggered.
+	#Make mobs angry when a block is broken. Check the mod's config folder Mobs/Break anger/break_anger_config.json to change blocks and entities triggered.
 	"Enable Break anger" = false
 	#Makes drowned swim speed based off swim speed attribute instead of movement speed.
 	"Enable Swimmers" = false
@@ -1298,3 +1298,14 @@
 			# Default: 3.0
 			# Range: 0.0 ~ 30.0
 			Normal = 7.0
+
+[Endermen]
+	#Changes the angular size of the enderman's 'face' that angers them when looked at. Higher values make endermen anger from a wider viewing angle.
+	"Enable Look anger cone" = true
+
+	#Changes the angular size of the enderman's 'face' that angers them when looked at. Higher values make endermen anger from a wider viewing angle.
+	[Endermen."Look anger cone"]
+		#Controls how directly a player must look at an enderman to anger it. Vanilla is 0.025. Higher values make endermen easier to anger (wider cone).
+		# Default: 0.07
+		# Range: 0.0 ~ 1.0
+		"Look anger cone" = 0.07

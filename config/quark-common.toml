@@ -380,7 +380,7 @@
 
 	[tools.bottled_cloud]
 		"Cloud Level Bottom" = 191
-		"Cloud Level Top" = 196
+		"Cloud Level Top" = 600
 
 	[tools.color_runes]
 		"Dungeon Weight" = 10
@@ -505,7 +505,7 @@
 	"Campfires Boost Elytra" = true
 	"Compasses Work Everywhere" = true
 	"Coral On Cactus" = true
-	"Diamond Repair" = true
+	"Diamond Repair" = false
 	"Double Door Opening" = true
 	"Dragon Scales" = false
 	"Dyeable Item Frames" = false
@@ -1584,7 +1584,7 @@
 
 	[client.improved_tooltips]
 		"Attribute Tooltips" = true
-		"Food Tooltips" = true
+		"Food Tooltips" = false
 		"Shulker Tooltips" = true
 		"Map Tooltips" = true
 		"Enchanting Tooltips" = true
@@ -1595,7 +1595,7 @@
 		#The value of each shank of food.
 		#Tweak this when using mods like Hardcore Hunger which change that value.
 		"Food Divisor" = 2
-		"Show Saturation" = true
+		"Show Saturation" = false
 		"Food Compression Threshold" = 4
 		"Fuel Time Divisor" = 200
 		#Should item attributes be colored relative to your current equipped item?

@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:sand"
+    }
+  ],
+  "result": [
+    {
+      "chance": 0.7,
+      "item": {
+        "count": 1,
+        "id": "utopia:silica_dust"
+      }
+    }
+  ],
+  "tool": [
+    {
+      "item": "minecraft:brush"
+    }
+  ]
+}

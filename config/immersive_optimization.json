@@ -27,7 +27,8 @@
     "valkyrienskies": false,
     "minecraft:arrow": false,
     "create": false,
-    "minecraft:ender_dragon": false
+    "minecraft:ender_dragon": false,
+    "parcool": false
   },
   "cullProjectiles": false,
   "version": 2,

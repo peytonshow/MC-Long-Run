@@ -23,9 +23,9 @@
 		enabled = false
 
 	[redstone.bellows]
-		enabled = false
-		#bellows pushes air following this equation:
-		#air=(sin(2PI*ticks/period)<0), with period = base_period-(redstone_power-1)*power_scaling
+		enabled = true
+		#bellows pushes air following this equation: 
+		#air=(sin(2PI*ticks/period)<0), with period = base_period-(redstone_power-1)*power_scaling 
 		#represents base period at 1 power
 		# Default: 78
 		# Range: 1 ~ 512
@@ -34,8 +34,8 @@
 		# Default: 2.0
 		# Range: 0.0 ~ 16.0
 		power_scaling = 2.0
-		#velocity increase uses this equation:
-		#vel = base_vel*((range-entity_distance)/range) with base_vel = base_velocity_scaling/period
+		#velocity increase uses this equation: 
+		#vel = base_vel*((range-entity_distance)/range) with base_vel = base_velocity_scaling/period 
 		#note that the block will push further the faster it's pulsing
 		# Default: 5.0
 		# Range: 0.0 ~ 64.0
@@ -64,7 +64,7 @@
 		#Maximum block range
 		# Default: 64
 		# Range: 0 ~ 100000000
-		range = 64
+		range = 80
 
 	[redstone.spring_launcher]
 		enabled = true
@@ -276,7 +276,7 @@
 			glowing_duration = 200
 
 [building]
-	lapis_bricks = true
+	lapis_bricks = false
 	deepslate_lamp = true
 	end_stone_lamp = true
 	blackstone_lamp = true
@@ -383,7 +383,7 @@
 	[building.notice_board]
 		enabled = true
 		#Allows notice boards to accept and display any item, not just maps and books
-		allow_any_item = false
+		allow_any_item = true
 		#Enables a GUI for the block. Not needed as the block just holds one item which you can place by clicking on it
 		gui = true
 
@@ -467,7 +467,7 @@
 
 [tools]
 	candy = true
-	stasis = true
+	stasis = false
 	altimeter = true
 	confetti_popper = true
 
@@ -502,18 +502,18 @@
 		#If enabled, the quiver skeleton spawn chance will depend on the local difficulty of the world. If disabled, it will always be the same
 		quiver_skeleton_spawn_depend_on_global_difficulty = true
 		#Allows quiver to only be used when in offhand or in curio invSlot
-		only_works_in_curio = false
+		only_works_in_curio = true
 		#Arrows you pickup will try to go in a quiver if available provided it has some arrow of the same explosionType
 		quiver_pickup = true
 
 	[tools.lunch_basket]
-		enabled = true
+		enabled = false
 		#Allows lunch baskets to be placed on the ground
-		placeable = true
+		placeable = false
 		#Arrow stacks that can fit inside a lunch basket. Requires reboot
 		# Default: 6
 		# Range: 1 ~ 9
-		slots = 6
+		slots = 1
 
 	[tools.slice_map]
 		enabled = true
@@ -559,7 +559,7 @@
 		#Bomb explosion radius (damage depends on this)
 		# Default: 2.0
 		# Range: 0.1 ~ 10.0
-		explosion_radius = 2.0
+		explosion_radius = 4.0
 		#Do bombs break blocks like tnt?
 		#Allowed Values: ALL, WEAK, NONE
 		break_blocks = "WEAK"
@@ -574,17 +574,17 @@
 			#Bomb explosion radius (damage depends on this)
 			# Default: 5.15
 			# Range: 0.1 ~ 10.0
-			explosion_radius = 9.0
+			explosion_radius = 9.6
 			#Do bombs break blocks like tnt?
 			#Allowed Values: ALL, WEAK, NONE
 			break_blocks = "ALL"
 
 	[tools.slingshot]
-		enabled = true
+		enabled = false
 		#Slingshot range multiplier. Affect the initial projectile speed
 		# Default: 1.0
 		# Range: 0.0 ~ 5.0
-		range_multiplier = 1.0
+		range_multiplier = 3.2
 		#Time in ticks to fully charge a slingshot
 		# Default: 20
 		# Range: 0 ~ 100
@@ -602,13 +602,13 @@
 		# Range: 0.0 ~ 100.0
 		damageable_damage = 0.5
 		#Allows splash potions to be thrown by slingshots
-		allow_splash_potions = true
+		allow_splash_potions = false
 		#Allows bombs to be thrown by slingshots
-		allow_bombs = true
+		allow_bombs = false
 		#Allows fire charges to be thrown by slingshots
-		allow_fire_charges = true
+		allow_fire_charges = false
 		#Allows snowballs to be thrown by slingshots
-		allow_snowballs = true
+		allow_snowballs = false
 		#Allows enderpearls to be thrown by slingshots
 		allow_enderpearls = true
 

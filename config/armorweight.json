@@ -226,296 +226,40 @@
       "customWeight": 0.0
     },
     "utopia:detective_pants": {
-      "useCustomWeight": false,
-      "customWeight": 3.1
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "utopia:detective_shoes": {
-      "useCustomWeight": false,
-      "customWeight": 3.1
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "utopia:detective_suit": {
-      "useCustomWeight": false,
-      "customWeight": 4.1
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "utopia:gilded_pants": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "utopia:gilded_shoes": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "utopia:gilded_suit": {
-      "useCustomWeight": false,
-      "customWeight": 4.0
+      "useCustomWeight": true,
+      "customWeight": 0.0
     },
     "utopia:shattering_crown": {
       "useCustomWeight": true,
       "customWeight": 0.0
     },
     "utopia:used_handcuffs": {
-      "useCustomWeight": false,
-      "customWeight": 2.5
+      "useCustomWeight": true,
+      "customWeight": 5.0
     },
     "utopia:used_shackles": {
-      "useCustomWeight": false,
-      "customWeight": 2.5
-    },
-    "utopia:civilian_hat": {
-      "useCustomWeight": false,
-      "customWeight": 1.5
-    },
-    "utopia:civilian_pants": {
-      "useCustomWeight": false,
-      "customWeight": 1.5
-    },
-    "utopia:civilian_shoes": {
-      "useCustomWeight": false,
-      "customWeight": 1.5
-    },
-    "utopia:civilian_suit": {
-      "useCustomWeight": false,
-      "customWeight": 1.5
-    },
-    "utopia:leather_gown": {
-      "useCustomWeight": false,
-      "customWeight": 2.5
-    },
-    "utopia:leather_robes": {
-      "useCustomWeight": false,
-      "customWeight": 0.5
-    },
-    "utopia:leather_shoes": {
-      "useCustomWeight": false,
-      "customWeight": 2.5
-    },
-    "utopia:leather_veil": {
-      "useCustomWeight": false,
-      "customWeight": 0.5
-    },
-    "luckyswardrobe:bee_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:blacksmith_mask": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:broken_barrel": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:butchers_apron": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:chef_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:chiton": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:clerics_apron": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:desert_hat": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:desert_pants": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "luckyswardrobe:desert_robe": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "luckyswardrobe:desert_sandals": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:entertainers_hat": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:entertainers_pants": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "luckyswardrobe:entertainers_shirt": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "luckyswardrobe:entertainers_shoes": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:explorers_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:farmer_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:fishing_apron": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:fox_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:hardened_leather_apron": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:jungle_pants": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "luckyswardrobe:jungle_robe": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "luckyswardrobe:jungle_sandals": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:leather_apron": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:masons_apron": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:panda_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:savanna_floral_crown": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:savanna_pants": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "luckyswardrobe:savanna_robe": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "luckyswardrobe:savanna_sandals": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:scarf": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:snow_fox_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:snowy_boots": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:snowy_coat": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "luckyswardrobe:snowy_hat": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:snowy_hood": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:snowy_pants": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "luckyswardrobe:swampy_hat": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:swampy_pants": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "luckyswardrobe:swampy_robe": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "luckyswardrobe:swampy_shoes": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:taiga_boots": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:taiga_coat": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "luckyswardrobe:taiga_hood": {
-      "useCustomWeight": false,
-      "customWeight": 1.0
-    },
-    "luckyswardrobe:taiga_pants": {
-      "useCustomWeight": false,
-      "customWeight": 2.0
-    },
-    "luckyswardrobe:top_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:witch_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:wolf_hat": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "luckyswardrobe:wool_vest": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "utopia:handcuffs": {
-      "useCustomWeight": false,
-      "customWeight": 2.5
-    },
-    "utopia:leg_restraints": {
-      "useCustomWeight": false,
-      "customWeight": 2.5
-    },
-    "snatched:bag_helmet": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "snatched:handcuff_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "snatched:rope_chestplate": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
-    },
-    "snatched:rope_leggings": {
-      "useCustomWeight": false,
-      "customWeight": 0.0
+      "useCustomWeight": true,
+      "customWeight": 5.0
     }
   }
 }

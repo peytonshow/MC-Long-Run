@@ -118,4 +118,46 @@ ServerEvents.recipes(event => {
         event.recipes.create.mixing(item, [item, Fluid.of('minecraft:water', 250)]).processingTime(3000)
     })
 
+    // Moissanite & Graphite
+    event.recipes.create.compacting([
+        CreateItem.of('utopia:graphite_ingot', 0.9),
+    ], [
+        'minecraft:coal_block'
+    ]).heated()
+    event.recipes.create.compacting([
+        CreateItem.of('utopia:moissanite', 0.60),
+    ], [
+        '12x utopia:silica_dust',
+        '12x utopia:graphite_ingot'
+    ]).superheated()
+
+    // Silica
+    event.recipes.create.crushing([
+        CreateItem.of('utopia:silica_dust', 0.20),
+    ], [
+        'farmersdelight:rice_panicle'
+    ])
+    event.recipes.create.milling([
+        '3x utopia:silica_dust'
+    ], [
+        'minecraft:quartz'
+    ])
+    event.recipes.create.crushing([
+        CreateItem.of('utopia:silica_dust', 0.70),
+    ], [
+        'minecraft:sand'
+    ])
+
+    // Neon
+    event.recipes.create.compacting([
+        CreateItem.of('utopia:neon_block', 0.85),
+    ], [
+        '15x quark:bottled_cloud',
+        'royalvariations:spiritual_crown_shard',
+        '3x minecraft:blue_ice'
+    ]).heated()
+
+    // Remove crushing for milled-only items
+    event.remove({ output: 'utopia:sea_salt', type: 'create:crush' })
+    event.remove({ output: 'utopia:pepper', type: 'create:crush' })
 })
