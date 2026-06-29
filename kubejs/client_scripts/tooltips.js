@@ -56,9 +56,4 @@ ItemEvents.modifyTooltips(event => {
     addNormalTooltip('utopia:block_of_high_capitalism', 'Worth R$D 500');
     addNormalTooltip('utopia:block_of_moderate_capitalism', 'Worth R$D 125');
     addNormalTooltip('utopia:block_of_capitalism', 'Worth R$D 25');
-
-    // Permits
-    addShiftTooltip('create_permits:ironpermit', 'This holder is a certified District Attorney, recognized and appointed by the King.');
-    addShiftTooltip('create_permits:gold_permit', 'The holder of this permit has approval to produce Firearms and Explosives.');
-    addShiftTooltip('create_permits:diamondpermit', 'The holder, by order of the King, is enabled to produce any item regardless of legality.');
 });

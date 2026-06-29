@@ -6,7 +6,7 @@
 	chainDrives = true
 	#.
 	#Bulk toggle for light related features (Excluding the old brass lamp block).
-	lights = true
+	lights = false
 	#.
 	#Bulk toggle for all girder strut related features.
 	girderStruts = true
@@ -46,7 +46,7 @@
 		brassLamp = true
 		#.
 		#Availability of the Headlamp block.
-		headlamp = true
+		headlamp = false
 		#.
 		#Availability of the Chair blocks.
 		chairs = true

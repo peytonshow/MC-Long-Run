@@ -1,7 +1,4 @@
 ServerEvents.recipes(event => {
-
-    event.remove({ type: 'refurbished_furniture:cutting_board_slicing' })
-    event.remove({ type: 'refurbished_furniture:cutting_board_combining' })
     event.remove({ input: 'minecraft:gravel', type: 'create:splashing' })
     event.remove({ output: 'oreganized:glance'})
     event.remove({ output: 'create:brass_ingot', type: 'create:mixing' })
@@ -9,7 +6,29 @@ ServerEvents.recipes(event => {
     event.remove({ output: 'minecraft:paper', type: 'minecraft:crafting_shapeless' })
     event.remove({ output: 'minecraft:glass_bottle', type: 'minecraft:crafting_shaped' })
     event.remove({ output: 'minecraft:gold_nugget', type: 'create:splashing' })
+    //////
 
+    event.shaped(
+        Item.of('utopia:platinum_sword'),[
+            'A  ',
+            'A  ',
+            'B  '
+        ],{
+            A: 'utopia:platinum_ingot',
+            B: 'minecraft:stick'
+    })
+
+    event.shaped(
+        Item.of('supplementaries:jar'),[
+            'A  ',
+            'B  ',
+            '   '
+        ],{
+            A: '#minecraft:wooden_slabs',
+            B: 'utopia:beaker'
+    })
+
+    //////
     event.recipes.create.mixing('create:brass_ingot', [
         'utopia:uneven_raw_brass_precursor'
     ]).heated()        
@@ -165,6 +184,38 @@ ServerEvents.recipes(event => {
         'minecraft:glass_bottle'
     ]).heated()
 
+    // Chemistry!!!
+    const beakers = [
+        { full: 'utopia:beaker_nitrogen', empty: 'utopia:beaker', fluid: 'utopia:liquid_nitrogen', amount: 200 },
+        { full: 'utopia:beaker_oxygen', empty: 'utopia:beaker', fluid: 'utopia:liquid_oxygen', amount: 200 },
+        { full: 'utopia:beaker_hydrogen', empty: 'utopia:beaker', fluid: 'utopia:liquid_hydrogen', amount: 200 },
+        { full: 'utopia:beaker_ammonia', empty: 'utopia:beaker', fluid: 'utopia:ammonia', amount: 200 },
+        { full: 'utopia:beaker_nitric_acid', empty: 'utopia:beaker', fluid: 'utopia:nitric_acid', amount: 200 },
+        { full: 'utopia:beaker_bleach', empty: 'utopia:beaker', fluid: 'utopia:bleach', amount: 200 },
+        { full: 'utopia:beaker_propylene_glycol', empty: 'utopia:beaker', fluid: 'utopia:propylene_glycol', amount: 200 }
+    ];
+
+    for (let item of beakers) {
+        event.recipes.create.emptying([Fluid.of(item.fluid, item.amount), item.empty], item.full);
+        event.recipes.create.filling(item.full, [Fluid.of(item.fluid, item.amount), item.empty]);
+    }
+
+    event.recipes.create.mixing([
+        Fluid.of('utopia:propylene_glycol', 100)
+    ], [
+        Ingredient.of('#minecraft:coals'),
+        Fluid.of('utopia:liquid_hydrogen', 80),
+        Fluid.of('utopia:liquid_oxygen', 20)
+    ]).superheated()
+
+    event.recipes.create.mixing([
+        Fluid.of('utopia:liquid_oxygen', 80),
+        Fluid.of('utopia:liquid_hydrogen', 120)
+    ], [
+        Fluid.of('minecraft:water', 200),'create:experience_nugget'
+    ]).heated()
+
+    
     // Neon
     event.recipes.create.compacting([
         CreateItem.of('utopia:neon_block', 0.85),

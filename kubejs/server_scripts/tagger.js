@@ -38,16 +38,6 @@ ServerEvents.tags('item', event => {
     event.add('c:hidden_from_recipe_viewers', 'utopia:shattered_crown')
     event.add('c:hidden_from_recipe_viewers', 'utopia:used_handcuffs')
     event.add('c:hidden_from_recipe_viewers', 'utopia:used_shackles')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:glow_berry_jam_toast')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:glow_berry_jam')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:sweet_berry_jam_toast')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:sweet_berry_jam')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:toast')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:dough')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:knife')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:cheese')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:wheat_flour')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:recycling_bin')
     event.add('c:hidden_from_recipe_viewers', 'brewinandchewin:pizza')
     event.add('c:hidden_from_recipe_viewers', 'farmersdelight:wheat_dough')
     event.add('c:hidden_from_recipe_viewers', 'vc_gliders:reinforced_paper_iron')
@@ -68,7 +58,6 @@ ServerEvents.tags('item', event => {
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/way_sign_ancient')
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/cannon_boat_ancient')
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/ancient_boat')
-    event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:sea_salt')
     event.add('c:hidden_from_recipe_viewers', 'unusual_furniture:discord')
 
     addBill('utopia:1_dollar_bill')
@@ -89,6 +78,7 @@ ServerEvents.tags('item', event => {
     makeKindaNotSword('utopia:pencil')
 
     event.add('create:pulpifiable', 'farmersdelight:tree_bark')
+    event.add('create:upright_on_belt', '#utopia:beakers')
     //event.add('create:upright_on_belt', '#c:dusts')
 
     event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')

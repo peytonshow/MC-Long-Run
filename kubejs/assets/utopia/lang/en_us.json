@@ -14,6 +14,7 @@
   "utopia.info.catalyst": "Catalysts contain special living compounds that react with certain surrounding minerals on its surface.",//nf
   "utopia.info.tumbling": "Amethysts can be used to produce minerals through a process called tumbling. They slowly grind away rock to dust, which is absorbed by water and drained, leaving only metal or gems.",//nf
   "utopia.info.fluid": "Infinite fluid can be achieved by using a Spout to suck up water from a a source",//nf
+  "utopia.info.platinum": "Platinum is an extremely rare resource, even rarer than gold, and can be used as a catalyst for chemistry.",
   "farmersdelight.tooltip.cooking_pot.empty": "Empty",
   "block.minecraft.blast_furnace": "Kiln",
   "container.blast_furnace": "Kiln",

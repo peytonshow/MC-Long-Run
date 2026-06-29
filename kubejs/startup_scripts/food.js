@@ -66,7 +66,6 @@ ItemEvents.modification(event => {
                 }
             ]
         })
-        item.useAnimation
     })
     event.modify('minecraft:sweet_berries', item => {
         item.setFood({
@@ -217,6 +216,139 @@ ItemEvents.modification(event => {
         })
     })
 
+
+
+    // Chemicals
+    event.modify('utopia:beaker_nitric_acid', item => {
+        item.setFood({
+            eatSeconds: 1.6,
+            saturation: 0,
+            nutrition: 1,
+            canAlwaysEat: true,
+            effects: [
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'minecraft:poison', 20, 5,false,false
+                    ),
+                },
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'minecraft:wither', 80, 2,false,true
+                    ),
+                }
+            ]
+        })
+    })
+    event.modify('utopia:beaker_oxygen', item => {
+        item.setFood({
+            eatSeconds: 1.6,
+            saturation: 0,
+            nutrition: 1,
+            canAlwaysEat: true,
+            effects: [
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'supplementaries:flammable', 60, 0,false,true
+                    ),
+                }
+            ]
+        })
+    })
+    event.modify('utopia:beaker_ammonia', item => {
+        item.setFood({
+            eatSeconds: 1.6,
+            saturation: 0,
+            nutrition: 1,
+            canAlwaysEat: true,
+            effects: [
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'minecraft:weakness', 120, 0,false,true
+                    ),
+                }
+            ]
+        })
+    })
+    event.modify('utopia:beaker_nitrogen', item => {
+        item.setFood({
+            eatSeconds: 1.6,
+            saturation: 0,
+            nutrition: 1,
+            canAlwaysEat: true,
+            effects: [
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'oreganized:lung_damage', 60, 0,false,true
+                    ),
+                }
+            ]
+        })
+    })
+    event.modify('utopia:beaker_ammonia', item => {
+        item.setFood({
+            eatSeconds: 1.6,
+            saturation: 0,
+            nutrition: 1,
+            canAlwaysEat: true,
+            effects: [
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'oreganized:lung_damage', 120, 0,false,true
+                    ),
+                }
+            ]
+        })
+    })
+    event.modify('utopia:beaker_bleach', item => {
+        item.setFood({
+            eatSeconds: 1.6,
+            saturation: 0,
+            nutrition: 1,
+            canAlwaysEat: true,
+            effects: [
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'minecraft:poison', 120, 1,false,false
+                    ),
+                },
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'minecraft:wither', 180, 0,false,true
+                    ),
+                },
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'minecraft:weakness', 120, 0,false,true
+                    ),
+                },
+                {
+                    probability: 1.0, // Any real number between 0 and 1
+                    effectSupplier: () =>
+                    new $MobEffectInstance(
+                        'oreganized:lung_damage', 120, 0,false,true
+                    ),
+                }
+            ]
+        })
+    })
 })
 
 

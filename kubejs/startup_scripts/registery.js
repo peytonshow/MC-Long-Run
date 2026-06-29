@@ -35,11 +35,14 @@ StartupEvents.registry('item', event => {
     // Sciantest
     event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica').tag('c:dusts').tag('utopia:chemistry')
     event.create('utopia:moissanite').displayName('Moissanite').texture('utopia:item/moissanite').tag('c:gems').tag('utopia:chemistry')
-    event.create('utopia:beaker').tag('utopia:chemistry')
-    event.create('utopia:beaker_oxygen').tag('utopia:chemistry')
-    event.create('utopia:beaker_nitrogen').tag('utopia:chemistry')
-    event.create('utopia:beaker_ammonia').tag('utopia:chemistry')
-    event.create('utopia:beaker_nitric_acid').tag('utopia:chemistry')
+    event.create('utopia:beaker').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker').displayName('Empty Beaker')
+    event.create('utopia:beaker_oxygen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_oxygen').useAnimation('drink')
+    event.create('utopia:beaker_hydrogen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_hydrogen')
+    event.create('utopia:beaker_nitrogen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_nitrogen').useAnimation('drink')
+    event.create('utopia:beaker_ammonia').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_ammonia').useAnimation('drink')
+    event.create('utopia:beaker_nitric_acid').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_nitric_acid').useAnimation('drink')
+    event.create('utopia:beaker_bleach').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/bleach').displayName('Bleach').useAnimation('drink')
+    event.create('utopia:beaker_propylene_glycol').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/propylene_glycol').displayName('Propylene Glycol').useAnimation('drink')
 
     // Ingots
     event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite_ingot')
@@ -55,11 +58,11 @@ StartupEvents.registry('item', event => {
     event.create('minecraft:copper_hoe', 'hoe').tier('stone').maxDamage(100)
 
     // 『 Star Platinum 』
-    event.create('minecraft:platinum_sword', 'sword').tier('platinum').maxDamage(400).texture('utopia:item/platinum_sword')
-    event.create('minecraft:platinum_axe', 'axe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_axe')
-    event.create('minecraft:platinum_pickaxe', 'pickaxe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_pickaxe')
-    event.create('minecraft:platinum_shovel', 'shovel').tier('platinum').maxDamage(400).texture('utopia:item/platinum_shovel')
-    event.create('minecraft:platinum_hoe', 'hoe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_hoe')
+    event.create('utopia:platinum_sword', 'sword').tier('platinum').maxDamage(400).texture('utopia:item/platinum_sword')
+    event.create('utopia:platinum_axe', 'axe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_axe')
+    event.create('utopia:platinum_pickaxe', 'pickaxe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_pickaxe')
+    event.create('utopia:platinum_shovel', 'shovel').tier('platinum').maxDamage(400).texture('utopia:item/platinum_shovel')
+    event.create('utopia:platinum_hoe', 'hoe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_hoe')
 
     // Misc Tools
     event.create('utopia:pencil', 'sword').tier('pencil')
