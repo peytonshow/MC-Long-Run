@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "utopia:platinum__ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "utopia:platinum_nugget"
+  }
+}

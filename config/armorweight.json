@@ -45,6 +45,98 @@
       "useCustomWeight": false,
       "customWeight": 5.3
     },
+    "create_sa:andesite_exoskeleton_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 7.0
+    },
+    "create_sa:andesite_jetpack_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 6.0
+    },
+    "create_sa:brass_boots": {
+      "useCustomWeight": false,
+      "customWeight": 2.8
+    },
+    "create_sa:brass_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 7.8
+    },
+    "create_sa:brass_exoskeleton_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 8.8
+    },
+    "create_sa:brass_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.8
+    },
+    "create_sa:brass_jetpack_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 6.8
+    },
+    "create_sa:brass_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 5.8
+    },
+    "create_sa:copper_boots": {
+      "useCustomWeight": false,
+      "customWeight": 1.0
+    },
+    "create_sa:copper_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 6.0
+    },
+    "create_sa:copper_exoskeleton_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 6.0
+    },
+    "create_sa:copper_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "create_sa:copper_jetpack_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 6.0
+    },
+    "create_sa:copper_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 5.0
+    },
+    "create_sa:netherite_exoskeleton_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 11.3
+    },
+    "create_sa:netherite_jetpack_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 10.3
+    },
+    "create_sa:slime_boots": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "create_sa:slime_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "create_sa:zinc_boots": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "create_sa:zinc_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 6.0
+    },
+    "create_sa:zinc_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "create_sa:zinc_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 5.0
+    },
+    "createsolar:sunglasses": {
+      "useCustomWeight": false,
+      "customWeight": 1.0
+    },
     "endermanoverhaul:badlands_hood": {
       "useCustomWeight": false,
       "customWeight": 5.0
@@ -260,6 +352,10 @@
     "utopia:used_shackles": {
       "useCustomWeight": true,
       "customWeight": 5.0
+    },
+    "powergrid:portable_battery": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
     }
   }
 }

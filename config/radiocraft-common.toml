@@ -1,0 +1,53 @@
+["Power Options ( * = Restart game to take effect)"]
+	#*Energy capacity of large batteries. #default 1500000 integer
+	large_battery_capacity = 1500000
+	#*Max output per tick for a large battery. #default 1250
+	large_battery_output = 1250
+	#*Energy capacity of small batteries. #default 125000 integer
+	small_battery_capacity = 125000
+	#*Amount of power a charge controller can process each tick. #default 625 integer
+	charge_controller_tick = 625
+	#*Amount of power a charge controller can transfer to a small battery each tick. #default 10 integer
+	charge_controller_battery_charge = 10
+	#*Maximum output of a solar power per tick. #default 125
+	"solar_panel_max_output integer" = 125
+	#*Multiplier for solar panel output while raining #default 0.5
+	"solar_panel_rain_multiplier double" = 0.5
+
+["Radio Options ( * = Restart game to take effect)"]
+	#*HF Radio (10m) power consumption per tick (while receiving) #default 125
+	hf_radio_10m_receive = 125
+	#*HF Radio (10m) power consumption per tick (while transmitting) #default 375
+	hf_radio_10m_transmit = 375
+	#*HF Radio (20m) power consumption per tick (while receiving) #default 125
+	hf_radio_20m_receive = 125
+	#*HF Radio (20m) power consumption per tick (while transmitting) #default 375
+	hf_radio_20m_transmit = 375
+	#*HF Radio (40m) power consumption per tick (while receiving) #default 125
+	hf_radio_40m_receive = 125
+	#*HF Radio (40m) power consumption per tick (while transmitting) #default 375
+	hf_radio_40m_transmit = 375
+	#*HF Radio (80m) power consumption per tick (while receiving) #default 125
+	hf_radio_80m_receive = 125
+	#*HF Radio (80m) power consumption per tick (while transmitting) #default 375
+	hf_radio_80m_transmit = 375
+	#*HF Radio (all band) power consumption per tick (while receiving) default #125
+	hf_radio_all_band_receive = 125
+	#*HF Radio (all band) power consumption per tick (while transmitting) #default 375
+	hf_radio_all_band_transmit = 375
+	#*HF Receiver power consumption per tick (while receiving) #default 125
+	hf_receiver = 125
+	#*QRP Radio (20m) power consumption per tick (while receiving) #default 63
+	qrp_radio_20m_receive = 63
+	#*QRP Radio (20m) power consumption per tick (while transmitting) #default 188
+	qrp_radio_20m_transmit = 188
+	#*QRP Radio (40m) power consumption per tick (while receiving) #default 63
+	qrp_radio_40m_receive = 63
+	#*QRP Radio (40m) power consumption per tick (while transmitting) #default 188
+	qrp_radio_40m_transmit = 188
+	#*VHF Base Station power consumption per tick (while receiving) #default 63
+	vhf_base_station_receive = 63
+	#*VHF Base Station power consumption per tick (while transmitting) #default 188
+	vhf_base_station_transmit = 188
+	#*VHF Receiver power consumption per tick (while receiving) #default 125
+	vhf_receiver = 125

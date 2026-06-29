@@ -8,7 +8,8 @@ ServerEvents.recipes(event => {
     event.remove({ output: 'minecraft:paper', type: 'minecraft:crafting_shaped' })
     event.remove({ output: 'minecraft:paper', type: 'minecraft:crafting_shapeless' })
     event.remove({ output: 'minecraft:glass_bottle', type: 'minecraft:crafting_shaped' })
-    
+    event.remove({ output: 'minecraft:gold_nugget', type: 'create:splashing' })
+
     event.recipes.create.mixing('create:brass_ingot', [
         'utopia:uneven_raw_brass_precursor'
     ]).heated()        
@@ -157,6 +158,12 @@ ServerEvents.recipes(event => {
     ], [
         'utopia:silica_dust'
     ]).heated()
+    event.recipes.create.compacting([
+        CreateItem.of('utopia:beaker'),
+    ], [
+        '3x utopia:silica_dust',
+        'minecraft:glass_bottle'
+    ]).heated()
 
     // Neon
     event.recipes.create.compacting([
@@ -166,6 +173,17 @@ ServerEvents.recipes(event => {
         '8x minecraft:blue_ice',
         '8x minecraft:glow_ink_sac'
     ])
+
+    // Gold + Platinum
+    event.recipes.create.splashing([
+        '9x minecraft:gold_nugget',
+        CreateItem.of('minecraft:quartz', 0.5),
+        CreateItem.of('utopia:platinum_nugget', 0.01)
+    ], [
+        'create:crushed_raw_gold'
+    ])
+
+
 
     // Remove crushing for milled-only items
     event.remove({ output: 'utopia:sea_salt', type: 'create:crush' })

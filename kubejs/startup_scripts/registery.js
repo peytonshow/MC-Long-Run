@@ -1,4 +1,9 @@
 ItemEvents.toolTierRegistry(event => {
+  
+  event.addBasedOnExisting("platinum", "diamond", (tier) => {
+    tier.uses = 400;
+  });
+
   event.add('pencil', tier => {
     tier.uses = 12                 // Durability
     tier.speed = 2.0                 // Mining speed (matters if they clear cobwebs/leaves)
@@ -26,18 +31,21 @@ StartupEvents.registry('item', event => {
     event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
     event.create('utopia:catalyst').displayName('Catalyst').texture('utopia:item/catalyst').rarity('uncommon')
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
+
+    // Sciantest
+    event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica').tag('c:dusts').tag('utopia:chemistry')
+    event.create('utopia:moissanite').displayName('Moissanite').texture('utopia:item/moissanite').tag('c:gems').tag('utopia:chemistry')
+    event.create('utopia:beaker').tag('utopia:chemistry')
+    event.create('utopia:beaker_oxygen').tag('utopia:chemistry')
+    event.create('utopia:beaker_nitrogen').tag('utopia:chemistry')
+    event.create('utopia:beaker_ammonia').tag('utopia:chemistry')
+    event.create('utopia:beaker_nitric_acid').tag('utopia:chemistry')
+
+    // Ingots
     event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite_ingot')
     event.create('utopia:graphite_nugget').displayName('Graphite Rod').texture('utopia:item/graphite_nugget')
-    event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica')
-    event.create('utopia:moissanite').displayName('Moissanite').texture('utopia:item/moissanite')
-
-    event.create('utopia:pencil', 'sword').tier('pencil')
-    event.create('utopia:hammer').maxDamage(32)
-
-    event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare').tag('utopia:stamp')
-    event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').rarity('rare').tag('utopia:stamp')
-    event.create('utopia:paper_stamp').displayName('Paper Stamp').texture('utopia:item/paper_stamp').rarity('rare').tag('utopia:stamp')
-
+    event.create('utopia:platinum_ingot').displayName('Platinum Ingot').texture('utopia:item/platinum_ingot')
+    event.create('utopia:platinum_nugget').displayName('Platinum Nugget').texture('utopia:item/platinum_nugget')
 
     // Copper tools.
     event.create('minecraft:copper_sword', 'sword').tier('stone').maxDamage(100)
@@ -46,13 +54,28 @@ StartupEvents.registry('item', event => {
     event.create('minecraft:copper_shovel', 'shovel').tier('stone').maxDamage(100)
     event.create('minecraft:copper_hoe', 'hoe').tier('stone').maxDamage(100)
 
+    // 『 Star Platinum 』
+    event.create('minecraft:platinum_sword', 'sword').tier('platinum').maxDamage(400).texture('utopia:item/platinum_sword')
+    event.create('minecraft:platinum_axe', 'axe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_axe')
+    event.create('minecraft:platinum_pickaxe', 'pickaxe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_pickaxe')
+    event.create('minecraft:platinum_shovel', 'shovel').tier('platinum').maxDamage(400).texture('utopia:item/platinum_shovel')
+    event.create('minecraft:platinum_hoe', 'hoe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_hoe')
+
+    // Misc Tools
+    event.create('utopia:pencil', 'sword').tier('pencil')
+    event.create('utopia:hammer').maxDamage(32)
+
+    // Stamps
+    event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare').tag('utopia:stamp')
+    event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').rarity('rare').tag('utopia:stamp')
+    event.create('utopia:paper_stamp').displayName('Paper Stamp').texture('utopia:item/paper_stamp').rarity('rare').tag('utopia:stamp')
+
     // FIAT!!!!
     event.create('utopia:1_dollar_bill').displayName('1$ Bill').texture('utopia:item/bill_one').burnTime(20).maxStackSize(50)
     event.create('utopia:5_dollar_bill').displayName('5$ Bill').texture('utopia:item/bill_five').burnTime(20).maxStackSize(50)
     event.create('utopia:20_dollar_bill').displayName('20$ Bill').texture('utopia:item/bill_twenty').rarity('uncommon').burnTime(30).maxStackSize(50)
     event.create('utopia:100_dollar_bill').displayName('100$ Bill').texture('utopia:item/bill_one_hundred').rarity('uncommon').burnTime(30).maxStackSize(50)
     event.create('utopia:500_dollar_bill').displayName('500$ Bill').texture('utopia:item/bill_five_hundred').rarity('uncommon').burnTime(30).maxStackSize(50)
-
 
     // Money thats technically actually worth something!
     event.create('utopia:coin_netherite').displayName('Scrap Coin').texture('utopia:item/coin_scrap').rarity('epic')

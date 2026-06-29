@@ -28,7 +28,8 @@
     "minecraft:arrow": false,
     "create": false,
     "minecraft:ender_dragon": false,
-    "parcool": false
+    "parcool": false,
+    "simpleradio": false
   },
   "cullProjectiles": false,
   "version": 2,

@@ -1,0 +1,105 @@
+["Antenna Options ( * = Restart game to take effect)"]
+	# Delay in seconds of an antenna to recalculate it's state after being changed #default 5
+	antenna_update_delay = 5
+
+["Band Options ( * = Restart game to take effect)"]
+	# The minimum step size for a HF frequency, in Hz #default 1000
+	hf_frequency_step = 1000
+	# The minimum step size for a VHF frequency, in Hz #default 100000
+	vhf_frequency_step = 20000
+
+# While name and frequency are to measures of the same principle, when we refer to a band like say 10m, we mean a range of actual frequencies that aren't exactly 10m in name
+# Band names like 10m are just for human convenience (so you don't have to say radio capable of 144MHz to 146MHz
+["2m band settings, also known as VHF"]
+	# Line of sight range for this band
+	2mm_los = 500
+	# minimum range for the skip effect during the day
+	2mm_minSkipDay = 0
+	# maximum range for the skip effect during the day
+	2mm_maxSkipDay = 0
+	# minimum range for the skip effect during the night
+	2mm_minSkipNight = 0
+	# maximum range for the skip effect during the night
+	2mm_maxSkipNight = 0
+	# The minimum frequency for this band
+	2mm_minFrequency = 1.44E8
+	# The maximum frequency for this band
+	2mm_maxFrequency = 1.48E8
+
+["10m band settings"]
+	# Line of sight range for this band
+	10mm_los = 800
+	# minimum range for the skip effect during the day
+	10mm_minSkipDay = 0
+	# maximum range for the skip effect during the day
+	10mm_maxSkipDay = 0
+	# minimum range for the skip effect during the night
+	10mm_minSkipNight = 0
+	# maximum range for the skip effect during the night
+	10mm_maxSkipNight = 0
+	# The minimum frequency for this band
+	10mm_minFrequency = 2.8E7
+	# The maximum frequency for this band
+	10mm_maxFrequency = 2.97E7
+
+["20m band settings"]
+	# Line of sight range for this band
+	20mm_los = 300
+	# minimum range for the skip effect during the day
+	20mm_minSkipDay = 2000
+	# maximum range for the skip effect during the day
+	20mm_maxSkipDay = 6000
+	# minimum range for the skip effect during the night
+	20mm_minSkipNight = 800
+	# maximum range for the skip effect during the night
+	20mm_maxSkipNight = 1000
+	# The minimum frequency for this band
+	20mm_minFrequency = 1.4E7
+	# The maximum frequency for this band
+	20mm_maxFrequency = 1.435E7
+
+["40m band settings"]
+	# Line of sight range for this band
+	40mm_los = 900
+	# minimum range for the skip effect during the day
+	40mm_minSkipDay = 1000
+	# maximum range for the skip effect during the day
+	40mm_maxSkipDay = 1100
+	# minimum range for the skip effect during the night
+	40mm_minSkipNight = 100
+	# maximum range for the skip effect during the night
+	40mm_maxSkipNight = 3000
+	# The minimum frequency for this band
+	40mm_minFrequency = 7300000.0
+	# The maximum frequency for this band
+	40mm_maxFrequency = 9000000.0
+
+["80m band settings"]
+	# Line of sight range for this band
+	80mm_los = 600
+	# minimum range for the skip effect during the day
+	80mm_minSkipDay = 700
+	# maximum range for the skip effect during the day
+	80mm_maxSkipDay = 800
+	# minimum range for the skip effect during the night
+	80mm_minSkipNight = 600
+	# maximum range for the skip effect during the night
+	80mm_maxSkipNight = 2000
+	# The minimum frequency for this band
+	80mm_minFrequency = 3500000.0
+	# The maximum frequency for this band
+	80mm_maxFrequency = 4000000.0
+
+["VHF Handheld Options"]
+	# Maximum output gain
+	# Default: 5.0
+	# Range: 1.0 ~ 25.0
+	handheld_max_gain = 5.0
+	# Maximum microphone gain
+	# Default: 5.0
+	# Range: 1.0 ~ 25.0
+	handheld_max_mic_gain = 5.0
+
+[Permissions]
+	# Require op for callsign configuration
+	callsign_permissions_enabled = true

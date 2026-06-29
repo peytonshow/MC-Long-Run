@@ -69,9 +69,7 @@ ServerEvents.tags('item', event => {
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/cannon_boat_ancient')
     event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/ancient_boat')
     event.add('c:hidden_from_recipe_viewers', 'refurbished_furniture:sea_salt')
-    event.add('create:pulpifiable', 'farmersdelight:tree_bark')
-    event.add('create:pulpifiable', 'unusual_furniture:discord')
-
+    event.add('c:hidden_from_recipe_viewers', 'unusual_furniture:discord')
 
     addBill('utopia:1_dollar_bill')
     addBill('utopia:5_dollar_bill')
@@ -89,6 +87,9 @@ ServerEvents.tags('item', event => {
     event.add('utopia:diamonds', 'minecraft:diamond')
     event.add('utopia:diamonds', 'utopia:moissanite')
     makeKindaNotSword('utopia:pencil')
+
+    event.add('create:pulpifiable', 'farmersdelight:tree_bark')
+    //event.add('create:upright_on_belt', '#c:dusts')
 
     event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')
     event.add('minecraft:needs_iron_tool', 'quark:sturdy_stone')

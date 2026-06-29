@@ -24,4 +24,12 @@ ServerEvents.recipes(event => {
         'minecraft:sand',
         'utopia:silica_dust'
     );
+    event.replaceOutput
+    event.replaceInput({
+            output: 'create:crushed_raw_gold',
+            type: 'create:crushing'
+        },
+        'minecraft:sand',
+        'utopia:silica_dust'
+    );
 });
