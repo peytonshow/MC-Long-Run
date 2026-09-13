@@ -46,6 +46,6 @@ StartupEvents.modifyCreativeTab('minecraft:ingredients', event => {
     event.addAfter('minecraft:lapis_lazuli',['utopia:graphite_ingot'])
     event.addAfter('minecraft:lapis_lazuli',['utopia:moissanite'])
     event.addAfter('oreganized:silver_ingot',['utopia:platinum_ingot'])
-    event.addAfter('minecraft:clay_ball',['utopia:silica_dust, utopia:resin_ingot'])
+    event.addAfter('minecraft:clay_ball',['utopia:silica_dust, utopia:plastic_ingot'])
     event.addAfter('minecraft:experience_bottle',['quark:cloud'])
 })

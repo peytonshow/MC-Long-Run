@@ -1,3 +1,6 @@
 {
-  "overrideEntityCulling": false
+  "overrideEntityCulling": true,
+  "tickCulling": true,
+  "distanceCulling": false,
+  "forceRemoving": false
 }

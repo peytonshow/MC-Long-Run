@@ -33,9 +33,9 @@
         // Change the Beach Creeper to spawn or not.
         "allowBeachCreeperSpawning": true,
         // Change the Snowy Creeper to spawn or not.
-        "allowSnowyCreeperSpawning": true,
+        "allowSnowyCreeperSpawning": false,
         // Change the Ocean Creeper to spawn or not.
-        "allowOceanCreeperSpawning": true,
+        "allowOceanCreeperSpawning": false,
         // Change the Birch Creeper to spawn or not.
         "allowBirchCreeperSpawning": true
     }

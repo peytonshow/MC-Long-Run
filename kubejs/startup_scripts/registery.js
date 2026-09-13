@@ -1,28 +1,3 @@
-ItemEvents.toolTierRegistry(event => {
-  
-  event.addBasedOnExisting("platinum", "netherite", (tier) => {
-    tier.uses = 155;
-    tier.attackDamageBonus = tier.attackDamageBonus + 2.0
-    tier.speed = tier.speed + 3.0
-    tier.enchantmentValue = 40
-  });
-
-  event.add('pencil', tier => {
-    tier.uses = 20             // Durability
-    tier.speed = 2.0                 // Mining speed (matters if they clear cobwebs/leaves)
-    tier.attackDamageBonus = 2.0     // Base damage bonus added to weapons
-    tier.enchantmentValue = 0       // Enchantability level
-    //tier.repairIngredient = '#minecraft:coals' // Item used to fix it in an anvil (or '#c:gems/ruby')
-  })
-  // event.add('utopia:hammer', tier => {
-  //   tier.uses = 128
-  //   tier.speed = 1.0
-  //   tier.attackDamageBonus = 2.0
-  //   tier.enchantmentValue = 0
-  //   tier.repairIngredient = 'minecraft:oak_log'
-  // })
-})
-
 
 StartupEvents.registry('item', event => {
 
@@ -32,9 +7,9 @@ StartupEvents.registry('item', event => {
     event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings').displayName('Patchwork Netherite Leggings')
     event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots').displayName('Patchwork Netherite Boots')
     event.create('utopia:incomplete_circuit_board', 'create:sequenced_assembly').displayName('Incomplete Circuit').texture('utopia:item/incomplete_circuit_board')
-    event.create('utopia:incomplete_wire_spool', 'create:sequenced_assembly').displayName('Incomplete Wire Spool').texture('utopia:item/incomplete_wire_spool').tag('c:hidden_from_recipe_viewers').unstackable()
+    // event.create('utopia:incomplete_wire_spool', 'create:sequenced_assembly').displayName('Incomplete Wire Spool').texture('utopia:item/incomplete_wire_spool').tag('c:hidden_from_recipe_viewers').unstackable()
 
-    event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
+    // event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
 
     // Sciantest
@@ -54,33 +29,16 @@ StartupEvents.registry('item', event => {
 
     // Electricity
     //event.create('utopia:battery_charged').displayName('Graphite').texture('utopia:item/graphite_ingot')
-    event.create('utopia:resin_ingot').tag('utopia:chemistry').texture('utopia:item/resin').displayName('Resin')
+    event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').displayName('Plastic')
     event.create('utopia:wire').displayName('Wire').texture('utopia:item/wire').tag('utopia:electricity')
     event.create('utopia:wire_spool').displayName('Wire Spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(60).unstackable()
-    event.create('utopia:circuit').displayName('Simple Circuit').texture('utopia:item/circuit_board').tag('utopia:electricity')
+    event.create('utopia:circuit').displayName('Simple Circuit').texture('utopia:item/circuit_board').tag('utopia:electricity').maxStackSize(16)
 
     // Ingots
     event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite_ingot').tag('c:ingots').tag('c:ingots/graphite')
     event.create('utopia:platinum_ingot').displayName('Platinum Ingot').texture('utopia:item/platinum_ingot').tag('c:ingots').tag('c:ingots/platinum')
     event.create('utopia:platinum_nugget').displayName('Platinum Nugget').texture('utopia:item/platinum_nugget').tag('c:nuggets').tag('c:nuggets/platinum')
-
-    // Copper tools.
-    event.create('minecraft:copper_sword', 'sword').tier('stone').maxDamage(100)
-    event.create('minecraft:copper_axe', 'axe').tier('stone').maxDamage(100)
-    event.create('minecraft:copper_pickaxe', 'pickaxe').tier('stone').maxDamage(100)
-    event.create('minecraft:copper_shovel', 'shovel').tier('stone').maxDamage(100)
-    event.create('minecraft:copper_hoe', 'hoe').tier('stone').maxDamage(100)
-
-    // 『 Star Platinum 』
-    event.create('utopia:platinum_sword', 'sword').tier('platinum').maxDamage(400).texture('utopia:item/platinum_sword')
-    event.create('utopia:platinum_axe', 'axe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_axe')
-    event.create('utopia:platinum_pickaxe', 'pickaxe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_pickaxe')
-    event.create('utopia:platinum_shovel', 'shovel').tier('platinum').maxDamage(400).texture('utopia:item/platinum_shovel')
-    event.create('utopia:platinum_hoe', 'hoe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_hoe')
-
-    // Misc Tools
-    event.create('utopia:pencil', 'sword').tier('pencil')
-    event.create('utopia:platinum_pocketwatch').maxDamage(32)
+    // See tools.js for Platinum Tools
 
     // Stamps
     event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare').tag('utopia:stamp')
@@ -111,7 +69,7 @@ StartupEvents.registry('item', event => {
     event.create('utopia:cookie_dough').maxStackSize(global.MAXFOODSIZE).displayName('Cookie Dough')
     event.create('utopia:pepper').tag('utopia:spices')
       .tag('c:foods')
-    event.create('utopia:sea_salt').tag('utopia:spices')
+    event.create('utopia:sea_salt').tag('utopia:spices').displayName('Salt')
       .tag('c:foods')
     event.create('utopia:seasoned_cooked_beef').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Steak')
       .tag('c:animal_foods')

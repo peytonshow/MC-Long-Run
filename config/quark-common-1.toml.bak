@@ -379,7 +379,7 @@
 		"Allow Tinted Glass Transparency" = true
 
 	[tools.bottled_cloud]
-		"Cloud Level Bottom" = 191
+		"Cloud Level Bottom" = 150
 		"Cloud Level Top" = 600
 
 	[tools.color_runes]
@@ -554,6 +554,8 @@
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
+		#If true, recipes that have no output will be skipped from unlock
+		"Skip Empty Recipes" = true
 
 	[tweaks.campfires_boost_elytra]
 		"Boost Strength" = 0.5
@@ -569,7 +571,7 @@
 		#List of changes to apply to repair items, format is "<item>=<repair_item>" as seen in the defualt.
 		#Multiple repair items can be applied for the same base item, and as long as at least one is provided, any vanilla option will be removed.
 		#To use multiple items, comma separate them (e.g. "minecraft:diamond_sword=minecraft:diamond,minecraft:emerald")If you want the vanilla option back, you must add it again manually.
-		"Repair Item Changes" = ["minecraft:netherite_sword=minecraft:diamond", "minecraft:netherite_pickaxe=minecraft:diamond", "minecraft:netherite_axe=minecraft:diamond", "minecraft:netherite_shovel=minecraft:diamond", "minecraft:netherite_hoe=minecraft:diamond", "minecraft:netherite_helmet=minecraft:diamond", "minecraft:netherite_chestplate=minecraft:diamond", "minecraft:netherite_leggings=minecraft:diamond", "minecraft:netherite_boots=minecraft:diamond"]
+		"Repair Item Changes" = []
 		"Unrepairable Items" = []
 		"Enable Jei Hints" = true
 
@@ -610,7 +612,7 @@
 		"Display Baked Enchantments In Tooltip" = true
 		"Italic Tooltip" = true
 		#Enchantments other than Gold's Fortune/Looting to bake into items. Format is "item+enchant@level", such as "minecraft:stick+minecraft:sharpness@10".
-		"Item Enchantments" = ["spearsmod:golden_spear+minecraft:looting@2", "spearsmod:stone_spear+minecraft:unbreaking@2", "minecraft:stone_sword+minecraft:unbreaking@2", "minecraft:stone_pickaxe+minecraft:unbreaking@2", "minecraft:stone_axe+minecraft:unbreaking@2", "minecraft:stone_shovel+minecraft:unbreaking@2", "minecraft:stone_hoe+minecraft:unbreaking@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3", "spearsmod:iron_spear+minecraft:loyalty@1", "spearsmod:golden_spear+minecraft:loyalty@1", "spearsmod:diamond_spear+minecraft:loyalty@1", "spearsmod:netherite_spear+minecraft:loyalty@1", "minecraft:trident+minecraft:loyalty@1"]
+		"Item Enchantments" = ["minecraft:golden_spear+minecraft:looting@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3", "minecraft:trident+minecraft:loyalty@1", "utopia:platinum_sword+minecraft:looting@2", "utopia:platinum_pickaxe+minecraft:fortune@2"]
 
 	[tweaks.grab_chickens]
 		"Needs No Helmet" = true
@@ -624,7 +626,7 @@
 		#Allowed values: [1,5]
 		"Regular Hoe Radius" = 1
 		#Allowed values: [1,5]
-		"High Tier Hoe Radius" = 1
+		"High Tier Hoe Radius" = 2
 
 	[tweaks.improved_sponges]
 		#The maximum number of water tiles that a sponge can soak up. Vanilla default is 64.
@@ -632,7 +634,7 @@
 		"Maximum Water Drain" = 256
 		#The maximum number of water tiles that a sponge can 'crawl along' for draining. Vanilla default is 6.
 		#Allowed values: [6,)
-		"Maximum Crawl Distance" = 10
+		"Maximum Crawl Distance" = 12
 		"Enable Placing On Water" = true
 
 	[tweaks.lock_rotation]
@@ -753,6 +755,10 @@
 		"Easy Sticks" = true
 		#Can raw ore blocks be smelted, taking 9x the time a normal item?
 		"Smelt Raw Ore Blocks" = true
+
+	[tweaks.slabs_to_blocks]
+		#Slabs that should NOT be convertible back into full-blocks
+		"Banned Slabs" = []
 
 [world]
 	#(Ashen Trees)
@@ -1536,7 +1542,7 @@
 	Camera = false
 	"Chest Searching" = false
 	"Elytra Indicator" = true
-	"Greener Grass" = true
+	"Greener Grass" = false
 	"Improved Tooltips" = true
 	"Long Range Pick Block" = true
 	"Microcrafting Helper" = false
@@ -1939,7 +1945,7 @@
 		"Allow Books" = true
 		#Set this to true to allow treasure enchantments to be rolled as pieces
 		"Allow Treasures" = false
-		#Set this to true to allow undiscoverable enchantments to be rolled as pieces
+		#Set this to true to allow undiscoverable enchantments (that is, enchantments that are not in the #minecraft:in_enchanting_table tag) to be rolled as pieces
 		"Allow Undiscoverable Enchantments" = false
 		#Any treasure enchantment IDs here will be able to appear in books in matrix enchanting
 		"Treasure Whitelist" = []
@@ -1971,6 +1977,8 @@
 		"Influence Power" = 0.125
 		#If you set this to false, the vanilla Enchanting Table will no longer automatically convert to the Matrix Enchanting table. You'll have to add a recipe for the Matrix Enchanting Table to make use of this.
 		"Automatically Convert" = true
+		#If true, items that have 0 enchantability, but are in the #c:enchantables tag, such as Shears and Shields, can be enchanted in the Matrix Enchanter
+		"Allow Zero Enchantability" = false
 
 	[oddities.pipes]
 		#How long it takes for an item to cross a pipe. Bigger = slower.

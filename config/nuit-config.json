@@ -1,0 +1,8 @@
+{
+  "generalSettings": {
+    "enable": true,
+    "fadeCacheDuration": 24000,
+    "debugMode": false,
+    "debugHud": false
+  }
+}

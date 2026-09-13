@@ -1,0 +1,11 @@
+[client]
+	#Show page controls for sequenced assembly recipes with more steps than fit on one page.
+	showSequencedAssemblyPageControls = true
+	#How many sequenced assembly steps to show per page. Create's JEI layout fits up to 6.
+	# Default: 6
+	# Range: 1 ~ 6
+	sequencedAssemblyStepsPerPage = 6
+	#Register machines used by sequenced assembly steps as EMI workstations.
+	registerSequencedAssemblyWorkstations = true
+	#Draw an exclamation marker next to the last visible sequenced assembly step when another page follows.
+	showContinuationMarker = true

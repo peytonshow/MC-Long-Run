@@ -50,7 +50,7 @@ StartupEvents.registry('fluid', event => {
     .tint(0x9D4EDD)
     .slopeFindDistance(3)
     .type(type => type
-      .screenOverlayTexture('kubejs:block/soupy_overlay')
+      .screenOverlayTexture('kubejs:textures/block/soupy_overlay.png')
       .density(2000).viscosity(3000)
       .renderType(3)
       .fallDistanceModifier(0)
@@ -67,7 +67,7 @@ StartupEvents.registry('fluid', event => {
     .tint(0x8B4513)
     .slopeFindDistance(3)
     .type(type => type
-      .screenOverlayTexture('kubejs:block/soupy_overlay')
+      .screenOverlayTexture('kubejs:textures/block/soupy_overlay.png')
       .density(2000).viscosity(2500)
       .renderType(3)
       .fallDistanceModifier(0)
@@ -82,7 +82,7 @@ StartupEvents.registry('fluid', event => {
     .tint(0x14ff6a)
     .slopeFindDistance(3)
     .type(type => type
-      .screenOverlayTexture('kubejs:block/soupy_overlay')
+      .screenOverlayTexture('kubejs:textures/block/soupy_overlay.png')
       .density(1500).viscosity(3000)
       .renderType(3)
       .fallDistanceModifier(0)
@@ -92,15 +92,13 @@ StartupEvents.registry('fluid', event => {
     .levelDecreasePerBlock(2)
     .slopeFindDistance(2)
     .tickRate(10)
-    .bucketItem
-      .texture('utopia:item/bleach_bucket')
 
 
   event.create('utopia:glue')
     .displayName('Glue')
     .tint(0x61f238)
     .type(type => type
-      .screenOverlayTexture('kubejs:block/soupy_overlay')
+      .screenOverlayTexture('kubejs:textures/block/soupy_overlay.png')
       .renderType(3)
       .fallDistanceModifier(0.5)
       
@@ -118,7 +116,7 @@ StartupEvents.registry('fluid', event => {
     .displayName('Propylene Glycol')
     .tint(0x36454F)
     .type(type => type
-      .screenOverlayTexture('kubejs:block/soupy_overlay')
+      .screenOverlayTexture('kubejs:textures/block/soupy_overlay.png')
       .density(2500).viscosity(5000)
       .renderType(3)
       .fallDistanceModifier(0)

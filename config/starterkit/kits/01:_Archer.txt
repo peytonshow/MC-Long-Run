@@ -12,7 +12,7 @@
 6 : '',
 7 : '',
 8 : '{count:1,id:"minecraft:rabbit_stew"}',
-9 : '{components:{"supplementaries:quiver_content":{items:[{count:24,id:"minecraft:arrow"},{components:{"minecraft:potion_contents":{potion:"minecraft:luck"}},count:1,id:"minecraft:tipped_arrow"},{},{},{},{}],selected_slot:0}},count:1,id:"supplementaries:quiver"}',
+9 : '{components:{"supplementaries:quiver_content":{items:[{count:64,id:"minecraft:arrow"},{count:64,id:"minecraft:arrow"},{components:{"minecraft:potion_contents":{potion:"minecraft:luck"}},count:1,id:"minecraft:tipped_arrow"},{},{},{}],selected_slot:0}},count:1,id:"supplementaries:quiver"}',
 10 : '',
 11 : '',
 12 : '',

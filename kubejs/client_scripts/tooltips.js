@@ -22,7 +22,7 @@ ItemEvents.modifyTooltips(event => {
         event.modify(itemFilter, { shift: true }, text => {
             text.insert(1, heldShiftMessage);
             text.insert(2, '')
-            text.insert(3, Text.of(tooltipText).yellow());
+            text.insert(3, Text.of(tooltipText).color(0xc7954b));
         });
     };
 
@@ -32,6 +32,12 @@ ItemEvents.modifyTooltips(event => {
             text.insert(1, Text.of(tooltipText).gray());
         });
     };
+
+    event.modify('parcool:parcool_guide', tooltip => {
+        tooltip.removeLine(1);
+        tooltip.removeLine(1);
+    })
+    addShiftTooltip('parcool:parcool_guide', "Press [Use] to open Guide.\nPress [Crouch + Use] to open Skill Tree."); 
 
     // --- Armor ---
     addNormalTooltip('utopia:crown', 'Whoever owns this Crown rules the Realm'); 
@@ -52,6 +58,8 @@ ItemEvents.modifyTooltips(event => {
     addShiftTooltip('utopia:beaker_nitric_acid', "Smells awful. I really wouldn't touch this."); 
     addShiftTooltip('utopia:beaker_bleach', "Touching it causes soap bubbles to appear on your hand."); 
     addShiftTooltip('utopia:beaker_propylene_glycol', "It looks thick and oily. Smells weirdly sweet."); 
+
+    addShiftTooltip('oreganized:lead_bolt', "A stronger crossbow-exclusive arrow. Must be held in your offhand in order to be loaded."); 
 
     // --- FIAT Bills (Grouped) ---
     addShiftTooltip([

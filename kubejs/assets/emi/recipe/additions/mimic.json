@@ -1,7 +1,0 @@
-{
-  "type": "emi:info",
-  "stacks": [
-    "item:artifacts:mimic_spawn_egg"
-  ],
-  "text": "utopia.info.mimic"
-}

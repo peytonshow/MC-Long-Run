@@ -1,6 +1,6 @@
 {
   "quality": {
-    "weather_quality": "FAST",
+    "weather_quality": "DEFAULT",
     "leaves_quality": "FANCY",
     "enable_vignette": true,
     "use_closest_point_entity_sort": false
@@ -8,7 +8,7 @@
   "advanced": {
     "enable_memory_tracing": false,
     "use_advanced_staging_buffers": true,
-    "cpu_render_ahead_limit": 2
+    "cpu_render_ahead_limit": 3
   },
   "performance": {
     "chunk_builder_threads": 0,

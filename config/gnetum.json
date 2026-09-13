@@ -9,9 +9,15 @@
     "value": "OFF"
   },
   "numberOfPasses": 3,
-  "maxFps": 50,
-  "screenMaxFps": 20,
+  "maxFps": 30,
+  "screenMaxFps": 15,
   "mapVanillaElements": {
+    "simple_music_control:now_playing": {
+      "enabled": {
+        "value": "AUTO"
+      },
+      "pass": 3
+    },
     "create:value_settings": {
       "enabled": {
         "value": "AUTO"
@@ -102,6 +108,12 @@
       },
       "pass": 2
     },
+    "starcatcher:fish_radar": {
+      "enabled": {
+        "value": "AUTO"
+      },
+      "pass": 3
+    },
     "minecraft:experience_level": {
       "enabled": {
         "value": "AUTO"
@@ -143,6 +155,12 @@
         "value": "AUTO"
       },
       "pass": 1
+    },
+    "starcatcher:tournament": {
+      "enabled": {
+        "value": "AUTO"
+      },
+      "pass": 3
     },
     "gnetum:status_bar": {
       "enabled": {
@@ -217,6 +235,12 @@
       "pass": 1
     },
     "minecraft:chat": {
+      "enabled": {
+        "value": "AUTO"
+      },
+      "pass": 3
+    },
+    "starcatcher:tracked_fish": {
       "enabled": {
         "value": "AUTO"
       },

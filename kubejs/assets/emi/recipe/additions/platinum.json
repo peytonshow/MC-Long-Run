@@ -1,9 +1,0 @@
-{
-  "type": "emi:info",
-  "stacks": [
-    "item:utopia:platinum_ingot",
-    "item:utopia:platinum_nugget",
-    "item:create:crushed_raw_gold"
-  ],
-  "text": "utopia.info.platinum"
-}

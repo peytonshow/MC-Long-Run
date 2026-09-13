@@ -5,9 +5,9 @@
 	#Dyes: ["white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"]
 	canvasSignDarkBackgroundList = ["gray", "purple", "blue", "brown", "green", "red", "black"]
 	#If enabled, Novice and Apprentice Farmer villagers will have a chance to buy crops from this mod.
-	enableFarmerFDTrades = true
+	enableFarmerFDTrades = false
 	#If enabled, the Wandering Trader will have a chance to sell seeds and plantables from this mod.
-	enableWanderingTraderFDTrades = true
+	enableWanderingTraderFDTrades = false
 
 [farming]
 	#Which rope should Tomato Vines leave behind when broken?

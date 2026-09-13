@@ -273,3 +273,4 @@ RESOURCE PACK & LANG
 * Most vanilla sounds now use their unupdated equivilent. (Steves goes 'Oo!', doors are clicky, ect.) D
 * Added context for entering the Nether. D
 * Altered Permit name, description, lore and rarity to fit their role. D
+* Silver Equipment -> Ancient Equipment. D

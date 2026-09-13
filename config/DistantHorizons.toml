@@ -538,7 +538,7 @@ _version = 4
 				#  overhangs or walls for floating objects. 
 				#  Tweaking the caveCullingHeight, can resolve some 
 				#  of those issues.
-				enableCaveCulling = false
+				enableCaveCulling = true
 				#
 				# At what Y value should cave culling start? 
 				# Lower this value if you get walls for areas with 0 light.
@@ -584,7 +584,7 @@ _version = 4
 				# Only applies to high detail LODs where the texture is actually visible, 
 				# distant LODs always use flat colors. 
 				# Some shader packs nay not have an affect.
-				enableTexturedLods = false
+				enableTexturedLods = true
 				#
 				# A comma separated list of block resource locations 
 				# that DH won't render textures on. 
@@ -695,7 +695,7 @@ _version = 4
 				#
 				# False = DH will render a single layer of clouds, like vanilla Minecraft. 
 				# True = DH will render 3 layers of clouds at different heights.
-				enableMultiLayerClouds = true
+				enableMultiLayerClouds = false
 
 			[client.advanced.graphics.quality]
 				#
@@ -771,7 +771,7 @@ _version = 4
 				# Note: this is a best effort number. 
 				# The actual render distance may be above or below this number 
 				# depending on your other graphic settings.
-				lodChunkRenderDistanceRadius = 100
+				lodChunkRenderDistanceRadius = 150
 				#
 				# How should the sides and bottom of grass block LODs render? 
 				# 
@@ -784,7 +784,7 @@ _version = 4
 				# 
 				# Higher settings will increase the distance between drops 
 				# but will increase memory and GPU usage.
-				horizontalQuality = "LOW"
+				horizontalQuality = "LOWEST"
 				#
 				# How should LOD transparency be handled. 
 				# 

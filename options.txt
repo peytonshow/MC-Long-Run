@@ -1,6 +1,6 @@
 version:3955
 ao:true
-biomeBlendRadius:2
+biomeBlendRadius:1
 enableVsync:false
 entityDistanceScaling:1.25
 entityShadows:false
@@ -13,7 +13,7 @@ glintSpeed:0.5
 glintStrength:0.75
 prioritizeChunkUpdates:0
 fullscreen:false
-gamma:0.0
+gamma:0.5
 graphicsMode:1
 guiScale:4
 maxFps:260
@@ -21,8 +21,8 @@ mipmapLevels:1
 narrator:0
 particles:0
 reducedDebugInfo:false
-renderClouds:"true"
-renderDistance:16
+renderClouds:"false"
+renderDistance:5
 simulationDistance:6
 screenEffectScale:0.3732394366197183
 soundDevice:""
@@ -48,7 +48,7 @@ mouseSensitivity:0.5
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["vanilla","fabric","mod_resources","moonlight:merged_pack","builtin/add_pack_finders_test","scholar:colored_books","scholar:chiseled_bookshelf_colored_books","black_icons","file/Better Chainmail Armor.zip","file/BetterExp.zip","file/C4Music_v4.3.zip","file/Enchantment Outlines.zip","file/Gentler Weather Sounds 2.2.0.zip","file/Leather Robes - 1.21.1.zip","file/Mace Fusion 2.2.zip","file/ModdedCoffeeGUI_Release_v1.15.2.zip","file/Muskets 3D Wild West для Ewewkek\u0027s.zip","file/Quark VRO.zip","file/Xbox 360 Advancement SFX.zip","file/§bArmor§8-§bReimagined§0_§8[v1.1]§0.zip","file/§b§lSpectator Xray §7v1.2.1.zip","file/Fancy Crops v1.3.zip","mod/oreganized:resourcepacks/create_compat","file/CoffeeGUI_1.20.2-26.2_release_v2.2.1.zip","file/cubic-sun-moon-v1.8.5.zip","file/-1.21.2 Fresh Moves v3.1 (No Animated Eyes).zip","file/alpha_sounds_1.20.2-1.14.zip","file/§3Fresh §bWeapons \u0026 Tools.zip"]
+resourcePacks:["vanilla","fabric","mod_resources","builtin/add_pack_finders_test","moonlight:merged_pack","file/-1.21.2 Fresh Moves v3.1 (No Animated Eyes).zip","file/Better Chainmail Armor.zip","file/BetterExp.zip","file/C4Music_v4.3.zip","file/CoffeeGUI_1.20.2-26.2_release_v2.2.1.zip","file/Enchantment Outlines.zip","file/Fancy Crops v1.3.zip","file/Gentler Weather Sounds 2.2.0.zip","file/Leather Robes - 1.21.1.zip","file/Mace Fusion 2.2.zip","file/Muskets 3D Wild West для Ewewkek\u0027s.zip","file/Quark VRO.zip","file/Xbox 360 Advancement SFX.zip","file/§bArmor§8-§bReimagined§0_§8[v1.1]§0.zip","file/§b§lSpectator Xray §7v1.2.1.zip","file/alpha_sounds_1.20.2-1.14.zip","file/ModdedCoffeeGUI_Release_v1.16.0.zip","scholar:colored_books","scholar:chiseled_bookshelf_colored_books","mod/oreganized:resourcepacks/create_compat","file/cubic-sun-moon-v1.8.5.zip","file/§3Fresh §bWeapons \u0026 Tools.zip"]
 incompatibleResourcePacks:["file/BetterExp.zip","file/alpha_sounds_1.20.2-1.14.zip"]
 lastServer:
 lang:en_us
@@ -136,44 +136,8 @@ key_key.corpse.death_history:key.keyboard.u
 key_key.astikorcartsredux.action:key.keyboard.r
 key_key.astikorcartsredux.slow:key.keyboard.z
 key_key.curios.open.desc:key.keyboard.unknown
+key_key.libtooltips.expand:key.keyboard.left.shift
 key_key.fast_placement:key.keyboard.unknown
-key_chunksfadein.keybinds.toggleMod:key.keyboard.unknown
-key_key.jei.toggleOverlay:key.keyboard.unknown
-key_key.jei.focusSearch:key.keyboard.unknown
-key_key.jei.previousPage:key.keyboard.unknown
-key_key.jei.nextPage:key.keyboard.unknown
-key_key.jei.toggleBookmarkOverlay:key.keyboard.unknown
-key_key.jei.bookmark:key.keyboard.a
-key_key.jei.showRecipe:key.keyboard.r
-key_key.jei.showRecipe2:key.mouse.left
-key_key.jei.showUses:key.keyboard.u
-key_key.jei.showUses2:key.mouse.right
-key_key.jei.transferRecipeBookmark:key.mouse.left:SHIFT
-key_key.jei.maxTransferRecipeBookmark:key.keyboard.unknown
-key_key.jei.showBookmarkTooltipFeatures:key.keyboard.unknown
-key_key.jei.quickMove:key.mouse.left:SHIFT
-key_key.jei.shareToChat:key.keyboard.unknown
-key_key.jei.clearSearchBar:key.mouse.right
-key_key.jei.previousSearch:key.keyboard.up
-key_key.jei.nextSearch:key.keyboard.down
-key_key.jei.toggleCheatMode:key.keyboard.unknown
-key_key.jei.cheatOneItem:key.mouse.left
-key_key.jei.cheatOneItem2:key.mouse.right
-key_key.jei.cheatItemStack:key.mouse.left:SHIFT
-key_key.jei.cheatItemStack2:key.mouse.middle
-key_key.jei.toggleCheatModeConfigButton:key.keyboard.unknown
-key_key.jei.toggleEditMode:key.keyboard.unknown
-key_key.jei.toggleHideIngredient:key.keyboard.unknown
-key_key.jei.toggleWildcardHideIngredient:key.keyboard.unknown
-key_key.jei.recipeBack:key.keyboard.backspace
-key_key.jei.recipeForward:key.keyboard.unknown
-key_key.jei.previousRecipePage:key.keyboard.page.up
-key_key.jei.nextRecipePage:key.keyboard.page.down
-key_key.jei.pauseRecipeCycling:key.keyboard.left.shift
-key_key.jei.previousCategory:key.keyboard.page.up:SHIFT
-key_key.jei.nextCategory:key.keyboard.page.down:SHIFT
-key_key.jei.closeRecipeGui:key.keyboard.escape
-key_key.jei.copy.recipe.id:key.keyboard.unknown
 key_key.scholar.toggle_book_tools:key.keyboard.f1
 key_key.scholar.import_book:key.keyboard.f6
 key_key.scholar.export_book:key.keyboard.f7
@@ -215,9 +179,9 @@ key_gui.xaero_alternative_list_players:key.keyboard.unknown
 key_gui.xaero_toggle_tracked_players_on_map:key.keyboard.unknown
 key_gui.xaero_toggle_tracked_players_in_world:key.keyboard.unknown
 key_gui.xaero_toggle_pac_chunk_claims:key.keyboard.unknown
-key_treechop.key.toggle_chopping:key.keyboard.grave.accent
-key_treechop.key.cycle_sneak_behavior:key.keyboard.unknown
-key_treechop.key.open_settings_overlay:key.keyboard.unknown
+key_gnetum.config.keyMapping:key.keyboard.end
+key_key.nuit.toggle:key.keyboard.unknown
+key_key.nuit.toggle.debug_hud:key.keyboard.unknown
 key_gui.xaero_open_map:key.keyboard.m
 key_gui.xaero_open_settings:key.keyboard.right.bracket
 key_gui.xaero_world_map_server_settings:key.keyboard.unknown
@@ -228,6 +192,9 @@ key_gui.xaero_toggle_dimension:key.keyboard.unknown
 key_placebo.toggleTrails:key.keyboard.keypad.9
 key_placebo.toggleWings:key.keyboard.keypad.8
 key_key.carry.desc:key.keyboard.unknown
+key_key.starcatcher.minigame_hit:key.keyboard.space
+key_key.starcatcher.expand_tournament:key.keyboard.tab
+key_key.starcatcher.open_guide:key.keyboard.unknown
 key_key.travelertoolbelt.open_toolbelt:key.keyboard.y
 key_Inspect Key:key.keyboard.j
 key_key.extraspecialhub.open:key.keyboard.f9
@@ -252,6 +219,8 @@ key_artifacts.key.night_vision_goggles.toggle:key.keyboard.unknown
 key_artifacts.key.scarf_of_invisibility.toggle:key.keyboard.unknown
 key_artifacts.key.universal_attractor.toggle:key.keyboard.unknown
 key_key.configured.open_mod_list:key.keyboard.unknown
+key_treeliable.key.toggle_chopping:key.keyboard.unknown
+key_treeliable.key.cycle_sneak_behavior:key.keyboard.unknown
 key_quark.keybind.autorun:key.keyboard.unknown
 key_quark.keybind.back:key.mouse.4
 key_quark.keybind.camera_mode:key.keyboard.f12

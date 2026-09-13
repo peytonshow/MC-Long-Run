@@ -1,0 +1,10 @@
+#Create Villager Labor - TLM Chat Bubble Compatibility
+[tlm_chat_bubble]
+	#Enable Touhou Little Maid chat bubble compatibility when maids are working.
+	#When enabled, maids sitting at worker seats will display random chat bubbles.
+	enable = true
+	#Interval (in ticks) between chat bubble updates when a maid is working.
+	#Default: 100 ticks (5 seconds). Lower values = more frequent bubbles.
+	# Default: 100
+	# Range: 20 ~ 600
+	interval = 100

@@ -18,12 +18,8 @@
   "blacklisted_items": [
     //"royalvariations:spiritual_crown",
     "!quark:vertical_*_planks",
+    "!tradeworks:*_side_shelf",
     "farmersdelight:wheat_dough",
-    "vc_gliders:reinforced_paper_iron",
-    "vc_gliders:reinforced_paper_gold",
-    "vc_gliders:reinforced_paper_diamond",
-    "vc_gliders:reinforced_paper_netherite",
-    "naturalist:cooked_egg",
     "frame_changer:crying_obsidian_brick_slab",
     "frame_changer:crying_polished_obsidian_stairs",
     "frame_changer:crying_obsidian_brick_stairs",
@@ -39,7 +35,14 @@
     "supplementaries:quark/cannon_boat_ancient",
     "supplementaries:quark/ancient_boat",
     "unusual_furniture:discord",
-
+    "oreganized:bush_hammer",
+    "parcool:grappling_hook",
+    "parcool:hook",
+    "parcool:traceur_gloves",
+    "parcool:traceur_boots",
+    "furniture:coffer",
+    "furniture:bin",
+    "furniture:trash_bag"
   ],
   // -----------------------------------------------------------
   // Removes an item if it contains certain nbt tag. If the whole entry (or expression) is present, the item gets removed.

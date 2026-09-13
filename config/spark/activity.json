@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "user": {
+      "type": "player",
+      "name": "peytonshow",
+      "uniqueId": "3ff4f6b7-7244-4aae-b996-ff1c6c5254a9"
+    },
+    "time": 1789227563256,
+    "type": "Profiler (live)",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/tSpEgfpLsZ"
+    }
+  },
+  {
+    "user": {
+      "type": "player",
+      "name": "peytonshow",
+      "uniqueId": "3ff4f6b7-7244-4aae-b996-ff1c6c5254a9"
+    },
+    "time": 1788826404406,
+    "type": "Profiler (live)",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/KnxxWOhf6q"
+    }
+  }
+]

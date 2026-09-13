@@ -1,4 +1,16 @@
 {
+
+  "item.parcool.parcool_guide": "ParCool Codex",
+
+  "item.oreganized.silver_axe": "Ancient Axe",
+  "item.oreganized.silver_boots": "Ancient Boots",
+  "item.oreganized.silver_chestplate": "Ancient Chestplate",
+  "item.oreganized.silver_helmet": "Ancient Helmet",
+  "item.oreganized.silver_hoe": "Ancient Hoe",
+  "item.oreganized.silver_leggings": "Ancient Leggings",
+  "item.oreganized.silver_pickaxe": "Ancient Pickaxe",
+  "item.oreganized.silver_shovel": "Ancient Shovel",
+  "item.oreganized.silver_sword": "Ancient Sword",
   "advancement.create_connected.control_chip.desc": "Assemble a Advanced Circuit",
   "item.create_connected.control_chip": "Advanced Circuit",
   "item.create_connected.incomplete_control_chip": "Incomplete Advanced Circuit",

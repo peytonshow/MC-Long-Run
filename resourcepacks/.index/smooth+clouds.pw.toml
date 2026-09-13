@@ -1,0 +1,18 @@
+filename = '§6§nSmooth C. [1.21-1.21.1] V2.0.zip'
+name = 'Smooth Clouds'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'V2.0'
+
+[download]
+hash = 'ece16f3384610b2c072604b9f216d1531003b5657eb36663fabda437d01825d5817b1a266ad7a4430c6adebf85df1ed2f043bbe5328f6fd5d028349ee107c1ac'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/BXFwOD5k/versions/XzDYo37R/§6§nSmooth C. %5B1.21-1.21.1%5D V2.0.zip'
+
+[update.modrinth]
+mod-id = 'BXFwOD5k'
+version = 'XzDYo37R'
