@@ -1,12 +1,7 @@
 {
-  "config_version": "2.0.24",
-  "config_datetime": "2026-05-15_13-58-51",
-  "general": {
-    "disable_all_structures": false,
-    "prevent_structure_overlap": false,
-    "enable_global_spacing_and_separation_modifier": false,
-    "global_spacing_and_separation_modifier": 1.0
-  },
+  "config_version": "2.0.41",
+  "config_datetime": "2026-09-23_14-17-21",
+  "general": {},
   "structure_namespaces": [],
   "structures": [
     {
@@ -39,10 +34,6 @@
     },
     {
       "name": "minecraft:village_desert",
-      "is_disabled": true
-    },
-    {
-      "name": "minecraft:village_plains",
       "is_disabled": true
     },
     {
@@ -116,6 +107,16 @@
       "is_disabled": true
     }
   ],
-  "structure_sets": [],
+  "structure_sets": [
+    {
+      "name": "minecraft:trail_ruins",
+      "separation": 6
+    },
+    {
+      "name": "minecraft:villages",
+      "spacing": 120,
+      "separation": 50
+    }
+  ],
   "structure_template_pools": []
 }

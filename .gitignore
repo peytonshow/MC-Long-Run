@@ -16,3 +16,8 @@
 # Allow specific files
 !/options.txt
 !.readme.md
+
+# Ignore backup files and folders regardless of location
+*.bak
+*backup*
+*back_up*

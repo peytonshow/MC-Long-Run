@@ -380,7 +380,7 @@
 
 	[tools.bottled_cloud]
 		"Cloud Level Bottom" = 191
-		"Cloud Level Top" = 196
+		"Cloud Level Top" = 600
 
 	[tools.color_runes]
 		"Dungeon Weight" = 10
@@ -412,9 +412,9 @@
 		# - <level> being the Cartographer villager level required for the map to be unlockable
 		# - <min_price> being the cheapest (in Emeralds) the map can be
 		# - <max_price> being the most expensive (in Emeralds) the map can be
-		# - <color> being a hex color (without the #) for the map to display. You can generate one here - https://htmlcolorcodes.com/
+		# - <color> being an ARGB hex color (without the #) for the map to display. You can generate one here - https://argb-int-calculator.netlify.app/
 		#Here's an example of a map to locate Ice Mountains:
-		#minecraft:ice_mountains,2,8,14,FF7FE4FF
+		#minecraft:snowy_slopes,2,8,14,FF7FE4FF
 		Customs = []
 		#Set to false to make it so the default quark Pathfinder Map Built-In don't get added, and only the custom ones do
 		"Apply Default Trades" = true
@@ -505,7 +505,7 @@
 	"Campfires Boost Elytra" = true
 	"Compasses Work Everywhere" = true
 	"Coral On Cactus" = true
-	"Diamond Repair" = true
+	"Diamond Repair" = false
 	"Double Door Opening" = true
 	"Dragon Scales" = false
 	"Dyeable Item Frames" = false
@@ -610,7 +610,7 @@
 		"Display Baked Enchantments In Tooltip" = true
 		"Italic Tooltip" = true
 		#Enchantments other than Gold's Fortune/Looting to bake into items. Format is "item+enchant@level", such as "minecraft:stick+minecraft:sharpness@10".
-		"Item Enchantments" = ["spearsmod:golden_spear+minecraft:looting@2", "spearsmod:stone_spear+minecraft:unbreaking@2", "minecraft:stone_sword+minecraft:unbreaking@2", "minecraft:stone_pickaxe+minecraft:unbreaking@2", "minecraft:stone_axe+minecraft:unbreaking@2", "minecraft:stone_shovel+minecraft:unbreaking@2", "minecraft:stone_hoe+minecraft:unbreaking@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3"]
+		"Item Enchantments" = ["spearsmod:golden_spear+minecraft:looting@2", "spearsmod:stone_spear+minecraft:unbreaking@2", "minecraft:stone_sword+minecraft:unbreaking@2", "minecraft:stone_pickaxe+minecraft:unbreaking@2", "minecraft:stone_axe+minecraft:unbreaking@2", "minecraft:stone_shovel+minecraft:unbreaking@2", "minecraft:stone_hoe+minecraft:unbreaking@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3", "spearsmod:iron_spear+minecraft:loyalty@1", "spearsmod:golden_spear+minecraft:loyalty@1", "spearsmod:diamond_spear+minecraft:loyalty@1", "spearsmod:netherite_spear+minecraft:loyalty@1", "minecraft:trident+minecraft:loyalty@1"]
 
 	[tweaks.grab_chickens]
 		"Needs No Helmet" = true
@@ -622,9 +622,9 @@
 
 	[tweaks.hoe_harvesting]
 		#Allowed values: [1,5]
-		"Regular Hoe Radius" = 2
+		"Regular Hoe Radius" = 1
 		#Allowed values: [1,5]
-		"High Tier Hoe Radius" = 3
+		"High Tier Hoe Radius" = 1
 
 	[tweaks.improved_sponges]
 		#The maximum number of water tiles that a sponge can soak up. Vanilla default is 64.
@@ -755,9 +755,11 @@
 		"Smelt Raw Ore Blocks" = true
 
 [world]
+	#(Ashen Trees)
 	"Ancient Wood" = false
 	"Azalea Wood" = true
 	"Big Stone Clusters" = true
+	#(Trumpet Trees)
 	"Blossom Trees" = true
 	"Cherry Grove Water Petals" = true
 	"Chorus Vegetation" = true
@@ -772,6 +774,7 @@
 	Permafrost = true
 	"Spiral Spires" = true
 
+	#(Ashen Trees)
 	[world.ancient_wood]
 		"Ancient Fruit Gives Exp" = true
 		#Allowed values: [1,)
@@ -945,6 +948,7 @@
 					Biomes = ["minecraft:end_highlands"]
 					"Is Blacklist" = false
 
+	#(Trumpet Trees)
 	[world.blossom_trees]
 		"Drop Leaf Particles" = true
 
@@ -1569,8 +1573,8 @@
 		"Leaves List" = ["minecraft:spruce_leaves", "minecraft:birch_leaves", "minecraft:oak_leaves", "minecraft:jungle_leaves", "minecraft:acacia_leaves", "minecraft:dark_oak_leaves"]
 
 		[client.greener_grass.color_matrix]
-			R = [1.13, 0.0, 0.0]
-			G = [0.13, 0.96, 1.28]
+			R = [1.0, 0.0, 0.0]
+			G = [0.0, 1.18, 0.24]
 			B = [0.0, 0.0, 0.6]
 
 		[client.greener_grass.water_matrix]
@@ -1580,7 +1584,7 @@
 
 	[client.improved_tooltips]
 		"Attribute Tooltips" = true
-		"Food Tooltips" = true
+		"Food Tooltips" = false
 		"Shulker Tooltips" = true
 		"Map Tooltips" = true
 		"Enchanting Tooltips" = true
@@ -1591,7 +1595,7 @@
 		#The value of each shank of food.
 		#Tweak this when using mods like Hardcore Hunger which change that value.
 		"Food Divisor" = 2
-		"Show Saturation" = true
+		"Show Saturation" = false
 		"Food Compression Threshold" = 4
 		"Fuel Time Divisor" = 200
 		#Should item attributes be colored relative to your current equipped item?

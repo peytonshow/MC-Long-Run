@@ -40,4 +40,47 @@
 
 [Other]
 	enable_sounds = true
-	parcool_is_active = true
+
+		[Action.parcool.ride_zipline]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.fast_run]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.horizontal_wall_run]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.fast_swim]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.crawl]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.hang_on]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.hang_down]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.pole_climb]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.slide_down]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[Action.parcool.dodge]
+			#Allowed Values: PRESS_KEY, RELEASE_KEY
+			input = "PRESS_KEY"
+
+		[Action.parcool.breakfall]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"

@@ -1,9 +1,9 @@
 {
   "CLOUDS_RENDERED": true,
   "OVERWORLD_CLOUDS_RENDERED": true,
-  "NETHER_CLOUDS_RENDERED": true,
-  "END_CLOUDS_RENDERED": true,
-  "lastModificationTime": 1789233937972,
+  "NETHER_CLOUDS_RENDERED": false,
+  "END_CLOUDS_RENDERED": false,
+  "lastModificationTime": 1790210930083,
   "CLOUD_COLOR": [
     {
       "time": 0,
@@ -50,7 +50,7 @@
   "LIGHTING": {
     "AMBIENT_LIGHTING_STRENGTH": 0.7,
     "MAX_LIGHTING_SHADING": 0.8,
-    "SHADING_MODE": "GOURAUD",
+    "SHADING_MODE": "PHONG",
     "LIGHTING_TYPE": "DYNAMIC",
     "DAY_START": 0,
     "DAY_END": 13000,

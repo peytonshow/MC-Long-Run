@@ -1,5 +1,5 @@
 {
-  "configVersion": 12,
+  "configVersion": 15,
   "reloadOptimizerEnabled": true,
   "largeAtlasFixerEnabled": true,
   "loaderIndexEnabled": true,
@@ -53,5 +53,8 @@
   "startupSkipWithSmoothBoot": true,
   "startupAsyncDataParsingEnabled": false,
   "startupAsyncClassScanEnabled": false,
-  "startupAsyncFontAtlasEnabled": false
+  "startupAsyncFontAtlasEnabled": false,
+  "resourceReadReuseEnabled": false,
+  "optimizationMemoryMiB": 128,
+  "cpuMipPreparationEnabled": false
 }

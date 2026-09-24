@@ -1,0 +1,13 @@
+{
+  "id": "1790210930082",
+  "displayName": "LightingPreset_20260923_204850",
+  "description": "Saved from Lighting settings",
+  "lastModified": 1790210930082,
+  "ambientStrength": 0.7,
+  "maxShadingStrength": 0.8,
+  "shadingMode": "PHONG",
+  "lightingType": "DYNAMIC",
+  "dayStart": 0,
+  "dayEnd": 13000,
+  "dayNoon": 6000
+}
