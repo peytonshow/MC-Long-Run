@@ -25,29 +25,29 @@
 	# Units are the number of stacks a slot holds before the base stack storage value is multiplied.
 	[Drawers.Blocks]
 
-		[Drawers.Blocks.FullStorage1x1]
+		[Drawers.Blocks.FullStorage1x2]
 			unitsPerSlot = 32
 
-		[Drawers.Blocks.FullStorage1x2]
-			unitsPerSlot = 16
+		[Drawers.Blocks.HalfCompacting]
+			unitsPerSlot = 32
 
-		[Drawers.Blocks.FullStorage2x2]
-			unitsPerSlot = 8
+		[Drawers.Blocks.HalfStorage2x2]
+			unitsPerSlot = 32
 
-		[Drawers.Blocks.FullCompacting]
+		[Drawers.Blocks.HalfStorage1x2]
 			unitsPerSlot = 32
 
 		[Drawers.Blocks.HalfStorage1x1]
-			unitsPerSlot = 16
+			unitsPerSlot = 32
 
-		[Drawers.Blocks.HalfStorage1x2]
-			unitsPerSlot = 8
+		[Drawers.Blocks.FullStorage2x2]
+			unitsPerSlot = 32
 
-		[Drawers.Blocks.HalfStorage2x2]
-			unitsPerSlot = 4
+		[Drawers.Blocks.FullStorage1x1]
+			unitsPerSlot = 32
 
-		[Drawers.Blocks.HalfCompacting]
-			unitsPerSlot = 16
+		[Drawers.Blocks.FullCompacting]
+			unitsPerSlot = 32
 
 	# Configuration around the auto compacting feature
 	[Drawers.Compacting]
@@ -139,37 +139,86 @@
 # Configuration around upgrade items that can be inserted into drawer blocks.
 [Upgrades]
 
+	# Collects nearby matching items by teleporting them instantly to the drawer
+	[Upgrades.Magnet]
+		# 
+		# When multiple magnet upgrades are used, their ranges are added together.
+		additiveRange = true
+		# 
+		# Range is blocks out from drawer as: [horizontal, up, down]
+		# If ranges from multiple upgrades are added, they are not allowed to exceed these values.
+		maxRange = [24, 8, 0]
+
+		[Upgrades.Magnet.Level2]
+			# 
+			# Ticks between active collection when this is the highest upgrade tier.
+			activeSpeed = 20
+			enableUpgrade = true
+			# 
+			# Range is blocks out from drawer as: [horizontal, up, down]
+			range = [4, 2, 0]
+			# 
+			# Ticks between collection checks when this is the highest upgrade tier.
+			# Collection is idle when items have not been collected within the last idleSpeed interval.
+			idleSpeed = 20
+
+		[Upgrades.Magnet.Level3]
+			# 
+			# Ticks between active collection when this is the highest upgrade tier.
+			activeSpeed = 20
+			enableUpgrade = true
+			# 
+			# Range is blocks out from drawer as: [horizontal, up, down]
+			range = [8, 3, 0]
+			# 
+			# Ticks between collection checks when this is the highest upgrade tier.
+			# Collection is idle when items have not been collected within the last idleSpeed interval.
+			idleSpeed = 20
+
+		[Upgrades.Magnet.Level1]
+			enableUpgrade = true
+			# 
+			# Range is blocks out from drawer as: [horizontal, up, down]
+			range = [1, 1, 0]
+			# 
+			# Ticks between active collection when this is the highest upgrade tier.
+			activeSpeed = 20
+			# 
+			# Ticks between collection checks when this is the highest upgrade tier.
+			# Collection is idle when items have not been collected within the last idleSpeed interval.
+			idleSpeed = 20
+
 	# Storage upgrades multiply storage capacity by the given amount.
 	# When multiple storage upgrades are used together, their multipliers are added before being applied.
 	[Upgrades.StorageTiers]
 
+		[Upgrades.StorageTiers.Iron]
+			storageMultiplier = 2
+			enableUpgrade = true
+
+		[Upgrades.StorageTiers.Gold]
+			storageMultiplier = 2
+			enableUpgrade = true
+
+		[Upgrades.StorageTiers.Netherite]
+			storageMultiplier = 2
+			enableUpgrade = true
+
+		[Upgrades.StorageTiers.Copper]
+			storageMultiplier = 2
+			enableUpgrade = true
+
+		[Upgrades.StorageTiers.Emerald]
+			storageMultiplier = 2
+			enableUpgrade = true
+
+		[Upgrades.StorageTiers.Diamond]
+			storageMultiplier = 2
+			enableUpgrade = true
+
 		[Upgrades.StorageTiers.Obsidian]
 			enableUpgrade = true
 			storageMultiplier = 2
-
-		[Upgrades.StorageTiers.Copper]
-			enableUpgrade = true
-			storageMultiplier = 4
-
-		[Upgrades.StorageTiers.Iron]
-			enableUpgrade = true
-			storageMultiplier = 8
-
-		[Upgrades.StorageTiers.Gold]
-			enableUpgrade = true
-			storageMultiplier = 16
-
-		[Upgrades.StorageTiers.Emerald]
-			enableUpgrade = true
-			storageMultiplier = 64
-
-		[Upgrades.StorageTiers.Diamond]
-			enableUpgrade = true
-			storageMultiplier = 256
-
-		[Upgrades.StorageTiers.Netherite]
-			enableUpgrade = true
-			storageMultiplier = 2048
 
 	# Allows same-item slots to balance out their amounts when items are added or removed from a slot.
 	# Works across networks when acting through a controller.
@@ -231,55 +280,6 @@
 	[Upgrades.Hopper]
 		enableUpgrade = true
 
-	# Collects nearby matching items by teleporting them instantly to the drawer
-	[Upgrades.Magnet]
-		# 
-		# When multiple magnet upgrades are used, their ranges are added together.
-		additiveRange = true
-		# 
-		# Range is blocks out from drawer as: [horizontal, up, down]
-		# If ranges from multiple upgrades are added, they are not allowed to exceed these values.
-		maxRange = [24, 8, 0]
-
-		[Upgrades.Magnet.Level1]
-			enableUpgrade = true
-			# 
-			# Range is blocks out from drawer as: [horizontal, up, down]
-			range = [1, 1, 0]
-			# 
-			# Ticks between active collection when this is the highest upgrade tier.
-			activeSpeed = 20
-			# 
-			# Ticks between collection checks when this is the highest upgrade tier.
-			# Collection is idle when items have not been collected within the last idleSpeed interval.
-			idleSpeed = 20
-
-		[Upgrades.Magnet.Level2]
-			enableUpgrade = true
-			# 
-			# Range is blocks out from drawer as: [horizontal, up, down]
-			range = [4, 2, 0]
-			# 
-			# Ticks between active collection when this is the highest upgrade tier.
-			activeSpeed = 10
-			# 
-			# Ticks between collection checks when this is the highest upgrade tier.
-			# Collection is idle when items have not been collected within the last idleSpeed interval.
-			idleSpeed = 20
-
-		[Upgrades.Magnet.Level3]
-			enableUpgrade = true
-			# 
-			# Range is blocks out from drawer as: [horizontal, up, down]
-			range = [8, 3, 0]
-			# 
-			# Ticks between active collection when this is the highest upgrade tier.
-			activeSpeed = 5
-			# 
-			# Ticks between collection checks when this is the highest upgrade tier.
-			# Collection is idle when items have not been collected within the last idleSpeed interval.
-			idleSpeed = 20
-
 	# Restricts capacity of drawer to one stack.
 	[Upgrades.OneStack]
 		enableUpgrade = true
@@ -324,6 +324,10 @@
 # Configuration around tools, namely the various 'keys' that can be used on drawers.
 [Tools]
 
+	# Personal keys allow drawers to be locked to their owners, so only they can place or take items.
+	[Tools.PersonalKey]
+		enable = false
+
 	# Drawer keys are used to lock drawers to the items they already hold.
 	[Tools.DrawerKey]
 		enable = true
@@ -338,10 +342,6 @@
 	# Concealment keys are used to show or hide the item labels on the face of drawers.
 	# The primary use of this key is for performance by disabling the more expensive dynamic rendering.
 	[Tools.ConcealmentKey]
-		enable = true
-
-	# Personal keys allow drawers to be locked to their owners, so only they can place or take items.
-	[Tools.PersonalKey]
 		enable = true
 
 	# Priority keys change the priority of drawers when finding a compatible slot to insert items into.

@@ -35,6 +35,42 @@ ItemEvents.modification(event => {
 
 const $MobEffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance')
 ItemEvents.modification(event => {
+    // Less repeated text
+    function simpleFood(id, eatSeconds, saturation, nutrition, canAlwaysEat = false) {
+        event.modify(id, item => {
+            item.setFood({
+                eatSeconds: eatSeconds,
+                saturation: saturation,
+                nutrition: nutrition,
+                canAlwaysEat: canAlwaysEat
+            })
+        })
+    }
+
+
+    simpleFood('minecraft:melon_slice', 0.8, 1, 1)
+    simpleFood('minecraft:sweet_berries', 0.8, 1, 3)
+    simpleFood('minecraft:glow_berries', 1.6, 2, 2)
+
+    // Decrease saturation
+    simpleFood('create:chocolate_glazed_berries', 0.8, 5, 3)
+
+    simpleFood('utopia:sea_salt', 6.4, 5, 1)
+    simpleFood('utopia:pepper', 6.4, 4, 2)
+    simpleFood('minecraft:cooked_beef', 1.6, 3, 8)
+    simpleFood('utopia:seasoned_cooked_beef', 1.6, 9, 8)
+    simpleFood('minecraft:cooked_porkchop', 1.6, 4, 8)
+    simpleFood('utopia:seasoned_cooked_porkchop', 1.6, 10, 7)
+    simpleFood('minecraft:cooked_chicken', 1.6, 5, 5)
+    simpleFood('utopia:seasoned_cooked_chicken', 1.6, 8, 5)
+    simpleFood('minecraft:cooked_mutton', 1.6, 4, 5)
+    simpleFood('utopia:seasoned_cooked_mutton', 1.6, 6, 6)
+    simpleFood('minecraft:cooked_rabbit', 1.6, 5, 5)
+    simpleFood('utopia:seasoned_cooked_rabbit', 1.6, 8, 5)
+
+
+
+    // Chemicals
     event.modify('create:super_glue', item => {
         item.setFood({
             eatSeconds: 3.2,
@@ -67,158 +103,6 @@ ItemEvents.modification(event => {
             ]
         })
     })
-    event.modify('minecraft:melon_slice', item => {
-        item.setFood({
-            eatSeconds: 0.8,
-            saturation: 1,
-            nutrition: 1,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('minecraft:sweet_berries', item => {
-        item.setFood({
-            eatSeconds: 0.8,
-            saturation: 1,
-            nutrition: 3,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('minecraft:glow_berries', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            saturation: 2,
-            nutrition: 2,
-            canAlwaysEat: false
-        })
-    })
-
-
-    // Decrease saturation
-    event.modify('create:chocolate_glazed_berries', item => {
-        item.setFood({
-            eatSeconds: 0.8,
-            nutrition: 3,
-            saturation: 5,
-            canAlwaysEat: false
-        })
-    })
-
-    event.modify('utopia:sea_salt', item => {
-        item.setFood({
-            eatSeconds: 3.2,
-            nutrition: 1,
-            saturation: 5,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('utopia:pepper', item => {
-        item.setFood({
-            eatSeconds: 3.2,
-            nutrition: 2,
-            saturation: 4,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('minecraft:cooked_beef', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 8,
-            saturation: 3,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('utopia:seasoned_cooked_beef', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 8,
-            saturation: 8,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('minecraft:cooked_porkchop', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 8,
-            saturation: 3,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('utopia:seasoned_cooked_porkchop', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 8,
-            saturation: 8,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('minecraft:cooked_chicken', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 5,
-            saturation: 5,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('utopia:seasoned_cooked_chicken', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 5,
-            saturation: 8,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('minecraft:cooked_mutton', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 5,
-            saturation: 4,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('utopia:seasoned_cooked_mutton', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 5,
-            saturation: 6,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('minecraft:cooked_rabbit', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 5,
-            saturation: 5,
-            canAlwaysEat: false
-        })
-    })
-    event.modify('utopia:seasoned_cooked_rabbit', item => {
-        item.setFood({
-            eatSeconds: 1.6,
-            nutrition: 5,
-            saturation: 7,
-            canAlwaysEat: false
-        })
-    })
-    // event.modify('naturalist:cooked_bushmeat', item => {
-    //     item.setFood({
-    //         eatSeconds: 1.6,
-    //         nutrition: 8,
-    //         saturation: 3,
-    // //         canAlwaysEat: false
-    // //     })
-    // // })
-    // event.modify('utopia:seasoned_cooked_bushmeat', item => {
-    //     item.setFood({
-    //         eatSeconds: 1.6,
-    //         nutrition: 8,
-    //         saturation: 8,
-    //         canAlwaysEat: false
-    //     })
-    // })
-
-
-
-    // Chemicals
     event.modify('utopia:beaker_nitric_acid', item => {
         item.setFood({
             usingConvertsTo: 'utopia:beaker',
@@ -332,28 +216,28 @@ ItemEvents.modification(event => {
             canAlwaysEat: true,
             effects: [
                 {
-                    probability: 1.0, // Any real number between 0 and 1
+                    probability: 1.0,
                     effectSupplier: () =>
                     new $MobEffectInstance(
                         'minecraft:poison', 1200, 1,false,false
                     ),
                 },
                 {
-                    probability: 1.0, // Any real number between 0 and 1
+                    probability: 1.0,
                     effectSupplier: () =>
                     new $MobEffectInstance(
                         'minecraft:wither', 1800, 0,false,true
                     ),
                 },
                 {
-                    probability: 1.0, // Any real number between 0 and 1
+                    probability: 1.0, 
                     effectSupplier: () =>
                     new $MobEffectInstance(
                         'minecraft:weakness', 1200, 0,false,true
                     ),
                 },
                 {
-                    probability: 1.0, // Any real number between 0 and 1
+                    probability: 1.0,
                     effectSupplier: () =>
                     new $MobEffectInstance(
                         'oreganized:lung_damage', 1200, 0,false,true
@@ -372,6 +256,3 @@ ItemEvents.modification(event => {
         })
     })
 })
-
-
-

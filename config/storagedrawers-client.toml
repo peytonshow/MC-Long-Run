@@ -12,7 +12,7 @@
 
 [Render]
 	# Distance in blocks before item labels stop rendering
-	labelRenderDistance = 20.0
+	labelRenderDistance = 16.0
 	# 
 	# Distance in blocks before quantity numbers stop rendering
 	quantityRenderDistance = 10.0
@@ -25,4 +25,4 @@
 		# 
 		# Attempts to render 'non-opaque' materials on the translucent render pass.
 		# This may cause artifacting, particularly if using non-opaque materials on the 'front' face.
-		renderTranslucentMaterials = true
+		renderTranslucentMaterials = false

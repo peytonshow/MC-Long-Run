@@ -1,4 +1,5 @@
 {
+  "_comment" : "See /mnt/Stuff/Minecraft/DefaultMCDatapack/data/minecraft/worldgen/placed_feature/ore_diamond_buried.json",
   "feature": "minecraft:ore_diamond_buried",
   "placement": [
     {

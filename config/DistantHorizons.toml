@@ -143,7 +143,7 @@ _version = 4
 	[common.multiThreading]
 		#
 		# How many threads should be used by Distant Horizons?
-		numberOfThreads = 14
+		numberOfThreads = 7
 		#
 		# A value between 1.0 and 0.0 that represents the percentage 
 		# of time each thread can run before going idle. 
@@ -775,7 +775,7 @@ _version = 4
 				dimensionEnabledCloudRenderingCsv = "minecraft:overworld"
 				#
 				# If true LOD clouds will be rendered.
-				enableCloudRendering = true
+				enableCloudRendering = false
 				#
 				# If true LOD beacon beams will be rendered wider at extreme distances, 
 				# making them easier to see. 

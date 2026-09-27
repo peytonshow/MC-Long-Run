@@ -9,8 +9,8 @@
     "value": "OFF"
   },
   "numberOfPasses": 3,
-  "maxFps": 30,
-  "screenMaxFps": 15,
+  "maxFps": 60,
+  "screenMaxFps": 5,
   "mapVanillaElements": {
     "simple_music_control:now_playing": {
       "enabled": {

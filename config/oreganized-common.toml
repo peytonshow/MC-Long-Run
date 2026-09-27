@@ -9,28 +9,28 @@
 	replaceClericWindows = true
 
 [silver]
-	#The scribe is able to silk-touch pickaxe-related blocks
-	scribeSilkTouchStone = true
 	#The radius in blocks for the tarnishing effect of undead mobs
 	# Default: 4
 	# Range: 1 ~ 20
-	tarnishRadius = 4
+	tarnishRadius = 2
+	#The number of blocks around an undead mob to check every times a mob dies
+	# Default: 40
+	# Range: 1 ~ 100
+	tarnishChecksPerMob = 2
+	#The scribe is able to silk-touch pickaxe-related blocks
+	scribeSilkTouchStone = true
 	#The chance per block check for tarnishing to occur (1.0 = 100%, 0.0 = 0%). Note that this only applies to the first tarnish stage. other nextStage are this /2
 	# Default: 0.5
 	# Range: 0.0 ~ 1.0
 	tarnishChance = 0.5
-	#The number of blocks around an undead mob to check every times a mob dies
-	# Default: 40
-	# Range: 1 ~ 100
-	tarnishChecksPerMob = 40
 
 [lead]
+	#Pillagers have a chance to spawn with a lead bolt in their offhand
+	pillagerSpawnWithBolts = false
 	#Should lead poisoning events give just Poison instead of Brain Damage?
 	poisonInsteadOfBrainDamage = false
 	#Should lead ore spawn dust clouds when broken without adjacent water?
 	leadDustCloud = true
-	#Pillagers have a chance to spawn with a lead bolt in their offhand
-	pillagerSpawnWithBolts = true
 	#Time in ticks molten lead waits until flowing downwards
 	# Default: 200
 	# Range: 0 ~ 2000

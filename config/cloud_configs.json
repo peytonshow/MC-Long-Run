@@ -3,11 +3,11 @@
   "OVERWORLD_CLOUDS_RENDERED": true,
   "NETHER_CLOUDS_RENDERED": false,
   "END_CLOUDS_RENDERED": false,
-  "lastModificationTime": 1790210930083,
+  "lastModificationTime": 1790251019406,
   "CLOUD_COLOR": [
     {
       "time": 0,
-      "color": 16767144
+      "color": 16767416
     },
     {
       "time": 3000,
@@ -19,47 +19,47 @@
     },
     {
       "time": 9000,
-      "color": 16054008
+      "color": 16774380
     },
     {
       "time": 12000,
-      "color": 16752222
+      "color": 16755082
     },
     {
       "time": 13000,
-      "color": 16757626
+      "color": 15178416
     },
     {
       "time": 14000,
-      "color": 8029864
+      "color": 9206712
     },
     {
       "time": 18000,
-      "color": 2764613
+      "color": 3885688
     },
     {
       "time": 22000,
-      "color": 4871802
+      "color": 6979504
     },
     {
       "time": 23999,
-      "color": 16767144
+      "color": 16767416
     }
   ],
   "COLOR_MODE": "VANILLA",
   "LIGHTING": {
-    "AMBIENT_LIGHTING_STRENGTH": 0.7,
+    "AMBIENT_LIGHTING_STRENGTH": 0.8,
     "MAX_LIGHTING_SHADING": 0.8,
-    "SHADING_MODE": "PHONG",
-    "LIGHTING_TYPE": "DYNAMIC",
+    "SHADING_MODE": "GOURAUD",
+    "LIGHTING_TYPE": "STATIC",
     "DAY_START": 0,
     "DAY_END": 13000,
     "DAY_NOON": 6000,
     "lights": [
       {
-        "directionX": 0.3636965,
-        "directionY": -0.5819144,
-        "directionZ": 0.727393,
+        "directionX": 0.36369646,
+        "directionY": -0.58191437,
+        "directionZ": 0.7273929,
         "color": {
           "x": 1.0,
           "y": 1.0,
@@ -93,23 +93,23 @@
     "layers": [
       {
         "BEVEL": {
-          "BEVEL_SIZE": 0.1,
+          "BEVEL_SIZE": 0.35,
           "BEVEL_EDGE_SEGMENTS": 8,
           "BEVEL_CORNER_SEGMENTS": 8
         },
         "APPEARANCE": {
-          "SHADING_ENABLED": false,
+          "SHADING_ENABLED": true,
           "USES_CUSTOM_ALPHA": true,
           "CUSTOM_BRIGHTNESS": false,
           "USES_CUSTOM_COLOR": false,
-          "BASE_ALPHA": 204,
+          "BASE_ALPHA": 235,
           "BRIGHTNESS": 1.0,
           "LAYER_COLOR": 16777215,
-          "CLOUD_Y_SCALE": 1.5,
+          "CLOUD_Y_SCALE": 2.5,
           "LAYER_OFFSET_X": 0,
           "LAYER_OFFSET_Z": 0,
-          "LAYER_SPEED_X": 0.03,
-          "LAYER_SPEED_Z": 0.03,
+          "LAYER_SPEED_X": 0.015,
+          "LAYER_SPEED_Z": 0.015,
           "LAYER_HEIGHT_OFFSET": 0.23,
           "TEXTURE_NAME": "clouds",
           "TEXTURE_NAMESPACE": "minecraft",
@@ -128,8 +128,8 @@
           "STATIC_FADE_REL_Y": 20.0
         },
         "FOG": {
-          "FOG_START_DISTANCE": 50.0,
-          "FOG_END_DISTANCE": 200.0
+          "FOG_START_DISTANCE": 80.0,
+          "FOG_END_DISTANCE": 320.0
         },
         "LAYER_IDX": 0,
         "NAME": "Minecraft",

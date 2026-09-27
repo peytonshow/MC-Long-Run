@@ -52,4 +52,36 @@ ServerEvents.recipes(event => {
         'farmersdelight:canvas',
         Ingredient.of(['farmersdelight:canvas', 'create:cardboard'])
     )
-});
+    const doors = {
+        'minecraft:oak_door': 'minecraft:oak_planks',
+        'minecraft:spruce_door': 'minecraft:spruce_planks',
+        'minecraft:birch_door': 'minecraft:birch_planks',
+        'minecraft:jungle_door': 'minecraft:jungle_planks',
+        'minecraft:acacia_door': 'minecraft:acacia_planks',
+        'minecraft:dark_oak_door': 'minecraft:dark_oak_planks',
+        'minecraft:mangrove_door': 'minecraft:mangrove_planks',
+        'minecraft:cherry_door': 'minecraft:cherry_planks',
+        'minecraft:bamboo_door': 'minecraft:bamboo_planks',
+        'minecraft:crimson_door': 'minecraft:crimson_planks',
+        'minecraft:warped_door': 'minecraft:warped_planks',
+        'minecraft:pale_oak_door': 'minecraft:pale_oak_planks',
+        'minecraft:iron_door': 'minecraft:iron_ingot',
+        'minecraft:copper_door': 'minecraft:copper_ingot',
+        'supplementaries:gold_door': 'minecraft:gold_ingot',
+    }
+
+    // Remove only shaped recipes for the doors listed in the 'doors' object
+    event.remove({ output: Object.keys(doors), type: 'minecraft:crafting_shaped' })
+
+    Object.keys(doors).forEach(door => {
+        event.shaped(
+            Item.of(door, 1),
+            [
+                'AA',
+                'AA',
+                'AA'
+            ],
+            { A: doors[door] }
+        )
+    })
+})

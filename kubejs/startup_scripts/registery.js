@@ -1,15 +1,17 @@
 
 StartupEvents.registry('item', event => {
+    // Mimic
+    event.create('utopia:shadow_key').texture('utopia:item/shadow_key').displayName('Shadow Key')
 
     // Production
     event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet').displayName('Patchwork Netherite Helmet')
     event.create('utopia:incomplete_netherite_chestplate', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_chestplate').displayName('Patchwork Netherite Chestplate')
     event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings').displayName('Patchwork Netherite Leggings')
     event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots').displayName('Patchwork Netherite Boots')
-    event.create('utopia:incomplete_circuit_board', 'create:sequenced_assembly').displayName('Incomplete Circuit').texture('utopia:item/incomplete_circuit_board')
+    event.create('utopia:incomplete_basic_circuit', 'create:sequenced_assembly').displayName('Incomplete Basic Circuit').texture('utopia:item/incomplete_basic_circuit')
+    event.create('utopia:incomplete_advanced_circuit', 'create:sequenced_assembly').displayName('Incomplete Advanced Circuit').texture('utopia:item/incomplete_advanced_circuit')
     // event.create('utopia:incomplete_wire_spool', 'create:sequenced_assembly').displayName('Incomplete Wire Spool').texture('utopia:item/incomplete_wire_spool').tag('c:hidden_from_recipe_viewers').unstackable()
 
-    // event.create('utopia:overworld_upgrade_template').displayName('Manufactured Template').texture('utopia:item/overworld_upgrade_template')
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
 
     // Sciantest
@@ -25,14 +27,16 @@ StartupEvents.registry('item', event => {
     event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica').tag('c:dusts').tag('utopia:chemistry')
     event.create('utopia:moissanite').displayName('Moissanite').texture('utopia:item/moissanite').tag('c:gems').tag('utopia:chemistry')
     event.create('utopia:ammonium_nitrate').tag('utopia:chemistry').texture('utopia:item/ammonium_nitrate').displayName('Ammonium Nitrate')
-    event.create('utopia:pure_sulfur').tag('utopia:chemistry').texture('utopia:item/sulphur').displayName('Sulfur Dust')
+    event.create('utopia:sulfur_dust').tag('utopia:chemistry').texture('utopia:item/sulphur').displayName('Sulfur Dust')
 
     // Electricity
     //event.create('utopia:battery_charged').displayName('Graphite').texture('utopia:item/graphite_ingot')
     event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').displayName('Plastic')
     event.create('utopia:wire').displayName('Wire').texture('utopia:item/wire').tag('utopia:electricity')
     event.create('utopia:wire_spool').displayName('Wire Spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(60).unstackable()
-    event.create('utopia:circuit').displayName('Simple Circuit').texture('utopia:item/circuit_board').tag('utopia:electricity').maxStackSize(16)
+    event.create('utopia:basic_circuit').displayName('Basic Chip').texture('utopia:item/circuit_board').tag('utopia:electricity').maxStackSize(16)
+    event.create('utopia:advanced_circuit').displayName('Advanced Chip').texture('utopia:item/advanced_circuit_board').tag('utopia:electricity').maxStackSize(16)
+    event.create('utopia:circuit_upgrade_template').displayName('Chipmakers Template').texture('utopia:item/circuit_upgrade_template')
 
     // Ingots
     event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite_ingot').tag('c:ingots').tag('c:ingots/graphite')

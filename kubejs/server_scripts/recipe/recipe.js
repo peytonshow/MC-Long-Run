@@ -1,5 +1,12 @@
 ServerEvents.recipes(event => {
 
+    function replaceRecipe(filter, ...adders) {
+        event.remove(filter)
+        adders.forEach(add => add())
+    }
+    event.remove({ input: 'minecraft:soul_campfire', type: 'minecraft:crafting_shaped' })
+
+
     event.remove({ input: 'minecraft:gravel', type: 'create:splashing' })
     event.remove({ input: 'minecraft:sugar_cane', output: 'minecraft:sugar'})
     event.remove({ input: Ingredient.of('#c:cobblestones'), type: 'create:mixing', output: Fluid.of('minecraft:lava'),})
@@ -15,72 +22,166 @@ ServerEvents.recipes(event => {
     event.remove({ output: 'minecraft:gold_nugget', type: 'create:splashing' })
     event.remove({ output: 'oreganized:silver_nugget', type: 'create:splashing' })
 
-    event.remove({ output: 'create:rotation_speed_controller' })
-    event.remove({ output: 'create_connected:inventory_access_port' })
-    event.remove({ output: 'create:smart_chute'})
-    event.remove({ output: 'create:mechanical_drill' })
-    event.remove({ output: 'create:elevator_pulley' })
     event.remove({ output: 'create_connected:control_chip' })
 
+    event.shapeless(Item.of('create:framed_glass'),['minecraft:glass'])
+    event.shapeless(Item.of('create:horizontal_framed_glass'),['minecraft:glass'])
+    event.shapeless(Item.of('create:vertical_framed_glass'),['minecraft:glass'])
+    event.shapeless(Item.of('create:tiled_glass'),['minecraft:glass'])
+    event.shapeless('minecraft:glass', [['create:framed_glass','create:horizontal_framed_glass','create:vertical_framed_glass','create:tiled_glass']])
+
+    event.shapeless(Item.of('create:framed_glass_pane'), ['minecraft:glass_pane'])
+    event.shapeless(Item.of('create:horizontal_framed_glass_pane'), ['minecraft:glass_pane'])
+    event.shapeless(Item.of('create:vertical_framed_glass_pane'), ['minecraft:glass_pane'])
+    event.shapeless(Item.of('create:tiled_glass_pane'), ['minecraft:glass_pane'])
+    event.shapeless('minecraft:glass_pane', [['create:framed_glass_pane', 'create:horizontal_framed_glass_pane', 'create:vertical_framed_glass_pane', 'create:tiled_glass_pane']])
+
+    // Bones
+    replaceRecipe({ input: 'minecraft:bone_block', output: 'minecraft:bone_meal'},
+        () => event.shapeless(
+            Item.of('9x minecraft:bone'),
+            ['minecraft:bone_block']
+    ))
+    replaceRecipe({ output: 'minecraft:bone_block' },
+        () => event.shaped(
+            Item.of('minecraft:bone_block')
+            , [
+            'AAA',
+            'AAA',
+            'AAA'
+        ], {
+            A: 'minecraft:bone'
+    }))
+
+    // Food
+    replaceRecipe({ input: 'farmersdelight:pumpkin_slice', output: 'minecraft:pumpkin_pie'},
+        () => event.shaped(
+            Item.of('minecraft:pumpkin_pie')
+            ,[
+            'ABA',
+            'ACA',
+            ' D '
+        ], {
+            A: 'farmersdelight:pumpkin_slice',
+            B: Ingredient.of('#c:eggs'),
+            C: 'minecraft:sugar',
+            D: 'farmersdelight:pie_crust'
+    }))
+
+
+    replaceRecipe({ input: 'farmersdelight:pumpkin_slice', output: 'minecraft:pumpkin'},
+        () => event.shaped(
+            Item.of('minecraft:pumpkin')
+            ,[
+            'AAA',
+            'AAA',
+            'AAA'
+        ], {
+            A: 'farmersdelight:pumpkin_slice'
+    }))
+    replaceRecipe({input: 'minecraft:pumpkin', output: 'farmersdelight:pumpkin_slice'},
+        () => event.shapeless(
+            Item.of('9x farmersdelight:pumpkin_slice'),
+            ['minecraft:pumpkin']
+    ))
+
     // Create Components
-    event.shaped(
-        Item.of('create:elevator_pulley'), [
-        '  C',
-        ' AB',
-        ' DD'
-    ], {
-        A: 'minecraft:dried_kelp_block',
+    replaceRecipe({ output: 'create:elevator_pulley' },
+        () => event.shaped(
+            Item.of(
+                'create:elevator_pulley'), [
+            '  C',
+            ' AB',
+            ' DD'
+        ], {
+            A: 'minecraft:dried_kelp_block',
+            B: 'create:brass_casing',
+            C: 'utopia:basic_circuit',
+            D: 'create:iron_sheet',
+    }))
+    replaceRecipe({ output: 'create:mechanical_drill' },
+        () => event.shaped(
+            Item.of('create:mechanical_drill'), [
+            ' B ',
+            'BAB',
+            ' C '
+        ], {
+            A: 'utopia:moissanite',
+            B: 'create:andesite_alloy',
+            C: 'create:andesite_casing'
+    }))
+    replaceRecipe({ output: 'create:rotation_speed_controller' },
+        () => event.recipes.create.mechanical_crafting('create:rotation_speed_controller', [
+            ' A ',
+            ' B ',
+            ' C '
+        ], {
+            A: 'create:precision_mechanism',
+            B: 'utopia:basic_circuit',
+            C: 'create:brass_casing'
+    }))
+    replaceRecipe({ output: 'create_connected:inventory_access_port' },
+        () => event.recipes.create.mechanical_crafting('create_connected:inventory_access_port', [
+            ' A ',
+            ' B ',
+            ' C '
+        ], {
+            A: 'create:brass_casing',
+            B: 'create:smart_chute',
+            C: 'utopia:basic_circuit'
+    }))
+    replaceRecipe({ output: 'create:display_board' },
+    () => event.shaped('4x create:display_board', [
+        '   ',
+        'ABA',
+        '   '
+    ],{
+        A: 'create:andesite_alloy',
+        B: 'utopia:basic_circuit'
+    }))
+    replaceRecipe({ output: 'create:content_observer' },
+    () => event.shaped('create:content_observer', [
+        ' A ',
+        ' B ',
+        ' C '
+    ],{
+        A: 'utopia:basic_circuit',
         B: 'create:brass_casing',
-        C: 'utopia:circuit',
-        D: 'create:iron_sheet',
-    })
-    event.shaped(
-        Item.of('create:mechanical_drill'), [
-        ' B ',
-        'BAB',
-        ' C '
-    ], {
-        A: 'utopia:moissanite',
-        B: 'create:andesite_alloy',
-        C: 'create:andesite_casing'
-    })
-    event.recipes.create.mechanical_crafting('create:rotation_speed_controller', [
+        C: 'minecraft:observer'
+    }))
+    replaceRecipe({ output: 'create:smart_chute' },
+    () => event.shaped('2x create:smart_chute', [
         ' A ',
         ' B ',
         ' C '
-    ], {
-        A: 'create:precision_mechanism',
-        B: 'utopia:circuit',
-        C: 'create:brass_casing'
-    })
-    event.recipes.create.mechanical_crafting('create_connected:inventory_access_port', [
-        ' A ',
-        ' B ',
-        ' C '
-    ], {
-        A: 'create:brass_casing',
-        B: 'create:smart_chute',
-        C: 'utopia:circuit'
-    })
-    event.shaped('create:smart_chute', [
-        ' A ',
-        ' B ',
-        ' C '
-    ], {
+    ],{
         A: 'create:brass_sheet',
         B: 'create_connected:brass_chute',
         C: 'create:content_observer'
-    })
-    event.shaped('create:smart_chute', [
-        ' A ',
-        ' B ',
-        ' C '
-    ], {
-        A: 'create:brass_sheet',
-        B: 'create_connected:brass_chute',
-        C: 'utopia:circuit'
-    })
+    }))
 
+    replaceRecipe({ output: 'minecraft:campfire' },
+        () => {
+            event.shaped('minecraft:campfire', [
+                'BA ',
+                'ABA',
+                'CCC'
+            ], {
+                A: 'minecraft:stick',
+                B: 'minecraft:flint',
+                C: Ingredient.of("#minecraft:logs")
+            });
+            event.shaped('minecraft:campfire', [
+                ' AB',
+                'ABA',
+                'CCC'
+            ], {
+                A: 'minecraft:stick',
+                B: 'minecraft:flint',
+                C: Ingredient.of("#minecraft:logs")
+            });
+        }
+    )
     // Cheapen all cosmetic templates
     event.forEachRecipe({ type: 'minecraft:crafting_shaped', output: '#minecraft:trim_templates' }, recipe => {
         let keys = recipe.json.get('key')
@@ -194,16 +295,16 @@ ServerEvents.recipes(event => {
 
     // Gunpowder
     event.recipes.create.crushing([
-        '5x utopia:pure_sulfur',
-        CreateItem.of('3x utopia:pure_sulfur', 0.5),
-        CreateItem.of('utopia:pure_sulfur', 0.5),
+        '5x utopia:sulfur_dust',
+        CreateItem.of('3x utopia:sulfur_dust', 0.5),
+        CreateItem.of('utopia:sulfur_dust', 0.5),
     ], [
         'minecraft:potent_sulfur'
     ])
     event.recipes.create.mixing(
         CreateItem.of('3x minecraft:gunpowder'),
         [
-        'utopia:pure_sulfur',
+        'utopia:sulfur_dust',
         'minecraft:coal',
         'utopia:ammonium_nitrate'
         ])
@@ -480,6 +581,25 @@ ServerEvents.recipes(event => {
         X: 'minecraft:sculk_catalyst',
         S: 'minecraft:sculk_shrieker'
     })
+    // Mimic
+    event.shaped(
+        Item.of('utopia:wire', 32), [
+        'BBB',
+        'AAA',
+        'BBB'
+    ], {
+        A: '#utopia:conductive_material',
+        B: 'utopia:plastic_ingot'
+    })
+    event.recipes.create.haunting(
+        'utopia:shadow_key',
+        'supplementaries:key'
+    )
+    event.recipes.create.pressing(
+        'supplementaries:key',
+        'utopia:shadow_key'
+    )
+
 
     // Science Future.
     event.shaped(
@@ -501,13 +621,13 @@ ServerEvents.recipes(event => {
     ]).processingTime(2000)
 
     event.recipes.create.sequenced_assembly(
-      // Outputs:
       [
-        
-        CreateItem.of('utopia:circuit', 0.92),
-        CreateItem.of('3x utopia:garbage', 0.02),
-        CreateItem.of('7x utopia:garbage', 0.01),
-        CreateItem.of('utopia:silica_dust', 0.04),
+        // Outputs:
+        CreateItem.of('utopia:basic_circuit', 0.93),
+        CreateItem.of('4x supplementaries:ash', 0.02),
+        CreateItem.of('4x utopia:garbage', 0.01),
+        CreateItem.of('utopia:silica_dust', 0.03),
+        CreateItem.of('utopia:plastic_ingot', 0.01),
         CreateItem.of(`minecraft:egg[custom_name='{"bold":false,"color":"white","italic":false,"obfuscated":false,"strikethrough":false,"text":"Device","underlined":false}']`, 0.001)
         
       ],
@@ -515,15 +635,16 @@ ServerEvents.recipes(event => {
       'utopia:plastic_ingot', 
       // Sequence:
       [
-        event.recipes.create.deploying('utopia:incomplete_circuit_board', ['utopia:incomplete_circuit_board', 'create:copper_sheet']),
-        event.recipes.create.filling('utopia:incomplete_circuit_board', ['utopia:incomplete_circuit_board', Fluid.of('utopia:nitric_acid', 50)]),
-        event.recipes.create.deploying('utopia:incomplete_circuit_board', ['utopia:incomplete_circuit_board', 'utopia:wire_spool']),
-        event.recipes.create.deploying('utopia:incomplete_circuit_board', ['utopia:incomplete_circuit_board', 'create:electron_tube']),
-        event.recipes.create.pressing('utopia:incomplete_circuit_board', 'utopia:incomplete_circuit_board'),
+        event.recipes.create.deploying('utopia:incomplete_basic_circuit', ['utopia:incomplete_basic_circuit', 'create:copper_sheet']),
+        event.recipes.create.filling('utopia:incomplete_basic_circuit', ['utopia:incomplete_basic_circuit', Fluid.of('utopia:nitric_acid', 50)]),
+        event.recipes.create.deploying('utopia:incomplete_basic_circuit', ['utopia:incomplete_basic_circuit', 'utopia:wire_spool']),
+        event.recipes.create.deploying('utopia:incomplete_basic_circuit', ['utopia:incomplete_basic_circuit', 'utopia:wire_spool']),
+        event.recipes.create.deploying('utopia:incomplete_basic_circuit', ['utopia:incomplete_basic_circuit', 'create:electron_tube']),
+        event.recipes.create.pressing('utopia:incomplete_basic_circuit', 'utopia:incomplete_basic_circuit'),
       ]
     )
-    .transitionalItem('utopia:incomplete_circuit_board')
-    .loops(2)
+    .transitionalItem('utopia:incomplete_basic_circuit')
+    .loops(1)
     
     event.recipes.create.sequenced_assembly(
       // Outputs:
@@ -543,9 +664,9 @@ ServerEvents.recipes(event => {
         event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'create:golden_sheet']),
         event.recipes.create.filling('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', Fluid.of('utopia:nitric_acid', 25)]),
         event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'create:copper_sheet']),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:circuit']),
+        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:basic_circuit']),
         event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:wire_spool']),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:circuit']),
+        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:basic_circuit']),
         event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:wire_spool']),
         event.recipes.create.pressing('create_connected:incomplete_control_chip', 'create_connected:incomplete_control_chip'),
         event.recipes.create.pressing('create_connected:incomplete_control_chip', 'create_connected:incomplete_control_chip'),

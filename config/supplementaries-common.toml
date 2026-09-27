@@ -518,7 +518,7 @@
 		#Arrow stacks that can fit inside a quiver. Requires reboot
 		# Default: 6
 		# Range: 1 ~ 9
-		slots = 6
+		slots = 8
 		#Increase this number to alter the probability for a Skeleton with quiver to spawn. Note that this also depends on local difficulty so you wont ever see them on easy and very rarely on normal. Similar logic to equipment
 		# Default: 0.03
 		# Range: 0.0 ~ 1.0

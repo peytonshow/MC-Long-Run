@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "structures": false,
+  "trees": true,
+  "waterFeatures": true,
+  "distantTerrain": "AUTO",
+  "extendedDistanceChunks": 0,
+  "realTerrainRadiusChunks": 64,
+  "realTerrain": false,
+  "throughput": "AGGRESSIVE"
+}

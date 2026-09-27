@@ -12,7 +12,7 @@
     "enableSoundPruning": true
   },
   "enhancedSounds": {
-    "enableEnhancedSounds": true,
+    "enableEnhancedSounds": false,
     "backgroundThreadWorkers": 0,
     "enableMonoConversion": true,
     "enableOcclusionProcessing": false,

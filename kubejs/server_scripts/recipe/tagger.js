@@ -36,7 +36,7 @@ ServerEvents.tags('item', event => {
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_chestplate')
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_leggings')
     event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_netherite_boots')
-    event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_circuit_board')
+    event.add('c:hidden_from_recipe_viewers', 'utopia:incomplete_basic_circuit')
     event.add('c:hidden_from_recipe_viewers', 'utopia:shattered_crown')
     event.add('c:hidden_from_recipe_viewers', 'utopia:used_handcuffs')
     event.add('c:hidden_from_recipe_viewers', 'utopia:used_shackles')
@@ -60,7 +60,7 @@ ServerEvents.tags('item', event => {
     // event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/way_sign_ancient')
     // event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/cannon_boat_ancient')
     // event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/ancient_boat')
-    event.add('utopia:circuitry', 'utopia:circuit')
+    event.add('utopia:circuitry', 'utopia:basic_circuit')
     event.add('utopia:circuitry', 'create_connected:control_chip')
 
     event.add('supplementaries:throwable_bricks', 'minecraft:resin_brick')
@@ -116,7 +116,7 @@ ServerEvents.tags('item', event => {
 
 
     event.add('create:upright_on_belt', [
-        'utopia:circuit', 
+        'utopia:basic_circuit', 
         'create_connected:control_chip'
     ] )
     //event.add('create:upright_on_belt', '#c:dusts')
