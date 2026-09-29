@@ -25,7 +25,19 @@ const DISABLED_ITEMS = [
   'parcool:traceur_boots',
   'create_enchantment_industry:super_enchanting_template',
   'create_enchantment_industry:experience_cake_base',
-  'create_enchantment_industry:experience_cake_slice'
+  'create_enchantment_industry:experience_cake_slice',
+  'storagedrawers:personal_key_ftb',
+  'storagedrawers:personal_key_unlock',
+  'storagedrawers:suspend_key',
+  'storagedrawers:magnet_upgrade_2',
+  'storagedrawers:magnet_upgrade_3',
+  'storagedrawers:remote_upgrade',
+  'storagedrawers:remote_group_upgrade',
+  'storagedrawers:magnet_upgrade',
+  'storagedrawers:portability_upgrade',
+  'storagedrawers:framing_table',
+  'storagedrawers:drawer_puller',
+  'create_connected:control_chip'
 ]
 
 ServerEvents.tags('item', event => {

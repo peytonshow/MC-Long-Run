@@ -1,0 +1,119 @@
+{
+  "computer_smash": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "utopia:computer_smash",
+        "volume": 1.4,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.utopia.computer_smash"
+  },
+  "computer_space_badsignal": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "utopia:computer_space_badsignal",
+        "volume": 0.9,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.utopia.computer_space_badsignal"
+  },
+  "computer_terminal_ambient": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "utopia:computer_terminal_ambient_0",
+        "volume": 0.3,
+        "pitch": 1.0
+      },
+      {
+        "name": "utopia:computer_terminal_ambient_1",
+        "volume": 0.3,
+        "pitch": 1.0
+      },
+      {
+        "name": "utopia:computer_terminal_ambient_2",
+        "volume": 0.3,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.utopia.computer_terminal_ambient"
+  },
+  "computer_space_ambient": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "utopia:computer_space_ambient_0",
+        "volume": 0.2,
+        "pitch": 1.0
+      },
+      {
+        "name": "utopia:computer_space_ambient_1",
+        "volume": 0.35,
+        "pitch": 1.0
+      },
+      {
+        "name": "utopia:computer_space_ambient_2",
+        "volume": 0.5,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.utopia.computer_space_ambient"
+  },
+  "computer_space_creepy": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "utopia:computer_space_creepy_0",
+        "volume": 1.0,
+        "pitch": 1.0
+      },
+      {
+        "name": "utopia:computer_space_creepy_1",
+        "volume": 0.285,
+        "pitch": 1.0
+      },
+      {
+        "name": "utopia:computer_space_creepy_2",
+        "volume": 0.25,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.utopia.computer_space_creepy"
+  },
+  "computer_data_ambient": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "utopia:computer_data_ambient_0",
+        "volume": 0.5,
+        "pitch": 1.0
+      },
+      {
+        "name": "utopia:computer_data_ambient_1",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.utopia.computer_data_ambient"
+  },
+  "computer_data_creepy": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "utopia:computer_data_creepy_0",
+        "volume": 1.0,
+        "pitch": 1.0
+      },
+      {
+        "name": "utopia:computer_data_creepy_1",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ],
+    "subtitle": "subtitles.utopia.computer_data_creepy"
+  }
+}

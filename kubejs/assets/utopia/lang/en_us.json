@@ -1,5 +1,11 @@
 {
-
+  "subtitles.utopia.computer_terminal_ambient": "Computer hums",
+  "subtitles.utopia.computer_data_ambient": "Computer processes data",
+  "subtitles.utopia.computer_data_creepy": "Computer crunches number",
+  "subtitles.utopia.computer_space_ambient": "Computer transmits",
+  "subtitles.utopia.computer_space_creepy": "Incoming transmission",
+  "subtitles.utopia.computer_space_badsignal": "Incoming hostile information",
+  "subtitles.utopia.computer_smash" : "Computer shatters",
   "item.parcool.parcool_guide": "ParCool Codex",
 
   "item.oreganized.silver_axe": "Ancient Axe",
@@ -45,8 +51,11 @@
   "block.minecraft.potted_poppy": "Potted Rose",
   "block.minecraft.potted_blue_orchid": "Potted Cyan Rose",
   "block.minecraft.gilded_blackstone": "Gold Gilded Blackstone",
-  "advancements.utop.flowerman_flowerman.title": "How'd you like my jarona!?",
+
+  "advancements.utop.flowerman_flowerman.title": "How'd you like my jarosa!?",
   "advancements.utop.flowerman_flowerman.description": "Obtain a Cyan Rose",
+  "advancements.utop.voices_of_the_voice.title": "Voices of The Void",
+  "advancements.utop.voices_of_the_voice.description": "Activate countermeasures against a hostile signal",
   "advancements.utop.i_need_you_sea_salt.title": "SEA SALT",
   "advancements.utop.i_need_you_sea_salt.description": "Obtain Salt",
   "advancements.utop.lend_me_your_power.title": "LEND ME YOUR POWER!!!",  // Just in case

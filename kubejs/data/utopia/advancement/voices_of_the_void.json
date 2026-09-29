@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "voices_of_the_voice": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "description": {
+      "translate": "advancements.utop.voices_of_the_voice.description"
+    },
+    "icon": {
+      "id": "utopia:computer_block_badsignal"
+    },
+    "title": {
+      "translate": "advancements.utop.voices_of_the_voice.title"
+    }
+  },
+  "requirements": [
+    [
+      "voices_of_the_voice"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

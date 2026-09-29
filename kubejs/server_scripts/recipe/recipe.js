@@ -22,8 +22,6 @@ ServerEvents.recipes(event => {
     event.remove({ output: 'minecraft:gold_nugget', type: 'create:splashing' })
     event.remove({ output: 'oreganized:silver_nugget', type: 'create:splashing' })
 
-    event.remove({ output: 'create_connected:control_chip' })
-
     event.shapeless(Item.of('create:framed_glass'),['minecraft:glass'])
     event.shapeless(Item.of('create:horizontal_framed_glass'),['minecraft:glass'])
     event.shapeless(Item.of('create:vertical_framed_glass'),['minecraft:glass'])
@@ -35,6 +33,9 @@ ServerEvents.recipes(event => {
     event.shapeless(Item.of('create:vertical_framed_glass_pane'), ['minecraft:glass_pane'])
     event.shapeless(Item.of('create:tiled_glass_pane'), ['minecraft:glass_pane'])
     event.shapeless('minecraft:glass_pane', [['create:framed_glass_pane', 'create:horizontal_framed_glass_pane', 'create:vertical_framed_glass_pane', 'create:tiled_glass_pane']])
+
+    // Building
+    event.recipes.create.pressing('supplementaries:ash_brick','supplementaries:ash')
 
     // Bones
     replaceRecipe({ input: 'minecraft:bone_block', output: 'minecraft:bone_meal'},
@@ -132,12 +133,13 @@ ServerEvents.recipes(event => {
     }))
     replaceRecipe({ output: 'create:display_board' },
     () => event.shaped('4x create:display_board', [
-        '   ',
-        'ABA',
+        ' B ',
+        'ACA',
         '   '
     ],{
         A: 'create:andesite_alloy',
-        B: 'utopia:basic_circuit'
+        B: 'utopia:basic_circuit',
+        C: 'create_connected:encased_chain_cogwheel'
     }))
     replaceRecipe({ output: 'create:content_observer' },
     () => event.shaped('create:content_observer', [
@@ -159,7 +161,19 @@ ServerEvents.recipes(event => {
         B: 'create_connected:brass_chute',
         C: 'create:content_observer'
     }))
+    replaceRecipe({ output: 'create:schematicannon' },
+    () => event.shaped('create:schematicannon', [
+        ' A ',
+        'BDB',
+        'CCC'
+    ],{
+        A: 'supplementaries:cannon',
+        B: '#minecraft:logs',
+        C: 'minecraft:smooth_stone',
+        D: 'utopia:advanced_circuit'
+    }))
 
+    // Survival
     replaceRecipe({ output: 'minecraft:campfire' },
         () => {
             event.shaped('minecraft:campfire', [
@@ -583,13 +597,14 @@ ServerEvents.recipes(event => {
     })
     // Mimic
     event.shaped(
-        Item.of('utopia:wire', 32), [
-        'BBB',
-        'AAA',
+        Item.of('artifacts:mimic_spawn_egg', 1), [
+        'BCB',
+        'BAB',
         'BBB'
     ], {
-        A: '#utopia:conductive_material',
-        B: 'utopia:plastic_ingot'
+        A: '#artifacts:artifacts',
+        B: 'minecraft:rotten_flesh',
+        C: 'utopia:shadow_key'
     })
     event.recipes.create.haunting(
         'utopia:shadow_key',
@@ -602,6 +617,23 @@ ServerEvents.recipes(event => {
 
 
     // Science Future.
+    event.recipes.create.mechanical_crafting('utopia:computer_block', [
+            'AAA',
+            'DBC',
+            'DED'
+        ], {
+            A: '#c:ingots/iron',
+            B: 'bits_n_bobs:large_nixie_tube',
+            C: '#c:glass_blocks',
+            D: 'utopia:plastic_ingot',
+            E: 'utopia:advanced_circuit'
+    })
+    event.shapeless('utopia:computer_block', [['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shapeless('utopia:computer_block_terminal', [['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shapeless('utopia:computer_block_data', [['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shapeless('utopia:computer_block_space', [['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.recipes.create.pressing('utopia:broken_computer',[['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space', 'utopia:computer_block_badsignal']])
+
     event.shaped(
         Item.of('utopia:wire', 32), [
         'BBB',
@@ -626,9 +658,9 @@ ServerEvents.recipes(event => {
         CreateItem.of('utopia:basic_circuit', 0.93),
         CreateItem.of('4x supplementaries:ash', 0.02),
         CreateItem.of('4x utopia:garbage', 0.01),
-        CreateItem.of('utopia:silica_dust', 0.03),
+        CreateItem.of('utopia:silica_dust', 0.02),
         CreateItem.of('utopia:plastic_ingot', 0.01),
-        CreateItem.of(`minecraft:egg[custom_name='{"bold":false,"color":"white","italic":false,"obfuscated":false,"strikethrough":false,"text":"Device","underlined":false}']`, 0.001)
+        CreateItem.of(`minecraft:egg[custom_name='{"bold":false,"color":"white","italic":false,"obfuscated":false,"strikethrough":false,"text":"Device","underlined":false}']`, 0.01)
         
       ],
       // Input:

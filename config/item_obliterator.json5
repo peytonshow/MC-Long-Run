@@ -2,13 +2,13 @@
   // -----------------------------------------------------------
   //              Item Obliterator by ElocinDev
   // -----------------------------------------------------------
-  //  
+  //
   // How to add items?
   //   - They are json strings, so you need to separate each
   //     entry with a comma, except the last
   //   - If you start an entry with !, it will be treated as a regular expression
   //     Example: "!minecraft:.*_sword" to disable all swords
-  //  
+  //
   // -----------------------------------------------------------
   // Do not touch this
   "configVersion": 2,
@@ -17,8 +17,8 @@
   //    Example: minecraft:diamond
   "blacklisted_items": [
     //"royalvariations:spiritual_crown",
-    "!quark:vertical_.*_planks",
-    "!tradeworks:.*_side_shelf",
+    "!quark:vertical_*_planks",
+    "!tradeworks:*_side_shelf",
     "farmersdelight:wheat_dough",
     "frame_changer:crying_obsidian_brick_slab",
     "frame_changer:crying_polished_obsidian_stairs",
@@ -42,14 +42,26 @@
     "parcool:traceur_boots",
     "create_enchantment_industry:super_enchanting_template",
     "create_enchantment_industry:experience_cake_base",
-    "create_enchantment_industry:experience_cake_slice"
+    "create_enchantment_industry:experience_cake",
+    "storagedrawers:personal_key_ftb",
+    "storagedrawers:personal_key_unlock",
+    "storagedrawers:suspend_key",
+    "storagedrawers:magnet_upgrade_2",
+    "storagedrawers:magnet_upgrade_3",
+    "storagedrawers:remote_upgrade",
+    "storagedrawers:remote_group_upgrade",
+    "storagedrawers:magnet_upgrade",
+    "storagedrawers:portability_upgrade",
+    "storagedrawers:framing_table",
+    "storagedrawers:drawer_puller",
+    "create_connected:control_chip"
   ],
   // -----------------------------------------------------------
   // Removes an item if it contains certain nbt tag. If the whole entry (or expression) is present, the item gets removed.
   // Use with caution! This is a very expensive operation and can cause lag if you have a lot of items blacklisted.
-  // 	
+  //
   // 	 Example to disable a regeneration potion: Potion:"minecraft:regeneration"
-  // 	
+  //
   // 	 You can also use regular expressions by starting the value with !
   "blacklisted_nbt": [],
   // -----------------------------------------------------------
@@ -71,7 +83,7 @@
   // If true, the mod will use a hashset to handle the blacklisted items
   // This is a more optimized approach only if you have a lot of items blacklisted (20 or more is recommended)
   // If you just have a small amount of items blacklisted, keep this false
-  //  
+  //
   // [!] Enabling this will disable all regular expressions
   // [!] Does not apply to NBT, only item blacklist / interaction / attack
   "use_hashmap_optimizations": false

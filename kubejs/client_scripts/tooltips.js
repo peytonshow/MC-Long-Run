@@ -59,7 +59,15 @@ ItemEvents.modifyTooltips(event => {
     addShiftTooltip('utopia:beaker_bleach', "Touching it causes soap bubbles to appear on your hand."); 
     addShiftTooltip('utopia:beaker_propylene_glycol', "It looks thick and oily. Smells weirdly sweet."); 
 
-    addShiftTooltip('oreganized:lead_bolt', "A stronger crossbow-exclusive arrow. Must be held in your offhand in order to be loaded."); 
+    // --- Computers ---
+    addShiftTooltip('utopia:computer_block', "A Program can be selected in the crafting grid.\n\nCan be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:computer_block_terminal', "Program: Await input.\n\nCan be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:computer_block_data', "Program: Crunching numbers.\n\nCan be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:computer_block_space', "Program: Transmit signals.\n\nCan be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:computer_block_badsignal', "Program: Destroy signals.\n\nCan be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:broken_computer', "Destroyed.\n\nCan't be Sold, but otherwise acts as decoration."); 
+
+    addShiftTooltip('oreganized:lead_bolt', "A stronger, crossbow-exclusive arrow. Must be held in your offhand in order to be loaded."); 
 
     // --- FIAT Bills (Grouped) ---
     addShiftTooltip([

@@ -244,5 +244,4 @@ event.create('utopia:moissanite_block')
     .resistance(0)
     .notSolid()
     .fullBlock(false)
-    
 })
