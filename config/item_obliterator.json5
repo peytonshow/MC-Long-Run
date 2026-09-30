@@ -17,8 +17,8 @@
   //    Example: minecraft:diamond
   "blacklisted_items": [
     //"royalvariations:spiritual_crown",
-    "!quark:vertical_*_planks",
-    "!tradeworks:*_side_shelf",
+    "!quark:vertical_.*_planks",
+    "!tradeworks:.*_side_shelf",
     "farmersdelight:wheat_dough",
     "frame_changer:crying_obsidian_brick_slab",
     "frame_changer:crying_polished_obsidian_stairs",
@@ -43,6 +43,7 @@
     "create_enchantment_industry:super_enchanting_template",
     "create_enchantment_industry:experience_cake_base",
     "create_enchantment_industry:experience_cake",
+    "create_enchantment_industry:experience_cake_slice",
     "storagedrawers:personal_key_ftb",
     "storagedrawers:personal_key_unlock",
     "storagedrawers:suspend_key",
@@ -54,6 +55,7 @@
     "storagedrawers:portability_upgrade",
     "storagedrawers:framing_table",
     "storagedrawers:drawer_puller",
+    "create_connected:incomplete_control_chip",
     "create_connected:control_chip"
   ],
   // -----------------------------------------------------------

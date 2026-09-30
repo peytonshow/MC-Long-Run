@@ -68,8 +68,6 @@ ServerEvents.recipes(event => {
             C: 'minecraft:sugar',
             D: 'farmersdelight:pie_crust'
     }))
-
-
     replaceRecipe({ input: 'farmersdelight:pumpkin_slice', output: 'minecraft:pumpkin'},
         () => event.shaped(
             Item.of('minecraft:pumpkin')
@@ -86,7 +84,69 @@ ServerEvents.recipes(event => {
             ['minecraft:pumpkin']
     ))
 
+    // Create SU Sources
+    replaceRecipe({ output: 'create:water_wheel' },
+        () => event.shaped('create:water_wheel', [
+            'ABA',
+            'BCB',
+            'ABA'
+        ], {
+            A: '#minecraft:planks',
+            B: '#minecraft:logs',
+            C: 'create:shaft'
+    }))
+    replaceRecipe({ output: 'create:large_water_wheel' },
+        () => event.recipes.create.mechanical_crafting('create:large_water_wheel', [
+            ' AAA ',
+            'ADBDA',
+            'ABCBA',
+            'ADBDA',
+            ' AAA '
+        ], {
+            A: '#minecraft:planks',
+            B: '#minecraft:logs',
+            C: 'create:water_wheel',
+            D: 'unusual_furniture:screw'
+    }))
+    replaceRecipe({ output: 'create:white_sail' },
+        () => event.shaped('4x create:white_sail', [
+            'AB ',
+            'BC ',
+            '   '
+        ], {
+            A: ['#minecraft:wool', 'farmersdelight:canvas', 'minecraft:leather'],
+            B: 'minecraft:stick',
+            C: 'create:andesite_alloy'
+    }))
+    
     // Create Components
+    replaceRecipe({ output: 'create_connected:sequenced_pulse_generator' },
+        () => event.shaped(
+            Item.of(
+                'create_connected:sequenced_pulse_generator'), [
+            'AB ',
+            'ACE',
+            'DDD'
+        ], {
+            A: 'create:electron_tube',
+            B: 'utopia:advanced_circuit',
+            C: 'create:brass_sheet',
+            D: '#c:stones',
+            E: 'minecraft:redstone_torch'
+    }))
+    replaceRecipe({ output: 'create:sequenced_gearshift' },
+        () => event.shaped(
+            Item.of(
+                'create:sequenced_gearshift'), [
+            'CBC',
+            'DAD',
+            'CDC'
+        ], {
+            A: 'create:brass_casing',
+            B: 'utopia:advanced_circuit',
+            C: 'create:brass_sheet',
+            D: 'create:cogwheel'
+    }))
     replaceRecipe({ output: 'create:elevator_pulley' },
         () => event.shaped(
             Item.of(
@@ -163,14 +223,15 @@ ServerEvents.recipes(event => {
     }))
     replaceRecipe({ output: 'create:schematicannon' },
     () => event.shaped('create:schematicannon', [
-        ' A ',
+        'EAE',
         'BDB',
         'CCC'
     ],{
         A: 'supplementaries:cannon',
         B: '#minecraft:logs',
         C: 'minecraft:smooth_stone',
-        D: 'utopia:advanced_circuit'
+        D: 'utopia:advanced_circuit',
+        E: 'create:cogwheel'
     }))
 
     // Survival
@@ -301,32 +362,39 @@ ServerEvents.recipes(event => {
     ]).processingTime(2000)
 
     event.recipes.create.mixing([
-        CreateItem.of('minecraft:diamond', 0.02),
+        CreateItem.of('minecraft:gold_nugget', 0.2),
         CreateItem.of('utopia:platinum_nugget', 0.01)
     ], [
-        Fluid.of('minecraft:water', 40), '5x minecraft:amethyst_shard', '16x minecraft:cobbled_deepslate'
+        Fluid.of('minecraft:water', 100), '2x minecraft:amethyst_shard', '16x minecraft:netherrack'
     ]).processingTime(800)
 
     // Gunpowder
     event.recipes.create.crushing([
-        '5x utopia:sulfur_dust',
+        CreateItem.of('6x utopia:sulfur_dust', 0.25),
         CreateItem.of('3x utopia:sulfur_dust', 0.5),
-        CreateItem.of('utopia:sulfur_dust', 0.5),
+        'utopia:sulfur_dust'
     ], [
         'minecraft:potent_sulfur'
     ])
+    event.recipes.create.mixing([
+        CreateItem.of('minecraft:gunpowder')
+    ], [
+        '4x minecraft:sugar',
+        'minecraft:coal'
+    ]).heated()
+    event.recipes.create.mixing([
+        CreateItem.of('2x minecraft:gunpowder')
+    ], [
+        '4x minecraft:sugar',
+        'minecraft:coal',
+        'minecraft:blaze_powder'
+    ]).heated()
     event.recipes.create.mixing(
         CreateItem.of('3x minecraft:gunpowder'),
         [
         'utopia:sulfur_dust',
         'minecraft:coal',
         'utopia:ammonium_nitrate'
-        ])
-    event.recipes.create.mixing([
-        CreateItem.of('3x minecraft:gunpowder')
-    ], [
-        '3x minecraft:sugar',
-        '2x minecraft:coal'
     ]).heated()
 
     // Mill efficiently!
@@ -337,7 +405,7 @@ ServerEvents.recipes(event => {
         'minecraft:blackstone'
     ])
     event.recipes.create.crushing([
-        CreateItem.of('utopia:pepper, 0.75'),
+        CreateItem.of('utopia:pepper', 0.75),
         ], [
         'minecraft:blackstone'
     ])
@@ -372,11 +440,11 @@ ServerEvents.recipes(event => {
         'minecraft:coal_block'
     ]).heated()
     event.recipes.create.compacting([
-        CreateItem.of('utopia:moissanite', 0.60),
+        CreateItem.of('utopia:moissanite', 0.55),
     ], [
-        '6x utopia:silica_dust',
-        '3x utopia:graphite_ingot',
-        '15x minecraft:emerald'
+        '5x utopia:silica_dust',
+        '5x utopia:graphite_ingot',
+        '5x minecraft:emerald'
     ]).superheated()
 
     event.recipes.create.mixing([
@@ -471,13 +539,13 @@ ServerEvents.recipes(event => {
         Fluid.of('minecraft:water', 500)
     ])
     event.recipes.create.compacting([
-        CreateItem.of('utopia:neon_block', 0.25),
+        CreateItem.of('utopia:neon_block', 0.1),
         '16x minecraft:glass_bottle'
     ], [
-        'oreganized:electrum_nugget',
+        'create_enchantment_industry:super_experience_nugget',
         '16x quark:bottled_cloud',
         Fluid.of('utopia:propylene_glycol', 600)
-    ]).processingTime(6000)
+    ])
     event.recipes.create.mixing([
         Fluid.of('utopia:bleach', 200)
     ], [
@@ -485,12 +553,16 @@ ServerEvents.recipes(event => {
         Fluid.of('minecraft:water', 200),
         'create:experience_nugget'
     ]).heated().processingTime(300)
-    event.recipes.create.mixing([
+
+    // Ammonia
+    // Haber Process
+    event.recipes.create.compacting([
         Fluid.of('utopia:ammonia', 400)
     ], [
         Fluid.of('utopia:nitrogen', 200),
-        Fluid.of('utopia:hydrogen', 200)
+        Fluid.of('utopia:hydrogen', 600)
     ]).heated()
+    // Ostwald Process
     event.recipes.create.mixing([
         Fluid.of('utopia:ammonia', 400),
         '9x utopia:platinum_nugget'
@@ -498,7 +570,9 @@ ServerEvents.recipes(event => {
         Fluid.of('utopia:nitric_acid', 200),
         Fluid.of('utopia:oxygen', 200),
         'utopia:platinum_ingot'
-    ]).heated().processingTime(600)
+    ]).processingTime(100)
+
+
     event.recipes.create.compacting([
         '1x quark:bottled_cloud',
         'minecraft:heart_of_the_sea'
@@ -558,14 +632,14 @@ ServerEvents.recipes(event => {
         Fluid.of('utopia:bleach', 200)
     ]).heated().processingTime(1000)
 
-    // Exp Farm
-    event.recipes.create.compacting([
-        CreateItem.of('2x create:experience_nugget', 0.35),
-        CreateItem.of('create:experience_nugget', 0.25),
-        '4x minecraft:stone_bricks'
-    ], [
-        '4x minecraft:infested_stone'
-    ])
+    // Exp Farm - ONLY IF NOT RUNNING CREATE ENCHANTING IND!!
+    // event.recipes.create.compacting([
+    //     CreateItem.of('2x create:experience_nugget', 0.35),
+    //     CreateItem.of('create:experience_nugget', 0.25),
+    //     '4x minecraft:stone_bricks'
+    // ], [
+    //     '4x minecraft:infested_stone'
+    // ])
 
     // Gold + Platinum
     event.recipes.create.splashing([
@@ -577,7 +651,7 @@ ServerEvents.recipes(event => {
     ])
     event.recipes.create.splashing([
         CreateItem.of('9x oreganized:silver_nugget'),
-        CreateItem.of('utopia:platinum_nugget', 0.1)
+        CreateItem.of('utopia:platinum_nugget', 0.05)
     ], [
         'create:crushed_raw_silver'
     ])
@@ -617,7 +691,16 @@ ServerEvents.recipes(event => {
 
 
     // Science Future.
-    event.recipes.create.mechanical_crafting('utopia:computer_block', [
+    event.shaped('utopia:circuit_upgrade_template', [
+            'ACA',
+            'ABA',
+            'AAA'
+        ], {
+            A: 'utopia:plastic_ingot',
+            B: 'minecraft:gold_block',
+            C: 'utopia:circuit_upgrade_template'
+    })
+    event.shaped('utopia:computer_block', [
             'AAA',
             'DBC',
             'DED'
@@ -628,12 +711,22 @@ ServerEvents.recipes(event => {
             D: 'utopia:plastic_ingot',
             E: 'utopia:advanced_circuit'
     })
-    event.shapeless('utopia:computer_block', [['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
-    event.shapeless('utopia:computer_block_terminal', [['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
-    event.shapeless('utopia:computer_block_data', [['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
-    event.shapeless('utopia:computer_block_space', [['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
-    event.recipes.create.pressing('utopia:broken_computer',[['utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space', 'utopia:computer_block_badsignal']])
+    event.shapeless('4x utopia:computanian', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shaped('utopia:computer_block', [
+            'AA ',
+            'AA ',
+            '   '
+        ], {
+            A: 'utopia:computanian',
+    })
+    event.shapeless('utopia:computer_block', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shapeless('utopia:computer_block_terminal', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shapeless('utopia:computer_block_data', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shapeless('utopia:computer_block_space', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shapeless('utopia:computer_block_coding', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.recipes.create.pressing('utopia:broken_computer',[['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space', 'utopia:computer_block_badsignal']])
 
+    
     event.shaped(
         Item.of('utopia:wire', 32), [
         'BBB',
@@ -664,7 +757,7 @@ ServerEvents.recipes(event => {
         
       ],
       // Input:
-      'utopia:plastic_ingot', 
+      'create:cardboard', 
       // Sequence:
       [
         event.recipes.create.deploying('utopia:incomplete_basic_circuit', ['utopia:incomplete_basic_circuit', 'create:copper_sheet']),
@@ -678,32 +771,59 @@ ServerEvents.recipes(event => {
     .transitionalItem('utopia:incomplete_basic_circuit')
     .loops(1)
     
-    event.recipes.create.sequenced_assembly(
-      // Outputs:
-      [
-        
-        CreateItem.of('create_connected:control_chip', 0.999),
-        CreateItem.of(`minecraft:egg[custom_name='{"bold":false,"color":"white","italic":false,"obfuscated":false,"strikethrough":false,"text":"Device","underlined":false}']`, 0.001)
-        
-      ],
-      // Input:
-      'create:transmitter', 
-      // Sequence:
-      [
-        event.recipes.create.filling('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', Fluid.of('utopia:nitric_acid', 25)]),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'create:copper_sheet']),
-        event.recipes.create.filling('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', Fluid.of('utopia:nitric_acid', 50)]),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'create:golden_sheet']),
-        event.recipes.create.filling('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', Fluid.of('utopia:nitric_acid', 25)]),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'create:copper_sheet']),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:basic_circuit']),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:wire_spool']),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:basic_circuit']),
-        event.recipes.create.deploying('create_connected:incomplete_control_chip', ['create_connected:incomplete_control_chip', 'utopia:wire_spool']),
-        event.recipes.create.pressing('create_connected:incomplete_control_chip', 'create_connected:incomplete_control_chip'),
-        event.recipes.create.pressing('create_connected:incomplete_control_chip', 'create_connected:incomplete_control_chip'),
-      ]
-    )
-    .transitionalItem('create_connected:incomplete_control_chip')
-    .loops(5)
+event.recipes.create.sequenced_assembly(
+  [
+    // Outputs:
+    CreateItem.of('utopia:advanced_circuit', 0.97),
+    CreateItem.of('2x utopia:garbage', 0.01),
+    CreateItem.of('utopia:plastic_ingot', 0.01),
+    CreateItem.of(`minecraft:egg[custom_name='{"bold":false,"color":"white","italic":false,"obfuscated":false,"strikethrough":false,"text":"Device","underlined":false}']`, 0.01)
+  ],
+  // Input:
+  'utopia:circuit_upgrade_template',
+  // Sequence:
+  [
+    // Stage 1: substrate prep (6)
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:silica_dust']),
+    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 50)]),
+    event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:bleach', 25)]),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:silica_dust']),
+    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+
+    // Stage 2: wiring (6)
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
+    event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+
+    // Stage 3: conductive layers (6)
+    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:golden_sheet']),
+    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 50)]),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:brass_sheet']),
+    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:bleach', 25)]),
+    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+
+    // Stage 4: logic core (6)
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:basic_circuit']),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:precision_mechanism']),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:transmitter']),
+    event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+
+    // Stage 5: platinum contacts + coolant coat (6)
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:platinum_nugget']),
+    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:propylene_glycol', 50)]),
+    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:platinum_nugget']),
+    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+  ]
+)
+.transitionalItem('utopia:incomplete_advanced_circuit')
+.loops(3)
 })

@@ -57,8 +57,7 @@
       "kind": "item",
       "definition": "BOW",
       "animations": {
-        "use_bow": "pack:punchy:punchy",
-        "use_bow_shot": "pack:punchy:punchy"
+        "use_bow": "pack:punchy:punchy"
       }
     },
     {

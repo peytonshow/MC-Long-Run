@@ -6,7 +6,8 @@
     "east": "utopia:block/computer_side",
     "west": "utopia:block/computer_side",
     "up": "utopia:block/computer_top",
-    "down": "utopia:block/computer_top"
+    "down": "utopia:block/computer_top",
+    "particle": "utopia:block/computanium_side"
   },
   "elements": [
     {

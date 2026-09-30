@@ -1,7 +1,9 @@
-const DISABLED_ITEMS = [
-  /quark:vertical_.*_planks/,
-  /tradeworks:.*_side_shelf/,
+const DISABLED_REGEX = [
+  /^quark:vertical_.*_planks$/,
+  /^tradeworks:.*_side_shelf$/
+]
 
+const DISABLED_IDS = [
   'farmersdelight:wheat_dough',
   'frame_changer:crying_obsidian_brick_slab',
   'frame_changer:crying_polished_obsidian_stairs',
@@ -25,6 +27,7 @@ const DISABLED_ITEMS = [
   'parcool:traceur_boots',
   'create_enchantment_industry:super_enchanting_template',
   'create_enchantment_industry:experience_cake_base',
+  'create_enchantment_industry:experience_cake',
   'create_enchantment_industry:experience_cake_slice',
   'storagedrawers:personal_key_ftb',
   'storagedrawers:personal_key_unlock',
@@ -37,19 +40,14 @@ const DISABLED_ITEMS = [
   'storagedrawers:portability_upgrade',
   'storagedrawers:framing_table',
   'storagedrawers:drawer_puller',
+  'create_connected:incomplete_control_chip',
   'create_connected:control_chip'
 ]
 
+const ALL_DISABLED = DISABLED_IDS.concat(DISABLED_REGEX)
+
 ServerEvents.tags('item', event => {
-  DISABLED_ITEMS.forEach(item => {
-    event.add('utopia:disabled', item)
-  })
-})
-
-ServerEvents.recipes(event => {
-  event.remove({ output: '#utopia:disabled' })
-
-  DISABLED_ITEMS.forEach(item => {
-    event.remove({ output: item })
-  })
+  DISABLED_IDS.forEach(id => event.removeAllTagsFrom(id))
+  DISABLED_IDS.forEach(id => event.add('utopia:disabled', id))
+  DISABLED_REGEX.forEach(re => event.add('utopia:disabled', re))
 })

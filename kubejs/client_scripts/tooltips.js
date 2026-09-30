@@ -33,6 +33,17 @@ ItemEvents.modifyTooltips(event => {
         });
     };
 
+    const addTemplateTooltip = (itemFilter, info) => {
+        event.modify(itemFilter, text => {
+            text.insert(1, Text.of(info.title).gray());
+            text.insert(2, "");
+            text.insert(3, Text.of('Applies to:').gray());
+            text.insert(4, Text.of(' ' + info.appliesTo).blue());
+            text.insert(5, Text.of('Ingredients:').gray());
+            text.insert(6, Text.of(' ' + info.ingredients).blue());
+        });
+    };
+
     event.modify('parcool:parcool_guide', tooltip => {
         tooltip.removeLine(1);
         tooltip.removeLine(1);
@@ -60,11 +71,19 @@ ItemEvents.modifyTooltips(event => {
     addShiftTooltip('utopia:beaker_propylene_glycol', "It looks thick and oily. Smells weirdly sweet."); 
 
     // --- Computers ---
+    event.modify('utopia:circuit_upgrade_template', text => {
+            text.insert(1, Text.of('Chip Upgrade').gray());
+            text.insert(2, "");
+            text.insert(3, Text.of('Applies to:').gray());
+            text.insert(4, Text.of(' Circuits').blue());
+    })
+
     addShiftTooltip('utopia:computer_block', "A Program can be selected in the crafting grid.\n\nCan be Sold, but otherwise acts as decoration."); 
     addShiftTooltip('utopia:computer_block_terminal', "Program: Await input.\n\nCan be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:computer_block_terminal', "Program: Text Editor.\n\nCan be Sold, but otherwise acts as decoration."); 
     addShiftTooltip('utopia:computer_block_data', "Program: Crunching numbers.\n\nCan be Sold, but otherwise acts as decoration."); 
-    addShiftTooltip('utopia:computer_block_space', "Program: Transmit signals.\n\nCan be Sold, but otherwise acts as decoration."); 
-    addShiftTooltip('utopia:computer_block_badsignal', "Program: Destroy signals.\n\nCan be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:computer_block_space', "Program: Decode signals.\n\nCan be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:computer_block_badsignal', "Program: Destroy the signal.\n\nCan be Sold, but otherwise acts as decoration."); 
     addShiftTooltip('utopia:broken_computer', "Destroyed.\n\nCan't be Sold, but otherwise acts as decoration."); 
 
     addShiftTooltip('oreganized:lead_bolt', "A stronger, crossbow-exclusive arrow. Must be held in your offhand in order to be loaded."); 

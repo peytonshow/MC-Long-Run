@@ -4,12 +4,12 @@ StartupEvents.registry('item', event => {
     event.create('utopia:shadow_key').texture('utopia:item/shadow_key').displayName('Shadow Key')
 
     // Production
-    event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet').displayName('Patchwork Netherite Helmet')
-    event.create('utopia:incomplete_netherite_chestplate', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_chestplate').displayName('Patchwork Netherite Chestplate')
-    event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings').displayName('Patchwork Netherite Leggings')
-    event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots').displayName('Patchwork Netherite Boots')
-    event.create('utopia:incomplete_basic_circuit', 'create:sequenced_assembly').displayName('Incomplete Basic Circuit').texture('utopia:item/incomplete_basic_circuit')
-    event.create('utopia:incomplete_advanced_circuit', 'create:sequenced_assembly').displayName('Incomplete Advanced Circuit').texture('utopia:item/incomplete_advanced_circuit')
+    event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet').displayName('Patchwork Netherite Helmet').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_netherite_chestplate', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_chestplate').displayName('Patchwork Netherite Chestplate').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings').displayName('Patchwork Netherite Leggings').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots').displayName('Patchwork Netherite Boots').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_basic_circuit', 'create:sequenced_assembly').displayName('Incomplete Basic Circuit').texture('utopia:item/incomplete_basic_circuit').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_advanced_circuit', 'create:sequenced_assembly').displayName('Incomplete Advanced Circuit').texture('utopia:item/incomplete_advanced_circuit').tag('c:hidden_from_recipe_viewers')
     // event.create('utopia:incomplete_wire_spool', 'create:sequenced_assembly').displayName('Incomplete Wire Spool').texture('utopia:item/incomplete_wire_spool').tag('c:hidden_from_recipe_viewers').unstackable()
 
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
@@ -32,11 +32,12 @@ StartupEvents.registry('item', event => {
     // Electricity
     //event.create('utopia:battery_charged').displayName('Graphite').texture('utopia:item/graphite_ingot')
     event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').displayName('Plastic')
+    
     event.create('utopia:wire').displayName('Wire').texture('utopia:item/wire').tag('utopia:electricity')
     event.create('utopia:wire_spool').displayName('Wire Spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(60).unstackable()
     event.create('utopia:basic_circuit').displayName('Basic Chip').texture('utopia:item/circuit_board').tag('utopia:electricity').maxStackSize(16)
     event.create('utopia:advanced_circuit').displayName('Advanced Chip').texture('utopia:item/advanced_circuit_board').tag('utopia:electricity').maxStackSize(16)
-    event.create('utopia:circuit_upgrade_template').displayName('Chipmakers Template').texture('utopia:item/circuit_upgrade_template')
+    event.create('utopia:circuit_upgrade_template').displayName('Manufacturing Template').texture('utopia:item/circuit_upgrade_template')
 
     // Ingots
     event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite_ingot').tag('c:ingots').tag('c:ingots/graphite')
@@ -116,29 +117,10 @@ StartupEvents.registry('item', event => {
       .tag('c:foods/cooked_meats')
       .tag('minecraft:meat')
       .tag('minecraft:wolf_food')
-    // event.create('utopia:seasoned_cooked_bushmeat').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Bushmeat')
 
 })
 
 StartupEvents.registry('block', event => {
-  // event.create('utopia:pink_salt_lamp') 
-  //   .displayName('Pink Salt Lamp')
-  //   .soundType('glass') 
-  //   .hardness(3) 
-  //   .resistance(4)
-  //   .lightLevel(11/15)
-  //   .renderType('translucent')
-  //   .notSolid()
-  //   .fullBlock(false)
-  // event.create('utopia:lava_salt_lamp') 
-  //   .displayName('Sulphuric Salt Lamp')
-  //   .soundType('glass') 
-  //   .hardness(3) 
-  //   .resistance(4)
-  //   .lightLevel(13/15)
-  //   .renderType('translucent')
-  //   .notSolid()
-  //   .fullBlock(false)
   event.create('utopia:sea_salt_lamp') 
     .displayName('Salt Lamp')
     .soundType('glass') 
@@ -149,7 +131,7 @@ StartupEvents.registry('block', event => {
     .notSolid()
     .fullBlock(false)
 
-event.create('utopia:moissanite_block')
+  event.create('utopia:moissanite_block')
     .displayName('Block of Moissanite')
     .soundType('metal')
     .hardness(5.0)
@@ -157,18 +139,17 @@ event.create('utopia:moissanite_block')
     .requiresTool(true) 
     .tagBlock('minecraft:mineable/pickaxe') 
     .tagBlock('minecraft:needs_iron_tool')
-    
   event.create('utopia:sea_salt_block') 
     .displayName('Sea Salt Block')
     .soundType('sand') 
     .hardness(3) 
     .resistance(5)
-
   event.create('utopia:neon_block') 
     .displayName('Neon')
     .soundType('shroomlight') 
     .resistance(1)
 
+  // Degrees
   event.create('utopia:degree_law', "kubejs:cardinal") 
     .displayName('Law Degree')
     .soundType('scaffolding')

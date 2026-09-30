@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "utopia:block/computanium_top",
+    "side": "utopia:block/computanium_side",
+    "particle": "#side"
+  }
+}

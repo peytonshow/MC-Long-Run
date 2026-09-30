@@ -2,10 +2,11 @@
 
 GOALS
 * Ongoing struggle for survival, early progression is longer.
-* Focus on in-world interactions, introducing underutilized mechanics into progrssion.
-* Automation and logistics are important. Automation shouldn't produce infinite resources from nothing (with a few exceptions).
+* Large multiplayer focus.
+* Introducing underutilized mechanics into progrssion, and unifying mechanics across mods.
 * Strong performance on all systems. And additional client is available with less fluff.
-* Built for multiplayer, with the goal of reducing individualist self-sustainment in exchange for player interaction build upon specialization and necessity. 
+* Built for multiplayer, with the goal of reducing individualist self-sustainment in exchange for player interaction build upon specialization and necessity.
+* Automation and logistics are central. Automation shouldn't produce infinite resources from nothing (with a few exceptions). Late game struggles revolve around supply chains.
 * Offer players the tools to build society through currency, deals, and governing.
 
 ---------------------------------------------------------------------------------------------------------------
@@ -29,7 +30,7 @@ TRADING
         - Fisherman - Buys fish (Doy!)
     * Mixed Types. Sell and buy materials and moderate rates.
         - Mason - Buys bulk stone building materials and bricks. Sells decorative blocks.
-        - Fletcher - Buys and sells arrows, guns and ammo.
+        - Fletcher - Buys and sells arrows, guns and ammo. D
         - Toolsmith - Sells all basic tools, buys bulk metals.
         - Cartographer - Buys books, ink sacs and compasses.
         - Leatherworker - Buys Hide, Leather armor and Saddles.
@@ -55,8 +56,8 @@ MATERIAL PROGRESSION CHANGES
     * Netherite -> Provides more protection on armor. Abysmal enchantability. Easier to gain scrap.
 * New Materials
     * Electrum -> (Oreganized) Doesn't suffer from weight-related speed penalties and increases base movement speed. Weapons and tools do higher damage at higher speeds.
-    * Siver -> (Oreganized) Equal to iron, but increases invincibility frames while worn.
-    * Knight Armor -> Perfected Iron. Insane durability, and boosts the strength of nearby pets.
+    * Siver (A.k.a Ancient, Oreganized) -> (Oreganized) Equal to iron, but increases invincibility frames while worn.
+    * Knight Armor (Royal Variations) -> Perfected Iron Armor. Insane durability, and boosts the strength of nearby pets.
     * Platinum -> Platinum is a super rare mineral found by blowing crushed gold. It shares stats with Diamond, but struggles with durability. Platinum is mainly used as a Catalyst for certain racipes rather than tools due its rarity.
         
 -----------------------------------------------------------------------------------------------------------------

@@ -7,7 +7,8 @@ ServerEvents.recipes(event => {
                 { output: 'minecraft:diamond_block' },
                 { input: '#utopia:rare_templates' },
                 { input: '#minecraft:trim_templates' },
-                { input: '#c:tools' }
+                { input: '#c:tools' },
+                { mod: 'storagedrawers'}
             ]
         },
         'minecraft:diamond',   // What to replace

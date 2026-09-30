@@ -43,9 +43,9 @@ StartupEvents.modifyCreativeTab('minecraft:food_and_drinks', event => {
 })
 
 StartupEvents.modifyCreativeTab('minecraft:ingredients', event => {
-    event.addAfter('minecraft:lapis_lazuli',['utopia:graphite_ingot'])
-    event.addAfter('utopia:graphite_ingot',['utopia:moissanite'])
-    event.addAfter('oreganized:silver_ingot',['utopia:platinum_ingot'])
+    event.addAfter('minecraft:lapis_lazuli',['utopia:graphite_ingot', 'utopia:moissanite'])
+    event.addAfter('minecraft:gold_ingot',['utopia:platinum_ingot'])
+    event.addAfter('minecraft:gold_nugget',['utopia:platinum_nugget'])
     event.addAfter('minecraft:clay_ball',['utopia:silica_dust, utopia:plastic_ingot'])
     event.addAfter('minecraft:experience_bottle',['quark:cloud'])
 })

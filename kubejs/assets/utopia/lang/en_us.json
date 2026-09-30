@@ -41,6 +41,7 @@
   "utopia.info.platinum": "Platinum is an extremely rare resource, even rarer than gold. You wont find any just from mining, but you can occasionally wash up some specks from blowing gold. Platinum is the strongest material in terms of combat and tools, but is incredibly fragile.",
   "utopia.info.gas": "Gasses act like liquid in many ways, but can't be physically placed anywhere.",
 
+  "item.create.belt_connector": "Conveyer Belt",
   "farmersdelight.tooltip.cooking_pot.empty": "Empty",
   "block.minecraft.blast_furnace": "Kiln",
   "container.blast_furnace": "Kiln",

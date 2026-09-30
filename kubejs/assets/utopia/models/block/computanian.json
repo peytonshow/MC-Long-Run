@@ -1,0 +1,24 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "front": "utopia:block/computanium_front",
+    "side": "utopia:block/computanium_side",
+    "up": "utopia:block/computanium_top",
+    "down": "utopia:block/computanium_top",
+    "particle": "utopia:block/computanium_side"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": { "texture": "#front", "cullface": "north" },
+        "south": { "texture": "#front", "cullface": "south" },
+        "east":  { "texture": "#side",  "cullface": "east" },
+        "west":  { "texture": "#side",  "cullface": "west" },
+        "up":    { "texture": "#up",    "cullface": "up"},
+        "down":  { "texture": "#down",  "cullface": "down" }
+      }
+    }
+  ]
+}

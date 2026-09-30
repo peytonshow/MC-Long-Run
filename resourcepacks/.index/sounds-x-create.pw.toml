@@ -1,0 +1,18 @@
+filename = 'Sounds x Create V1.4.zip'
+name = 'Sounds X Create'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-mc-versions = [ '1.20.1', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '1.4'
+
+[download]
+hash = 'e0e484f4cc60110a318896a65d9067fadbeedf36c4b1673747f297ef6cada26c3105f2fd06847bd7e8d60ce00f4a3f3cd1387839ec570af4754be41d830fcd7c'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/pmtTxyU8/versions/6Z0FVZtT/Sounds x Create V1.4.zip'
+
+[update.modrinth]
+mod-id = 'pmtTxyU8'
+version = '6Z0FVZtT'

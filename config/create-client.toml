@@ -114,7 +114,7 @@
 		#Maximum volume modifier of Ambient noise
 		# Default: 0.10000000149011612
 		# Range: 0.0 ~ 1.0
-		ambientVolumeCap = 0.10000000149011612
+		ambientVolumeCap = 0.05000000149011612
 
 	#.
 	#Mod Integration and Recipe Viewer

@@ -16,7 +16,7 @@ fullscreen:false
 gamma:0.5
 graphicsMode:1
 guiScale:4
-maxFps:70
+maxFps:260
 mipmapLevels:1
 narrator:0
 particles:0
@@ -35,7 +35,7 @@ chatLinksPrompt:true
 discrete_mouse_scroll:false
 invertYMouse:false
 realmsNotifications:true
-showSubtitles:true
+showSubtitles:false
 directionalAudio:true
 touchscreen:false
 bobView:true
@@ -48,8 +48,8 @@ mouseSensitivity:0.5
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["mod/punchy:resourcepacks/punchy","vanilla","fabric","mod_resources","moonlight:merged_pack","file/-1.21.2 Fresh Moves v3.1 (No Animated Eyes).zip","file/Better Chainmail Armor.zip","file/BetterExp.zip","file/C4Music_v4.3.zip","file/CoffeeGUI_1.20.2-26.2_release_v2.2.1.zip","file/Enchantment Outlines.zip","file/Fancy Crops v1.3.zip","file/Gentler Weather Sounds 2.3.0.zip","file/Leather Robes - 1.21.1.zip","file/Mace Fusion 2.2.zip","file/ModdedCoffeeGUI_Release_v1.16.0.zip","file/Muskets 3D Wild West для Ewewkek\u0027s.zip","file/Quark VRO.zip","file/Xbox 360 Advancement SFX.zip","file/§bArmor§8-§bReimagined§0_§8[v1.1]§0.zip","file/§b§lSpectator Xray §7v1.2.1.zip","black_icons","scholar:colored_books","scholar:chiseled_bookshelf_colored_books","mod/oreganized:resourcepacks/create_compat","file/SmoothDrawers_1.21.1_v2.zip","file/cubic-sun-moon-v1.8.5.zip","file/§3Fresh §bWeapons \u0026 Tools.zip","file/alpha_sounds_1.20.2-1.14.zip"]
-incompatibleResourcePacks:["file/BetterExp.zip","file/alpha_sounds_1.20.2-1.14.zip"]
+resourcePacks:["mod/punchy:resourcepacks/punchy","vanilla","fabric","mod_resources","moonlight:merged_pack","file/-1.21.2 Fresh Moves v3.1 (No Animated Eyes).zip","file/Better Chainmail Armor.zip","file/BetterExp.zip","file/C4Music_v4.3.zip","file/CoffeeGUI_1.20.2-26.2_release_v2.2.1.zip","file/Enchantment Outlines.zip","file/Fancy Crops v1.3.zip","file/Gentler Weather Sounds 2.3.0.zip","file/Leather Robes - 1.21.1.zip","file/Mace Fusion 2.2.zip","file/ModdedCoffeeGUI_Release_v1.16.0.zip","file/Muskets 3D Wild West для Ewewkek\u0027s.zip","file/Quark VRO.zip","file/§bArmor§8-§bReimagined§0_§8[v1.1]§0.zip","file/§b§lSpectator Xray §7v1.2.1.zip","black_icons","scholar:colored_books","scholar:chiseled_bookshelf_colored_books","mod/oreganized:resourcepacks/create_compat","file/SmoothDrawers_1.21.1_v2.zip","file/cubic-sun-moon-v1.8.5.zip","file/§3Fresh §bWeapons \u0026 Tools.zip","file/Create Touch-Ups v1.0.zip","file/Create_Style_Hopper_24_5_29.zip","file/Sounds x Create V1.4.zip"]
+incompatibleResourcePacks:["file/BetterExp.zip","file/Create Touch-Ups v1.0.zip","file/Create_Style_Hopper_24_5_29.zip"]
 lastServer:
 lang:en_us
 chatVisibility:0
@@ -123,14 +123,15 @@ key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
 key_lambdynlights.key.toggle_fps_dynamic_lighting:key.keyboard.unknown
 key_key.modernfix.config:key.keyboard.unknown
-key_iris.keybind.reload:key.keyboard.r
-key_iris.keybind.toggleShaders:key.keyboard.k
-key_iris.keybind.shaderPackSelection:key.keyboard.o
+key_iris.keybind.reload:key.keyboard.unknown
+key_iris.keybind.toggleShaders:key.keyboard.unknown
+key_iris.keybind.shaderPackSelection:key.keyboard.unknown
 key_iris.keybind.wireframe:key.keyboard.unknown
 key_zume.zoom:key.keyboard.z
 key_zume.zoom_in:key.keyboard.equal
 key_zume.zoom_out:key.keyboard.minus
 key_key.exposure.camera_controls:key.keyboard.unknown
+key_key.reliable_remover.emi_delete:key.keyboard.delete
 key_supplementaries.keybind.quiver:key.keyboard.v
 key_key.corpse.death_history:key.keyboard.u
 key_key.astikorcartsredux.action:key.keyboard.r
@@ -146,12 +147,12 @@ key_key.scholar.insert_empty_page_right:key.keyboard.insert:ALT
 key_key.scholar.remove_page_right:key.keyboard.delete:ALT
 key_key.push_to_talk:key.keyboard.unknown
 key_key.whisper:key.keyboard.unknown
-key_key.mute_microphone:key.keyboard.m
-key_key.disable_voice_chat:key.keyboard.n
-key_key.hide_icons:key.keyboard.h
-key_key.voice_chat:key.keyboard.v
+key_key.mute_microphone:key.keyboard.unknown
+key_key.disable_voice_chat:key.keyboard.unknown
+key_key.hide_icons:key.keyboard.unknown
+key_key.voice_chat:key.keyboard.n
 key_key.voice_chat_settings:key.keyboard.unknown
-key_key.voice_chat_group:key.keyboard.g
+key_key.voice_chat_group:key.keyboard.unknown
 key_key.voice_chat_toggle_recording:key.keyboard.unknown
 key_key.voice_chat_adjust_volumes:key.keyboard.unknown
 key_key.trade_cycling.cycle_trades:key.keyboard.c
@@ -159,15 +160,15 @@ key_gui.xaero_minimap_settings:key.keyboard.y
 key_gui.xaero_minimap_server_profiles:key.keyboard.unknown
 key_gui.xaero_zoom_in:key.keyboard.unknown
 key_gui.xaero_zoom_out:key.keyboard.unknown
-key_gui.xaero_new_waypoint:key.keyboard.b
-key_gui.xaero_waypoints_key:key.keyboard.u
-key_gui.xaero_enlarge_map:key.keyboard.z
+key_gui.xaero_new_waypoint:key.keyboard.unknown
+key_gui.xaero_waypoints_key:key.keyboard.b
+key_gui.xaero_enlarge_map:key.keyboard.unknown
 key_gui.xaero_toggle_map:key.keyboard.unknown
 key_gui.xaero_toggle_waypoints:key.keyboard.unknown
 key_gui.xaero_toggle_map_waypoints:key.keyboard.unknown
 key_gui.xaero_toggle_slime:key.keyboard.unknown
 key_gui.xaero_toggle_grid:key.keyboard.unknown
-key_gui.xaero_instant_waypoint:key.keyboard.keypad.add
+key_gui.xaero_instant_waypoint:key.keyboard.unknown
 key_gui.xaero_switch_waypoint_set:key.keyboard.unknown
 key_gui.xaero_display_all_sets:key.keyboard.unknown
 key_gui.xaero_toggle_light_overlay:key.keyboard.unknown
@@ -269,8 +270,8 @@ key_create.keyinfo.shift_modifier:key.keyboard.left.shift
 key_create.keyinfo.ctrl_modifier:key.keyboard.left.control
 key_create.keyinfo.alt_modifier:key.keyboard.left.alt
 key_key.entityculling.toggle:key.keyboard.unknown
-key_key.punchy.triggerable.punchy_sword_inspect_old:key.keyboard.j
 key_key.punchy.triggerable.punchy_sword_inspect_rework:key.keyboard.g
+key_key.punchy.triggerable.punchy_sword_inspect_old:key.keyboard.j
 soundCategory_master:0.8584437086092715
 soundCategory_music:0.0
 soundCategory_record:1.0
