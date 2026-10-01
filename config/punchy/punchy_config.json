@@ -36,6 +36,10 @@
   "firstPersonModelHideEnabled": true,
   "firstPersonModelHidePitch": 60.0,
   "itemBlacklist": [
+    "nirvana:suspicious_pipe",
+    "nirvana:joint",
+    "nirvana:stuffed_pipe",
+    "nirvana:old_pipe",
     "create:rare_creeper_package",
     "create:rare_darcy_package",
     "create:rare_evan_package",
@@ -196,6 +200,10 @@
     "minecraft:brush"
   ],
   "blacklistApplyDualHanded": {
+    "nirvana:suspicious_pipe": false,
+    "nirvana:joint": false,
+    "nirvana:stuffed_pipe": false,
+    "nirvana:old_pipe": false,
     "create:rare_creeper_package": false,
     "create:rare_darcy_package": false,
     "create:rare_evan_package": false,

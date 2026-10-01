@@ -1,13 +1,13 @@
 {
   "parent": "block/cube",
   "textures": {
-    "north": "utopia:block/computer_blue/computer_front_terminal",
-    "south": "utopia:block/computer_blue/computer_back",
-    "east": "utopia:block/computer_blue/computer_side",
-    "west": "utopia:block/computer_blue/computer_side",
-    "up": "utopia:block/computer_blue/computer_top",
-    "down": "utopia:block/computer_blue/computer_top",
-    "particle": "utopia:block/computer_blue/computanium_side"
+    "north": "utopia:block/computer_tan/computer_front_badsignal",
+    "south": "utopia:block/computer_tan/computer_back",
+    "east": "utopia:block/computer_tan/computer_side",
+    "west": "utopia:block/computer_tan/computer_side",
+    "up": "utopia:block/computer_tan/computer_top",
+    "down": "utopia:block/computer_tan/computer_top",
+    "particle": "utopia:block/computer_tan/computanium_side"
   },
   "elements": [
     {

@@ -11,7 +11,14 @@
   },
   {
     "action": "remove",
+    "mod": ["nirvana"],
+    "pattern": "/^(?!.*woven_burlap).*burlap.*/"
+  },
+  {
+    "action": "remove",
     "items": [
+      "create_enchantment_industry:blaze_forger",
+      "nirvana:hemp_cloth",
       "farmersdelight:wheat_dough",
       "frame_changer:crying_obsidian_brick_slab",
       "frame_changer:crying_polished_obsidian_stairs",

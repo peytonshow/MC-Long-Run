@@ -1,4 +1,6 @@
 {
+  "enchantment.freezing_enchantment.freezing.desc":"Attacks will deal slowness.",
+
   "subtitles.utopia.computer_terminal_ambient": "Computer hums",
   "subtitles.utopia.computer_data_ambient": "Computer processes data",
   "subtitles.utopia.computer_data_creepy": "Computer crunches number",

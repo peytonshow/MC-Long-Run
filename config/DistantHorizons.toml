@@ -624,7 +624,7 @@ _version = 5
 				# Only applies to high detail LODs where the texture is actually visible, 
 				# distant LODs always use flat colors. 
 				# Some shader packs nay not have an affect.
-				enableTexturedLods = true
+				enableTexturedLods = false
 				#
 				# A comma separated list of block resource locations 
 				# that DH won't render textures on. 

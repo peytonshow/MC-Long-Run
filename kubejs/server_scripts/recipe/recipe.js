@@ -34,6 +34,41 @@ ServerEvents.recipes(event => {
     event.shapeless(Item.of('create:tiled_glass_pane'), ['minecraft:glass_pane'])
     event.shapeless('minecraft:glass_pane', [['create:framed_glass_pane', 'create:horizontal_framed_glass_pane', 'create:vertical_framed_glass_pane', 'create:tiled_glass_pane']])
 
+    // Fiber unification
+    event.shaped(
+            Item.of('nirvana:deerstalker')
+            , [
+            '   ',
+            'AAA',
+            'A A'
+        ], {
+            A: '#utopia:burlap'
+    })
+    replaceRecipe({ output: 'nirvana:hemp_crate' },
+        () => event.recipes.create.compacting([
+            'nirvana:hemp_crate'
+        ], [
+            '9x nirvana:hemp',
+            'create:cardboard'
+    ]))
+    replaceRecipe({ output: 'nirvana:weed_crate' },
+        () => event.recipes.create.compacting([
+            'nirvana:weed_crate'
+        ], [
+            '9x nirvana:weed',
+            'create:cardboard'
+    ]))
+    event.shapeless('4x nirvana:hemp', '#utopia:burlap')
+    event.shaped(
+            Item.of('nirvana:woven_burlap')
+            , [
+            'AA ',
+            'AA ',
+            '   '
+        ], {
+            A: 'nirvana:hemp'
+    })
+
     // Building
     event.recipes.create.pressing('supplementaries:ash_brick','supplementaries:ash')
 
@@ -410,16 +445,8 @@ ServerEvents.recipes(event => {
         'minecraft:blackstone'
     ])
 
-    event.recipes.create.milling([
-        CreateItem.of('6x utopia:sea_salt'),
-        CreateItem.of('5x utopia:sea_salt', 0.75)], [
-        'minecraft:calcite'
-    ])
-    event.recipes.create.crushing([
-        CreateItem.of('utopia:sea_salt')
-        ], [
-        'minecraft:calcite'
-    ])
+    // Calcite / Aka Calcium-basically-carbonate
+    event.recipes.create.mixing(['minecraft:calcite'], ['3x supplementaries:ash','3x minecraft:bone_meal', Fluid.of('minecraft:water', 300)])
 
     // Gravel
     event.recipes.create.crushing([
@@ -519,6 +546,7 @@ ServerEvents.recipes(event => {
         Fluid.of('utopia:oxygen', 400)
     ]).heated()
     event.recipes.create.mixing([
+        CreateItem.of('utopia:sea_salt', .5),
         Fluid.of('utopia:oxygen', 200),
         Fluid.of('utopia:hydrogen', 400)
     ], [
@@ -549,9 +577,10 @@ ServerEvents.recipes(event => {
     event.recipes.create.mixing([
         Fluid.of('utopia:bleach', 200)
     ], [
-        'utopia:sea_salt',
+        '2x utopia:sea_salt',
+        'supplementaries:ash',
         Fluid.of('minecraft:water', 200),
-        'create:experience_nugget'
+        Fluid.of('utopia:nitric_acid', 200)
     ]).heated().processingTime(300)
 
     // Ammonia
@@ -684,10 +713,7 @@ ServerEvents.recipes(event => {
         'utopia:shadow_key',
         'supplementaries:key'
     )
-    event.recipes.create.pressing(
-        'supplementaries:key',
-        'utopia:shadow_key'
-    )
+    event.recipes.create.pressing('supplementaries:key','utopia:shadow_key')
 
 
     // Science Future.
@@ -700,6 +726,7 @@ ServerEvents.recipes(event => {
             B: 'minecraft:gold_block',
             C: 'utopia:circuit_upgrade_template'
     })
+    event.recipes.create.pressing('utopia:block_of_plastic','utopia:plastic_ingot')
     event.shaped('utopia:computer_block', [
             'AAA',
             'DBC',
@@ -708,7 +735,7 @@ ServerEvents.recipes(event => {
             A: '#c:ingots/iron',
             B: 'bits_n_bobs:large_nixie_tube',
             C: '#c:glass_blocks',
-            D: 'utopia:plastic_ingot',
+            D: 'utopia:block_of_plastic',
             E: 'utopia:advanced_circuit'
     })
     event.shapeless('4x utopia:computanian', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
@@ -757,7 +784,7 @@ ServerEvents.recipes(event => {
         
       ],
       // Input:
-      'create:cardboard', 
+      'create:cardboard',
       // Sequence:
       [
         event.recipes.create.deploying('utopia:incomplete_basic_circuit', ['utopia:incomplete_basic_circuit', 'create:copper_sheet']),

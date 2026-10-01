@@ -121,4 +121,6 @@ ServerEvents.tags('item', event => {
     event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')
     event.add('minecraft:needs_iron_tool', 'quark:sturdy_stone')
     event.add('minecraft:mineable/pickaxe', 'quark:sturdy_stone')
+
+    event.add('utopia:burlap', /^nirvana:.*woven_burlap.*$/)
 })

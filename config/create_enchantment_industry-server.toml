@@ -42,24 +42,66 @@
 	crushingWheelKillDropXpScale = 0.3400000035762787
 
 	#.
+	#Parameters and abilities of enchantment operating components
+	[kinetics.enchantments]
+		#.
+		#.
+		#The max experience level a Blaze Enchanter can use in Regular Enchanting
+		# Default: 30
+		# Range: > 0
+		blazeEnchanterMaxEnchantLevel = 10
+		#.
+		#If Super Enchanting and Super Forging ignores enchantment compatibility
+		ignoreEnchantmentCompatibility = false
+		#.
+		#The max experience level a Blaze Enchanter can use in Super Enchanting
+		# Default: 60
+		# Range: > 0
+		blazeEnchanterMaxSuperEnchantLevel = 60
+		#.
+		#Chance per curse roll for blocked-lightning Super Enchanting to add an applicable curse to the result
+		# Default: 0.5
+		# Range: 0.0 ~ 1.0
+		blazeEnchanterBlockedLightningCurseChance = 0.5
+		#.
+		#Maximum curse rolls for blocked-lightning Super Enchanting
+		# Default: 1
+		# Range: 0 ~ 16
+		blazeEnchanterBlockedLightningCurseCount = 1
+		#.
+		#Maximum curse level blocked-lightning Super Enchanting can add
+		# Default: 1
+		# Range: 1 ~ 255
+		blazeEnchanterBlockedLightningCurseMaxLevel = 1
+		#.
+		#Max enchantment level in Super Enchanting will be extended by this value when no per-enchantment processing rule exists
+		# Default: 1
+		# Range: 0 ~ 255
+		blazeEnchanterMaxLevelExtension = 1
+		#.
+		#Max enchantment level in Super Forging will be extended by this value when no per-enchantment processing rule exists
+		# Default: 1
+		# Range: 0 ~ 255
+		blazeForgerMaxLevelExtension = 1
+		#.
+		#If Enchantment extraction respects over-capped level
+		extractEnchantmentRespectLevelExtension = false
+
+		#.
+		#Fine tune the kinetic stats of individual components
+		[kinetics.stressValues.v1]
+
+			#.
+			#.
+			#[in Stress Units]
+			#Configure the individual stress impact of mechanical blocks. Note that this cost is doubled for every speed increase it receives.
+			[kinetics.stressValues.v1.impact]
+				mechanical_grindstone = 4.0
+				grindstone_drain = 4.0
+
+	#.
 	#Parameters and abilities of fluids and fluid operating components
 	[kinetics.fluids]
-		#.
-		#The amount of liquid a Blaze Forger can hold (mB).
-		#[@cui:RequiresReload:server]
-		# Default: 4000
-		# Range: > 1000
-		blazeForgerFluidCapacity = 2000
-		#.
-		#If the printing of Enchanted Books function of Printers should be enabled.
-		#[@cui:RequiresReload:server]
-		enableEnchantedBookPrinting = false
-		#.
-		#The amount of liquid a Blaze Enchanter can hold (mB).
-		#[@cui:RequiresReload:server]
-		# Default: 4000
-		# Range: > 1000
-		blazeEnchanterFluidCapacity = 2000
 		#.
 		#.
 		#Whether Liquid Experience will vaporize into Experience Orbs upon placement.
@@ -74,6 +116,10 @@
 		#If the printing of Written Books function of Printers should be enabled.
 		#[@cui:RequiresReload:server]
 		enableWrittenBookPrinting = true
+		#.
+		#If the printing of Enchanted Books function of Printers should be enabled.
+		#[@cui:RequiresReload:server]
+		enableEnchantedBookPrinting = true
 		#.
 		#If the printing of Create's copiable items function of Printers should be enabled.
 		#[@cui:RequiresReload:server]
@@ -111,6 +157,18 @@
 		#Whether the Printer denylist prevents Enchanted Books from being copied.Setting this to false allows copying Enchanted Books without denied enchantments
 		printingEnchantedBookDenylistStopCopying = true
 		#.
+		#The amount of liquid a Blaze Enchanter can hold (mB).
+		#[@cui:RequiresReload:server]
+		# Default: 4000
+		# Range: > 1000
+		blazeEnchanterFluidCapacity = 4000
+		#.
+		#The amount of liquid a Blaze Forger can hold (mB).
+		#[@cui:RequiresReload:server]
+		# Default: 4000
+		# Range: > 1000
+		blazeForgerFluidCapacity = 4000
+		#.
 		#The amount of liquid an Experience Lantern can hold (mB).
 		#[@cui:RequiresReload:server]
 		# Default: 1000
@@ -145,16 +203,6 @@
 	#Parameters and abilities of processing mechanisms and appliances
 	[kinetics.processing]
 		#.
-		#Global experience cost multiplier for Super Blaze Forger operations.
-		# Default: 1.0
-		# Range: 0.0 ~ 3.4028234663852886E38
-		blazeForgerSuperForgingCostMultiplier = 999.0
-		#.
-		#Global experience cost multiplier for Super Blaze Enchanter operations.
-		# Default: 1.0
-		# Range: 0.0 ~ 3.4028234663852886E38
-		blazeEnchanterSuperEnchantingCostMultiplier = 999.0
-		#.
 		#.
 		#Probability of natural lightning strikes transforming Blocks of Experience.
 		# Default: 1.0
@@ -186,6 +234,11 @@
 		# Range: 0.0 ~ 3.4028234663852886E38
 		blazeEnchanterNormalEnchantingCostMultiplier = 1.0
 		#.
+		#Global experience cost multiplier for Super Blaze Enchanter operations.
+		# Default: 1.0
+		# Range: 0.0 ~ 3.4028234663852886E38
+		blazeEnchanterSuperEnchantingCostMultiplier = 1.0
+		#.
 		#Experience cost multiplier for direct Blaze Enchanter operations on items and books.
 		# Default: 1.0
 		# Range: 0.0 ~ 3.4028234663852886E38
@@ -200,6 +253,11 @@
 		# Default: 1.0
 		# Range: 0.0 ~ 3.4028234663852886E38
 		blazeForgerNormalForgingCostMultiplier = 1.0
+		#.
+		#Global experience cost multiplier for Super Blaze Forger operations.
+		# Default: 1.0
+		# Range: 0.0 ~ 3.4028234663852886E38
+		blazeForgerSuperForgingCostMultiplier = 1.0
 		#.
 		#Experience cost multiplier for Blaze Forger merge operations.
 		# Default: 1.0
@@ -225,61 +283,3 @@
 		# Default: 2
 		# Range: > 0
 		blazeForgerDurabilityRepairLevelCost = 2
-
-		#.
-		#Fine tune the kinetic stats of individual components
-		[kinetics.stressValues.v1]
-
-			#.
-			#.
-			#[in Stress Units]
-			#Configure the individual stress impact of mechanical blocks. Note that this cost is doubled for every speed increase it receives.
-			[kinetics.stressValues.v1.impact]
-				mechanical_grindstone = 4.0
-				grindstone_drain = 4.0
-
-	#.
-	#Parameters and abilities of enchantment operating components
-	[kinetics.enchantments]
-		#.
-		#.
-		#The max experience level a Blaze Enchanter can use in Regular Enchanting
-		# Default: 30
-		# Range: > 0
-		blazeEnchanterMaxEnchantLevel = 30
-		#.
-		#The max experience level a Blaze Enchanter can use in Super Enchanting
-		# Default: 60
-		# Range: > 0
-		blazeEnchanterMaxSuperEnchantLevel = 60
-		#.
-		#Chance per curse roll for blocked-lightning Super Enchanting to add an applicable curse to the result
-		# Default: 0.5
-		# Range: 0.0 ~ 1.0
-		blazeEnchanterBlockedLightningCurseChance = 0.5
-		#.
-		#Maximum curse rolls for blocked-lightning Super Enchanting
-		# Default: 1
-		# Range: 0 ~ 16
-		blazeEnchanterBlockedLightningCurseCount = 1
-		#.
-		#Maximum curse level blocked-lightning Super Enchanting can add
-		# Default: 1
-		# Range: 1 ~ 255
-		blazeEnchanterBlockedLightningCurseMaxLevel = 1
-		#.
-		#Max enchantment level in Super Enchanting will be extended by this value when no per-enchantment processing rule exists
-		# Default: 1
-		# Range: 0 ~ 255
-		blazeEnchanterMaxLevelExtension = 1
-		#.
-		#Max enchantment level in Super Forging will be extended by this value when no per-enchantment processing rule exists
-		# Default: 1
-		# Range: 0 ~ 255
-		blazeForgerMaxLevelExtension = 1
-		#.
-		#If Super Enchanting and Super Forging ignores enchantment compatibility
-		ignoreEnchantmentCompatibility = true
-		#.
-		#If Enchantment extraction respects over-capped level
-		extractEnchantmentRespectLevelExtension = false

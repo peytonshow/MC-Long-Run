@@ -10,7 +10,7 @@
 	useExplosionResistance: true,
 	attenuationType: "VERCIDIUM_LINEAR",
 	maxBlocksPermeated: 3.0,
-	permeationAbsorption: 0.101,
+	permeationAbsorption: 0.4,
 	barrierAsAir: true,
 	disableFXOnUI: false,
 	bounceAbsorptionMultiplier: 0.9,
