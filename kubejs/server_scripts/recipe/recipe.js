@@ -35,7 +35,7 @@ ServerEvents.recipes(event => {
     event.shapeless('minecraft:glass_pane', [['create:framed_glass_pane', 'create:horizontal_framed_glass_pane', 'create:vertical_framed_glass_pane', 'create:tiled_glass_pane']])
 
     // Forgin
-    event.remove({ input: 'minecraft:gold_ingot', output: ['minecraft:netherite_ingot', 'oreganized:electrum_ingot']})
+    event.remove({ input: 'minecraft:gold_ingot', output: ['minecraft:netherite_ingot', 'oreganized:electrum_ingot']}) //alloy
     const ingots = [
         { full: 'minecraft:copper_ingot', fluid: 'utopia:molten_copper', crushed : 'create:crushed_raw_copper', slagAmount : 25},
         { full: 'create:zinc_ingot', fluid: 'utopia:molten_zinc', crushed : 'create:crushed_raw_zinc', slagAmount : 25 },
@@ -51,17 +51,14 @@ ServerEvents.recipes(event => {
         { full: '3x utopia:garbage', fluid: 'utopia:molten_slag'}
     ];
     for (let item of ingots) {
-        event.recipes.create.filling(item.full, [Fluid.of(item.fluid, 100), 'utopia:ingot_mould']);
+        event.recipes.create.filling(item.full, [Fluid.of(item.fluid, 100), 'utopia:ingot_mold']);
         if(item.fluid == 'utopia:molten_slag') { continue; }
-
-
         if(item.crushed && item.slagAmount){
             event.recipes.create.mixing(
                 [Fluid.of(item.fluid, 200), Fluid.of('utopia:molten_slag', item.slagAmount)],
                 [item.crushed, Ingredient.of('#utopia:flux')]
             ).heated()
         }
-
         event.recipes.create.mixing(Fluid.of(item.fluid, 100),
             [item.full, Ingredient.of('#utopia:flux')]
         ).heated()
@@ -72,8 +69,34 @@ ServerEvents.recipes(event => {
     event.recipes.create.mixing([Fluid.of('utopia:molten_electrum', 25), Fluid.of('utopia:molten_slag', 175)],
         [Fluid.of('utopia:molten_silver', 100), Fluid.of('utopia:molten_gold', 100)]
     ).heated()
-
-
+    event.recipes.create.mixing([
+        CreateItem.of('create:powdered_obsidian', 0.65)
+    ], [
+        Fluid.of('minecraft:water', 50),Fluid.of('minecraft:lava', 50),
+    ]).processingTime(17)
+    event.shaped('utopia:ingot_mold', [
+        'ABA',
+        'ACA'
+    ], {
+        A: 'minecraft:clay_ball',
+        B: ['#c:ingots', '#utopia:bricks'],
+        C: 'create:sturdy_sheet',
+    }).keepIngredient('#c:ingots').keepIngredient('#utopia:bricks')
+    replaceRecipe({ output: 'create:sturdy_sheet' },
+        () => event.recipes.create.sequenced_assembly(
+            [
+                CreateItem.of('create:sturdy_sheet', 0.9),
+                CreateItem.of('utopia:garbage', 0.1),
+            ],
+            'create:powdered_obsidian',
+            [
+                event.recipes.create.filling('create:unprocessed_obsidian_sheet',
+                    ['create:unprocessed_obsidian_sheet', Fluid.sizedIngredientOf('#utopia:sturdy_sheet_fluids', 50)]),
+                event.recipes.create.pressing('create:unprocessed_obsidian_sheet', 'create:unprocessed_obsidian_sheet'),
+                event.recipes.create.pressing('create:unprocessed_obsidian_sheet', 'create:unprocessed_obsidian_sheet'),
+            ]
+        ).transitionalItem('create:unprocessed_obsidian_sheet').id('utopia:sturdy_sheet')
+    )
 
     // Device
     replaceRecipe({ output: 'oreganized:unknown_device' },
@@ -115,6 +138,9 @@ ServerEvents.recipes(event => {
             C: '#minecraft:wooden_slabs',
             D: 'minecraft:packed_ice'
     }))
+    replaceRecipe({ output: 'create:dough' },
+        () => event.shapeless(Item.of('create:dough'), ['minecraft:water_bucket', 'create:wheat_flour']).keepIngredient('minecraft:water_bucket')
+    )
 
     // Gliders
     event.shaped(

@@ -14,7 +14,10 @@ StartupEvents.registry('item', event => {
 
     // Forgin'!
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
-    event.create('utopia:ingot_mould').displayName('Mould').texture('utopia:item/sturdy_mould')
+    event.create('utopia:ingot_mold').displayName('Mold').texture('utopia:item/sturdy_mold')
+
+    // Usable
+    event.create('utopia:letter_of_invitation').displayName('Letter of Invite').maxStackSize(16)
 
     // Sciantest
     event.create('utopia:beaker').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker').displayName('Empty Beaker')
@@ -29,12 +32,11 @@ StartupEvents.registry('item', event => {
     event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica').tag('c:dusts').tag('utopia:chemistry')
     event.create('utopia:moissanite').displayName('Moissanite').texture('utopia:item/moissanite').tag('c:gems').tag('utopia:chemistry')
     event.create('utopia:ammonium_nitrate').tag('utopia:chemistry').texture('utopia:item/ammonium_nitrate').displayName('Ammonium Nitrate')
-    event.create('utopia:sulfur_dust').tag('utopia:chemistry').texture('utopia:item/sulphur').displayName('Sulfur Dust')
+    event.create('utopia:sulfur_dust').tag('c:dusts').tag('utopia:chemistry').texture('utopia:item/sulphur').displayName('Sulfur Dust')
 
     
     // Electricity
     //event.create('utopia:battery_charged').displayName('Graphite').texture('utopia:item/graphite_ingot')
-    
     event.create('utopia:wire').displayName('Wire').texture('utopia:item/wire').tag('utopia:electricity')
     event.create('utopia:wire_spool').displayName('Wire Spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(60).unstackable()
     event.create('utopia:basic_circuit').displayName('Basic Chip').texture('utopia:item/circuit_board').tag('utopia:electricity').maxStackSize(16)
@@ -77,7 +79,7 @@ StartupEvents.registry('item', event => {
     event.create('utopia:cookie_dough').maxStackSize(global.MAXFOODSIZE).displayName('Cookie Dough')
     event.create('utopia:pepper').tag('utopia:spices')
       .tag('c:foods')
-    event.create('utopia:sea_salt').tag('utopia:spices').displayName('Salt')
+    event.create('utopia:sea_salt').tag('utopia:spices').tag('c:dusts').displayName('Salt')
       .tag('c:foods')
     event.create('utopia:seasoned_cooked_beef').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Steak')
       .tag('c:animal_foods')

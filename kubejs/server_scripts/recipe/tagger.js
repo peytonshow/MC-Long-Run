@@ -106,6 +106,13 @@ ServerEvents.tags('item', event => {
         'utopia:moissanite'
     ])
 
+    event.add('utopia:bricks', [
+        'minecraft:brick', 
+        'minecraft:nether_brick', 
+        'supplementaries:ash_brick',
+        'minecraft:resin_brick', 
+    ])
+
     event.add('create:pulpifiable', 'farmersdelight:tree_bark')
     event.add('create:upright_on_belt', '#utopia:beakers')
 
@@ -193,5 +200,11 @@ ServerEvents.tags('block', event => {
 ServerEvents.tags('fluid', event => {
     event.add('utopia:molten', [
         "oreganized:molten_lead"
+        // All other molten tags are handled by reg
     ] )
+
+    event.add('utopia:sturdy_sheet_fluids', [
+        'minecraft:lava',
+        'utopia:molten_slag'
+    ])
 })

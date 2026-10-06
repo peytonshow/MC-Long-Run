@@ -1,0 +1,11 @@
+{
+  "type": "emi:info",
+  "stacks": [
+    [
+      "item:minecraft:flint_and_steel",
+      "item:minecraft:fire_charge"
+    ],
+    "item:quark:blaze_lantern"
+  ],
+  "text": "utopia.info.the_nether"
+}

@@ -18,7 +18,4 @@ RecipeViewerEvents.addInformation('item', event => {
 
     // mimic.json
     event.add(['artifacts:mimic_spawn_egg'], [Text.translate('utopia.info.mimic')])
-
-    // nether.json
-    event.add(['quark:blaze_lantern', 'minecraft:glowstone', 'minecraft:flint_and_steel', 'minecraft:fire_charge'], [Text.translate('utopia.info.the_nether')])
 })
