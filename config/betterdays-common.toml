@@ -22,13 +22,13 @@
 	#This setting defines the length of the day in real-world minutes.
 	#Vanilla length: 10.0 minutes
 	#Range: 0.1 ~ 10000.0
-	daySpeedMinutes = 30.0
+	daySpeedMinutes = 32.0
 	#An alternative way to set night speed. This setting is mutually exclusive with nightSpeed.
 	#If both are set, speedMethod (see above) determines which setting is used.
 	#This setting defines the length of the night in real-world minutes.
 	#Vanilla length: 10.0 minutes
 	#Range: 0.1 ~ 10000.0
-	nightSpeedMinutes = 20.0
+	nightSpeedMinutes = 8.0
 	#The time to start day. This is configurable within the time the sun appears and day starts.
 	#Default: 23500
 	#Range: 22300.0 ~ 24000.0
@@ -69,7 +69,7 @@
 		#Note: On NeoForge 1.21.1+ this is already handled by the platform. SLEEPING will still work as intended.
 		#This effect has a minimum randomTickSpeed of 1 if time speed is less than 1.0.
 		#Allowed Values: NEVER, ALWAYS, SLEEPING
-		randomTickEffect = "NEVER"
+		randomTickEffect = "SLEEPING"
 		#The base random tick speed used by the randomTickEffect time effect.
 		#Range: > 0
 		baseRandomTickSpeed = 3

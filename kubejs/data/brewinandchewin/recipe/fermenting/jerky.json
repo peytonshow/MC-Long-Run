@@ -1,0 +1,24 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "brewinandchewin:foods/jerky_meat"
+    },
+    {
+      "tag": "brewinandchewin:foods/jerky_meat"
+    },
+    {
+      "tag": "brewinandchewin:foods/jerky_meat"
+    },
+    {
+      "item": "utopia:sea_salt"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "brewinandchewin:jerky"
+  },
+  "temperature": 4
+}

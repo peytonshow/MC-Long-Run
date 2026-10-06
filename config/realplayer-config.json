@@ -1,0 +1,204 @@
+{
+  "shadows/apotheosis/ench/enchantments/IcyThornsEnchant": {
+    "0-all-enabled": false
+  },
+  "mob_grinding_utils/mixin/ZombieMixin": {
+    "hurtMixin": false
+  },
+  "mob_grinding_utils/MobGrindingUtils": {
+    "effectApplicable": false
+  },
+  "mob_grinding_utils/events/EntityHeadDropEvent": {
+    "dropEvent": false
+  },
+  "dev/shadowsoffire/apotheosis/tiers/WorldTier": {
+    "getTier": false
+  },
+  "dev/ftb/mods/ftbchunks/FTBChunks": {
+    "enterSection": false
+  },
+  "dev/ftb/mods/ftbchunks/data/ClaimedChunkManagerImpl": {
+    "shouldPreventInteraction": false
+  },
+  "dev/ftb/mods/ftbchunks/data/ChunkTeamDataImpl": {
+    "canPlayerUse": false
+  },
+  "dev/architectury/hooks/level/entity/forge/PlayerHooksImpl": {
+    "isFake": false
+  },
+  "dev/ftb/mods/ftbquests/util/FTBQuestsInventoryListener": {
+    "0-all-enabled": false
+  },
+  "dev/ftb/mods/ftbquests/forge/FTBQuestsForge": {
+    "0-all-enabled": false
+  },
+  "dev/ftb/mods/ftbquests/quest/task/StageTask": {
+    "0-all-enabled": false
+  },
+  "dev/ftb/mods/ftbquests/FTBQuestsEventHandler": {
+    "0-all-enabled": false
+  },
+  "dev/ftb/mods/ftbquests/block/entity/DetectorBlockEntity": {
+    "0-all-enabled": false
+  },
+  "ovh/corail/tombstone/helper/EntityHelper": {
+    "0-all-enabled": true,
+    "checkUnconventionalFakePlayer": false,
+    "isFakePlayer": false
+  },
+  "dev/uncandango/alltheleaks/mixin/core/main/PlayerListMixin": {
+    "0-all-enabled": true,
+    "atl$replaceWithFakeMapForPut": true,
+    "atl$replaceWithFakeMapForGet": true
+  },
+  "dev/uncandango/alltheleaks/mixin/core/main/ServerPlayerMixin": {
+    "0-all-enabled": true,
+    "atl$clearTriggers": true
+  },
+  "com/simibubi/create/content/contraptions/actors/seat/SeatBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "com/simibubi/create/content/logistics/packager/PackagerBlock": {
+    "0-all-enabled": true,
+    "getStateForPlacement": true
+  },
+  "com/hlysine/create_connected/mixin/inventoryaccess/PackagerBlockMixin": {
+    "0-all-enabled": true,
+    "rejectInventoryAccessBlocks": true
+  },
+  "com/simibubi/create/content/logistics/packagePort/PackagePortBlockEntity": {
+    "0-all-enabled": true,
+    "use": true
+  },
+  "dev/latvian/mods/kubejs/core/PlayerKJS": {
+    "0-all-enabled": true,
+    "kjs$isFake": true
+  },
+  "dev/latvian/mods/kubejs/stages/StageEvents": {
+    "0-all-enabled": true,
+    "create": true
+  },
+  "net/mehvahdjukaar/moonlight/api/platform/platform/PlatHelperImpl": {
+    "0-all-enabled": true,
+    "isFakePlayer": true
+  },
+  "technology/roughness/whitenoise/platform/NeoForgePlatform": {
+    "0-all-enabled": true,
+    "isFakePlayer": true
+  },
+  "net/blay09/mods/balm/neoforge/NeoForgeBalmHooks": {
+    "0-all-enabled": true,
+    "isFakePlayer": true
+  },
+  "org/violetmoon/quark/content/tweaks/module/GrabChickensModule": {
+    "0-all-enabled": true,
+    "playerInteract": true
+  },
+  "galena/nirvana/forge/services/ForgePlatformHelper": {
+    "0-all-enabled": true,
+    "isFakePlayer": true
+  },
+  "com/hlysine/create_connected/datagen/advancements/AdvancementBehaviour": {
+    "0-all-enabled": true,
+    "trackOwner": true
+  },
+  "com/simibubi/create/content/processing/burner/BlazeBurnerBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "dev/khloeleclair/create/additionallogistics/common/content/contraptions/actors/seats/AbstractSeatBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "com/simibubi/create/content/contraptions/actors/seat/SeatEntity": {
+    "0-all-enabled": true,
+    "canRide": true
+  },
+  "net/createmod/catnip/platform/NeoForgeHooksHelper": {
+    "0-all-enabled": true,
+    "isPlayerFake": true
+  },
+  "moe/wolfgirl/probejs/GameEvents": {
+    "0-all-enabled": true,
+    "changedDimension": true
+  },
+  "org/violetmoon/quark/addons/oddities/module/MatrixEnchantingModule": {
+    "0-all-enabled": true,
+    "onRightClick": true
+  },
+  "com/simibubi/create/foundation/blockEntity/behaviour/scrollValue/ScrollValueBehaviour": {
+    "0-all-enabled": true,
+    "onShortInteract": true
+  },
+  "com/evandev/treeliable/compat/Apotheosis": {
+    "0-all-enabled": true,
+    "lambda$onChop$1": true
+  },
+  "com/simibubi/create/content/equipment/clipboard/ClipboardBlock": {
+    "0-all-enabled": true,
+    "breakAndCollect": true
+  },
+  "com/simibubi/create/content/equipment/toolbox/ToolboxBlock": {
+    "0-all-enabled": true,
+    "attack": true,
+    "useItemOn": true
+  },
+  "com/simibubi/create/content/logistics/itemHatch/ItemHatchBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "com/simibubi/create/content/equipment/armor/BacktankBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "com/simibubi/create/content/equipment/blueprint/BlueprintEntity": {
+    "0-all-enabled": true,
+    "interactAt": true
+  },
+  "com/simibubi/create/content/logistics/redstoneRequester/RedstoneRequesterBlockEntity": {
+    "0-all-enabled": true,
+    "use": true
+  },
+  "com/simibubi/create/foundation/blockEntity/behaviour/ValueSettingsInputHandler": {
+    "0-all-enabled": true,
+    "onBlockActivated": true
+  },
+  "com/simibubi/create/content/redstone/link/LinkHandler": {
+    "0-all-enabled": true,
+    "onBlockActivated": true
+  },
+  "com/simibubi/create/content/kinetics/chainConveyor/ChainConveyorConnectionHandler": {
+    "0-all-enabled": true,
+    "onItemUsedOnBlock": true
+  },
+  "plus/dragons/createdragonsplus/common/fluids/hatch/FluidHatchBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "com/kipti/bnb/content/trinkets/chair/ChairBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "plus/dragons/createenchantmentindustry/common/kinetics/grindstone/MechanicalGrindstoneBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "plus/dragons/createenchantmentindustry/common/fluids/experience/ExperienceHatchBlock": {
+    "0-all-enabled": true,
+    "useWithoutItem": true
+  },
+  "plus/dragons/createenchantmentindustry/common/fluids/experience/BlazeExperienceBlock": {
+    "0-all-enabled": true,
+    "useItemOn": true
+  },
+  "com/simibubi/create/foundation/advancement/AdvancementBehaviour": {
+    "0-all-enabled": true,
+    "setPlacedBy": true
+  },
+  "plus/dragons/createdragonsplus/common/advancements/AdvancementBehaviour": {
+    "0-all-enabled": true,
+    "setOwner": true,
+    "getOwner": true
+  }
+}

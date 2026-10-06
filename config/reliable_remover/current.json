@@ -16,8 +16,21 @@
   },
   {
     "action": "remove",
+    "mod": ["vc_gliders"],
+    "pattern": "/.*reinforced_paper.*/"
+  },
+  {
+    "action": "remove",
     "items": [
-      "create_enchantment_industry:blaze_forger",
+      "oreganized:sturdy_button",
+      "oreganized:sturdy_lever",
+      "oreganized:bush_hammer",
+      "quark:polished_calcite",
+      "quark:polished_calcite_stairs",
+      "quark:polished_calcite_slab",
+      "quark:polished_dripstone",
+      "quark:polished_dripstone_stairs",
+      "quark:polished_dripstone_slab",
       "nirvana:hemp_cloth",
       "farmersdelight:wheat_dough",
       "frame_changer:crying_obsidian_brick_slab",
@@ -35,11 +48,12 @@
       "supplementaries:quark/cannon_boat_ancient",
       "supplementaries:quark/ancient_boat",
       "unusual_furniture:discord",
-      "oreganized:bush_hammer",
       "parcool:grappling_hook",
       "parcool:hook",
       "parcool:traceur_gloves",
       "parcool:traceur_boots",
+      "create_enchantment_industry:blaze_forger",
+      "create_enchantment_industry:blaze_enchanter",
       "create_enchantment_industry:super_enchanting_template",
       "create_enchantment_industry:experience_cake_base",
       "create_enchantment_industry:experience_cake",
@@ -55,6 +69,8 @@
       "storagedrawers:portability_upgrade",
       "storagedrawers:framing_table",
       "storagedrawers:drawer_puller",
+      "storagedrawers:personal_key_cofh",
+      "storagedrawers:personal_key",
       "create_connected:incomplete_control_chip",
       "create_connected:control_chip"
     ]

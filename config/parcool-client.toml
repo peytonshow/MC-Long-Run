@@ -1,12 +1,50 @@
-[HUD]
+		[action.parcool.ride_zipline]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.fast_run]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.horizontal_wall_run]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.fast_swim]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.crawl]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.hang_on]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.hang_down]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.pole_climb]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.slide_down]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+		[action.parcool.dodge]
+			#Allowed Values: PRESS_KEY, RELEASE_KEY
+			input = "PRESS_KEY"
+
+		[action.parcool.breakfall]
+			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
+			input = "DOWN_KEY"
+
+[hud]
 	#Allowed Values: Light, Hide
 	stamina_hud_type = "Light"
-	#horizontal alignment
-	#Allowed Values: Left, Right
-	hud_align_h_s = "Right"
-	#vertical alignment
-	#Allowed Values: Top, Bottom
-	hud_align_v_s = "Bottom"
 	show_always = false
 	hide_automatically = true
 	# Default: 0
@@ -16,7 +54,7 @@
 	# Range: -100 ~ 100
 	hud_offset_v = 0
 
-[GrapplingHook]
+[grappling_hook]
 	#how much speed widens the view. 0 disables
 	# Default: 0.6
 	# Range: 0.0 ~ 1.0
@@ -38,49 +76,5 @@
 	#log it when the rope ends up inside a block
 	debug_rope = false
 
-[Other]
+[other]
 	enable_sounds = true
-
-		[Action.parcool.ride_zipline]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.fast_run]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.horizontal_wall_run]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.fast_swim]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.crawl]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.hang_on]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.hang_down]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.pole_climb]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.slide_down]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"
-
-		[Action.parcool.dodge]
-			#Allowed Values: PRESS_KEY, RELEASE_KEY
-			input = "PRESS_KEY"
-
-		[Action.parcool.breakfall]
-			#Allowed Values: DOWN_KEY, TOGGLE, ALWAYS
-			input = "DOWN_KEY"

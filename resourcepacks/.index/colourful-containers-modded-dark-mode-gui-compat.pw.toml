@@ -1,0 +1,72 @@
+filename = '§5§lModded §f§lContainers §8§lDark§8.zip'
+name = 'Colourful Containers - Modded Dark Mode GUI Compat'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-mc-versions = [
+    '1.16',
+    '1.16.1',
+    '1.16.2',
+    '1.16.3',
+    '1.16.4',
+    '1.16.5',
+    '1.17',
+    '1.17.1',
+    '1.18',
+    '1.18.1',
+    '1.18.2',
+    '1.19',
+    '1.19.1',
+    '1.19.2',
+    '1.19.3',
+    '1.19.4',
+    '1.20.5 Pre-Release 1',
+    '1.20.5 Pre-Release 2',
+    '1.20.5 Pre-Release 3',
+    '1.20.5-pre1',
+    '1.20.5-pre2',
+    '1.20.5-pre3',
+    '1.20.5',
+    '1.20.6',
+    '1.21',
+    '1.21.1',
+    '1.21.2 Pre-Release 1',
+    '1.21.2 Pre-Release 2',
+    '1.21.2-pre1',
+    '1.21.2-pre2',
+    '1.21.2',
+    '1.21.3',
+    '1.21.4',
+    '1.21.5',
+    '24w12a',
+    '24w13a',
+    '24w14a',
+    '24w14potato',
+    '24w18a',
+    '24w19a',
+    '24w19b',
+    '24w20a',
+    '24w33a',
+    '24w34a',
+    '24w35a',
+    '24w36a',
+    '24w37a',
+    '24w38a',
+    '24w39a',
+    '24w40a',
+    '24w44a',
+    '24w45a',
+    '24w46a'
+]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '6'
+
+[download]
+hash = 'deb0080304affd602e9c5fcdee2f5444587e1dc18367275a65f5016e7c3e2617528c82a40a8e0bf046d80ad2956d653196fbca6901d3b6c4206e24a5c872fbd3'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/RicjEnpc/versions/FSOKaMp4/§5§lModded §f§lContainers §8§lDark§8.zip'
+
+[update.modrinth]
+mod-id = 'RicjEnpc'
+version = 'FSOKaMp4'

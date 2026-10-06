@@ -1,0 +1,12 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "fluid": {
+    "amount": 200,
+    "id": "utopia:nitrogen"
+  },
+  "output": {
+    "count": 1,
+    "id": "utopia:beaker_nitrogen"
+  },
+  "unit": "millibuckets"
+}

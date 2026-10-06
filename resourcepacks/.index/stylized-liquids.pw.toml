@@ -1,0 +1,37 @@
+filename = 'StylizedLiquids.zip'
+name = 'Stylized Liquids'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-mc-versions = [
+    '1.19',
+    '1.19.1',
+    '1.19.2',
+    '1.19.3',
+    '1.19.4',
+    '1.20',
+    '1.20.1',
+    '1.20.2',
+    '1.20.3',
+    '1.20.4',
+    '1.20.5',
+    '1.20.6',
+    '1.21',
+    '1.21.1',
+    '1.21.2',
+    '1.21.3',
+    '1.21.4',
+    '1.21.5'
+]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '1.0'
+
+[download]
+hash = '3c9c777c89e9b7ac32d54f2656526dfb2d1aafbb2bdbd210048c5eac14bdb97b40d69fa1aa8610104aded9b6161c028fcbd107dd6ad13b0d312efd5b6c2e029d'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/iA8r21Ex/versions/BzLgfpfJ/StylizedLiquids.zip'
+
+[update.modrinth]
+mod-id = 'iA8r21Ex'
+version = 'BzLgfpfJ'

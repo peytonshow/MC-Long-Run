@@ -16,13 +16,13 @@ fullscreen:false
 gamma:0.5
 graphicsMode:1
 guiScale:4
-maxFps:260
+maxFps:70
 mipmapLevels:1
 narrator:0
 particles:0
 reducedDebugInfo:false
 renderClouds:"false"
-renderDistance:5
+renderDistance:7
 simulationDistance:6
 screenEffectScale:0.3732394366197183
 soundDevice:""
@@ -48,8 +48,8 @@ mouseSensitivity:0.5
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
-resourcePacks:["mod/punchy:resourcepacks/punchy","vanilla","fabric","mod_resources","moonlight:merged_pack","file/-1.21.2 Fresh Moves v3.1 (No Animated Eyes).zip","file/Better Chainmail Armor.zip","file/BetterExp.zip","file/C4Music_v4.3.zip","file/Enchantment Outlines.zip","file/Fancy Crops v1.3.zip","file/Gentler Weather Sounds 2.3.0.zip","file/Leather Robes - 1.21.1.zip","file/Mace Fusion 2.2.zip","file/ModdedCoffeeGUI_Release_v1.16.0.zip","file/Muskets 3D Wild West для Ewewkek\u0027s.zip","file/Quark VRO.zip","file/§bArmor§8-§bReimagined§0_§8[v1.1]§0.zip","file/§b§lSpectator Xray §7v1.2.1.zip","black_icons","scholar:colored_books","scholar:chiseled_bookshelf_colored_books","mod/oreganized:resourcepacks/create_compat","file/SmoothDrawers_1.21.1_v2.zip","file/cubic-sun-moon-v1.8.5.zip","file/§3Fresh §bWeapons \u0026 Tools.zip","file/Create Touch-Ups v1.0.zip","file/Create_Style_Hopper_24_5_29.zip","file/Sounds x Create V1.4.zip","file/CoffeeGUI_1.20.2-26.2_release_v2.2.1.zip"]
-incompatibleResourcePacks:["file/BetterExp.zip","file/Create Touch-Ups v1.0.zip","file/Create_Style_Hopper_24_5_29.zip"]
+resourcePacks:["mod/punchy:resourcepacks/punchy","vanilla","fabric","mod_resources","moonlight:merged_pack","file/Better Chainmail Armor.zip","file/BetterExp.zip","file/C4Music_v4.3.zip","file/Enchantment Outlines.zip","file/Fancy Crops v1.3.zip","file/Leather Robes - 1.21.1.zip","file/ModdedCoffeeGUI_Release_v1.16.0.zip","file/Muskets 3D Wild West для Ewewkek\u0027s.zip","file/Quark VRO.zip","file/§bArmor§8-§bReimagined§0_§8[v1.1]§0.zip","file/§b§lSpectator Xray §7v1.2.1.zip","black_icons","scholar:colored_books","scholar:chiseled_bookshelf_colored_books","mod/oreganized:resourcepacks/create_compat","file/SmoothDrawers_1.21.1_v2.zip","file/cubic-sun-moon-v1.8.5.zip","file/§3Fresh §bWeapons \u0026 Tools.zip","file/Create Touch-Ups v1.0.zip","file/Create_Style_Hopper_24_5_29.zip","file/Sounds x Create V1.4.zip","file/Gentler Weather Sounds 2.3.0.zip","file/Sexy Stev\u0027s Bussin\u0027 Banners.zip","file/qrafty\u0027s-capitalized-font-3.1.zip","file/Supplementaries Rope Redone v2.0.zip","file/RST Backport Supporter §cv1.4§r.zip","file/Mace Fusion 3.zip","file/CoffeeGUI_1.20.2-26.2_release_v2.2.1.zip","file/CoffeeGuiAdditions.zip"]
+incompatibleResourcePacks:["file/BetterExp.zip","file/Create_Style_Hopper_24_5_29.zip","file/qrafty\u0027s-capitalized-font-3.1.zip"]
 lastServer:
 lang:en_us
 chatVisibility:0
@@ -156,12 +156,12 @@ key_key.voice_chat_group:key.keyboard.unknown
 key_key.voice_chat_toggle_recording:key.keyboard.unknown
 key_key.voice_chat_adjust_volumes:key.keyboard.unknown
 key_key.trade_cycling.cycle_trades:key.keyboard.c
-key_gui.xaero_minimap_settings:key.keyboard.y
+key_gui.xaero_minimap_settings:key.keyboard.unknown
 key_gui.xaero_minimap_server_profiles:key.keyboard.unknown
 key_gui.xaero_zoom_in:key.keyboard.unknown
 key_gui.xaero_zoom_out:key.keyboard.unknown
 key_gui.xaero_new_waypoint:key.keyboard.unknown
-key_gui.xaero_waypoints_key:key.keyboard.b
+key_gui.xaero_waypoints_key:key.keyboard.unknown
 key_gui.xaero_enlarge_map:key.keyboard.unknown
 key_gui.xaero_toggle_map:key.keyboard.unknown
 key_gui.xaero_toggle_waypoints:key.keyboard.unknown
@@ -183,18 +183,18 @@ key_key.punchy.open_main_menu:key.keyboard.f8
 key_key.punchy.inspect:key.keyboard.i
 key_gnetum.config.keyMapping:key.keyboard.end
 key_gui.xaero_open_map:key.keyboard.m
-key_gui.xaero_open_settings:key.keyboard.right.bracket
+key_gui.xaero_open_settings:key.keyboard.unknown
 key_gui.xaero_world_map_server_settings:key.keyboard.unknown
 key_gui.xaero_map_zoom_in:key.keyboard.unknown
 key_gui.xaero_map_zoom_out:key.keyboard.unknown
-key_gui.xaero_quick_confirm:key.keyboard.right.shift
+key_gui.xaero_quick_confirm:key.keyboard.unknown
 key_gui.xaero_toggle_dimension:key.keyboard.unknown
 key_placebo.toggleTrails:key.keyboard.keypad.9
 key_placebo.toggleWings:key.keyboard.keypad.8
 key_key.carry.desc:key.keyboard.unknown
 key_key.travelertoolbelt.open_toolbelt:key.keyboard.r
 key_key.extraspecialhub.open:key.keyboard.f9
-key_key.simple_music_control.next_music_track:key.keyboard.m
+key_key.simple_music_control.next_music_track:key.keyboard.unknown
 key_key.simple_music_control.toggle_music:key.keyboard.unknown
 key_key.do_a_barrel_roll.toggle_enabled:key.keyboard.i
 key_key.do_a_barrel_roll.toggle_thrust:key.keyboard.unknown
@@ -242,8 +242,8 @@ key_quark.keybind.patreon_emote.jet:key.keyboard.unknown
 key_quark.keybind.patreon_emote.exorcist:key.keyboard.unknown
 key_quark.keybind.patreon_emote.zombie:key.keyboard.unknown
 key_quark.keybind.change_hotbar:key.keyboard.z
-key_quark.keybind.sort_player:key.keyboard.unknown
-key_quark.keybind.sort_container:key.keyboard.unknown
+key_quark.keybind.sort_player:key.mouse.middle
+key_quark.keybind.sort_container:key.mouse.middle
 key_quark.keybind.lock_rotation:key.keyboard.k
 key_quark.keybind.narrator_readout:key.keyboard.unknown
 key_quark.keybind.narrator_full_readout:key.keyboard.unknown
@@ -256,7 +256,7 @@ key_key.parcool.dodge:key.keyboard.r
 key_key.parcool.breakfall:key.keyboard.r
 key_key.parcool.horizontal_wall_run:key.keyboard.r
 key_key.parcool.hide_in_block:key.keyboard.c
-key_key.parcool.open_skilltree:key.keyboard.p:ALT
+key_key.parcool.open_setting_skilltree:key.keyboard.p:ALT
 key_key.parcool.enable:key.keyboard.p:CONTROL
 key_key.freecam.toggle:key.keyboard.f4
 key_key.freecam.playerControl:key.keyboard.unknown
@@ -270,10 +270,10 @@ key_create.keyinfo.shift_modifier:key.keyboard.left.shift
 key_create.keyinfo.ctrl_modifier:key.keyboard.left.control
 key_create.keyinfo.alt_modifier:key.keyboard.left.alt
 key_key.entityculling.toggle:key.keyboard.unknown
-key_key.punchy.triggerable.punchy_sword_inspect_old:key.keyboard.j
 key_key.punchy.triggerable.punchy_sword_inspect_rework:key.keyboard.g
+key_key.punchy.triggerable.punchy_sword_inspect_old:key.keyboard.j
 soundCategory_master:0.8584437086092715
-soundCategory_music:0.2517605633802817
+soundCategory_music:0.15316901408450703
 soundCategory_record:1.0
 soundCategory_weather:0.801056338028169
 soundCategory_block:0.602112676056338

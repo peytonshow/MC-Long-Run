@@ -1,8 +1,9 @@
-[Animation]
+[animation]
 	enable = true
 	enable_camera_animation = true
+	enable_first_person_view_animation = true
 
-	[Animation.Availability]
+	[animation.availability]
 		"parcool:fast_run" = true
 		"parcool:crawl" = true
 		"parcool:dodge_right" = true
@@ -40,5 +41,5 @@
 		"parcool:pole_climb" = true
 		"parcool:fast_swim" = true
 		"parcool:grapple" = true
-		"parcool:creative_fly" = true
 		"parcool:long_jump" = true
+		"parcool:creative_fly" = true

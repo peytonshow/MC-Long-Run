@@ -34,6 +34,174 @@ ServerEvents.recipes(event => {
     event.shapeless(Item.of('create:tiled_glass_pane'), ['minecraft:glass_pane'])
     event.shapeless('minecraft:glass_pane', [['create:framed_glass_pane', 'create:horizontal_framed_glass_pane', 'create:vertical_framed_glass_pane', 'create:tiled_glass_pane']])
 
+    // Forgin
+    event.remove({ input: 'minecraft:gold_ingot', output: ['minecraft:netherite_ingot', 'oreganized:electrum_ingot']})
+    const ingots = [
+        { full: 'minecraft:copper_ingot', fluid: 'utopia:molten_copper', crushed : 'create:crushed_raw_copper', slagAmount : 25},
+        { full: 'create:zinc_ingot', fluid: 'utopia:molten_zinc', crushed : 'create:crushed_raw_zinc', slagAmount : 25 },
+        { full: 'create:brass_ingot', fluid: 'utopia:molten_brass' },
+        { full: 'minecraft:iron_ingot', fluid: 'utopia:molten_iron', crushed : 'create:crushed_raw_iron', slagAmount : 50 },
+        { full: 'oreganized:silver_ingot', fluid: 'utopia:molten_silver', crushed : 'create:crushed_raw_silver', slagAmount : 25 },
+        { full: 'minecraft:gold_ingot', fluid: 'utopia:molten_gold', crushed : 'create:crushed_raw_gold', slagAmount : 25 },
+        { full: 'utopia:platinum_ingot', fluid: 'utopia:molten_platinum' },
+        { full: 'minecraft:netherite_scrap', fluid: 'utopia:molten_debrinium' },
+        { full: 'minecraft:netherite_ingot', fluid: 'utopia:molten_netherite' },
+        { full: 'oreganized:electrum_ingot', fluid: 'utopia:molten_electrum' },
+        { full: 'oreganized:lead_ingot', fluid: 'oreganized:molten_lead', crushed : 'create:crushed_raw_lead', slagAmount : 75},
+        { full: '3x utopia:garbage', fluid: 'utopia:molten_slag'}
+    ];
+    for (let item of ingots) {
+        event.recipes.create.filling(item.full, [Fluid.of(item.fluid, 100), 'utopia:ingot_mould']);
+        if(item.fluid == 'utopia:molten_slag') { continue; }
+
+
+        if(item.crushed && item.slagAmount){
+            event.recipes.create.mixing(
+                [Fluid.of(item.fluid, 200), Fluid.of('utopia:molten_slag', item.slagAmount)],
+                [item.crushed, Ingredient.of('#utopia:flux')]
+            ).heated()
+        }
+
+        event.recipes.create.mixing(Fluid.of(item.fluid, 100),
+            [item.full, Ingredient.of('#utopia:flux')]
+        ).heated()
+    }
+    event.recipes.create.mixing([Fluid.of('utopia:molten_netherite', 25), Fluid.of('utopia:molten_slag', 175)],
+        [Fluid.of('utopia:molten_debrinium', 100), Fluid.of('utopia:molten_gold', 100)]
+    ).heated()
+    event.recipes.create.mixing([Fluid.of('utopia:molten_electrum', 25), Fluid.of('utopia:molten_slag', 175)],
+        [Fluid.of('utopia:molten_silver', 100), Fluid.of('utopia:molten_gold', 100)]
+    ).heated()
+
+
+
+    // Device
+    replaceRecipe({ output: 'oreganized:unknown_device' },
+        () => event.shaped(
+            Item.of('oreganized:unknown_device')
+            , [
+            ' A ',
+            'ABA',
+            ' A '
+        ], {
+            A: 'minecraft:netherite_scrap',
+            B: 'quark:redstone_randomizer'
+    }))
+
+    // BrewinNChewin
+    replaceRecipe({ output: 'brewinandchewin:heating_cask' },
+        () => event.shaped(
+            Item.of('brewinandchewin:heating_cask')
+            , [
+            'CCC',
+            'ADA',
+            'BBB'
+        ], {
+            A: '#utopia:coal_blocks',
+            B: '#minecraft:planks',
+            C: '#minecraft:wooden_slabs',
+            D: '#utopia:campfires'
+    }))
+    replaceRecipe({ output: 'brewinandchewin:ice_crate' },
+        () => event.shaped(
+            Item.of('brewinandchewin:ice_crate')
+            , [
+            'CAC',
+            'BDB',
+            'CBC'
+        ], {
+            A: 'farmersdelight:canvas',
+            B: '#minecraft:planks',
+            C: '#minecraft:wooden_slabs',
+            D: 'minecraft:packed_ice'
+    }))
+
+    // Gliders
+    event.shaped(
+            Item.of('vc_gliders:paraglider_wood')
+            , [
+            'AAA',
+            'BDB',
+            'CBC'
+        ], {
+            A: 'farmersdelight:canvas',
+            B: 'minecraft:stick',
+            C: '#utopia:twine',
+            D: 'minecraft:feather'
+    })
+    event.shaped(
+            Item.of('vc_gliders:paraglider_iron')
+            , [
+            'AAA',
+            'BDB',
+            'CBC'
+        ], {
+            A: 'farmersdelight:canvas',
+            B: 'minecraft:iron_ingot',
+            C: 'minecraft:chain',
+            D: 'minecraft:feather'
+    })
+    event.shaped(
+            Item.of('vc_gliders:paraglider_gold')
+            , [
+            'AAA',
+            'BDB',
+            'CBC'
+        ], {
+            A: 'farmersdelight:canvas',
+            B: 'minecraft:gold_ingot',
+            C: 'minecraft:chain',
+            D: 'minecraft:blaze_powder'
+    })
+    event.shaped(
+            Item.of('vc_gliders:paraglider_diamond')
+            , [
+            'AAA',
+            'CDC',
+            'BCB'
+        ], {
+            A: 'farmersdelight:canvas',
+            B: 'minecraft:feather',
+            C: 'minecraft:breeze_rod',
+            D: 'minecraft:diamond'
+    })
+    event.shaped(
+            Item.of('vc_gliders:paraglider_netherite')
+            , [
+            'AAA',
+            'CDC',
+            'BCB'
+        ], {
+            A: 'farmersdelight:canvas',
+            B: 'minecraft:blaze_powder',
+            C: 'minecraft:blaze_rod',
+            D: 'minecraft:netherite_scrap'
+    })
+
+    // Furnaces
+    replaceRecipe({ output: 'minecraft:blast_furnace' },
+        () => event.shaped(
+            Item.of('minecraft:blast_furnace')
+            , [
+            'AAA',
+            'ABA',
+            'AAA'
+        ], {
+            A: ['minecraft:bricks', 'minecraft:packed_mud', 'minecraft:blackstone'],
+            B: ['minecraft:campfire', 'minecraft:soul_campfire']
+    }))
+    
+    // Chainmail
+    const armorParts = ['helmet', 'chestplate', 'leggings', 'boots'];
+    armorParts.forEach(part => {
+      event.smithing(
+          `minecraft:chainmail_${part}`,
+          'minecraft:leather',
+          `minecraft:leather_${part}`,
+          'minecraft:chain'
+      )
+    });
+
     // Fiber unification
     event.shaped(
             Item.of('nirvana:deerstalker')
@@ -113,11 +281,24 @@ ServerEvents.recipes(event => {
         ], {
             A: 'farmersdelight:pumpkin_slice'
     }))
-    replaceRecipe({input: 'minecraft:pumpkin', output: 'farmersdelight:pumpkin_slice'},
-        () => event.shapeless(
-            Item.of('9x farmersdelight:pumpkin_slice'),
-            ['minecraft:pumpkin']
-    ))
+    replaceRecipe({ output: 'farmersdelight:canvas'},
+        () => event.shaped(
+            Item.of('farmersdelight:canvas')
+            ,[
+            'AA ',
+            'AA ',
+            '   '
+        ], {
+            A: ['farmersdelight:straw', 'supplementaries:flax', 'nirvana:hemp']
+    }))
+    replaceRecipe({ input: 'minecraft:pumpkin', output: 'farmersdelight:pumpkin_slice' },
+    () => event.custom({
+        type: 'farmersdelight:cutting',
+        ingredients: [{ item: 'minecraft:pumpkin' }],
+        tool: { type: 'farmersdelight:item_ability', action: 'axe_dig' },
+        result: [{ item: { id: 'farmersdelight:pumpkin_slice', count: 9 } }]
+    })
+)
 
     // Create SU Sources
     replaceRecipe({ output: 'create:water_wheel' },
@@ -714,7 +895,24 @@ ServerEvents.recipes(event => {
         'supplementaries:key'
     )
     event.recipes.create.pressing('supplementaries:key','utopia:shadow_key')
+    replaceRecipe({ output: 'storagedrawers:drawer_key' },
+        () => event.shapeless(
+            'storagedrawers:drawer_key', 
+            ['supplementaries:key', 'storagedrawers:upgrade_template']
+    ))
 
+    // Musket''
+    replaceRecipe({ output: 'musketmod:musket_upgrade_smithing_template' },
+        () => event.shaped(
+                Item.of('musketmod:musket_upgrade_smithing_template', 1), [
+                'BAB',
+                'BCB',
+                'BBB'
+            ], {
+                A: 'musketmod:musket_upgrade_smithing_template',
+                B: 'minecraft:emerald',
+                C: 'minecraft:iron_block'
+    }))
 
     // Science Future.
     event.shaped('utopia:circuit_upgrade_template', [
@@ -733,10 +931,10 @@ ServerEvents.recipes(event => {
             'DED'
         ], {
             A: '#c:ingots/iron',
-            B: 'bits_n_bobs:large_nixie_tube',
+            B: 'quark:abacus',
             C: '#c:glass_blocks',
             D: 'utopia:block_of_plastic',
-            E: 'utopia:advanced_circuit'
+            E: 'utopia:advanced_circuit',
     })
     event.shapeless('4x utopia:computanian', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
     event.shaped('utopia:computer_block', [
@@ -746,11 +944,19 @@ ServerEvents.recipes(event => {
         ], {
             A: 'utopia:computanian',
     })
-    event.shapeless('utopia:computer_block', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
-    event.shapeless('utopia:computer_block_terminal', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
-    event.shapeless('utopia:computer_block_data', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
-    event.shapeless('utopia:computer_block_space', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
-    event.shapeless('utopia:computer_block_coding', [['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space']])
+    event.shapeless('utopia:computer_block', '#utopia:computer/blue/working')
+    event.shapeless('utopia:computer_block_terminal', '#utopia:computer/blue/working')
+    event.shapeless('utopia:computer_block_data', '#utopia:computer/blue/working')
+    event.shapeless('utopia:computer_block_space', '#utopia:computer/blue/working')
+    event.shapeless('utopia:computer_block_coding', '#utopia:computer/blue/working')
+
+    event.shapeless('utopia:tan_computer_block', '#utopia:computer/tan/working')
+    event.shapeless('utopia:tan_computer_block_terminal', '#utopia:computer/tan/working')
+    event.shapeless('utopia:tan_computer_block_data', '#utopia:computer/tan/working')
+    event.shapeless('utopia:tan_computer_block_space', '#utopia:computer/tan/working')
+    event.shapeless('utopia:tan_computer_block_coding', '#utopia:computer/tan/working')
+
+   
     event.recipes.create.pressing('utopia:broken_computer',[['utopia:computer_block_coding', 'utopia:computer_block','utopia:computer_block_terminal', 'utopia:computer_block_data', 'utopia:computer_block_space', 'utopia:computer_block_badsignal']])
 
     

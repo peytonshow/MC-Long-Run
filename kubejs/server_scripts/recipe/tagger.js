@@ -116,6 +116,65 @@ ServerEvents.tags('item', event => {
         'utopia:basic_circuit', 
         'utopia:advanced_circuit'
     ] )
+
+    event.add('utopia:coal_blocks', [
+        'minecraft:coal_block', 
+        'quark:charcoal_block'
+    ] )
+
+    event.add('utopia:campfires', [
+        'minecraft:campfire', 
+        'minecraft:soul_campfire'
+    ] )
+
+    event.add('utopia:twine', [
+        'supplementaries:rope', 
+        'minecraft:string'
+    ])
+
+    event.add('utopia:remove_nether_roof', [
+        "minecraft:netherrack",
+        "minecraft:nether_quartz_ore",
+        "minecraft:nether_gold_ore",
+        "minecraft:blackstone",
+        "minecraft:gravel",
+        "minecraft:basalt"
+    ] )
+
+    event.add('utopia:upgradable_to_nether_template', [
+        "minecraft:host_armor_trim_smithing_template",
+        "minecraft:raiser_armor_trim_smithing_template",
+        "minecraft:shaper_armor_trim_smithing_template",
+        "minecraft:wayfinder_armor_trim_smithing_template"
+    ] )
+
+    event.add('utopia:leathers', [
+        "minecraft:leather",
+        "minecraft:rabbit_hide"
+    ] )
+
+    event.add('utopia:bolts_and_nails', [
+        "create:copper_nugget",
+        "create:brass_nugget",
+        "minecraft:iron_nugget",
+        "minecraft:gold_nugget"
+    ] )
+
+    event.add('utopia:metal_beads', [
+        "create:copper_nugget",
+        "create:zinc_nugget",
+        "create:brass_nugget",
+        "minecraft:iron_nugget",
+        "minecraft:gold_nugget",
+        "oreganized:silver_nugget",
+        "oreganized:lead_nugget",
+        "oreganized:netherite_nugget"
+    ] )
+
+    event.add('utopia:flux', [
+        "supplementaries:ash",
+        "utopia:silica_dust"
+    ] )
     //event.add('create:upright_on_belt', '#c:dusts')
 
     event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')
@@ -123,4 +182,16 @@ ServerEvents.tags('item', event => {
     event.add('minecraft:mineable/pickaxe', 'quark:sturdy_stone')
 
     event.add('utopia:burlap', /^nirvana:.*woven_burlap.*$/)
+})
+
+ServerEvents.tags('block', event => {
+    event.add('c:ores', [
+        "minecraft:diorite"
+    ] )
+})
+
+ServerEvents.tags('fluid', event => {
+    event.add('utopia:molten', [
+        "oreganized:molten_lead"
+    ] )
 })

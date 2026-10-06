@@ -101,7 +101,7 @@
 	"Glass Item Frame" = false
 	"Gold Bars" = false
 	Grate = true
-	Hedges = true
+	Hedges = false
 	"Hollow Logs" = false
 	"Industrial Palette" = true
 	"Japanese Palette" = true
@@ -115,7 +115,7 @@
 	"Raw Metal Bricks" = true
 	Rope = false
 	"Shear Vines" = true
-	Shingles = true
+	Shingles = false
 	"Soul Sandstone" = true
 	Stools = false
 	"Sturdy Stone" = true
@@ -158,7 +158,7 @@
 		"Enable Glow Berry Sack" = true
 		"Enable Blaze Lantern" = true
 		"Enable Bonded Leather" = true
-		"Enable Bonded Rabbit Hide" = true
+		"Enable Bonded Rabbit Hide" = false
 
 	[building.glass_item_frame]
 		"Glass Item Frames Update Maps" = true
@@ -777,7 +777,7 @@
 	"Nether Obsidian Spikes" = true
 	"New Stone Types" = false
 	"No More Lava Pockets" = false
-	Permafrost = true
+	Permafrost = false
 	"Spiral Spires" = true
 
 	#(Ashen Trees)
@@ -1186,11 +1186,11 @@
 			Dimensions = ["minecraft:the_nether"]
 
 	[world.new_stone_types]
-		"Enable Limestone" = true
-		"Enable Jasper" = true
-		"Enable Shale" = true
-		"Enable Myalite" = true
-		"Add New Stones To Mason Trades" = true
+		"Enable Limestone" = false
+		"Enable Jasper" = false
+		"Enable Shale" = false
+		"Enable Myalite" = false
+		"Add New Stones To Mason Trades" = false
 
 			[world.new_stone_types.limestone.dimensions]
 				"Is Blacklist" = false
@@ -1352,7 +1352,7 @@
 	Foxhound = true
 	Shiba = true
 	Stonelings = true
-	Toretoise = true
+	Toretoise = false
 	Wraith = true
 
 	[mobs.crabs]

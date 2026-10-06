@@ -12,7 +12,9 @@ StartupEvents.registry('item', event => {
     event.create('utopia:incomplete_advanced_circuit', 'create:sequenced_assembly').displayName('Incomplete Advanced Circuit').texture('utopia:item/incomplete_advanced_circuit').tag('c:hidden_from_recipe_viewers')
     // event.create('utopia:incomplete_wire_spool', 'create:sequenced_assembly').displayName('Incomplete Wire Spool').texture('utopia:item/incomplete_wire_spool').tag('c:hidden_from_recipe_viewers').unstackable()
 
+    // Forgin'!
     event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
+    event.create('utopia:ingot_mould').displayName('Mould').texture('utopia:item/sturdy_mould')
 
     // Sciantest
     event.create('utopia:beaker').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker').displayName('Empty Beaker')
@@ -29,9 +31,9 @@ StartupEvents.registry('item', event => {
     event.create('utopia:ammonium_nitrate').tag('utopia:chemistry').texture('utopia:item/ammonium_nitrate').displayName('Ammonium Nitrate')
     event.create('utopia:sulfur_dust').tag('utopia:chemistry').texture('utopia:item/sulphur').displayName('Sulfur Dust')
 
+    
     // Electricity
     //event.create('utopia:battery_charged').displayName('Graphite').texture('utopia:item/graphite_ingot')
-    event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').displayName('Plastic')
     
     event.create('utopia:wire').displayName('Wire').texture('utopia:item/wire').tag('utopia:electricity')
     event.create('utopia:wire_spool').displayName('Wire Spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(60).unstackable()
@@ -43,6 +45,7 @@ StartupEvents.registry('item', event => {
     event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite_ingot').tag('c:ingots').tag('c:ingots/graphite')
     event.create('utopia:platinum_ingot').displayName('Platinum Ingot').texture('utopia:item/platinum_ingot').tag('c:ingots').tag('c:ingots/platinum')
     event.create('utopia:platinum_nugget').displayName('Platinum Nugget').texture('utopia:item/platinum_nugget').tag('c:nuggets').tag('c:nuggets/platinum')
+    event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').displayName('Plastic').tag('c:ingots')
     // See tools.js for Platinum Tools
 
     // Stamps

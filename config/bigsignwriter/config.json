@@ -1,0 +1,11 @@
+{
+  "buttonsX": 0,
+  "buttonsY": 120,
+  "buttonsAlignmentX": 0.5,
+  "buttonsAlignmentY": 0.25,
+  "fontSelectorCoversDoneButton": true,
+  "fontSelectorOpensScrolledUp": true,
+  "showConfigButton": true,
+  "displayFontHeights": true,
+  "hiddenFonts": []
+}

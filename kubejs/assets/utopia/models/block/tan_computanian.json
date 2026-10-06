@@ -1,11 +1,11 @@
 {
   "parent": "block/cube",
   "textures": {
-    "front": "utopia:block/computer_blue/computanium_front",
-    "side": "utopia:block/computer_blue/computanium_side",
-    "up": "utopia:block/computer_blue/computanium_top",
-    "down": "utopia:block/computer_blue/computanium_top",
-    "particle": "utopia:block/computer_blue/computanium_side"
+    "front": "utopia:block/computer_tan/computanium_front",
+    "side": "utopia:block/computer_tan/computanium_side",
+    "up": "utopia:block/computer_tan/computanium_top",
+    "down": "utopia:block/computer_tan/computanium_top",
+    "particle": "utopia:block/computer_tan/computanium_side"
   },
   "elements": [
     {

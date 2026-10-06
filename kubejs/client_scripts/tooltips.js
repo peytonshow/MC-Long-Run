@@ -88,6 +88,10 @@ ItemEvents.modifyTooltips(event => {
 
     addShiftTooltip('oreganized:lead_bolt', "A stronger, crossbow-exclusive arrow. Must be held in your offhand in order to be loaded."); 
 
+
+    addShiftTooltip('vc_gliders:copper_upgrade', "Protects gliders from extreme weather.\n\nCan be applied at an Anvil."); 
+    addShiftTooltip('vc_gliders:nether_upgrade', "Protects gliders from extreme heat.\n\nCan be applied at an Anvil."); 
+
     // --- FIAT Bills (Grouped) ---
     addShiftTooltip([
         'utopia:1_dollar_bill',

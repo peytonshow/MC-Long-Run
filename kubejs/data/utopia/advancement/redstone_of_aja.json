@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "redstone_of_aja": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "utopia:ruby"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "description": {
+      "translate": "advancements.utop.redstone_of_aja.description"
+    },
+    "icon": {
+      "id": "utopia:ruby"
+    },
+    "title": {
+      "translate": "advancements.utop.redstone_of_aja.title"
+    }
+  },
+  "requirements": [
+    [
+      "redstone_of_aja"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

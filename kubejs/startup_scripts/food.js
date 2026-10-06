@@ -49,24 +49,25 @@ ItemEvents.modification(event => {
 
 
     simpleFood('minecraft:melon_slice', 0.8, 1, 1)
+    simpleFood('farmersdelight:pumpkin_slice', 0.8, 1, 2)
     simpleFood('minecraft:sweet_berries', 0.8, 1, 3)
     simpleFood('minecraft:glow_berries', 1.6, 2, 2)
 
     // Decrease saturation
     simpleFood('create:chocolate_glazed_berries', 0.8, 5, 3)
 
-    simpleFood('utopia:sea_salt', 6.4, 5, 1)
-    simpleFood('utopia:pepper', 6.4, 4, 2)
+    simpleFood('utopia:sea_salt', 4.8, 4, 1)
+    simpleFood('utopia:pepper', 4.8, 5, 1)
     simpleFood('minecraft:cooked_beef', 1.6, 3, 8)
-    simpleFood('utopia:seasoned_cooked_beef', 1.6, 9, 8)
+    simpleFood('utopia:seasoned_cooked_beef', 1.6, 14, 8)
     simpleFood('minecraft:cooked_porkchop', 1.6, 4, 8)
-    simpleFood('utopia:seasoned_cooked_porkchop', 1.6, 10, 7)
+    simpleFood('utopia:seasoned_cooked_porkchop', 1.6, 14, 7)
     simpleFood('minecraft:cooked_chicken', 1.6, 5, 5)
-    simpleFood('utopia:seasoned_cooked_chicken', 1.6, 8, 5)
-    simpleFood('minecraft:cooked_mutton', 1.6, 4, 5)
-    simpleFood('utopia:seasoned_cooked_mutton', 1.6, 6, 6)
+    simpleFood('utopia:seasoned_cooked_chicken', 1.6, 9, 5)
+    simpleFood('minecraft:cooked_mutton', 1.6, 4, 4)
+    simpleFood('utopia:seasoned_cooked_mutton', 1.6, 10, 6)
     simpleFood('minecraft:cooked_rabbit', 1.6, 5, 5)
-    simpleFood('utopia:seasoned_cooked_rabbit', 1.6, 8, 5)
+    simpleFood('utopia:seasoned_cooked_rabbit', 1.6, 10, 5)
 
 
 
