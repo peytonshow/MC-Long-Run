@@ -57,14 +57,6 @@
       "useCustomWeight": false,
       "customWeight": 5.0
     },
-    "irons_artifice:cowboy_hat": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
-    "irons_artifice:tricorne": {
-      "useCustomWeight": false,
-      "customWeight": 3.0
-    },
     "minecraft:chainmail_boots": {
       "useCustomWeight": false,
       "customWeight": 1.0
@@ -273,6 +265,22 @@
       "useCustomWeight": true,
       "customWeight": 0.0
     },
+    "utopia:robe_chest": {
+      "useCustomWeight": false,
+      "customWeight": 4.4
+    },
+    "utopia:robe_hat": {
+      "useCustomWeight": false,
+      "customWeight": 2.4
+    },
+    "utopia:robe_legs": {
+      "useCustomWeight": false,
+      "customWeight": 3.4
+    },
+    "utopia:robe_shoes": {
+      "useCustomWeight": false,
+      "customWeight": 3.4
+    },
     "utopia:shattering_crown": {
       "useCustomWeight": true,
       "customWeight": 0.0
@@ -284,6 +292,14 @@
     "utopia:used_shackles": {
       "useCustomWeight": true,
       "customWeight": 5.0
+    },
+    "irons_artifice:cowboy_hat": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
+    },
+    "irons_artifice:tricorne": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
     },
     "create_sa:andesite_exoskeleton_chestplate": {
       "useCustomWeight": false,

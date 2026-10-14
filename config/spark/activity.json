@@ -5,6 +5,32 @@
       "name": "peytonshow",
       "uniqueId": "3ff4f6b7-7244-4aae-b996-ff1c6c5254a9"
     },
+    "time": 1791889289729,
+    "type": "Profiler (live)",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/cehUf0Y0sk"
+    }
+  },
+  {
+    "user": {
+      "type": "player",
+      "name": "peytonshow",
+      "uniqueId": "3ff4f6b7-7244-4aae-b996-ff1c6c5254a9"
+    },
+    "time": 1791551252431,
+    "type": "Profiler (live)",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/vyaNQ2wJKd"
+    }
+  },
+  {
+    "user": {
+      "type": "player",
+      "name": "peytonshow",
+      "uniqueId": "3ff4f6b7-7244-4aae-b996-ff1c6c5254a9"
+    },
     "time": 1790196295834,
     "type": "Profiler",
     "data": {

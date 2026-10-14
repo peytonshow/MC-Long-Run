@@ -1,0 +1,47 @@
+// kubejs/server_scripts/mimic_keys.js
+
+function isChestEmpty(block) {
+    var be = block.entity
+    if (!be) return false
+    for (var i = 0; i < be.getContainerSize(); i++) {
+        if (!be.getItem(i).isEmpty()) return false
+    }
+    return true
+}
+
+function spawnMimic(block) {
+    var mob = block.createEntity('artifacts:mimic')
+    mob.setPosition(block.x + 0.5, block.y, block.z + 0.5)
+    mob.spawn()
+}
+
+function payForKey(player, item, isShadow) {
+    if (player.isCreative()) return
+    if (isShadow) {
+        item.shrink(1)
+    } else if (item.damageValue + 1 >= item.maxDamage) {
+        item.shrink(1)
+    } else {
+        item.damageValue = item.damageValue + 1
+    }
+}
+
+function useKey(event) {
+    var item = event.item
+    var isShadow = item.id === 'utopia:shadow_key'
+    var isChroma = item.id === 'utopia:chroma_key'
+    if (!isShadow && !isChroma) return
+
+    var block = event.block
+    if (!isChestEmpty(block)) return
+
+    spawnMimic(block)
+    block.set('minecraft:air')
+    payForKey(event.player, item, isShadow)
+
+    // Must stay last: cancel() exits the handler
+    event.cancel()
+}
+
+BlockEvents.rightClicked('minecraft:chest', useKey)
+BlockEvents.rightClicked('minecraft:trapped_chest', useKey)

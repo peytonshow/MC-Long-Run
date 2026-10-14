@@ -1,289 +1,192 @@
-// ===================== POOLS (compact trade definitions) =====================
+// ===================== TRADES =====================
 //
-// Pools are keyed by villager LEVEL (1-5), then by group name:
-//   strong    - the "main" trade(s) for that level
-//   weak      - a cheaper/alternate trade for that level
-//   legendary - a rare bonus trade (farmer level 5 only)
+// One format for every trade:
 //
-// Each level's groups are mutually exclusive picks: the engine chooses one
-// entry from each group (see registerProfession/ENGINE below), so "strong"
-// and "weak" never compete with each other for the same trade slot.
+//   { level, group, in1, in2?, trade }
 //
-// ---- Compact format (covers ~90% of trades) ----
-//
-//   trade({ level, group, sell, count, buy, buyCount })
-//
-//   level     - villager level 1-5
-//   group     - "strong" | "weak" | "legendary"
-//   sell      - one item id, or an array of interchangeable item ids
-//               (each becomes its own alternate trade within that group).
-//   count     - how many of `sell` the player gives up
-//   buy       - the item id the player receives
-//   buyCount  - how many of `buy` the player receives
-//
-// Villager XP is not set per-trade - it's derived automatically from
-// `group` (see XP_BY_GROUP below), so every trade in a group always
-// awards the same XP.
-//
-// ---- Everything else (a second cost, a random-enchant/potion pool, etc.) ----
-// goes in SPECIAL_TRADES further down as a full row object - those features
-// don't compress well and trying to cram them into the tuple would just make
-// it harder to read, not shorter.
+//   level   - villager level 1-5
+//   group   - "strong" | "weak" | "legendary"  (sets villager XP, see XP_BY_GROUP)
+//   in1     - what the player pays. A string like "x11 minecraft:gunpowder"
+//             (no "x" count = 1). An ARRAY of strings makes one alternate
+//             trade per entry, all with the same output.
+//   in2     - optional second payment, same string format.
+//   trade   - what the player receives. Same string format, or:
+//               { random: [ ...one of the below... ] }  - picks one each roll
+//             Anything extra (enchant, potion, name) uses an object:
+//               { item: "x16 minecraft:tipped_arrow", potion: "minecraft:strong_healing" }
+//               { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 2 }
+//               { item: "minecraft:crossbow", name: "§fRocket Launcher", enchant: "...", enchantLevel: 1 }
+//   uses    - optional, max uses (default 12)
 
-// XP awarded per trade, purely by which group it's in.
 const XP_BY_GROUP = { weak: 5, strong: 10, legendary: 50 };
-
-// Named-field builder for the compact format - reads like "sell X for Y"
-// instead of needing to remember which position in an array means what.
-function trade({ level, group, sell, count, buy, buyCount }) {
-    return [level, group, Array.isArray(sell) ? sell : [sell], count, buy, buyCount];
-}
 
 const TRADES = {
     farmer: [
-        trade({ level: 1, group: "strong", sell: ["minecraft:hay_block", "supplementaries:flax_block"], count: 2, buy: "minecraft:emerald", buyCount: 2 }),
-        trade({ level: 1, group: "weak", sell: ["farmersdelight:potato_crate", "farmersdelight:straw_bale"], count: 2, buy: "minecraft:emerald", buyCount: 1 }),
+        { level: 1, group: "strong", in1: ["x2 minecraft:hay_block", "x2 supplementaries:flax_block"], trade: "x2 minecraft:emerald" },
+        { level: 1, group: "weak", in1: ["x2 farmersdelight:potato_crate", "x2 farmersdelight:straw_bale"], trade: "minecraft:emerald" },
 
-        trade({ level: 2, group: "strong", sell: ["farmersdelight:carrot_crate", "farmersdelight:tomato_crate"], count: 4, buy: "minecraft:emerald", buyCount: 6 }),
-        trade({ level: 2, group: "weak", sell: ["quark:berry_sack", "quark:apple_crate"], count: 4, buy: "minecraft:emerald", buyCount: 4 }),
-        trade({ level: 2, group: "weak", sell: "quark:glowberry_sack", count: 3, buy: "minecraft:emerald", buyCount: 4 }),
-        trade({ level: 2, group: "weak", sell: "minecraft:cactus", count: 6, buy: "minecraft:emerald", buyCount: 4 }),
+        { level: 2, group: "strong", in1: ["x4 farmersdelight:carrot_crate", "x4 farmersdelight:tomato_crate"], trade: "x6 minecraft:emerald" },
+        { level: 2, group: "weak", in1: ["x4 quark:berry_sack", "x4 quark:apple_crate"], trade: "x4 minecraft:emerald" },
+        { level: 2, group: "weak", in1: "x3 quark:glowberry_sack", trade: "x4 minecraft:emerald" },
+        { level: 2, group: "weak", in1: "x6 minecraft:cactus", trade: "x4 minecraft:emerald" },
 
-        trade({ level: 3, group: "strong", sell: ["quark:sugar_cane_block", "quark:cocoa_beans_sack"], count: 16, buy: "minecraft:emerald", buyCount: 28 }),
-        trade({ level: 3, group: "weak", sell: ["minecraft:melon", "minecraft:pumpkin"], count: 16, buy: "minecraft:emerald", buyCount: 8 }),
+        { level: 3, group: "strong", in1: ["x16 quark:sugar_cane_block", "x16 quark:cocoa_beans_sack"], trade: "x28 minecraft:emerald" },
+        { level: 3, group: "weak", in1: ["x16 minecraft:melon", "x16 minecraft:pumpkin"], trade: "x8 minecraft:emerald" },
 
-        trade({ level: 4, group: "strong", sell: ["farmersdelight:rice_bag", "supplementaries:sugar_cube", "quark:nether_wart_sack"], count: 22, buy: "minecraft:emerald", buyCount: 42 }),
-        trade({ level: 4, group: "weak", sell: ["farmersdelight:cabbage_crate", "farmersdelight:onion_crate"], count: 20, buy: "minecraft:emerald", buyCount: 30 }),
+        { level: 4, group: "strong", in1: ["x22 farmersdelight:rice_bag", "x22 supplementaries:sugar_cube", "x22 quark:nether_wart_sack"], trade: "x42 minecraft:emerald" },
+        { level: 4, group: "weak", in1: ["x20 farmersdelight:cabbage_crate", "x20 farmersdelight:onion_crate"], trade: "x30 minecraft:emerald" },
 
-        trade({ level: 5, group: "strong", sell: "quark:golden_apple_crate", count: 2, buy: "minecraft:emerald", buyCount: 38 }),
-        trade({ level: 5, group: "weak", sell: ["quark:chorus_fruit_block", "quark:golden_carrot_crate"], count: 10, buy: "minecraft:emerald", buyCount: 32 }),
-    ],
-
-    fletcher: [
-        trade({ level: 1, group: "strong", sell: "quark:torch_arrow", count: 12, buy: "minecraft:emerald", buyCount: 3 }),
-        trade({ level: 1, group: "weak", sell: "minecraft:emerald", count: 1, buy: "minecraft:arrow", buyCount: 12 }),
-        trade({ level: 1, group: "weak", sell: "minecraft:emerald", count: 5, buy: "minecraft:bow", buyCount: 1 }),
-
-        trade({ level: 2, group: "weak", sell: "minecraft:emerald", count: 5, buy: "musketmod:cartridge", buyCount: 1 }),
-        trade({ level: 2, group: "weak", sell: "minecraft:emerald", count: 13, buy: "minecraft:crossbow", buyCount: 1 }),
-
-        trade({ level: 3, group: "strong", sell: "minecraft:emerald", count: 58, buy: "musketmod:cartridge", buyCount: 20 }),
-
-        trade({ level: 4, group: "strong", sell: "minecraft:emerald", count: 35, buy: "supplementaries:cannon", buyCount: 1 }),
-        trade({ level: 4, group: "strong", sell: "minecraft:emerald", count: 40, buy: "minecraft:potent_sulfur", buyCount: 5 }),
-        trade({ level: 4, group: "weak", sell: "minecraft:emerald", count: 30, buy: "supplementaries:cannonball", buyCount: 4 }),
-    ],
-};
-
-// Trades that need something a tuple can't express: a second cost (sell2),
-// or a randomized buy. Anything randomized - enchants, potions, weighted
-// alternatives - is picked in plain JS at trade-resolution time via
-// `buy: { random: [...] }`, where each entry is a plain item description
-// (see ENGINE below for the exact shape).
-const SPECIAL_TRADES = {
-    farmer: [
+        { level: 5, group: "strong", in1: "x2 quark:golden_apple_crate", trade: "x3 utopia:ruby" },
+        { level: 5, group: "weak", in1: ["x30 quark:chorus_fruit_block", "quark:golden_apple_crate", "x9 quark:golden_carrot_crate"], trade: "x32 minecraft:emerald" },
         {
-            level: 5, group: "legendary",
-            row: {
-                sell: { item: "minecraft:emerald", count: 40 },
-                buy: {
-                    random: [
-                        { item: "minecraft:diamond_hoe", enchant: "nova_structures:photosynthesis" },
-                        { item: "oreganized:electrum_hoe", enchant: "nova_structures:photosynthesis" },
-                    ],
-                },
+            level: 5, group: "legendary", in1: "x40 minecraft:emerald", in2: "x1 utopia:ruby",
+            trade: {
+                random: [
+                    { item: "minecraft:diamond_hoe", enchant: "nova_structures:photosynthesis" },
+                    { item: "oreganized:electrum_hoe", enchant: "nova_structures:photosynthesis" },
+                ],
             },
         },
     ],
 
     fletcher: [
+        { level: 1, group: "weak", in1: "minecraft:emerald", trade: "x10 minecraft:arrow" },
+        { level: 1, group: "strong", in1: "x16 minecraft:arrow", in2: "minecraft:emerald", trade: "x16 quark:torch_arrow" },
+
+        { level: 2, group: "weak", in1: "x5 minecraft:emerald", trade: "minecraft:bow" },
+        { level: 2, group: "strong", in1: "x32 quark:torch_arrow", trade: "x3 minecraft:emerald" },
         {
-            level: 2, group: "strong",
-            row: {
-                sell: { item: "minecraft:arrow", count: 16 },
-                sell2: { item: "minecraft:emerald", count: 1 },
-                buy: { item: "quark:torch_arrow", count: 16 },
+            level: 2, group: "strong", in1: "x32 minecraft:arrow", in2: "x6 minecraft:emerald",
+            trade: {
+                random: [
+                    { item: "x32 minecraft:tipped_arrow", potion: "minecraft:strong_harming" },
+                    { item: "x32 minecraft:tipped_arrow", potion: "minecraft:strong_poison" },
+                    { item: "x32 minecraft:tipped_arrow", potion: "minecraft:long_weakness" },
+                    { item: "x32 minecraft:tipped_arrow", potion: "minecraft:strong_slowness" },
+                    { item: "x32 minecraft:tipped_arrow", potion: "minecraft:strong_healing" },
+                    { item: "x32 minecraft:tipped_arrow", potion: "oreganized:long_stunning" },
+                ],
             },
         },
+        { level: 2, group: "weak", in1: "x5 minecraft:emerald", trade: "musketmod:cartridge" },
+        { level: 2, group: "weak", in1: "x13 minecraft:emerald", trade: "minecraft:crossbow" },
+
+        { level: 3, group: "strong", in1: "x58 minecraft:emerald", trade: "x20 musketmod:cartridge" },
         {
-            level: 2, group: "strong",
-            row: {
-                sell: { item: "minecraft:arrow", count: 16 },
-                sell2: { item: "minecraft:emerald", count: 2 },
-                buy: {
-                    random: [
-                        { item: "minecraft:tipped_arrow", count: 16, potion: "minecraft:strong_harming" },
-                        { item: "minecraft:tipped_arrow", count: 16, potion: "minecraft:strong_poison" },
-                        { item: "minecraft:tipped_arrow", count: 16, potion: "minecraft:long_weakness" },
-                        { item: "minecraft:tipped_arrow", count: 16, potion: "minecraft:strong_slowness" },
-                        { item: "minecraft:tipped_arrow", count: 16, potion: "minecraft:strong_healing" },
-                        { item: "minecraft:tipped_arrow", count: 16, potion: "oreganized:long_stunning" },
-                    ],
-                },
+            level: 3, group: "weak", in1: "x5 minecraft:emerald",
+            trade: {
+                random: [
+                    { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 1 },
+                    { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 2 },
+                    { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 3 },
+                    { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 4 },
+                ],
             },
         },
+
+        { level: 4, group: "strong", in1: "x35 minecraft:emerald", trade: "supplementaries:cannon" },
+        { level: 4, group: "strong", in1: "x40 minecraft:emerald", trade: "x5 minecraft:potent_sulfur" },
+        { level: 4, group: "weak", in1: "x30 minecraft:emerald", trade: "x4 supplementaries:cannonball" },
+
+        { level: 5, group: "strong", in1: "x4 supplementaries:bomb", in2: "x10 minecraft:emerald", trade: "supplementaries:bomb_blue" },
+        { level: 5, group: "weak", in1: "x8 minecraft:emerald", in2: "x2 royalvariations:spiritual_crown_shard", trade: "royalvariations:royal_gunpowder" },
         {
-            level: 3, group: "weak",
-            row: {
-                sell: { item: "minecraft:emerald", count: 5 },
-                buy: {
-                    random: [
-                        { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 1 },
-                        { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 2 },
-                        { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 3 },
-                        { item: "minecraft:bow", enchant: "minecraft:power", enchantLevel: 4 },
-                    ],
-                },
-            },
-        },
-        {
-            level: 5, group: "strong",
-            row: {
-                sell: { item: "supplementaries:bomb", count: 4 },
-                sell2: { item: "minecraft:emerald", count: 10 },
-                buy: { item: "supplementaries:bomb_blue", count: 1 },
-            },
-        },
-        {
-            level: 5, group: "weak",
-            row: {
-                sell: { item: "minecraft:emerald", count: 8 },
-                sell2: { item: "royalvariations:spiritual_crown_shard", count: 2 },
-                buy: { item: "royalvariations:royal_gunpowder", count: 1 },
-            },
-        },
-        {
-            level: 5, group: "legendary",
-            row: {
-                sell: { item: "minecraft:emerald", count: 30 },
-                buy: {
-                    random: [
-                        { item: "minecraft:crossbow", name : "§fRocket Launcher", enchant: "nova_structures:ghasted", enchantLevel: 1 },
-                    ],
-                },
-            },
+            level: 5, group: "legendary", in1: "x30 minecraft:emerald",
+            trade: { item: "minecraft:crossbow", name: "§fRocket Launcher", enchant: "nova_structures:ghasted", enchantLevel: 1 },
         },
     ],
 };
 
-// ===================== Expand compact + special defs into POOLS =====================
+// ===================== Build POOLS: profession -> level -> group -> rows =====================
 
-function expandTuple([level, group, items, sellCount, buyItem, buyCount]) {
-    return items.map(item => ({
-        level, group,
-        row: {
-            sell: { item, count: sellCount },
-            buy: { item: buyItem, count: buyCount },
-        },
-    }));
-}
-
-function buildPools(compact, special) {
+function buildPools(trades) {
     const pools = {};
 
-    const addEntry = (profession, { level, group, row }) => {
-        row.xp = XP_BY_GROUP[group];
-        pools[profession] ??= {};
-        pools[profession][level] ??= {};
-        pools[profession][level][group] ??= [];
-        pools[profession][level][group].push(row);
-    };
-
-    Object.keys(compact).forEach(profession => {
-        compact[profession].forEach(tuple => {
-            expandTuple(tuple).forEach(entry => addEntry(profession, entry));
+    Object.keys(trades).forEach(profession => {
+        trades[profession].forEach(({ level, group, in1, in2, trade, uses }) => {
+            [].concat(in1).forEach(alt => {
+                pools[profession] ??= {};
+                pools[profession][level] ??= {};
+                pools[profession][level][group] ??= [];
+                pools[profession][level][group].push({ in1: alt, in2, trade, uses, xp: XP_BY_GROUP[group] });
+            });
         });
-    });
-
-    Object.keys(special).forEach(profession => {
-        special[profession].forEach(entry => addEntry(profession, entry));
     });
 
     return pools;
 }
 
-const POOLS = buildPools(TRADES, SPECIAL_TRADES);
+const POOLS = buildPools(TRADES);
 
-// ===================== VILLAGER_TRADES (pure wiring - no item data) =====================
+// ===================== VILLAGER_TRADES (pure wiring) =====================
 
 const VILLAGER_TRADES = {
     "minecraft:farmer": POOLS.farmer,
     "minecraft:fletcher": POOLS.fletcher,
 };
 
+// ===================== ENGINE (shouldn't need edits) =====================
+
+// "x11 minecraft:gunpowder" or { item: "x11 minecraft:gunpowder", enchant... }
+// -> { item: "minecraft:gunpowder", count: 11, ...extras }
+function parseItem(entry) {
+    const extras = typeof entry === "string" ? { item: entry } : entry;
+    const match = extras.item.match(/^(?:x(\d+) )?(.+)$/);
+    return Object.assign({}, extras, { item: match[2], count: Number(match[1] || 1) });
+}
+
+function buildItemStack(entry) {
+    const { item, count, potion, enchant, enchantLevel, name } = parseItem(entry);
+    let stack = Item.of(potion ? `${item}[potion_contents={potion:"${potion}"}]` : item, count);
+    if (enchant) stack = stack.enchant(enchant, enchantLevel || 1);
+    if (name) stack = stack.withCustomName(name);
+    return stack;
+}
+
+// Picks a random entry if the side has { random: [...] }, otherwise builds it directly.
+function resolveSide(side, random) {
+    return buildItemStack(side.random ? side.random[random.nextInt(side.random.length)] : side);
+}
+
+function registerProfession(event, profession, pools) {
+    Object.keys(pools).forEach(level => {
+        Object.keys(pools[level]).forEach(groupName => {
+            pools[level][groupName].forEach(({ in1, in2, trade, uses, xp }) => {
+                event.addCustomTrade(profession, Number(level), (offer, entity, random) => {
+                    offer.firstCost = resolveSide(in1, random);
+                    if (in2) offer.secondCost = resolveSide(in2, random);
+                    offer.output = resolveSide(trade, random);
+                    offer.maxUses = uses || 12;
+                    offer.villagerExperience = xp;
+                });
+            });
+        });
+    });
+}
+
 // ===================== AUTOMATED ITEM TAGGING =====================
 
-// Tags only cover what the player RECEIVES from the villager (row.buy).
-// What the player pays (sell / sell2) is intentionally left untagged.
+// Tags only cover what the player RECEIVES (trade). Payments (in1 / in2) stay untagged.
 ServerEvents.tags("item", event => {
     Object.keys(POOLS).forEach(profession => {
         Object.keys(POOLS[profession]).forEach(level => {
-            const groups = POOLS[profession][level];
-
-            Object.keys(groups).forEach(groupName => {
+            Object.keys(POOLS[profession][level]).forEach(groupName => {
                 const tagName = `utopia:trade_${profession}_buy_${level}_${groupName}`;
 
-                groups[groupName].forEach(({ buy }) => {
-                    const items = buy.random ? buy.random.map(entry => entry.item) : [buy.item];
-                    items.forEach(item => event.add(tagName, item));
+                POOLS[profession][level][groupName].forEach(({ trade }) => {
+                    (trade.random || [trade]).forEach(entry => event.add(tagName, parseItem(entry).item));
                 });
             });
         });
     });
 });
 
-// ===================== ENGINE (shouldn't need edits) =====================
-
-// A "row" is one trade: { sell, sell2?, buy, uses?, xp }.
-// sell / sell2 / buy are each a "side" of the trade - either:
-//   { item, count?, enchant?, enchantLevel?, potion? } - a plain item,
-//                                      optionally enchanted or a potion arrow.
-//   { random: [ ...one of the above... ] } - picks one entry at random each
-//                                      time the trade is rolled.
-
-// Builds a single ItemStack from a plain (non-random) side entry.
-function buildItemStack(entry) {
-    const id = entry.potion
-        ? `${entry.item}[potion_contents={potion:"${entry.potion}"}]`
-        : entry.item;
-    let stack = Item.of(id, entry.count || 1);
-    if (entry.enchant) stack = stack.enchant(entry.enchant, entry.enchantLevel || 1);
-    if (entry.name) stack = stack.withCustomName(entry.name);
-    return stack;
-}
-
-// Resolves a trade side to an ItemStack: picks a random entry if the side
-// has one, otherwise just builds the plain item.
-function resolveSide(side, random) {
-    if (side.random) {
-        const pick = side.random[random.nextInt(side.random.length)];
-        return buildItemStack(pick);
-    }
-    return buildItemStack(side);
-}
-
-// Fills in a single MoreJS trade offer from one trade row.
-function applyTrade(offer, row, entity, random) {
-    offer.firstCost = resolveSide(row.sell, random);           // what the player pays
-    if (row.sell2) offer.secondCost = resolveSide(row.sell2, random); // optional 2nd cost
-    offer.output = resolveSide(row.buy, random);                // what the player gets
-    offer.maxUses = row.uses || 12;
-    offer.villagerExperience = row.xp;
-}
-
-function registerProfession(event, profession, pools) {
-    Object.keys(pools).forEach(level => {
-        Object.keys(pools[level]).forEach(groupName => {
-            pools[level][groupName].forEach(row => {
-                event.addCustomTrade(profession, Number(level), (offer, entity, random) => {
-                    applyTrade(offer, row, entity, random);
-                });
-            });
-        });
-    });
-}
-
 // ===================== REGISTER =====================
+
+function professionId(profession) {
+    const raw = String(typeof profession.name === "function" ? profession.name() : profession.name);
+    return raw.includes(":") ? raw : `minecraft:${raw}`;
+}
 
 MoreJS.villagerTrades(event => {
     const configuredProfessions = Object.keys(VILLAGER_TRADES);
@@ -293,11 +196,8 @@ MoreJS.villagerTrades(event => {
         registerProfession(event, profession, VILLAGER_TRADES[profession]);
     });
 
-    // Ask VillagerUtils for every registered villager type (vanilla AND modded)
-    // instead of hand-maintaining a list, so newly added professions from other
-    // mods are picked up automatically.
-    const allProfessions = VillagerUtils.getProfessions().map(profession => profession.name);
-    const unaffected = allProfessions.filter(profession => !configuredProfessions.includes(profession));
+    const allProfessions = VillagerUtils.getProfessions().map(professionId);
+    const unaffected = allProfessions.filter(id => !configuredProfessions.includes(id));
 
     console.log(`[trades.js] Custom trades registered for: ${configuredProfessions.join(", ")}`);
     console.log(`[trades.js] Still running vanilla trades (unaffected): ${unaffected.length ? unaffected.join(", ") : "none"}`);

@@ -1,0 +1,6 @@
+{
+  "maxExplosionParticlesPerTick": 100,
+  "maxRenderedTnt": 75,
+  "maxPrimedPerExplosion": 32,
+  "clusterRadius": 3.0
+}

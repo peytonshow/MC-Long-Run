@@ -11,7 +11,6 @@ StartupEvents.modifyCreativeTab('minecraft:tools_and_utilities', event => {
         'utopia:platinum_axe',
         'utopia:platinum_pickaxe',
         'utopia:platinum_shovel'
-
     ])
 })
 
@@ -27,6 +26,13 @@ StartupEvents.modifyCreativeTab('minecraft:combat', event => {
     ])
     event.addAfter('minecraft:diamond_axe',[
         'utopia:platinum_axe'
+    ])
+
+
+    event.addAfter('minecraft:mace',[
+        'utopia:pencil',
+        'utopia:sharket_axe',
+        'utopia:classicnium_axe'
     ])
 })
 

@@ -343,6 +343,21 @@
 			# Range: 0 ~ 32767
 			learn_cost = 10
 
+		[Action.parcool.long_jump]
+			available = true
+			# Default: 50
+			# Range: 0 ~ 32767
+			cost_start = 50
+			# Default: 0
+			# Range: 0 ~ 32767
+			cost_working = 0
+			# Default: 0
+			# Range: 0 ~ 32767
+			cost_finish = 0
+			# Default: 5
+			# Range: 0 ~ 32767
+			learn_cost = 5
+
 [Game]
 	enable_skill_tree = true
 	damage_without_glove = true

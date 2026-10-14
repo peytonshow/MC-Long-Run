@@ -44,11 +44,15 @@ ItemEvents.modifyTooltips(event => {
         });
     };
 
+    // Replace
     event.modify('parcool:parcool_guide', tooltip => {
-        tooltip.removeLine(1);
         tooltip.removeLine(1);
     })
     addShiftTooltip('parcool:parcool_guide', "Press [Use] to open Guide.\nPress [Crouch + Use] to open Skill Tree."); 
+    event.modify('immersive_pillagers:crude_totem_of_undying', tooltip => {
+        tooltip.removeLine(1);
+    })
+    addShiftTooltip('immersive_pillagers:crude_totem_of_undying', "Kill a Human to charge it."); 
 
     // --- Armor ---
     addNormalTooltip('utopia:crown', 'Whoever owns this Crown rules the Realm'); 

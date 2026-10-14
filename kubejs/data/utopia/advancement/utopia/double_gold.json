@@ -1,0 +1,32 @@
+{
+  "parent": "utopia:root",
+  "criteria": {
+    "platinum": {
+      "conditions": {
+        "items": [
+          {
+            "items": "utopia:platinum_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.utop.double_gold.description"
+    },
+    "icon": {
+      "id": "utopia:platinum_ingot"
+    },
+    "title": {
+      "translate": "advancements.utop.double_gold.title"
+    }
+  },
+  "requirements": [
+    [
+      "platinum"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -610,7 +610,7 @@
 		"Display Baked Enchantments In Tooltip" = true
 		"Italic Tooltip" = true
 		#Enchantments other than Gold's Fortune/Looting to bake into items. Format is "item+enchant@level", such as "minecraft:stick+minecraft:sharpness@10".
-		"Item Enchantments" = ["spearsmod:golden_spear+minecraft:looting@2", "spearsmod:stone_spear+minecraft:unbreaking@2", "minecraft:stone_sword+minecraft:unbreaking@2", "minecraft:stone_pickaxe+minecraft:unbreaking@2", "minecraft:stone_axe+minecraft:unbreaking@2", "minecraft:stone_shovel+minecraft:unbreaking@2", "minecraft:stone_hoe+minecraft:unbreaking@2"]
+		"Item Enchantments" = ["spearsmod:golden_spear+minecraft:looting@2", "spearsmod:stone_spear+minecraft:unbreaking@2", "minecraft:stone_sword+minecraft:unbreaking@2", "minecraft:stone_pickaxe+minecraft:unbreaking@2", "minecraft:stone_axe+minecraft:unbreaking@2", "minecraft:stone_shovel+minecraft:unbreaking@2", "minecraft:stone_hoe+minecraft:unbreaking@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3"]
 
 	[tweaks.grab_chickens]
 		"Needs No Helmet" = true
@@ -949,7 +949,7 @@
 		"Drop Leaf Particles" = true
 
 		[world.blossom_trees.blue]
-			Rarity = 200
+			Rarity = 600
 
 			[world.blossom_trees.blue.dimensions]
 				"Is Blacklist" = false
@@ -966,7 +966,7 @@
 					"Is Blacklist" = true
 
 		[world.blossom_trees.lavender]
-			Rarity = 100
+			Rarity = 500
 
 			[world.blossom_trees.lavender.dimensions]
 				"Is Blacklist" = false
@@ -983,7 +983,7 @@
 					"Is Blacklist" = true
 
 		[world.blossom_trees.orange]
-			Rarity = 100
+			Rarity = 600
 
 			[world.blossom_trees.orange.dimensions]
 				"Is Blacklist" = false
@@ -1000,7 +1000,7 @@
 					"Is Blacklist" = true
 
 		[world.blossom_trees.yellow]
-			Rarity = 200
+			Rarity = 600
 
 			[world.blossom_trees.yellow.dimensions]
 				"Is Blacklist" = false
@@ -1017,7 +1017,7 @@
 					"Is Blacklist" = true
 
 		[world.blossom_trees.red]
-			Rarity = 30
+			Rarity = 600
 
 			[world.blossom_trees.red.dimensions]
 				"Is Blacklist" = false
@@ -1565,16 +1565,13 @@
 	[client.greener_grass]
 		"Affect Leaves" = true
 		"Affect Water" = false
-		"Block List" = ["minecraft:large_fern", "minecraft:tall_grass", "minecraft:grass_block", "minecraft:fern", "minecraft:short_grass", "minecraft:potted_fern", "minecraft:sugar_cane", "environmental:giant_tall_grass"]
+		"Block List" = ["minecraft:large_fern", "minecraft:tall_grass", "minecraft:grass_block", "minecraft:fern", "minecraft:short_grass", "minecraft:potted_fern", "minecraft:sugar_cane", "minecraft:bush"]
 		"Leaves List" = ["minecraft:spruce_leaves", "minecraft:birch_leaves", "minecraft:oak_leaves", "minecraft:jungle_leaves", "minecraft:acacia_leaves", "minecraft:dark_oak_leaves"]
 
 		[client.greener_grass.color_matrix]
-			R = [1.78, 0.0, 0.0]
-			G = [0.0, 2.0, 0.0]
-			B = [0.0, 0.0, 1.02]
-			#R = [0.89, 0.0, 0.0]
-			#G = [0.0, 1.11, 0.0]
-			#B = [0.0, 0.0, 0.89]
+			R = [1.13, 0.0, 0.0]
+			G = [0.13, 0.96, 1.28]
+			B = [0.0, 0.0, 0.6]
 
 		[client.greener_grass.water_matrix]
 			R = [0.86, 0.0, 0.0]

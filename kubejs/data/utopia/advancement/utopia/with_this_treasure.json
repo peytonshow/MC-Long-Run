@@ -1,0 +1,34 @@
+{
+  "parent": "utopia:root",
+  "criteria": {
+    "warden_spawn_egg": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warden_spawn_egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.utop.with_this_treasure.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:warden_spawn_egg"
+    },
+    "title": {
+      "translate": "advancements.utop.with_this_treasure.title"
+    }
+  },
+  "requirements": [
+    [
+      "warden_spawn_egg"
+    ]
+  ]
+}

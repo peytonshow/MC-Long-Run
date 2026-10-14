@@ -252,10 +252,6 @@ StartupEvents.registry("armor_material", (event) => {
         leggings: 1,
         boots: 1
     })
-    .enchantmentValue(0)
-    .equipSound('minecraft:item.armor.equip_leather')
-    .repairIngredient(() => Ingredient.of('minecraft:string').or('minecraft:leather'))
-    .knockbackResistance(0.25);
 
     event.create('detective_suit')
     .defense({
@@ -268,21 +264,37 @@ StartupEvents.registry("armor_material", (event) => {
     .equipSound('minecraft:item.armor.equip_leather')
     .repairIngredient(() => Ingredient.of('minecraft:string').or('minecraft:leather'))
     .knockbackResistance(0.25);
+
+    event.create('robes')
+    .defense({
+        chestplate: 2,
+        leggings: 1,
+        boots: 1
+    })
+    .enchantmentValue(0)
+    .equipSound('minecraft:item.armor.equip_leather')
+    .repairIngredient(() => Ingredient.of('minecraft:string').or('minecraft:leather'))
+    .knockbackResistance(0.30);
 });
 
 StartupEvents.registry('item', event => {
-    event.create('utopia:crown', 'helmet').displayName('Royal Crown').texture('utopia:item/crown').rarity('epic').material('kubejs:crown')
-    event.create('utopia:shattering_crown', 'helmet').displayName('Shattered Crown').texture('utopia:item/shattering_crown').material('kubejs:shattered_crown').maxDamage(50)
+    event.create('utopia:crown', 'helmet')
+    event.create('utopia:shattering_crown', 'helmet')
 
-    event.create('utopia:used_handcuffs', 'chestplate').displayName('Handcuffs').texture('utopia:item/cuffs').material('kubejs:cuffs').maxDamage(120)
-    event.create('utopia:used_shackles', 'boots').displayName('Shackles').texture('utopia:item/shackles').material('kubejs:cuffs').maxDamage(100)
+    event.create('utopia:used_handcuffs', 'chestplate')
+    event.create('utopia:used_shackles', 'boots')
     
-    event.create('utopia:gilded_suit', 'chestplate').texture('utopia:item/armor/gilded_suit').material('kubejs:gilded_suit').maxDamage(120).displayName('Fancy Suit Jacket').tag('minecraft:freeze_immune_wearables')
-    event.create('utopia:gilded_pants', 'leggings').texture('utopia:item/armor/gilded_pants').material('kubejs:gilded_suit').maxDamage(190).displayName('Gilded Uniform').tag('minecraft:freeze_immune_wearables')
-    event.create('utopia:gilded_shoes', 'boots').texture('utopia:item/armor/gilded_shoes').material('kubejs:gilded_suit').maxDamage(190).displayName('Fancy Shoes').tag('minecraft:freeze_immune_wearables')
-     
-    event.create('utopia:detective_suit', 'chestplate').texture('utopia:item/armor/detective_suit').material('kubejs:detective_suit').maxDamage(120).displayName('Classic Coat').tag('minecraft:freeze_immune_wearables')
-    event.create('utopia:detective_pants', 'leggings').texture('utopia:item/armor/detective_pants').material('kubejs:detective_suit').maxDamage(190).displayName('Classic Uniform').tag('minecraft:freeze_immune_wearables')
-    event.create('utopia:detective_shoes', 'boots').texture('utopia:item/armor/detective_shoes').material('kubejs:detective_suit').maxDamage(190).displayName('Classy Shoes').tag('minecraft:freeze_immune_wearables')
+    event.create('utopia:gilded_suit', 'chestplate').texture('utopia:item/armor/gilded_suit').material('kubejs:gilded_suit').maxDamage(120)
+    event.create('utopia:gilded_pants', 'leggings').texture('utopia:item/armor/gilded_pants').material('kubejs:gilded_suit').maxDamage(150)
+    event.create('utopia:gilded_shoes', 'boots').texture('utopia:item/armor/gilded_shoes').material('kubejs:gilded_suit').maxDamage(200)
+
+    event.create('utopia:detective_suit', 'chestplate').texture('utopia:item/armor/detective_suit').material('kubejs:detective_suit').maxDamage(120)
+    event.create('utopia:detective_pants', 'leggings').texture('utopia:item/armor/detective_pants').material('kubejs:detective_suit').maxDamage(150)
+    event.create('utopia:detective_shoes', 'boots').texture('utopia:item/armor/detective_shoes').material('kubejs:detective_suit').maxDamage(200)
+
+    event.create('utopia:robe_hat', 'helmet').texture('utopia:item/armor/robe_hat').material('kubejs:robes').maxDamage(170)
+    event.create('utopia:robe_chest', 'chestplate').texture('utopia:item/armor/robe_chest').material('kubejs:robes').maxDamage(200)
+    event.create('utopia:robe_legs', 'leggings').texture('utopia:item/armor/robe_legs').material('kubejs:robes').maxDamage(150)
+    event.create('utopia:robe_shoes', 'boots').texture('utopia:item/armor/robe_shoes').material('kubejs:robes').maxDamage(140)
      
 })

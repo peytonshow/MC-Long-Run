@@ -20,6 +20,8 @@ ServerEvents.tags('item', event => {
         event.add('utopia:washable', item)
     };
 
+    
+
     const makeKindaNotSword = (item) => {
         event.removeAllTagsFrom(item)
     };
@@ -178,6 +180,14 @@ ServerEvents.tags('item', event => {
         "oreganized:netherite_nugget"
     ] )
 
+    event.add('utopia:key', [
+        "supplementaries:key",
+        "storagedrawers:drawer_key",
+        "storagedrawers:quantify_key",
+        "storagedrawers:shroud_key",
+        "storagedrawers:priority_key"
+    ] )
+
     event.add('utopia:flux', [
         "supplementaries:ash",
         "utopia:silica_dust"
@@ -192,9 +202,21 @@ ServerEvents.tags('item', event => {
 })
 
 ServerEvents.tags('block', event => {
+    const makeImmovable = (item) => {
+        event.add('create:non_movable', item)
+        event.add('minecraft:dragon_immune', item)
+        event.add('minecraft:wither_immune', item)
+        event.add('minecraft:features_cannot_replace', item)
+        event.add('nova_structures:explosion_resistand', item)
+        event.add('minecraft:lava_pool_stone_cannot_replace', item)
+    };
+    makeImmovable('selling_bin:selling_bin')
+
+
     event.add('c:ores', [
         "minecraft:diorite"
     ] )
+
 })
 
 ServerEvents.tags('fluid', event => {

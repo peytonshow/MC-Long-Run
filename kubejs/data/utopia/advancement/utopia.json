@@ -1,0 +1,26 @@
+{
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "background": "utopia:textures/gui/advancements/backgrounds/computanium_front.png",
+    "description": {
+      "text": "Welcome to Long-Run"
+    },
+    "icon": {
+      "id": "utopia:ruby"
+    },
+    "title": {
+      "text": "Utopia"
+    },
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "requirements": [
+    [
+      "auto"
+    ]
+  ]
+}

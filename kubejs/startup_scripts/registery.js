@@ -1,87 +1,88 @@
 
 StartupEvents.registry('item', event => {
     // Mimic
-    event.create('utopia:shadow_key').texture('utopia:item/shadow_key').displayName('Shadow Key')
+    event.create('utopia:shadow_key').texture('utopia:item/shadow_key').maxStackSize(16)
+    event.create('utopia:chroma_key').texture('utopia:item/chroma_key').maxStackSize(1).maxDamage(5)
 
     // Production
-    event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet').displayName('Patchwork Netherite Helmet').tag('c:hidden_from_recipe_viewers')
-    event.create('utopia:incomplete_netherite_chestplate', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_chestplate').displayName('Patchwork Netherite Chestplate').tag('c:hidden_from_recipe_viewers')
-    event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings').displayName('Patchwork Netherite Leggings').tag('c:hidden_from_recipe_viewers')
-    event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots').displayName('Patchwork Netherite Boots').tag('c:hidden_from_recipe_viewers')
-    event.create('utopia:incomplete_basic_circuit', 'create:sequenced_assembly').displayName('Incomplete Basic Circuit').texture('utopia:item/incomplete_basic_circuit').tag('c:hidden_from_recipe_viewers')
-    event.create('utopia:incomplete_advanced_circuit', 'create:sequenced_assembly').displayName('Incomplete Advanced Circuit').texture('utopia:item/incomplete_advanced_circuit').tag('c:hidden_from_recipe_viewers')
-    // event.create('utopia:incomplete_wire_spool', 'create:sequenced_assembly').displayName('Incomplete Wire Spool').texture('utopia:item/incomplete_wire_spool').tag('c:hidden_from_recipe_viewers').unstackable()
-
-    // Forgin'!
-    event.create('utopia:uneven_raw_brass_precursor').displayName('Brass Precursor').texture('utopia:item/uneven_raw_brass_precursor')
-    event.create('utopia:ingot_mold').displayName('Mold').texture('utopia:item/sturdy_mold')
-
+    event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_netherite_chestplate', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_chestplate').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_netherite_leggings', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_leggings').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_netherite_boots', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_boots').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_basic_circuit', 'create:sequenced_assembly').texture('utopia:item/incomplete_basic_circuit').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_advanced_circuit', 'create:sequenced_assembly').texture('utopia:item/incomplete_advanced_circuit').tag('c:hidden_from_recipe_viewers')
+    event.create('utopia:incomplete_ingot', 'create:sequenced_assembly').texture('utopia:item/incomplete_ingot').tag('c:hidden_from_recipe_viewers')
+    // event.create('utopia:incomplete_wire_spool', 'create:sequenced_assembly')
+    
     // Usable
-    event.create('utopia:letter_of_invitation').displayName('Letter of Invite').maxStackSize(16)
+    event.create('utopia:letter_of_invitation').maxStackSize(16)
 
     // Sciantest
-    event.create('utopia:beaker').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker').displayName('Empty Beaker')
-    event.create('utopia:beaker_oxygen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_oxygen').displayName('Beaker of Oxygen').useAnimation('drink')
-    event.create('utopia:beaker_hydrogen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_hydrogen').displayName('Beaker of Hydrogen').useAnimation('drink')
-    event.create('utopia:beaker_nitrogen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_nitrogen').displayName('Beaker of Nitrogen').useAnimation('drink')
-    event.create('utopia:beaker_ammonia').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_ammonia').displayName('Ammonia').useAnimation('drink')
-    event.create('utopia:beaker_nitric_acid').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_nitric_acid').displayName('Beaker of Nitric Acid').useAnimation('drink')
-    event.create('utopia:beaker_bleach').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/bleach').displayName('Bleach').useAnimation('drink')
-    event.create('utopia:beaker_propylene_glycol').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/propylene_glycol').displayName('Propylene Glycol').useAnimation('drink')
-    event.create('utopia:garbage').displayName('Garbage').texture('utopia:item/garbage').tag('c:dusts').tag('utopia:chemistry')
-    event.create('utopia:silica_dust').displayName('Silica Dust').texture('utopia:item/silica').tag('c:dusts').tag('utopia:chemistry')
-    event.create('utopia:moissanite').displayName('Moissanite').texture('utopia:item/moissanite').tag('c:gems').tag('utopia:chemistry')
-    event.create('utopia:ammonium_nitrate').tag('utopia:chemistry').texture('utopia:item/ammonium_nitrate').displayName('Ammonium Nitrate')
-    event.create('utopia:sulfur_dust').tag('c:dusts').tag('utopia:chemistry').texture('utopia:item/sulphur').displayName('Sulfur Dust')
+    event.create('utopia:beaker').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker')
+    event.create('utopia:beaker_oxygen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_oxygen').useAnimation('drink')
+    event.create('utopia:beaker_hydrogen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_hydrogen').useAnimation('drink')
+    event.create('utopia:beaker_nitrogen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_nitrogen').useAnimation('drink')
+    event.create('utopia:beaker_ammonia').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_ammonia').useAnimation('drink')
+    event.create('utopia:beaker_nitric_acid').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_nitric_acid').useAnimation('drink')
+    event.create('utopia:beaker_bleach').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/bleach').useAnimation('drink')
+    event.create('utopia:beaker_propylene_glycol').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/propylene_glycol').useAnimation('drink')
+    event.create('utopia:garbage').texture('utopia:item/garbage').tag('c:dusts').tag('utopia:chemistry')
+    event.create('utopia:silica_dust').texture('utopia:item/silica').tag('c:dusts').tag('utopia:chemistry')
+    event.create('utopia:moissanite').texture('utopia:item/moissanite').tag('c:gems').tag('utopia:chemistry')
+    event.create('utopia:ammonium_nitrate').tag('utopia:chemistry').texture('utopia:item/ammonium_nitrate')
+    event.create('utopia:sulfur_dust').tag('c:dusts').tag('utopia:chemistry').texture('utopia:item/sulphur')
 
-    
     // Electricity
-    //event.create('utopia:battery_charged').displayName('Graphite').texture('utopia:item/graphite_ingot')
-    event.create('utopia:wire').displayName('Wire').texture('utopia:item/wire').tag('utopia:electricity')
-    event.create('utopia:wire_spool').displayName('Wire Spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(60).unstackable()
-    event.create('utopia:basic_circuit').displayName('Basic Chip').texture('utopia:item/circuit_board').tag('utopia:electricity').maxStackSize(16)
-    event.create('utopia:advanced_circuit').displayName('Advanced Chip').texture('utopia:item/advanced_circuit_board').tag('utopia:electricity').maxStackSize(16)
-    event.create('utopia:circuit_upgrade_template').displayName('Manufacturing Template').texture('utopia:item/circuit_upgrade_template')
+    //event.create('utopia:battery_charged')
+    event.create('utopia:wire').texture('utopia:item/wire').tag('utopia:electricity')
+    event.create('utopia:wire_spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(25).unstackable()
+    event.create('utopia:basic_circuit').texture('utopia:item/circuit_board').tag('utopia:electricity').maxStackSize(16)
+    event.create('utopia:advanced_circuit').texture('utopia:item/advanced_circuit_board').tag('utopia:electricity').maxStackSize(16)
+    event.create('utopia:circuit_upgrade_template').texture('utopia:item/circuit_upgrade_template')
+
+    // Forgin'!
+    // event.create('utopia:uneven_raw_brass_precursor')
+    event.create('utopia:slag').texture('utopia:item/slag').tag('c:ingots').tag('c:ingots/slag')
+    event.create('utopia:ingot_mold').texture('utopia:item/mold')
 
     // Ingots
-    event.create('utopia:graphite_ingot').displayName('Graphite').texture('utopia:item/graphite_ingot').tag('c:ingots').tag('c:ingots/graphite')
-    event.create('utopia:platinum_ingot').displayName('Platinum Ingot').texture('utopia:item/platinum_ingot').tag('c:ingots').tag('c:ingots/platinum')
-    event.create('utopia:platinum_nugget').displayName('Platinum Nugget').texture('utopia:item/platinum_nugget').tag('c:nuggets').tag('c:nuggets/platinum')
-    event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').displayName('Plastic').tag('c:ingots')
-    // See tools.js for Platinum Tools
+    event.create('utopia:graphite_ingot').texture('utopia:item/graphite_ingot').tag('c:ingots').tag('c:ingots/graphite')
+    event.create('utopia:platinum_ingot').texture('utopia:item/platinum_ingot').tag('c:ingots').tag('c:ingots/platinum')
+    event.create('utopia:platinum_nugget')
+    event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').tag('c:ingots')
 
     // Stamps
-    event.create('utopia:encoder_stamp').displayName('Encoder Stamp').texture('utopia:item/encoder_stamp').rarity('rare').tag('utopia:stamp')
-    event.create('utopia:decoder_stamp').displayName('Decoder Stamp').texture('utopia:item/decoder_stamp').rarity('rare').tag('utopia:stamp')
-    event.create('utopia:paper_stamp').displayName('Paper Stamp').texture('utopia:item/paper_stamp').rarity('rare').tag('utopia:stamp')
+    event.create('utopia:encoder_stamp').texture('utopia:item/encoder_stamp').rarity('rare').tag('utopia:stamp')
+    event.create('utopia:decoder_stamp').texture('utopia:item/decoder_stamp').rarity('rare').tag('utopia:stamp')
+    event.create('utopia:paper_stamp').texture('utopia:item/paper_stamp').rarity('rare').tag('utopia:stamp')
 
     // FIAT!!!!
-    event.create('utopia:1_dollar_bill').displayName('1$ Bill').texture('utopia:item/bill_one').burnTime(20).maxStackSize(50)
-    event.create('utopia:5_dollar_bill').displayName('5$ Bill').texture('utopia:item/bill_five').burnTime(20).maxStackSize(50)
-    event.create('utopia:20_dollar_bill').displayName('20$ Bill').texture('utopia:item/bill_twenty').rarity('uncommon').burnTime(30).maxStackSize(50)
-    event.create('utopia:100_dollar_bill').displayName('100$ Bill').texture('utopia:item/bill_one_hundred').rarity('uncommon').burnTime(30).maxStackSize(50)
-    event.create('utopia:500_dollar_bill').displayName('500$ Bill').texture('utopia:item/bill_five_hundred').rarity('uncommon').burnTime(30).maxStackSize(50)
+    event.create('utopia:1_dollar_bill')
+    event.create('utopia:5_dollar_bill')
+    event.create('utopia:20_dollar_bill')
+    event.create('utopia:100_dollar_bill')
+    event.create('utopia:500_dollar_bill')
 
     // Money thats technically actually worth something!
-    event.create('utopia:coin_netherite').displayName('Scrap Coin').texture('utopia:item/coin_scrap').rarity('epic')
-    event.create('utopia:coin_netherite_fractional').displayName('Scrap Fractional').texture('utopia:item/coin_scrap_fractional').rarity('epic')
-    event.create('utopia:coin_diamond').displayName('Diamond Coin').texture('utopia:item/coin_diamond').rarity('rare')
-    event.create('utopia:coin_diamond_fractional').displayName('Diamond Fractional').texture('utopia:item/coin_diamond_fractional').rarity('rare')
-    event.create('utopia:coin_iron').displayName('Iron Coin').texture('utopia:item/coin_iron')
-    event.create('utopia:coin_iron_fractional').displayName('Iron Fractional').texture('utopia:item/coin_iron_fractional')
+    event.create('utopia:coin_netherite')
+    event.create('utopia:coin_netherite_fractional')
+    event.create('utopia:coin_diamond')
+    event.create('utopia:coin_diamond_fractional')
+    event.create('utopia:coin_iron')
+    event.create('utopia:coin_iron_fractional')
 
     // Jail
-    event.create('utopia:handcuffs').displayName('Silver Cuffs').texture('utopia:item/cuffs')
-    event.create('utopia:shackles').displayName('Lead Shackles').texture('utopia:item/shackles')
+    event.create('utopia:handcuffs')
+    event.create('utopia:shackles')
 
     // Gordon, I need spices!
     // (Food values are defined in food.js)
-    event.create('utopia:cookie_dough').maxStackSize(global.MAXFOODSIZE).displayName('Cookie Dough')
+    event.create('utopia:cookie_dough').maxStackSize(global.MAXFOODSIZE)
     event.create('utopia:pepper').tag('utopia:spices')
       .tag('c:foods')
-    event.create('utopia:sea_salt').tag('utopia:spices').tag('c:dusts').displayName('Salt')
+    event.create('utopia:sea_salt').tag('utopia:spices').tag('c:dusts')
       .tag('c:foods')
-    event.create('utopia:seasoned_cooked_beef').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Steak')
+    event.create('utopia:seasoned_cooked_beef').maxStackSize(global.MAXFOODSIZE)
       .tag('c:animal_foods')
       .tag('c:foods')
       .tag('c:foods/cooked_beef')
@@ -89,7 +90,7 @@ StartupEvents.registry('item', event => {
       .tag('c:foods/cooked_meats')
       .tag('minecraft:meat')
       .tag('minecraft:wolf_food')
-    event.create('utopia:seasoned_cooked_porkchop').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Porkchop')
+    event.create('utopia:seasoned_cooked_porkchop').maxStackSize(global.MAXFOODSIZE)
       .tag('c:animal_foods')
       .tag('c:foods')
       .tag('c:foods/cooked_pork')
@@ -98,7 +99,7 @@ StartupEvents.registry('item', event => {
       .tag('minecraft:meat')
       .tag('minecraft:piglin_food')
       .tag('minecraft:wolf_food')
-    event.create('utopia:seasoned_cooked_chicken').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Chicken')
+    event.create('utopia:seasoned_cooked_chicken').maxStackSize(global.MAXFOODSIZE)
       .tag('c:animal_foods')
       .tag('c:foods')
       .tag('c:foods/cooked_chicken')
@@ -106,7 +107,7 @@ StartupEvents.registry('item', event => {
       .tag('c:foods/cooked_meats')
       .tag('minecraft:meat')
       .tag('minecraft:wolf_food')
-    event.create('utopia:seasoned_cooked_mutton').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Mutton')
+    event.create('utopia:seasoned_cooked_mutton').maxStackSize(global.MAXFOODSIZE)
       .tag('c:animal_foods')
       .tag('c:foods')
       .tag('c:foods/cooked_mutton')
@@ -114,7 +115,7 @@ StartupEvents.registry('item', event => {
       .tag('c:foods/cooked_meats')
       .tag('minecraft:meat')
       .tag('minecraft:wolf_food')
-    event.create('utopia:seasoned_cooked_rabbit').maxStackSize(global.MAXFOODSIZE).displayName('Seasoned Rabbit')
+    event.create('utopia:seasoned_cooked_rabbit').maxStackSize(global.MAXFOODSIZE)
       .tag('c:animal_foods')
       .tag('c:foods')
       .tag('c:foods/cooked_rabbit')
@@ -127,7 +128,7 @@ StartupEvents.registry('item', event => {
 
 StartupEvents.registry('block', event => {
   event.create('utopia:sea_salt_lamp') 
-    .displayName('Salt Lamp')
+    
     .soundType('glass') 
     .hardness(3) 
     .resistance(4)
@@ -137,7 +138,7 @@ StartupEvents.registry('block', event => {
     .fullBlock(false)
 
   event.create('utopia:moissanite_block')
-    .displayName('Block of Moissanite')
+    
     .soundType('metal')
     .hardness(5.0)
     .resistance(6.0)
@@ -145,46 +146,46 @@ StartupEvents.registry('block', event => {
     .tagBlock('minecraft:mineable/pickaxe') 
     .tagBlock('minecraft:needs_iron_tool')
   event.create('utopia:sea_salt_block') 
-    .displayName('Sea Salt Block')
+    
     .soundType('sand') 
     .hardness(3) 
     .resistance(5)
   event.create('utopia:neon_block') 
-    .displayName('Neon')
+    
     .soundType('shroomlight') 
     .resistance(1)
 
   // Degrees
   event.create('utopia:degree_law', "kubejs:cardinal") 
-    .displayName('Law Degree')
+    
     .soundType('scaffolding')
     .box(0, 0, 15, 16, 16, 16)
     .notSolid()
     .fullBlock(false)
     .tag('utopia:degree')
   event.create('utopia:degree_defense', "kubejs:cardinal") 
-    .displayName('Defense Degree')
+    
     .soundType('scaffolding')
     .box(0, 0, 15, 16, 16, 16)
     .notSolid()
     .fullBlock(false)
     .tag('utopia:degree')
   event.create('utopia:degree_chef', "kubejs:cardinal") 
-    .displayName('Cooking Degree')
+    
     .soundType('scaffolding')
     .box(0, 0, 15, 16, 16, 16)
     .notSolid()
     .fullBlock(false)
     .tag('utopia:degree')
   event.create('utopia:degree_anthropology', "kubejs:cardinal") 
-    .displayName('Anthropology Degree')
+    
     .soundType('scaffolding')
     .box(0, 0, 15, 16, 16, 16)
     .notSolid()
     .fullBlock(false)
     .tag('utopia:degree')
   event.create('utopia:degree_economics', "kubejs:cardinal") 
-    .displayName('Economics Degree')
+    
     .soundType('scaffolding')
     .box(0, 0, 15, 16, 16, 16)
     .notSolid()
@@ -192,7 +193,7 @@ StartupEvents.registry('block', event => {
     .tag('utopia:degree')
 
   event.create('utopia:block_of_hyper_capitalism', "kubejs:cardinal") 
-    .displayName('Block of Hyper-Capitalism') //1000
+     //1000
     .soundType('glass') 
     .hardness(1) 
     .resistance(1)
@@ -200,7 +201,7 @@ StartupEvents.registry('block', event => {
     .fullBlock(false)
     .item(ctx => {ctx.rarity("rare").maxStackSize(16)})
   event.create('utopia:block_of_extreme_capitalism', "kubejs:cardinal") 
-    .displayName('Block of Extreme Capitalism') //100
+     //100
     .soundType('metal') 
     .hardness(3) 
     .resistance(0)
@@ -208,7 +209,7 @@ StartupEvents.registry('block', event => {
     .fullBlock(false)
     .item(ctx => {ctx.rarity("rare").maxStackSize(16)})
   event.create('utopia:block_of_high_capitalism', "kubejs:cardinal") 
-    .displayName('Block of High Capitalism') //20
+     //20
     .soundType('wool') 
     .hardness(2) 
     .resistance(0)
@@ -216,7 +217,7 @@ StartupEvents.registry('block', event => {
     .fullBlock(false)
     .item(ctx => {ctx.rarity("uncommon").maxStackSize(16)})
   event.create('utopia:block_of_moderate_capitalism', "kubejs:cardinal") 
-    .displayName('Block of Moderate Capitalism') //5
+     //5
     .soundType('wool') 
     .hardness(2) 
     .resistance(0)
@@ -224,7 +225,7 @@ StartupEvents.registry('block', event => {
     .fullBlock(false)
     .item(ctx => {ctx.maxStackSize(32)})
   event.create('utopia:block_of_capitalism', "kubejs:cardinal") 
-    .displayName('Block of Capitalism') //1
+     //1
     .soundType('wool') 
     .hardness(2) 
     .resistance(0)

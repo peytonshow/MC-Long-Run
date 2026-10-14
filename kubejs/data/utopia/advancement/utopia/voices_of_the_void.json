@@ -1,0 +1,25 @@
+{
+  "parent": "utopia:root",
+  "criteria": {
+    "voices_of_the_voice": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.utop.voices_of_the_voice.description"
+    },
+    "icon": {
+      "id": "utopia:computer_block_badsignal"
+    },
+    "title": {
+      "translate": "advancements.utop.voices_of_the_voice.title"
+    }
+  },
+  "requirements": [
+    [
+      "voices_of_the_voice"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

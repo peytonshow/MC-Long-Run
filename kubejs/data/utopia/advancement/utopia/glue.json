@@ -1,0 +1,35 @@
+{
+  "parent": "utopia:root",
+  "criteria": {
+    "ate_glue": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "create:super_glue"
+          ]
+        }
+      }
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.utop.sticky_situation.description"
+    },
+    "frame": "task",
+    "icon": {
+      "id": "create:super_glue"
+    },
+    "title": {
+      "translate": "advancements.utop.sticky_situation.title"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "ate_glue"
+    ]
+  ]
+}
