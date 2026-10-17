@@ -12,6 +12,7 @@
 !/resourcepacks/**
 !/serverconfig/
 !/serverconfig/**
+!/easy_npc/**
 
 # Allow specific files
 !/options.txt

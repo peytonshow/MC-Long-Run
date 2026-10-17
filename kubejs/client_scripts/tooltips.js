@@ -61,9 +61,9 @@ ItemEvents.modifyTooltips(event => {
     addNormalTooltip('utopia:used_shackles', "It's hard to move in these."); 
 
     // --- Stamps ---
-    addShiftTooltip('utopia:encoder_stamp', 'Used to split material into Minted Coins.'); 
-    addShiftTooltip('utopia:decoder_stamp', 'Used to turn Minted Coins into material without loss.'); 
-    addShiftTooltip('utopia:paper_stamp', 'Used to print any denomination Paper Money. Use sparingly!'); 
+    // addShiftTooltip('utopia:encoder_stamp', 'Used to split material into Minted Coins.'); 
+    // addShiftTooltip('utopia:decoder_stamp', 'Used to turn Minted Coins into material without loss.'); 
+    // addShiftTooltip('utopia:paper_stamp', 'Used to print any denomination Paper Money. Use sparingly!'); 
 
     // --- Chemistry ---
     addShiftTooltip('utopia:beaker_oxygen', "It feels completely empty, and doesn't smell."); 
@@ -106,12 +106,12 @@ ItemEvents.modifyTooltips(event => {
     ], 'See exchange rates using /Treasury exchange'); 
 
     // --- Coins ---
-    addShiftTooltip('utopia:coin_netherite', 'Worth 1/8 Netherite Scrap each if Decoded.');
-    addShiftTooltip('utopia:coin_netherite_fractional', 'Worth 1/16 Netherite Scrap each if Decoded.');
-    addShiftTooltip('utopia:coin_diamond', 'Worth 1/8 Diamond each if Decoded.');
-    addShiftTooltip('utopia:coin_diamond_fractional', 'Worth 1/16 Diamond each if Decoded.');
-    addShiftTooltip('utopia:coin_iron', 'Worth 1/8 Iron each if Decoded.');
-    addShiftTooltip('utopia:coin_iron_fractional', 'Worth 1/16 Iron each if Decoded.');
+    addShiftTooltip('utopia:coin_scrap', 'Worth 1/8 Netherite Scrap each.');
+    addShiftTooltip('utopia:coin_scrap_fractional', 'Worth 1/16 Netherite Scrap.');
+    addShiftTooltip('utopia:coin_diamond', 'Worth 1/8 Diamond each.');
+    addShiftTooltip('utopia:coin_diamond_fractional', 'Worth 1/16 Diamond each.');
+    addShiftTooltip('utopia:coin_iron', 'Worth 1/3 Iron each.');
+    addShiftTooltip('utopia:coin_iron_fractional', 'Worth 1/6 Iron each.');
 
     // --- Blocks ---
     addNormalTooltip('utopia:block_of_hyper_capitalism', 'Worth R$D 12,500');
@@ -120,3 +120,19 @@ ItemEvents.modifyTooltips(event => {
     addNormalTooltip('utopia:block_of_moderate_capitalism', 'Worth R$D 125');
     addNormalTooltip('utopia:block_of_capitalism', 'Worth R$D 25');
 });
+
+ItemEvents.modifyTooltips(event => {
+  event.modify('utopia:recall_potion', tooltip => {
+    tooltip.dynamic('recall_potion_destination')
+  })
+})
+
+ItemEvents.dynamicTooltips('recall_potion_destination', event => {
+  const data = event.item.customData
+
+  if (data && data.contains('name')) {
+    event.add(Text.gray('Takes you to: ').append(Text.gold(data.getString('name'))))
+  } else {
+    event.add(Text.gray('Takes you to: ').append(Text.darkGray('Unknown')))
+  }
+})

@@ -131,7 +131,6 @@ key_zume.zoom:key.keyboard.z
 key_zume.zoom_in:key.keyboard.equal
 key_zume.zoom_out:key.keyboard.minus
 key_key.exposure.camera_controls:key.keyboard.unknown
-key_key.reliable_remover.emi_delete:key.keyboard.delete
 key_supplementaries.keybind.quiver:key.keyboard.v
 key_key.corpse.death_history:key.keyboard.u
 key_key.astikorcartsredux.action:key.keyboard.r
@@ -208,6 +207,8 @@ key_key.do_a_barrel_roll.roll_right:key.keyboard.unknown
 key_key.do_a_barrel_roll.thrust_forward:key.keyboard.w
 key_key.do_a_barrel_roll.thrust_backward:key.keyboard.unknown
 key_key.kubejs.kubedex:key.keyboard.k
+key_key.reliable_remover.emi_delete:key.keyboard.delete
+key_key.reliable_remover.jei_delete:key.keyboard.delete
 key_artifacts.key.helium_flamingo.activate:key.keyboard.unknown
 key_artifacts.key.charm_of_shrinking.toggle:key.keyboard.unknown
 key_artifacts.key.charm_of_sinking.toggle:key.keyboard.unknown
@@ -273,7 +274,7 @@ key_key.entityculling.toggle:key.keyboard.unknown
 key_key.punchy.triggerable.punchy_sword_inspect_rework:key.keyboard.g
 key_key.punchy.triggerable.punchy_sword_inspect_old:key.keyboard.j
 soundCategory_master:0.8584437086092715
-soundCategory_music:0.15316901408450703
+soundCategory_music:0.0
 soundCategory_record:1.0
 soundCategory_weather:0.801056338028169
 soundCategory_block:0.602112676056338

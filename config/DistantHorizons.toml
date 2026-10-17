@@ -683,7 +683,7 @@ _version = 5
 				# Note:
 				# Some DH settings will be disabled and/or changed to improve 
 				# visuals when DH rendering is disabled.
-				ignoredDimensionCsv = ""
+				ignoredDimensionCsv = "javd:void"
 				#
 				# Requires a restart to change. 
 				#  

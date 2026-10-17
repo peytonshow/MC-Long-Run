@@ -278,11 +278,11 @@ StartupEvents.registry("armor_material", (event) => {
 });
 
 StartupEvents.registry('item', event => {
-    event.create('utopia:crown', 'helmet')
-    event.create('utopia:shattering_crown', 'helmet')
+    event.create('utopia:crown', 'helmet').texture('utopia:item/armor/crown').material('kubejs:crown')
+    event.create('utopia:shattering_crown', 'helmet').texture('utopia:item/armor/shattering_crown').material('kubejs:shattered_crown')
 
-    event.create('utopia:used_handcuffs', 'chestplate')
-    event.create('utopia:used_shackles', 'boots')
+    event.create('utopia:used_handcuffs', 'chestplate').texture('utopia:item/armor/used_handcuffs').material('kubejs:cuffs').maxDamage(150)
+    event.create('utopia:used_shackles', 'boots').texture('utopia:item/armor/used_shackles').material('kubejs:cuffs').maxDamage(150)
     
     event.create('utopia:gilded_suit', 'chestplate').texture('utopia:item/armor/gilded_suit').material('kubejs:gilded_suit').maxDamage(120)
     event.create('utopia:gilded_pants', 'leggings').texture('utopia:item/armor/gilded_pants').material('kubejs:gilded_suit').maxDamage(150)

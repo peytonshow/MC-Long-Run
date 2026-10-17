@@ -1,0 +1,28 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "creature_spawn_probability": 0.0,
+  "effects": {
+    "sky_color": 10518015,
+    "fog_color": 14074111,
+    "water_color": 8374512,
+    "water_fog_color": 2783656
+  },
+  "spawners": {
+    "monster": [
+      { "type": "minecraft:skeleton", "weight": 100, "minCount": 1, "maxCount": 4 },
+      { "type": "minecraft:stray", "weight": 100, "minCount": 1, "maxCount": 4 }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [[], [], [], [], [], [], [], [], [], [], []]
+}

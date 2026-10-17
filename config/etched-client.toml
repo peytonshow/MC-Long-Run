@@ -1,5 +1,5 @@
 ["Game Feel"]
+	#Makes the parrot dance animation smoother
+	"Smooth Parrot Animation" = false
 	#Always plays tracks in stereo even when in-world
 	"Force Stereo" = false
-	#Makes the parrot dance animation smoother
-	"Smooth Parrot Animation" = true

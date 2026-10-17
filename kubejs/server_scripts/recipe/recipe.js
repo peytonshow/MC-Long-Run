@@ -71,10 +71,10 @@ ServerEvents.recipes(event => {
     // Removal. For replacements use the function above, nerd
     
     event.remove({ input: 'minecraft:soul_campfire', type: 'minecraft:crafting_shaped' })
-    event.remove({ input: 'minecraft:soul_campfire', type: 'minecraft:crafting_shaped' })
     event.remove({ input: 'minecraft:gravel', type: 'create:splashing' })
     event.remove({ input: 'minecraft:sugar_cane', output: 'minecraft:sugar'})
     event.remove({ input: Ingredient.of('#c:cobblestones'), type: 'create:mixing', output: Fluid.of('minecraft:lava'),})
+    event.remove({ output: 'immersive_pillagers:crude_totem_of_undying' })
     event.remove({ output: 'oreganized:glance' })
     event.remove({ output: 'create:brass_ingot', type: 'create:mixing' })
     event.remove({ output: 'minecraft:paper', type: 'minecraft:crafting_shaped' })
@@ -865,7 +865,7 @@ ServerEvents.recipes(event => {
         'minecraft:glass_bottle',
         Fluid.of('utopia:nitrogen', 50),
     ], [
-        'quark:bottled_cloud',
+        'quark:cloud',
     ])
     event.recipes.create.mixing([
         Fluid.of('utopia:propylene_glycol', 1000)
@@ -900,7 +900,7 @@ ServerEvents.recipes(event => {
         '16x minecraft:glass_bottle'
     ], [
         'create_enchantment_industry:super_experience_nugget',
-        '16x quark:bottled_cloud',
+        '16x quark:cloud',
         Fluid.of('utopia:propylene_glycol', 600)
     ])
     event.recipes.create.mixing([
@@ -932,7 +932,7 @@ ServerEvents.recipes(event => {
 
 
     event.recipes.create.compacting([
-        '1x quark:bottled_cloud',
+        '1x quark:cloud',
         'minecraft:heart_of_the_sea'
     ], [
         'minecraft:glass_bottle',
@@ -1142,59 +1142,71 @@ ServerEvents.recipes(event => {
     .transitionalItem('utopia:incomplete_basic_circuit')
     .loops(1)
     
-event.recipes.create.sequenced_assembly(
-  [
-    // Outputs:
-    CreateItem.of('utopia:advanced_circuit', 0.97),
-    CreateItem.of('2x utopia:garbage', 0.01),
-    CreateItem.of('utopia:plastic_ingot', 0.01),
-    CreateItem.of(`minecraft:egg[custom_name='{"bold":false,"color":"white","italic":false,"obfuscated":false,"strikethrough":false,"text":"Device","underlined":false}']`, 0.01)
-  ],
-  // Input:
-  'utopia:circuit_upgrade_template',
-  // Sequence:
-  [
-    // Stage 1: substrate prep (6)
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:silica_dust']),
-    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 50)]),
-    event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
-    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:bleach', 25)]),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:silica_dust']),
-    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+    event.recipes.create.sequenced_assembly(
+        [
+            // Outputs:
+            CreateItem.of('utopia:advanced_circuit', 0.97),
+            CreateItem.of('2x utopia:garbage', 0.01),
+            CreateItem.of('utopia:plastic_ingot', 0.01),
+            CreateItem.of(`minecraft:egg[custom_name='{"bold":false,"color":"white","italic":false,"obfuscated":false,"strikethrough":false,"text":"Device","underlined":false}']`, 0.01)
+        ],
+        // Input:
+        'utopia:circuit_upgrade_template',
+        // Sequence:
+        [
+            // Stage 1: substrate prep (6)
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:silica_dust']),
+            event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 50)]),
+            event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+            event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:bleach', 25)]),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:silica_dust']),
+            event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
 
-    // Stage 2: wiring (6)
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
-    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
-    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
-    event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+            // Stage 2: wiring (6)
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+            event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+            event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
+            event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
 
-    // Stage 3: conductive layers (6)
-    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:golden_sheet']),
-    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 50)]),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:brass_sheet']),
-    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:bleach', 25)]),
-    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+            // Stage 3: conductive layers (6)
+            event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:golden_sheet']),
+            event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 50)]),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:brass_sheet']),
+            event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:bleach', 25)]),
+            event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
 
-    // Stage 4: logic core (6)
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:basic_circuit']),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:precision_mechanism']),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:transmitter']),
-    event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
-    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+            // Stage 4: logic core (6)
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:basic_circuit']),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:precision_mechanism']),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'create:transmitter']),
+            event.recipes.create.cutting('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+            event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
 
-    // Stage 5: platinum contacts + coolant coat (6)
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:platinum_nugget']),
-    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
-    event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:propylene_glycol', 50)]),
-    event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:platinum_nugget']),
-    event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
-  ]
-)
-.transitionalItem('utopia:incomplete_advanced_circuit')
-.loops(3)
+            // Stage 5: platinum contacts + coolant coat (6)
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:platinum_nugget']),
+            event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:nitric_acid', 25)]),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:wire_spool']),
+            event.recipes.create.filling('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', Fluid.of('utopia:propylene_glycol', 50)]),
+            event.recipes.create.deploying('utopia:incomplete_advanced_circuit', ['utopia:incomplete_advanced_circuit', 'utopia:platinum_nugget']),
+            event.recipes.create.pressing('utopia:incomplete_advanced_circuit', 'utopia:incomplete_advanced_circuit'),
+        ]
+    )
+    .transitionalItem('utopia:incomplete_advanced_circuit')
+    .loops(3)
+
+    event.shaped('4x utopia:smooth_stone_stairs', [
+        'S  ',
+        'SS ',
+        'SSS'
+    ], {
+        S: 'minecraft:smooth_stone'
+    }).id('utopia:smooth_stone_stairs_from_crafting')
+
+    // Stonecutter: 1 smooth stone -> 1 stair
+    event.stonecutting('utopia:smooth_stone_stairs', 'minecraft:smooth_stone')
+        .id('utopia:smooth_stone_stairs_from_stonecutting')
 })

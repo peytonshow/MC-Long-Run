@@ -2,7 +2,7 @@
 StartupEvents.registry('item', event => {
     // Mimic
     event.create('utopia:shadow_key').texture('utopia:item/shadow_key').maxStackSize(16)
-    event.create('utopia:chroma_key').texture('utopia:item/chroma_key').maxStackSize(1).maxDamage(5)
+    event.create('utopia:chroma_key').texture('utopia:item/chroma_key').maxStackSize(1).maxDamage(3)
 
     // Production
     event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet').tag('c:hidden_from_recipe_viewers')
@@ -46,30 +46,10 @@ StartupEvents.registry('item', event => {
     event.create('utopia:ingot_mold').texture('utopia:item/mold')
 
     // Ingots
-    event.create('utopia:graphite_ingot').texture('utopia:item/graphite_ingot').tag('c:ingots').tag('c:ingots/graphite')
-    event.create('utopia:platinum_ingot').texture('utopia:item/platinum_ingot').tag('c:ingots').tag('c:ingots/platinum')
+    event.create('utopia:graphite_ingot').tag('c:ingots').tag('c:ingots/graphite')
+    event.create('utopia:platinum_ingot').tag('c:ingots').tag('c:ingots/platinum')
     event.create('utopia:platinum_nugget')
     event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').tag('c:ingots')
-
-    // Stamps
-    event.create('utopia:encoder_stamp').texture('utopia:item/encoder_stamp').rarity('rare').tag('utopia:stamp')
-    event.create('utopia:decoder_stamp').texture('utopia:item/decoder_stamp').rarity('rare').tag('utopia:stamp')
-    event.create('utopia:paper_stamp').texture('utopia:item/paper_stamp').rarity('rare').tag('utopia:stamp')
-
-    // FIAT!!!!
-    event.create('utopia:1_dollar_bill')
-    event.create('utopia:5_dollar_bill')
-    event.create('utopia:20_dollar_bill')
-    event.create('utopia:100_dollar_bill')
-    event.create('utopia:500_dollar_bill')
-
-    // Money thats technically actually worth something!
-    event.create('utopia:coin_netherite')
-    event.create('utopia:coin_netherite_fractional')
-    event.create('utopia:coin_diamond')
-    event.create('utopia:coin_diamond_fractional')
-    event.create('utopia:coin_iron')
-    event.create('utopia:coin_iron_fractional')
 
     // Jail
     event.create('utopia:handcuffs')
@@ -127,108 +107,87 @@ StartupEvents.registry('item', event => {
 })
 
 StartupEvents.registry('block', event => {
-  event.create('utopia:sea_salt_lamp') 
-    
-    .soundType('glass') 
-    .hardness(3) 
+
+  // Smooth Stone Stairs
+  event.create('utopia:smooth_stone_stairs', 'stairs')
+    .hardness(2.0)
+    .resistance(6.0)
+    .soundType('stone')
+    .requiresTool(true)
+    .tagBlock('minecraft:mineable/pickaxe')
+    .texture('minecraft:block/smooth_stone')
+
+  // Salt
+  event.create('utopia:sea_salt_lamp')
+    .soundType('glass')
+    .hardness(3)
     .resistance(4)
-    .lightLevel(14/15)
+    .lightLevel(14 / 15)
     .renderType('translucent')
     .notSolid()
     .fullBlock(false)
+  event.create('utopia:sea_salt_block')
+    .soundType('sand')
+    .hardness(3)
+    .resistance(5)
 
+  // Moissanite
   event.create('utopia:moissanite_block')
-    
     .soundType('metal')
     .hardness(5.0)
     .resistance(6.0)
-    .requiresTool(true) 
-    .tagBlock('minecraft:mineable/pickaxe') 
+    .requiresTool(true)
+    .tagBlock('minecraft:mineable/pickaxe')
     .tagBlock('minecraft:needs_iron_tool')
-  event.create('utopia:sea_salt_block') 
-    
-    .soundType('sand') 
-    .hardness(3) 
-    .resistance(5)
-  event.create('utopia:neon_block') 
-    
-    .soundType('shroomlight') 
-    .resistance(1)
 
-  // Degrees
-  event.create('utopia:degree_law', "kubejs:cardinal") 
-    
-    .soundType('scaffolding')
-    .box(0, 0, 15, 16, 16, 16)
-    .notSolid()
-    .fullBlock(false)
-    .tag('utopia:degree')
-  event.create('utopia:degree_defense', "kubejs:cardinal") 
-    
-    .soundType('scaffolding')
-    .box(0, 0, 15, 16, 16, 16)
-    .notSolid()
-    .fullBlock(false)
-    .tag('utopia:degree')
-  event.create('utopia:degree_chef', "kubejs:cardinal") 
-    
-    .soundType('scaffolding')
-    .box(0, 0, 15, 16, 16, 16)
-    .notSolid()
-    .fullBlock(false)
-    .tag('utopia:degree')
-  event.create('utopia:degree_anthropology', "kubejs:cardinal") 
-    
-    .soundType('scaffolding')
-    .box(0, 0, 15, 16, 16, 16)
-    .notSolid()
-    .fullBlock(false)
-    .tag('utopia:degree')
-  event.create('utopia:degree_economics', "kubejs:cardinal") 
-    
-    .soundType('scaffolding')
-    .box(0, 0, 15, 16, 16, 16)
-    .notSolid()
-    .fullBlock(false)
-    .tag('utopia:degree')
-
-  event.create('utopia:block_of_hyper_capitalism', "kubejs:cardinal") 
-     //1000
-    .soundType('glass') 
-    .hardness(1) 
+  event.create('utopia:neon_block')
+    .soundType('shroomlight')
+    .tagBlock('minecraft:mineable/pickaxe')
     .resistance(1)
-    .notSolid()
-    .fullBlock(false)
-    .item(ctx => {ctx.rarity("rare").maxStackSize(16)})
-  event.create('utopia:block_of_extreme_capitalism', "kubejs:cardinal") 
-     //100
-    .soundType('metal') 
-    .hardness(3) 
-    .resistance(0)
-    .notSolid()
-    .fullBlock(false)
-    .item(ctx => {ctx.rarity("rare").maxStackSize(16)})
-  event.create('utopia:block_of_high_capitalism', "kubejs:cardinal") 
-     //20
-    .soundType('wool') 
-    .hardness(2) 
-    .resistance(0)
-    .notSolid()
-    .fullBlock(false)
-    .item(ctx => {ctx.rarity("uncommon").maxStackSize(16)})
-  event.create('utopia:block_of_moderate_capitalism', "kubejs:cardinal") 
-     //5
-    .soundType('wool') 
-    .hardness(2) 
-    .resistance(0)
-    .notSolid()
-    .fullBlock(false)
-    .item(ctx => {ctx.maxStackSize(32)})
-  event.create('utopia:block_of_capitalism', "kubejs:cardinal") 
-     //1
-    .soundType('wool') 
-    .hardness(2) 
-    .resistance(0)
-    .notSolid()
-    .fullBlock(false)
+    .hardness(5.0)
+    .resistance(6.0)
+
+  event.create('utopia:classicnium')
+    .soundType('stone')
+    .tagBlock('minecraft:mineable/pickaxe')
+    .resistance(1)
+    .hardness(1.4)
+    .resistance(5.5)
+    .texture('utopia:block/classic/cobblestone')
+  event.create('utopia:classicnium_stairs', 'stairs')
+    .soundType('stone')
+    .tagBlock('minecraft:mineable/pickaxe')
+    .resistance(1)
+    .hardness(1.4)
+    .resistance(5.5)
+    .texture('utopia:block/classic/cobblestone')
+  event.create('utopia:classicnium_wall', 'wall')
+    .soundType('stone')
+    .tagBlock('minecraft:mineable/pickaxe')
+    .resistance(1)
+    .hardness(1.4)
+    .resistance(5.5)
+    .texture('utopia:block/classic/cobblestone')
+
+  event.create('utopia:mossy_classicnium')
+    .soundType('stone')
+    .tagBlock('minecraft:mineable/pickaxe')
+    .resistance(1)
+    .hardness(1.4)
+    .resistance(5.5)
+    .texture('utopia:block/classic/mossy_cobblestone')
+  event.create('utopia:mossy_classicnium_stairs', 'stairs')
+    .soundType('stone')
+    .tagBlock('minecraft:mineable/pickaxe')
+    .resistance(1)
+    .hardness(1.4)
+    .resistance(5.5)
+    .texture('utopia:block/classic/mossy_cobblestone')
+  event.create('utopia:mossy_classicnium_wall', 'wall')
+    .soundType('stone')
+    .tagBlock('minecraft:mineable/pickaxe')
+    .resistance(1)
+    .hardness(1.4)
+    .resistance(5.5)
+    .texture('utopia:block/classic/mossy_cobblestone')
 })

@@ -30,10 +30,14 @@ StartupEvents.modifyCreativeTab('minecraft:combat', event => {
 
 
     event.addAfter('minecraft:mace',[
-        'utopia:pencil',
         'utopia:sharket_axe',
-        'utopia:classicnium_axe'
+        'utopia:classicnium_axe',
+        'utopia:pencil'
     ])
+})
+
+StartupEvents.modifyCreativeTab('minecraft:building_blocks', event => {
+  event.addAfter('minecraft:smooth_stone_slab', 'utopia:smooth_stone_stairs')
 })
 
 StartupEvents.modifyCreativeTab('kubejs:kubejs', event => {

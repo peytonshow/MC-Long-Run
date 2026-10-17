@@ -4,28 +4,18 @@
     "minecraft:coal": 5,
     "minecraft:coal_block": 45,
 
-    "minecraft:raw_copper": 8,
-    "minecraft:raw_copper_block": 72,
     "minecraft:copper_ingot": 8,
     "minecraft:copper_block": 72,
 
-    "minecraft:raw_iron": 16,
-    "minecraft:raw_iron_block": 144,
     "minecraft:iron_ingot": 12,
     "minecraft:iron_block": 108,
 
-    "create:raw_zinc": 12,
-    "create:raw_zinc_block": 108,
     "create:zinc_ingot": 12,
     "create:zinc_block": 108,
 
-    "oreganized:raw_lead": 14,
-    "oreganized:raw_lead_block": 126,
     "oreganized:lead_ingot": 10,
     "oreganized:lead_block": 90,
 
-    "oreganized:raw_silver": 40,
-    "oreganized:raw_silver_block": 360,
     "oreganized:silver_ingot": 30,
     "oreganized:silver_block": 270,
 
