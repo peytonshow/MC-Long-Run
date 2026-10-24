@@ -95,6 +95,15 @@ const TRADES = {
             trade: { item: "minecraft:crossbow", name: "§fRocket Launcher", enchant: "nova_structures:ghasted", enchantLevel: 1 },
         },
     ],
+    cleric: [
+        {
+            level: 1, group: "legendary", in1: "x16 minecraft:emerald", in2: "x1 minecraft:ender_pearl",
+            trade: {
+                item: "utopia:recall_potion",
+                components: 'custom_data={name:"Capital: ???",dim:"utopia:capital",x:-76.5d,y:36.0d,z:-68.5d}',
+            },
+        },
+    ],
 };
 
 // ===================== Build POOLS: profession -> level -> group -> rows =====================
@@ -123,6 +132,7 @@ const POOLS = buildPools(TRADES);
 const VILLAGER_TRADES = {
     "minecraft:farmer": POOLS.farmer,
     "minecraft:fletcher": POOLS.fletcher,
+    "minecraft:cleric": POOLS.cleric,
 };
 
 // ===================== ENGINE (shouldn't need edits) =====================
@@ -136,8 +146,9 @@ function parseItem(entry) {
 }
 
 function buildItemStack(entry) {
-    const { item, count, potion, enchant, enchantLevel, name } = parseItem(entry);
-    let stack = Item.of(potion ? `${item}[potion_contents={potion:"${potion}"}]` : item, count);
+    const { item, count, potion, enchant, enchantLevel, name, components } = parseItem(entry);
+    const comps = [potion && `potion_contents={potion:"${potion}"}`, components].filter(Boolean).join(",");
+    let stack = Item.of(comps ? `${item}[${comps}]` : item, count);
     if (enchant) stack = stack.enchant(enchant, enchantLevel || 1);
     if (name) stack = stack.withCustomName(name);
     return stack;

@@ -1,5 +1,8 @@
 
 StartupEvents.registry('item', event => {
+    // Chunkloading
+    event.create('utopia:soul_token').texture('utopia:item/soul_token').unstackable().tag('curios:necklace').tag('curios:belt')
+
     // Mimic
     event.create('utopia:shadow_key').texture('utopia:item/shadow_key').maxStackSize(16)
     event.create('utopia:chroma_key').texture('utopia:item/chroma_key').maxStackSize(1).maxDamage(3)
@@ -115,7 +118,7 @@ StartupEvents.registry('block', event => {
     .soundType('stone')
     .requiresTool(true)
     .tagBlock('minecraft:mineable/pickaxe')
-    .texture('minecraft:block/smooth_stone')
+    .texture('utopia:block/smooth_stone_stair')
 
   // Salt
   event.create('utopia:sea_salt_lamp')

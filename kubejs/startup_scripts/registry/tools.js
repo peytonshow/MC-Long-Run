@@ -1,12 +1,12 @@
 ItemEvents.toolTierRegistry(event => {
 
-    event.add("copper", (tier) => {
-        tier.uses = 230
-        tier.attackDamageBonus = 2
-        tier.speed = 5
-        tier.enchantmentValue = 13
-        tier.repairIngredient = '#c:ingots/copper'
-    })
+    // event.add("copper", (tier) => {
+    //     tier.uses = 230
+    //     tier.attackDamageBonus = 2
+    //     tier.speed = 5
+    //     tier.enchantmentValue = 13
+    //     tier.repairIngredient = '#c:ingots/copper'
+    // })
 
     event.addBasedOnExisting("platinum", "netherite", (tier) => {
         tier.uses = 175;
@@ -50,6 +50,11 @@ ItemEvents.toolTierRegistry(event => {
 })
 
 StartupEvents.registry('item', event => {
+    // Impossible (Worldedit)
+    event.create('utopia:builder_ax', 'axe').tier('wood').tag('utopia:special').tag('utopia:special/creative')
+    event.create('utopia:builder_pickax', 'pickaxe').tier('wood').tag('utopia:special').tag('utopia:special/creative')
+    event.create('utopia:builder_compass').tag('utopia:special').tag('utopia:special/creative').texture('utopia:item/builder_navigator/')
+
     // Rares
     event.create('utopia:pencil', 'sword').tier('pencil').tag('utopia:special')
     event.create('utopia:sharket_axe', 'axe').tier('sharkat').tag('utopia:special').tag('utopia:special/rare').tag('c:hidden_from_recipe_viewers')
@@ -63,12 +68,12 @@ StartupEvents.registry('item', event => {
     event.create('utopia:platinum_shovel', 'shovel').tier('platinum').maxDamage(400).texture('utopia:item/platinum_shovel')
     event.create('utopia:platinum_hoe', 'hoe').tier('platinum').maxDamage(400).texture('utopia:item/platinum_hoe')
 
-    // Copper
-    event.create('minecraft:copper_sword', 'sword').tier('copper').texture('minecraft:item/copper_sword')
-    event.create('minecraft:copper_axe', 'axe').tier('copper').texture('minecraft:item/copper_axe')
-    event.create('minecraft:copper_pickaxe', 'pickaxe').tier('copper').texture('minecraft:item/copper_pickaxe')
-    event.create('minecraft:copper_shovel', 'shovel').tier('copper').texture('minecraft:item/copper_shovel')
-    event.create('minecraft:copper_hoe', 'hoe').tier('copper').texture('minecraft:item/copper_hoe')
+    // Copper - Only use if not using latest vanilla backport!
+    // event.create('minecraft:copper_sword', 'sword').tier('copper').texture('minecraft:item/copper_sword')
+    // event.create('minecraft:copper_axe', 'axe').tier('copper').texture('minecraft:item/copper_axe')
+    // event.create('minecraft:copper_pickaxe', 'pickaxe').tier('copper').texture('minecraft:item/copper_pickaxe')
+    // event.create('minecraft:copper_shovel', 'shovel').tier('copper').texture('minecraft:item/copper_shovel')
+    // event.create('minecraft:copper_hoe', 'hoe').tier('copper').texture('minecraft:item/copper_hoe')
 })
 
 

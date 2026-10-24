@@ -73,6 +73,30 @@
       "useCustomWeight": false,
       "customWeight": 4.0
     },
+    "minecraft:copper_boots": {
+      "useCustomWeight": false,
+      "customWeight": 1.0
+    },
+    "minecraft:copper_chestplate": {
+      "useCustomWeight": false,
+      "customWeight": 4.0
+    },
+    "minecraft:copper_helmet": {
+      "useCustomWeight": false,
+      "customWeight": 2.0
+    },
+    "minecraft:copper_horse_armor": {
+      "useCustomWeight": false,
+      "customWeight": 4.0
+    },
+    "minecraft:copper_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 3.0
+    },
+    "minecraft:copper_nautilus_armor": {
+      "useCustomWeight": false,
+      "customWeight": 4.0
+    },
     "minecraft:diamond_boots": {
       "useCustomWeight": false,
       "customWeight": 4.0
@@ -92,6 +116,10 @@
     "minecraft:diamond_leggings": {
       "useCustomWeight": false,
       "customWeight": 7.0
+    },
+    "minecraft:diamond_nautilus_armor": {
+      "useCustomWeight": false,
+      "customWeight": 12.0
     },
     "minecraft:golden_boots": {
       "useCustomWeight": false,
@@ -113,6 +141,10 @@
       "useCustomWeight": false,
       "customWeight": 3.0
     },
+    "minecraft:golden_nautilus_armor": {
+      "useCustomWeight": false,
+      "customWeight": 7.0
+    },
     "minecraft:iron_boots": {
       "useCustomWeight": false,
       "customWeight": 2.0
@@ -130,6 +162,10 @@
       "customWeight": 5.0
     },
     "minecraft:iron_leggings": {
+      "useCustomWeight": false,
+      "customWeight": 5.0
+    },
+    "minecraft:iron_nautilus_armor": {
       "useCustomWeight": false,
       "customWeight": 5.0
     },
@@ -165,9 +201,17 @@
       "useCustomWeight": false,
       "customWeight": 5.3
     },
+    "minecraft:netherite_horse_armor": {
+      "useCustomWeight": false,
+      "customWeight": 13.3
+    },
     "minecraft:netherite_leggings": {
       "useCustomWeight": false,
       "customWeight": 8.3
+    },
+    "minecraft:netherite_nautilus_armor": {
+      "useCustomWeight": false,
+      "customWeight": 13.3
     },
     "minecraft:shulker_shell": {
       "useCustomWeight": false,

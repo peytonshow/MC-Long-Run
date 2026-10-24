@@ -1,43 +1,33 @@
 {
   "values": {
+    "minecraft:coal": { "base_value": 7, "processors": [] },
+    "minecraft:coal_block": { "base_value": 63, "processors": [] },
 
-    "minecraft:coal": 5,
-    "minecraft:coal_block": 45,
+    "minecraft:copper_ingot": { "base_value": 6, "processors": [] },
+    "minecraft:copper_block": { "base_value": 54, "processors": [] },
 
-    "minecraft:copper_ingot": 8,
-    "minecraft:copper_block": 72,
+    "minecraft:iron_ingot": { "base_value": 12, "processors": [] },
+    "minecraft:iron_block": { "base_value": 108, "processors": [] },
 
-    "minecraft:iron_ingot": 12,
-    "minecraft:iron_block": 108,
+    "create:zinc_ingot": { "base_value": 12, "processors": [] },
+    "create:zinc_block": { "base_value": 108, "processors": [] },
 
-    "create:zinc_ingot": 12,
-    "create:zinc_block": 108,
+    "oreganized:lead_ingot": { "base_value": 10, "processors": [] },
+    "oreganized:lead_block": { "base_value": 90, "processors": [] },
 
-    "oreganized:lead_ingot": 10,
-    "oreganized:lead_block": 90,
+    "oreganized:silver_ingot": { "base_value": 50, "processors": [] },
+    "oreganized:silver_block": { "base_value": 450, "processors": [] },
 
-    "oreganized:silver_ingot": 30,
-    "oreganized:silver_block": 270,
+    "minecraft:gold_ingot": { "base_value": 20, "processors": [] },
+    "minecraft:gold_block": { "base_value": 180, "processors": [] },
 
-    "minecraft:raw_gold": 25,
-    "minecraft:raw_gold_block": 225,
-    "minecraft:gold_ingot": 20,
-    "minecraft:gold_block": 180,
+    "create:rose_quartz": { "base_value": 20, "processors": [] },
 
-    "create:rose_quartz": 20,
-    "create:rose_quartz_block": 180,
+    "minecraft:diamond": { "base_value": 90, "processors": [] },
+    "minecraft:diamond_block": { "base_value": 810, "processors": [] },
 
-    "minecraft:emerald_ore": 120,
-    "minecraft:deepslate_emerald_ore": 180,
-
-    "utopia:moissanite": 80,
-    "utopia:moissanite_block": 720,
-
-    "minecraft:diamond": 90,
-    "minecraft:diamond_block": 810,
-
-    "minecraft:netherite_scrap": 140,
-    "minecraft:netherite_ingot": 660,
-    "minecraft:netherite_block": 5940
+    "minecraft:netherite_scrap": { "base_value": 120, "processors": [] },
+    "minecraft:netherite_ingot": { "base_value": 660, "processors": [] },
+    "minecraft:netherite_block": { "base_value": 5940, "processors": [] }
   }
 }

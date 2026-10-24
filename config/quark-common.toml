@@ -1011,7 +1011,7 @@
 				#Biome names this should spawn in. Must match both this and 'types' to spawn.
 				[world.blossom_trees.orange.biome_config.biomes]
 					Biomes = []
-					"Is Blacklist" = true
+					"Is Blacklist" = false
 
 		[world.blossom_trees.yellow]
 			Rarity = 600
@@ -1028,7 +1028,7 @@
 				#Biome names this should spawn in. Must match both this and 'types' to spawn.
 				[world.blossom_trees.yellow.biome_config.biomes]
 					Biomes = []
-					"Is Blacklist" = true
+					"Is Blacklist" = false
 
 		[world.blossom_trees.red]
 			Rarity = 600
@@ -1045,7 +1045,7 @@
 				#Biome names this should spawn in. Must match both this and 'types' to spawn.
 				[world.blossom_trees.red.biome_config.biomes]
 					Biomes = []
-					"Is Blacklist" = true
+					"Is Blacklist" = false
 
 	[world.cherry_grove_water_petals]
 		#The chance for a Cherry Grove chunk to attempt to spawn petals on top of water (1 is 100%, 0 is 0%)

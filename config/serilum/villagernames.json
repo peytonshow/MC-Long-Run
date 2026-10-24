@@ -1,11 +1,11 @@
 {
 	"//": "These settings are easier to change in-game! Mod List -> Villager Names -> Config",
 	"Enable Villager Names": {
-		"//": "Whether Villager Names is enabled. When disabled, none of its features run and its other settings are hidden. Takes effect after a restart. Do not disable a mod that adds blocks or items to an existing world, they will be removed.",
+		"//": "Whether Villager Names is enabled. When disabled, none of its features run and its other settings are hidden. Takes effect after a restart.",
 		"value": true
 	},
 	"useCustomNames": {
-		"//": "Use the custom name list, editable in ./config/villagernames/customnames.txt, seperated by a comma. If custom names are found, the default name list is ignored.",
+		"//": "Use the custom name list, editable in ./config/serilum/villagernames/customnames.txt, seperated by a comma. If custom names are found, the default name list is ignored.",
 		"value": true
 	},
 	"useDefaultFemaleNames": {
@@ -23,6 +23,14 @@
 	"nameModdedVillagers": {
 		"//": "If enabled, also gives modded villagers a name. If you've found a 'villager'-entity that isn't named let me know by opening an issue so I can add it in.",
 		"value": true
+	},
+	"extraEntityTypesToName": {
+		"//": "A comma-separated list of entity ids that are also given a name, next to the villagers the mod already names. Use '<modid>:*' to name every entity of a mod.",
+		"value": ""
+	},
+	"entityTypesToIgnore": {
+		"//": "A comma-separated list of entity ids that are never given a name by this mod, even when they are a (modded) villager. Use '<modid>:*' to skip every entity of a mod.",
+		"value": ""
 	},
 	"showProfessionOnTradeScreen": {
 		"//": "Whether the profession should be added to the villager's trade screen next to their name.",

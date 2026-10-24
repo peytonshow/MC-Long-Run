@@ -1,6 +1,9 @@
 {
   "values": {
-    "utopia:ruby": 150,
-    "utopia:ruby_block": 1350
+    "utopia:1_dollar_bill": 1,
+    "utopia:5_dollar_bill": 5,
+    "utopia:20_dollar_bill": 20,
+    "utopia:100_dollar_bill": 100,
+    "utopia:500_dollar_bill": 500
   }
 }

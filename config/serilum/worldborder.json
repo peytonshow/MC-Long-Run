@@ -18,7 +18,7 @@
 	},
 	"shouldLoopToOppositeBorder": {
 		"//": "When enabled, instead of teleporting the player inside near where they were, teleports them from the positive to the negative x/z coord and vice versa.",
-		"value": true
+		"value": false
 	},
 	"distanceTeleportedBack": {
 		"//": "The amount of blocks the player is teleported inside after hitting the border. min: 0, max: 1,000",

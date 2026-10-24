@@ -1,11 +1,11 @@
 ItemEvents.modifyTooltips(event => {
     // The message displayed when Shift is not held
-    const  shiftMessage = Text.join([
+    const shiftMessage = Text.join([
         Text.of('Hold [').darkGray(),
         Text.of('Shift').gray(),
         Text.of('] for Summary').darkGray()
     ]);
-    const  heldShiftMessage = Text.join([
+    const heldShiftMessage = Text.join([
         Text.of('Hold [').darkGray(),
         Text.of('Shift').white(),
         Text.of('] for Summary').darkGray()
@@ -48,17 +48,13 @@ ItemEvents.modifyTooltips(event => {
     event.modify('parcool:parcool_guide', tooltip => {
         tooltip.removeLine(1);
     })
-    addShiftTooltip('parcool:parcool_guide', "Press [Use] to open Guide.\nPress [Crouch + Use] to open Skill Tree."); 
-    event.modify('immersive_pillagers:crude_totem_of_undying', tooltip => {
-        tooltip.removeLine(1);
-    })
-    addShiftTooltip('immersive_pillagers:crude_totem_of_undying', "Kill a Human to charge it."); 
+    addShiftTooltip('parcool:parcool_guide', "Press [Use] to open Guide.\nPress [Crouch + Use] to open Skill Tree.");
 
     // --- Armor ---
-    addNormalTooltip('utopia:crown', 'Whoever owns this Crown rules the Realm'); 
-    addNormalTooltip('utopia:shattering_crown', 'From another time.'); 
-    addNormalTooltip('utopia:used_handcuffs', "It's hard to move your hands."); 
-    addNormalTooltip('utopia:used_shackles', "It's hard to move in these."); 
+    addNormalTooltip('utopia:crown', 'Whoever owns this Crown rules the Realm');
+    addNormalTooltip('utopia:shattering_crown', 'From another time.');
+    addNormalTooltip('utopia:used_handcuffs', "It's hard to move your hands.");
+    addNormalTooltip('utopia:used_shackles', "It's hard to move in these.");
 
     // --- Stamps ---
     // addShiftTooltip('utopia:encoder_stamp', 'Used to split material into Minted Coins.'); 
@@ -66,44 +62,36 @@ ItemEvents.modifyTooltips(event => {
     // addShiftTooltip('utopia:paper_stamp', 'Used to print any denomination Paper Money. Use sparingly!'); 
 
     // --- Chemistry ---
-    addShiftTooltip('utopia:beaker_oxygen', "It feels completely empty, and doesn't smell."); 
-    addShiftTooltip('utopia:beaker_hydrogen', "It feels really cold, and doesn't smell."); 
-    addShiftTooltip('utopia:beaker_nitrogen', "It's almost invisible, but it feels cold to the touch."); 
-    addShiftTooltip('utopia:beaker_ammonia', "It has a sharp, pungent smell."); 
-    addShiftTooltip('utopia:beaker_nitric_acid', "Smells awful. I really wouldn't touch this."); 
-    addShiftTooltip('utopia:beaker_bleach', "Touching it causes soap bubbles to appear on your hand."); 
-    addShiftTooltip('utopia:beaker_propylene_glycol', "It looks thick and oily. Smells weirdly sweet."); 
+    addShiftTooltip('utopia:beaker_oxygen', "It feels completely empty, and doesn't smell.");
+    addShiftTooltip('utopia:beaker_hydrogen', "It feels really cold, and doesn't smell.");
+    addShiftTooltip('utopia:beaker_nitrogen', "It's almost invisible, but it feels cold to the touch.");
+    addShiftTooltip('utopia:beaker_ammonia', "It has a sharp, pungent smell.");
+    addShiftTooltip('utopia:beaker_nitric_acid', "Smells awful. I really wouldn't touch this.");
+    addShiftTooltip('utopia:beaker_bleach', "Touching it causes soap bubbles to appear on your hand.");
+    addShiftTooltip('utopia:beaker_propylene_glycol', "It looks thick and oily. Smells weirdly sweet.");
 
     // --- Computers ---
     event.modify('utopia:circuit_upgrade_template', text => {
-            text.insert(1, Text.of('Chip Upgrade').gray());
-            text.insert(2, "");
-            text.insert(3, Text.of('Applies to:').gray());
-            text.insert(4, Text.of(' Circuits').blue());
+        text.insert(1, Text.of('Chip Upgrade').gray());
+        text.insert(2, "");
+        text.insert(3, Text.of('Applies to:').gray());
+        text.insert(4, Text.of(' Circuits').blue());
     })
 
-    addShiftTooltip('utopia:computer_block', "A Program can be selected in the crafting grid.\n\nCan be Sold, but otherwise acts as decoration."); 
-    addShiftTooltip('utopia:computer_block_terminal', "Program: Await input.\n\nCan be Sold, but otherwise acts as decoration."); 
-    addShiftTooltip('utopia:computer_block_terminal', "Program: Text Editor.\n\nCan be Sold, but otherwise acts as decoration."); 
-    addShiftTooltip('utopia:computer_block_data', "Program: Crunching numbers.\n\nCan be Sold, but otherwise acts as decoration."); 
-    addShiftTooltip('utopia:computer_block_space', "Program: Decode signals.\n\nCan be Sold, but otherwise acts as decoration."); 
-    addShiftTooltip('utopia:computer_block_badsignal', "Program: Destroy the signal.\n\nCan be Sold, but otherwise acts as decoration."); 
-    addShiftTooltip('utopia:broken_computer', "Destroyed.\n\nCan't be Sold, but otherwise acts as decoration."); 
+    addShiftTooltip('utopia:computer_block', "A Program can be selected in the crafting grid.\n\nCan be Sold, but otherwise acts as decoration.");
+    addShiftTooltip('utopia:computer_block_terminal', "Program: Await input.\n\nCan be Sold, but otherwise acts as decoration.");
+    addShiftTooltip('utopia:computer_block_terminal', "Program: Text Editor.\n\nCan be Sold, but otherwise acts as decoration.");
+    addShiftTooltip('utopia:computer_block_data', "Program: Crunching numbers.\n\nCan be Sold, but otherwise acts as decoration.");
+    addShiftTooltip('utopia:computer_block_space', "Program: Decode signals.\n\nCan be Sold, but otherwise acts as decoration.");
+    addShiftTooltip('utopia:computer_block_badsignal', "Program: Destroy the signal.\n\nCan be Sold, but otherwise acts as decoration.");
+    addShiftTooltip('utopia:broken_computer', "Destroyed.\n\nCan't be Sold, but otherwise acts as decoration.");
 
-    addShiftTooltip('oreganized:lead_bolt', "A stronger, crossbow-exclusive arrow. Must be held in your offhand in order to be loaded."); 
+    addShiftTooltip('oreganized:lead_bolt', "A stronger, crossbow-exclusive arrow. Must be held in your offhand in order to be loaded.");
 
 
-    addShiftTooltip('vc_gliders:copper_upgrade', "Protects gliders from extreme weather.\n\nCan be applied at an Anvil."); 
-    addShiftTooltip('vc_gliders:nether_upgrade', "Protects gliders from extreme heat.\n\nCan be applied at an Anvil."); 
+    addShiftTooltip('vc_gliders:copper_upgrade', "Protects gliders from extreme weather.\n\nCan be applied at an Anvil.");
+    addShiftTooltip('vc_gliders:nether_upgrade', "Protects gliders from extreme heat.\n\nCan be applied at an Anvil.");
 
-    // --- FIAT Bills (Grouped) ---
-    addShiftTooltip([
-        'utopia:1_dollar_bill',
-        'utopia:5_dollar_bill',
-        'utopia:20_dollar_bill',
-        'utopia:100_dollar_bill',
-        'utopia:500_dollar_bill'
-    ], 'See exchange rates using /Treasury exchange'); 
 
     // --- Coins ---
     addShiftTooltip('utopia:coin_scrap', 'Worth 1/8 Netherite Scrap each.');
@@ -122,17 +110,52 @@ ItemEvents.modifyTooltips(event => {
 });
 
 ItemEvents.modifyTooltips(event => {
-  event.modify('utopia:recall_potion', tooltip => {
-    tooltip.dynamic('recall_potion_destination')
-  })
+    event.modify('utopia:recall_potion', tooltip => {
+        tooltip.dynamic('recall_potion_destination')
+    })
 })
 
 ItemEvents.dynamicTooltips('recall_potion_destination', event => {
-  const data = event.item.customData
+    const data = event.item.customData
 
-  if (data && data.contains('name')) {
-    event.add(Text.gray('Takes you to: ').append(Text.gold(data.getString('name'))))
-  } else {
-    event.add(Text.gray('Takes you to: ').append(Text.darkGray('Unknown')))
-  }
+    if (data && data.contains('name')) {
+        event.add(Text.gray('Destination - ').append(Text.gold(data.getString('name'))))
+    } else {
+        event.add(Text.gray('Destination - ').append(Text.darkGray('Unknown')))
+    }
+})
+
+
+// Money
+const BILL_VALUES = {
+    'utopia:1_dollar_bill': 1,
+    'utopia:5_dollar_bill': 5,
+    'utopia:20_dollar_bill': 20,
+    'utopia:100_dollar_bill': 100,
+    'utopia:500_dollar_bill': 500
+}
+
+// Adds commas, e.g. 25000 -> 25,000
+function formatMoney(n) {
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
+// Attach the dynamic handler to each bill
+ItemEvents.modifyTooltips(event => {
+    Object.keys(BILL_VALUES).forEach(id => {
+        event.modify(id, tooltip => {
+            tooltip.dynamic('utopia_bill_value')
+        })
+    })
+})
+
+// The handler itself, which runs on the client each time the tooltip is drawn
+ItemEvents.dynamicTooltips('utopia_bill_value', event => {
+    let id = String(event.item.id)
+    let each = BILL_VALUES[id]
+    if (each === undefined) return
+
+    let total = each * event.item.count
+
+    event.add(Text.gold('Stack Total: $' + formatMoney(total)))
 })

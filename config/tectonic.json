@@ -1,11 +1,11 @@
 {
   "biomes": {
-    "temperature_multiplier": 1.0,
+    "temperature_multiplier": 0.800000011920929,
     "temperature_offset": 0.0,
-    "temperature_scale": 0.25,
-    "vegetation_multiplier": 1.0,
+    "temperature_scale": 0.17000000178813934,
+    "vegetation_multiplier": 0.800000011920929,
     "vegetation_offset": 0.0,
-    "vegetation_scale": 0.25
+    "vegetation_scale": 0.17000000178813934
   },
   "caves": {
     // Whether old caves/ravines should generate. Game restart required!
@@ -29,19 +29,19 @@
   },
   "continents": {
     // Horizontally scales continents. Lower values = larger continents and oceans between them.
-    "continents_scale": 0.13,
+    "continents_scale": 0.059999994933605194,
     // Horizontally scales erosion, primarily impacting mountains. Lower values = thicker mountain ranges and terrain between them.
-    "erosion_scale": 0.25,
+    "erosion_scale": 0.11000000685453415,
     // The threshold where plateau terrain becomes flatter terrain. Positive numbers favor flat terrain and negative numbers favor plateau terrain.
-    "flat_terrain_skew": 0.1,
+    "flat_terrain_skew": -0.30000001192092896,
     // Some jungles generate massive pillars that can extend upwards of a hundred blocks tall.
     "jungle_pillars": true,
     // Skews terrain towards or away from oceans. Lower values = more oceans. Above -0.45, deep oceans will not spawn! Above -0.2, oceans will not spawn!
-    "ocean_offset": -0.8,
+    "ocean_offset": -1.0,
     // Horizontally scales the ridge noise, primarily impacting rivers and terrain around them like plateaus. Lower values = wider rivers and terrain between them.
-    "ridge_scale": 0.25,
+    "ridge_scale": 0.10999999940395355,
     // Underground rivers under snowy biomes will generate with ice.
-    "river_ice": false,
+    "river_ice": true,
     // Underground rivers will rarely generate with hanging lanterns.
     "river_lanterns": true,
     // Some Plains biomes generate very smooth, hilly terrain.
@@ -65,23 +65,23 @@
     "elevation_boost": 0.0,
     // Rare, deep underground tunnels of lava sometimes generate at the bottom of the world.
     "lava_tunnels": true,
-    "max_y": 320,
+    "max_y": 368,
     "min_y": -64,
     // Greatly smoothens out the terrain like Tectonic v2, removing staircasing artifacts at the cost of strange/broken generation in deep oceans and windswept biomes.
-    "ultrasmooth": false,
+    "ultrasmooth": true,
     // Vertically stretches terrain above sea level. Doubling this value will double the surface's height at a given point from sea level.
     "vertical_scale": 1.125
   },
   "islands": {
     "enabled": true,
-    "noise_multiplier": 1.0,
-    "noise_offset": 0.0,
-    "noise_scale": 0.11
+    "noise_multiplier": 0.09999997168779373,
+    "noise_offset": -0.15000000596046448,
+    "noise_scale": 0.11999998986721039
   },
   "minor_version": 1,
   "oceans": {
     // 0 is at sea level, -0.5 is 64 blocks below sea level.
-    "deep_ocean_depth": -0.45,
+    "deep_ocean_depth": -0.4499998092651367,
     // Offsets (vanilla) ocean monuments to adjust for deeper oceans.
     "monument_offset": -30,
     // 0 is at sea level, -0.5 is 64 blocks below sea level.

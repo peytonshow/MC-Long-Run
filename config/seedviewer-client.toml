@@ -1,0 +1,13 @@
+#The preview quality used when opening a new Seed Viewer.
+#Allowed Values: PERFORMANCE, BALANCED, HIGH, ULTRA, MAX
+defaultPreviewQuality = "ULTRA"
+#The number of CPU threads used when opening a new Seed Viewer.
+# Default: 8
+# Range: 1 ~ 16
+defaultCpuThreads = 8
+#The highest Y level available on the height slider. Values are rounded to the nearest multiple of 16 when used.
+# Default: 512
+# Range: 0 ~ 4096
+maxPreviewHeight = 512
+#Whether the world creation preview information notice has been acknowledged.
+worldCreationNoticeDismissed = true
