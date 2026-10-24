@@ -14,6 +14,7 @@
 * Added Forging
 * Reworked all trades
 * Reworked ore spawning
+
 ---             Credit             - :
 [malcolmriley's unused-textures](https://github.com/malcolmriley/unused-textures): Slag, Plastic and Canvas textures with minor modifications.
 [TeamGalena's Oreganized](https://modrinth.com/mod/oreganized): Molten Lead texture modified for other molten metals.
