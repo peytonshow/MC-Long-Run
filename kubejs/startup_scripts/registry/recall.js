@@ -1,17 +1,22 @@
-console.log('RECALL POTION SCRIPT LOADED - v5')
-
 StartupEvents.registry('item', event => {
-  function getData(stack, level) {
-    const vanilla = stack.customData
-    if (vanilla && vanilla.contains('dim')) return vanilla
-    try {
-      const comps = stack.save(level.registryAccess()).getCompound('components')
-      const npc = comps.getCompound('easy_npc:custom_data')
-      if (npc.contains('dim')) return npc
-    } catch (e) {
-      console.error('Recall potion fallback failed: ' + e)
+  // Recursively search a compound tag for one that has a 'dim' key
+  const findDim = tag => {
+    if (tag.contains('dim')) return tag
+    for (const k of tag.getAllKeys()) {
+      if (tag.getTagType(k) != 10) continue // 10 = compound
+      const hit = findDim(tag.getCompound(k))
+      if (hit) return hit
     }
-    return vanilla
+    return null
+  }
+
+  const getData = (stack, level) => {
+    try {
+      return findDim(stack.save(level.registryAccess()))
+    } catch (e) {
+      console.error('Recall potion lookup failed: ' + e)
+      return null
+    }
   }
 
   event.create('utopia:recall_potion')
@@ -25,21 +30,17 @@ StartupEvents.registry('item', event => {
       if (!entity.isPlayer()) return stack
 
       if (!level.isClientSide()) {
-        entity.tell('[v5] finishUsing ran')
+
         const data = getData(stack, level)
         const sound = 'playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 1 1'
 
-        if (!data || !data.contains('dim')) {
+        if (!data) {
           entity.tell('And before you knew it, you were there!')
         } else {
           entity.runCommandSilent(sound)
           entity.teleportTo(
-            data.getString('dim'),
-            data.getDouble('x'),
-            data.getDouble('y'),
-            data.getDouble('z'),
-            entity.yaw,
-            entity.pitch
+            data.getString('dim'), data.getDouble('x'), data.getDouble('y'), data.getDouble('z'),
+            entity.yaw, entity.pitch
           )
           entity.runCommandSilent(sound)
         }

@@ -1,0 +1,64 @@
+#Master switch for the whole temporal pipeline
+enabled = true
+#How many times the level is rendered per displayed frame
+# Default: 8
+# Range: 1 ~ 8
+subFrameSamples = 8
+#Fraction of the gap since the last frame that the sub-frame samples cover
+# Default: 1.0
+# Range: 0.0 ~ 1.0
+shutter = 1.0
+#Absolute shutter length in Ticks, overriding shutter when above 0
+# Default: 0.5
+# Range: 0.0 ~ 1.0
+shutterTicks = 0.5
+#Whether to rewind the viewpoint too, adding camera blur
+subFrameViewMotion = false
+#Whether to drop back to a single sample below adaptiveMinFps
+adaptiveSampling = true
+#Framerate floor for adaptive sampling
+# Default: 30
+# Range: 5 ~ 240
+adaptiveMinFps = 30
+#Whether to blend the frames the display never gets to show
+surplusFrames = true
+#Max renders blended into one presented frame
+# Default: 4
+# Range: 2 ~ 8
+surplusMaxRenders = 4
+#Presented framerate to hold, 0 reads your Max Framerate setting
+# Default: 0
+# Range: 0 ~ 1000
+surplusTargetFps = 0
+#Whether to run the temporal resolve pass
+taa = true
+#Amount of the reprojected previous frame that survives into this one
+# Default: 0.9
+# Range: 0.0 ~ 0.98
+feedback = 0.9
+#How tightly history is clipped to the local colour range
+# Default: 0.9
+# Range: 0.0 ~ 1.0
+clampStrength = 0.9
+#Trail decay kept wherever it is brighter than the new frame
+# Default: 0.0
+# Range: 0.0 ~ 0.98
+persistence = 0.0
+#Distance in Blocks under which pixels skip the temporal resolve
+# Default: 2.0
+# Range: 0.0 ~ 8.0
+nearCutoff = 2.0
+#Whether to draw the first person hand and overlays after the temporal work
+excludeCameraLocked = true
+#Whether to pin the camera's own entity to the present instant
+excludeCameraEntity = true
+#Whether to offset the projection by a sub-pixel Halton sequence
+subPixelOffset = true
+#Size of the subPixelOffset pattern in Pixels
+# Default: 1.0
+# Range: 0.0 ~ 2.0
+subPixelScale = 1.0
+#Camera movement in Blocks in one frame that throws the history away
+# Default: 4.0
+# Range: 0.5 ~ 64.0
+historyResetDistance = 4.0

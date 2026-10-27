@@ -4,8 +4,8 @@ StartupEvents.registry('item', event => {
     event.create('utopia:soul_token').texture('utopia:item/soul_token').unstackable().tag('curios:necklace').tag('curios:belt')
 
     // Mimic
-    event.create('utopia:shadow_key').texture('utopia:item/shadow_key').maxStackSize(16)
-    event.create('utopia:chroma_key').texture('utopia:item/chroma_key').maxStackSize(1).maxDamage(3)
+    event.create('utopia:shadow_key').texture('utopia:item/shadow_key').unstackable()
+    event.create('utopia:chroma_key').texture('utopia:item/chroma_key').unstackable()
 
     // Production
     event.create('utopia:incomplete_netherite_helmet', 'create:sequenced_assembly').texture('utopia:item/incomplete_netherite_helmet').tag('c:hidden_from_recipe_viewers')
@@ -109,7 +109,71 @@ StartupEvents.registry('item', event => {
 
 })
 
+
+// Engin
+global.BLOCKSETS = []
+
+global.createBlockset = (event, id, opts) => {
+  if (!id) throw new Error('createBlockset: id is required')
+
+  const { prefix = id, skip = [], texture, sound, hardness, resistance, requiresTool, tags, extra, recipes } = opts || {}
+  const pieces = {}
+
+  const piece = (type) => {
+    const pieceId = type === 'block' ? id : `${prefix}_${type}`
+    const b = type === 'block' ? event.create(pieceId) : event.create(pieceId, type)
+
+    if (texture) b.texture(texture)
+    if (sound) b.soundType(sound)
+    if (hardness !== undefined) b.hardness(hardness)
+    if (resistance !== undefined) b.resistance(resistance)
+    if (requiresTool) b.requiresTool(true)
+
+    // Array = every piece; object = per piece, e.g. { wall: ['minecraft:walls'] }
+    ;(Array.isArray(tags) ? tags : (tags && tags[type]) || []).forEach(t => b.tagBlock(t))
+
+    if (extra) extra(b, type)
+
+    pieces[type] = pieceId
+  }
+
+  piece('block') // the base block is always created
+  ;['stairs', 'slab', 'wall'].forEach(type => {
+    if (!skip.includes(type)) piece(type)
+  })
+
+  if (recipes !== false) global.BLOCKSETS.push(pieces)
+}
+
 StartupEvents.registry('block', event => {
+  // Flint blockset
+  global.createBlockset(event, 'utopia:polished_flint', {
+    texture: 'utopia:block/polished_flint_block',
+    prefix: 'utopia:polished_flint',
+    slabSideTexture: 'utopia:block/polished_flint_slab_side',
+    sound: 'stone',
+    hardness: 2.0,
+    resistance: 7.5,
+    tags: ['c:storage_blocks', 'c:storage_blocks/flint']
+  })
+
+  // bobblestone
+  global.createBlockset(event, 'utopia:classicnium', {
+    texture: 'utopia:block/classic/cobblestone',
+    sound: 'stone',
+    hardness: 1.4,
+    resistance: 5.5,
+    tags: ['minecraft:mineable/pickaxe']
+  })
+
+  //mossy bobblestone
+  global.createBlockset(event, 'utopia:mossy_classicnium', {
+    texture: 'utopia:block/classic/mossy_cobblestone',
+    sound: 'stone',
+    hardness: 1.4,
+    resistance: 5.5,
+    tags: ['minecraft:mineable/pickaxe']
+  })
 
   // Smooth Stone Stairs
   event.create('utopia:smooth_stone_stairs', 'stairs')
@@ -149,48 +213,4 @@ StartupEvents.registry('block', event => {
     .resistance(1)
     .hardness(5.0)
     .resistance(6.0)
-
-  event.create('utopia:classicnium')
-    .soundType('stone')
-    .tagBlock('minecraft:mineable/pickaxe')
-    .resistance(1)
-    .hardness(1.4)
-    .resistance(5.5)
-    .texture('utopia:block/classic/cobblestone')
-  event.create('utopia:classicnium_stairs', 'stairs')
-    .soundType('stone')
-    .tagBlock('minecraft:mineable/pickaxe')
-    .resistance(1)
-    .hardness(1.4)
-    .resistance(5.5)
-    .texture('utopia:block/classic/cobblestone')
-  event.create('utopia:classicnium_wall', 'wall')
-    .soundType('stone')
-    .tagBlock('minecraft:mineable/pickaxe')
-    .resistance(1)
-    .hardness(1.4)
-    .resistance(5.5)
-    .texture('utopia:block/classic/cobblestone')
-
-  event.create('utopia:mossy_classicnium')
-    .soundType('stone')
-    .tagBlock('minecraft:mineable/pickaxe')
-    .resistance(1)
-    .hardness(1.4)
-    .resistance(5.5)
-    .texture('utopia:block/classic/mossy_cobblestone')
-  event.create('utopia:mossy_classicnium_stairs', 'stairs')
-    .soundType('stone')
-    .tagBlock('minecraft:mineable/pickaxe')
-    .resistance(1)
-    .hardness(1.4)
-    .resistance(5.5)
-    .texture('utopia:block/classic/mossy_cobblestone')
-  event.create('utopia:mossy_classicnium_wall', 'wall')
-    .soundType('stone')
-    .tagBlock('minecraft:mineable/pickaxe')
-    .resistance(1)
-    .hardness(1.4)
-    .resistance(5.5)
-    .texture('utopia:block/classic/mossy_cobblestone')
 })

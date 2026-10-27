@@ -1,26 +1,31 @@
+const DEBUG = false // true = log every tick (does not change chances)
 const SOUND_COOLDOWN_TICKS = 100 // 5 seconds
 const NIGHT_START = 13000
 const lastPlayed = new Map()
 
 const keyOf = (dim, x, y, z) => `${dim}|${x},${y},${z}`
-const isNight = level => level.dayTime % 24000 >= NIGHT_START
+
+const isNight = level => level.time % 24000 >= NIGHT_START
 const centre = (x, y, z) => `${x + 0.5} ${y + 0.5} ${z + 0.5}`
 
 function playSound(level, block, sound, volume, pitch) {
   const key = keyOf(level.dimension, block.x, block.y, block.z)
-  if (level.time - (lastPlayed.get(key) ?? -Infinity) < SOUND_COOLDOWN_TICKS) return false
+  const now = level.time
+  if (now - (lastPlayed.get(key) ?? -Infinity) < SOUND_COOLDOWN_TICKS) return false
 
-  lastPlayed.set(key, level.time)
+  lastPlayed.set(key, now)
   level.runCommandSilent(`playsound ${sound} block @a ${centre(block.x, block.y, block.z)} ${volume} ${pitch}`)
   return true
 }
 
 // Night-only ambience: roll < 0.1 plays `low`, roll < 0.2 plays `high` at a higher pitch
 const ambientTick = (low, high) => tick => {
-  const { level, block } = tick
-  const roll = Math.random()
+  const block = tick.block
+  const level = block.level
+  if (DEBUG) console.log(`[utopia] tick ${block.id} ${block.x},${block.y},${block.z} time=${level.time}`)
 
   if (!isNight(level)) return
+  const roll = Math.random()
   if (roll < 0.1) playSound(level, block, low, 0.3, 1.0)
   else if (roll < 0.2) playSound(level, block, high, 0.3, 1.2)
 }
@@ -29,36 +34,49 @@ const terminalTick = ambientTick('utopia:computer_terminal_ambient', 'utopia:com
 const dataTick = ambientTick('utopia:computer_data_creepy', 'utopia:computer_data_ambient')
 
 const spaceTick = prefix => tick => {
-  const { level, block, server } = tick
+  const block = tick.block
+  const level = block.level
+  const server = level.server
+  if (DEBUG) console.log(`[utopia] space tick ${block.id}`)
+
+  const night = isNight(level)
   const roll = Math.random()
 
-  if (roll < 0.1 && isNight(level)) {
+  if (roll < 0.1 && night) {
     playSound(level, block, 'utopia:computer_space_creepy', 0.3, 1.0)
-  } else if (roll < 0.25 && isNight(level)) {
-    playSound(level, block, 'utopia:computer_space_ambient', 0.3, 1.0)
-  } else if (roll < 0.3 && level.isThundering() && level.getBlock(block.x, block.y + 1, block.z).id === 'minecraft:lightning_rod'
-    && playSound(level, block, 'utopia:computer_space_badsignal', 1.0, 1.0)) {
-    const { x, y, z } = block
-    const dim = level.dimension
-    const facing = block.properties.get('facing') || 'north'
-
-    block.set(`utopia:${prefix}computer_block_badsignal`, { facing })
-
-    server.scheduleInTicks(212, () => {
-      try {
-        const target = server.getLevel(dim)
-        if (!target) return
-
-        target.runCommandSilent(`playsound utopia:computer_smash block @a ${centre(x, y, z)} 1.0 1.0`)
-        target.getBlock(x, y, z).set(`utopia:${prefix}broken_computer`, { facing })
-        target.runCommandSilent(`particle minecraft:explosion_emitter ${centre(x, y, z)} 0 0 0 1 1`)
-        target.runCommandSilent(`advancement grant @a[x=${x},y=${y},z=${z},distance=..10] only utopia:voices_of_the_void`)
-        lastPlayed.delete(keyOf(dim, x, y, z))
-      } catch (e) {
-        console.log('[utopia] scheduleInTicks callback threw:', e)
-      }
-    })
+    return
   }
+  if (roll < 0.25 && night) {
+    playSound(level, block, 'utopia:computer_space_ambient', 0.3, 1.0)
+    return
+  }
+
+  const stormy = roll < 0.3
+    && level.isThundering()
+    && level.getBlock(block.x, block.y + 1, block.z).id === 'minecraft:lightning_rod'
+  if (!stormy) return
+  if (!playSound(level, block, 'utopia:computer_space_badsignal', 1.0, 1.0)) return
+
+  const x = block.x, y = block.y, z = block.z
+  const dim = level.dimension
+  const facing = block.properties.get('facing') || 'north'
+
+  block.set(`utopia:${prefix}computer_block_badsignal`, { facing })
+
+  server.scheduleInTicks(212, () => {
+    try {
+      const target = server.getLevel(dim)
+      if (!target) return
+
+      target.runCommandSilent(`playsound utopia:computer_smash block @a ${centre(x, y, z)} 1.0 1.0`)
+      target.getBlock(x, y, z).set(`utopia:${prefix}broken_computer`, { facing })
+      target.runCommandSilent(`particle minecraft:explosion_emitter ${centre(x, y, z)} 0 0 0 1 1`)
+      target.runCommandSilent(`advancement grant @a[x=${x},y=${y},z=${z},distance=..10] only utopia:voices_of_the_void`)
+      lastPlayed.delete(keyOf(dim, x, y, z))
+    } catch (e) {
+      console.log('[utopia] scheduleInTicks callback threw:', e)
+    }
+  })
 }
 
 const defineSet = (event, prefix, color) => {

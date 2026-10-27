@@ -13,12 +13,12 @@ StartupEvents.registry('item', event => {
     event.create('utopia:500_dollar_bill').maxStackSize(50).texture('utopia:item/money/bill_five_hundred')
 
     // Money thats technically actually worth something!
-    event.create('utopia:coin_scrap')
-    event.create('utopia:coin_scrap_fractional')
-    event.create('utopia:coin_diamond')
-    event.create('utopia:coin_diamond_fractional')
-    event.create('utopia:coin_iron')
-    event.create('utopia:coin_iron_fractional')
+    event.create('utopia:coin_scrap').texture('utopia:item/money/coin_scrap')
+    event.create('utopia:coin_scrap_fractional').texture('utopia:item/money/coin_scrap_fractional')
+    event.create('utopia:coin_diamond').texture('utopia:item/money/coin_diamond')
+    event.create('utopia:coin_diamond_fractional').texture('utopia:item/money/coin_diamond_fractional')
+    event.create('utopia:coin_iron').texture('utopia:item/money/coin_iron')
+    event.create('utopia:coin_iron_fractional').texture('utopia:item/money/coin_iron_fractional')
 
 })
 

@@ -1,5 +1,5 @@
 {
-  "parent": "utopia:root",
+  "parent": "utopia:utopia",
   "criteria": {
     "moissanite": {
     "conditions": {

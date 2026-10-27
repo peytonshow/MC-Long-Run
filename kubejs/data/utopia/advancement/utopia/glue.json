@@ -1,5 +1,5 @@
 {
-  "parent": "utopia:root",
+  "parent": "utopia:utopia",
   "criteria": {
     "ate_glue": {
       "trigger": "minecraft:consume_item",

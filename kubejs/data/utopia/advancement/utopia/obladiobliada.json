@@ -1,0 +1,36 @@
+{
+  "parent": "utopia:utopia",
+  "criteria": {
+    "obladiobliada": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "utopia:silica_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.utop.obladiobliada.description"
+    },
+    "icon": {
+      "id": "utopia:silica_dust"
+    },
+    "title": {
+      "translate": "advancements.utop.obladiobliada.title"
+    },
+    "announce_to_chat": false
+  },
+  "requirements": [
+    [
+      "obladiobliada"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

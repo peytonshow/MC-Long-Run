@@ -80,7 +80,7 @@ ItemEvents.modifyTooltips(event => {
 
     addShiftTooltip('utopia:computer_block', "A Program can be selected in the crafting grid.\n\nCan be Sold, but otherwise acts as decoration.");
     addShiftTooltip('utopia:computer_block_terminal', "Program: Await input.\n\nCan be Sold, but otherwise acts as decoration.");
-    addShiftTooltip('utopia:computer_block_terminal', "Program: Text Editor.\n\nCan be Sold, but otherwise acts as decoration.");
+    addShiftTooltip('utopia:computer_block_coding', "Program: Text Editor.\n\nCan be Sold, but otherwise acts as decoration.");
     addShiftTooltip('utopia:computer_block_data', "Program: Crunching numbers.\n\nCan be Sold, but otherwise acts as decoration.");
     addShiftTooltip('utopia:computer_block_space', "Program: Decode signals.\n\nCan be Sold, but otherwise acts as decoration.");
     addShiftTooltip('utopia:computer_block_badsignal', "Program: Destroy the signal.\n\nCan be Sold, but otherwise acts as decoration.");
@@ -93,20 +93,7 @@ ItemEvents.modifyTooltips(event => {
     addShiftTooltip('vc_gliders:nether_upgrade', "Protects gliders from extreme heat.\n\nCan be applied at an Anvil.");
 
 
-    // --- Coins ---
-    addShiftTooltip('utopia:coin_scrap', 'Worth 1/8 Netherite Scrap each.');
-    addShiftTooltip('utopia:coin_scrap_fractional', 'Worth 1/16 Netherite Scrap.');
-    addShiftTooltip('utopia:coin_diamond', 'Worth 1/8 Diamond each.');
-    addShiftTooltip('utopia:coin_diamond_fractional', 'Worth 1/16 Diamond each.');
-    addShiftTooltip('utopia:coin_iron', 'Worth 1/3 Iron each.');
-    addShiftTooltip('utopia:coin_iron_fractional', 'Worth 1/6 Iron each.');
-
-    // --- Blocks ---
-    addNormalTooltip('utopia:block_of_hyper_capitalism', 'Worth R$D 12,500');
-    addNormalTooltip('utopia:block_of_extreme_capitalism', 'Worth R$D 2,500');
-    addNormalTooltip('utopia:block_of_high_capitalism', 'Worth R$D 500');
-    addNormalTooltip('utopia:block_of_moderate_capitalism', 'Worth R$D 125');
-    addNormalTooltip('utopia:block_of_capitalism', 'Worth R$D 25');
+    addShiftTooltip('utopia:soul_token', "A piece of you. Best to keep this very, very safe.");
 });
 
 ItemEvents.modifyTooltips(event => {
@@ -117,45 +104,61 @@ ItemEvents.modifyTooltips(event => {
 
 ItemEvents.dynamicTooltips('recall_potion_destination', event => {
     const data = event.item.customData
+    const npc = event.item.save(Client.level.registryAccess()).getCompound('components').getCompound('easy_npc:custom_data')
+    const name = data && data.contains('name') ? data.getString('name') : npc.getString('name')
 
-    if (data && data.contains('name')) {
-        event.add(Text.gray('Destination - ').append(Text.gold(data.getString('name'))))
-    } else {
-        event.add(Text.gray('Destination - ').append(Text.darkGray('Unknown')))
-    }
+    event.add(Text.gray('Destination - ').append(
+        name ? Text.gold(name) : Text.darkGray('Unknown')
+    ))
 })
 
 
-// Money
-const BILL_VALUES = {
-    'utopia:1_dollar_bill': 1,
-    'utopia:5_dollar_bill': 5,
-    'utopia:20_dollar_bill': 20,
-    'utopia:100_dollar_bill': 100,
-    'utopia:500_dollar_bill': 500
+const WORTHABLES = {
+    // Coins
+    'utopia:coin_scrap':              { n: 1, d: 8,  post: ' Debris',   each: '1/8' },
+    'utopia:coin_scrap_fractional':   { n: 1, d: 16, post: ' Debris',   each: '1/16' },
+    'utopia:coin_diamond':            { n: 1, d: 8,  post: ' Diamond',  each: '1/8' },
+    'utopia:coin_diamond_fractional': { n: 1, d: 16, post: ' Diamond',  each: '1/16' },
+    'utopia:coin_iron':               { n: 1, d: 2,  post: ' Iron',     each: '1/2' },
+    'utopia:coin_iron_fractional':    { n: 1, d: 4,  post: ' Iron',     each: '1/4' },
+
+    // Bills
+    'utopia:1_dollar_bill':   { n: 1,   d: 1, pre: '$' },
+    'utopia:5_dollar_bill':   { n: 5,   d: 1, pre: '$' },
+    'utopia:20_dollar_bill':  { n: 20,  d: 1, pre: '$' },
+    'utopia:100_dollar_bill': { n: 100, d: 1, pre: '$' },
+    'utopia:500_dollar_bill': { n: 500, d: 1, pre: '$' },
+
+    // Capitalism blocks
+    'utopia:block_of_hyper_capitalism':    { n: 12500, d: 1, pre: '$ ' },
+    'utopia:block_of_extreme_capitalism':  { n: 2500,  d: 1, pre: '$ ' },
+    'utopia:block_of_high_capitalism':     { n: 500,   d: 1, pre: '$ ' },
+    'utopia:block_of_moderate_capitalism': { n: 125,   d: 1, pre: '$ ' },
+    'utopia:block_of_capitalism':          { n: 25,    d: 1, pre: '$ ' }
 }
 
-// Adds commas, e.g. 25000 -> 25,000
-function formatMoney(n) {
-    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+function formatAmount(n) {
+    const [whole, fraction] = String(Math.round(n * 1000) / 1000).split('.')
+    return whole.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (fraction ? '.' + fraction : '')
 }
 
-// Attach the dynamic handler to each bill
+// Attach the dynamic handler to every worthable
 ItemEvents.modifyTooltips(event => {
-    Object.keys(BILL_VALUES).forEach(id => {
+    Object.keys(WORTHABLES).forEach(id => {
         event.modify(id, tooltip => {
-            tooltip.dynamic('utopia_bill_value')
+            tooltip.dynamic('utopia_worthable')
         })
     })
 })
 
-// The handler itself, which runs on the client each time the tooltip is drawn
-ItemEvents.dynamicTooltips('utopia_bill_value', event => {
-    let id = String(event.item.id)
-    let each = BILL_VALUES[id]
-    if (each === undefined) return
+ItemEvents.dynamicTooltips('utopia_worthable', event => {
+    const { item } = event
+    const worth = WORTHABLES[String(item.id)]
+    if (!worth) return
 
-    let total = each * event.item.count
+    if (worth.each) event.add(Text.gray('Worth ' + worth.each + (worth.post || '') + ' each'))
 
-    event.add(Text.gold('Stack Total: $' + formatMoney(total)))
+    event.add(Text.gold(
+        'Stack Total: ' + (worth.pre || '') + formatAmount(item.count * worth.n / worth.d) + (worth.post || '')
+    ))
 })

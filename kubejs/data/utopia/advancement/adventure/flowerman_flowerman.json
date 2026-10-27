@@ -4,10 +4,7 @@
     "cyan_rose": {
       "conditions": {
         "items": [
-          {
-            "items": "minecraft:blue_orchid",
-            "items": "minecraft:poppy"
-          }
+          { "items": ["minecraft:blue_orchid", "minecraft:poppy"] }
         ]
       },
       "trigger": "minecraft:inventory_changed"
@@ -23,7 +20,8 @@
     },
     "title": {
       "translate": "advancements.utop.flowerman_flowerman.title"
-    }
+    },
+    "announce_to_chat": false
   },
   "requirements": [
     [

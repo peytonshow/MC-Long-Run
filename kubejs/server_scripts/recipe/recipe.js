@@ -1,80 +1,75 @@
+// ---- globals ----
+
+const armorParts = ['helmet', 'chestplate', 'leggings', 'boots']
+
+const beakers = ['nitrogen', 'oxygen', 'hydrogen', 'ammonia', 'nitric_acid', 'bleach', 'propylene_glycol']
+    .map(name => ({ full: `utopia:beaker_${name}`, empty: 'utopia:beaker', fluid: `utopia:${name}`, amount: 200 }))
+
+const bulkDye = (event, color, input, output) =>
+    event.custom({
+        type: 'create_dragons_plus:coloring',
+        color: `minecraft:${color}`,
+        ingredients: [{ item: input }],
+        results: [{ id: output }]
+    }).id(`kubejs:bulk_coloring/${input.split(':')[1]}_to_${color}`)
+
+function fermenting(event, o) {
+    const toIngredient = s => (s.startsWith('#') ? { tag: s.substring(1) } : { item: s })
+
+    const ingredients = o.ingredients.map(toIngredient)
+    while (ingredients.length < 4) ingredients.push([])
+
+    const isFluidResult = o.count === undefined
+
+    const json = {
+        type: 'brewinandchewin:fermenting',
+        experience: o.experience === undefined ? 1.0 : o.experience,
+        ingredients: ingredients,
+        result: isFluidResult
+            ? { amount: o.amount || 1000, id: o.result }
+            : { count: o.count, id: o.result }
+    }
+
+    if (o.base) {
+        // brewin's own files keep the leading '#' on fluid tags, so it is passed through as is
+        json.base_fluid = {
+            amount: o.baseAmount || 1000,
+            ingredient: o.base.startsWith('#') ? { tag: o.base } : { id: o.base },
+            unit: 'millibuckets'
+        }
+    }
+    if (o.base || isFluidResult) json.unit = 'millibuckets'
+    if (o.category) json.category = o.category
+    if (o.time !== undefined) json.fermenting_time = o.time
+    if (o.temperature !== undefined) json.temperature = o.temperature
+
+    const recipe = event.custom(json)
+    if (o.id) recipe.id(o.id)
+}
+
+function cutting(event, input, output, count, tool) {
+    // tool: a tag string ('c:tools/knife', the default) or a full tool object
+    event.custom({
+        type: 'farmersdelight:cutting',
+        ingredients: [input.startsWith('#') ? { tag: input.substring(1) } : { item: input }],
+        result: [{ item: { count: count || 1, id: output } }],
+        tool: (tool && typeof tool === 'object') ? tool : { tag: tool || 'c:tools/knife' }
+    })
+}
+
+function replaceRecipe(event, filter, ...adders) {
+    event.remove(filter)
+    adders.forEach(add => add())
+}
+
+
 ServerEvents.recipes(event => {
-
-    // epic functions and stuff
-
-    function fermenting(event, o) {
-        const toIngredient = s => (s.startsWith('#') ? { tag: s.substring(1) } : { item: s })
-
-        const ingredients = o.ingredients.map(toIngredient)
-        while (ingredients.length < 4) ingredients.push([])
-
-        const isFluidResult = o.count === undefined
-
-        const json = {
-            type: 'brewinandchewin:fermenting',
-            experience: o.experience === undefined ? 1.0 : o.experience,
-            ingredients: ingredients,
-            result: isFluidResult
-                ? { amount: o.amount || 1000, id: o.result }
-                : { count: o.count, id: o.result }
-        }
-
-        if (o.base) {
-            // brewin's own files keep the leading '#' on fluid tags, so it is passed through as is
-            json.base_fluid = {
-                amount: o.baseAmount || 1000,
-                ingredient: o.base.startsWith('#') ? { tag: o.base } : { id: o.base },
-                unit: 'millibuckets'
-            }
-        }
-        if (o.base || isFluidResult) json.unit = 'millibuckets'
-        if (o.category) json.category = o.category
-        if (o.time !== undefined) json.fermenting_time = o.time
-        if (o.temperature !== undefined) json.temperature = o.temperature
-
-        const recipe = event.custom(json)
-        if (o.id) recipe.id(o.id)
-    }
-
-    function cutting(event, input, output, count, tool) {
-        const ingredient = input.startsWith('#')
-            ? { tag: input.substring(1) }
-            : { item: input }
-
-        // tool: a tag string ('c:tools/knife', the default) or a full tool object
-        const toolJson = (tool && typeof tool === 'object')
-            ? tool
-            : { tag: tool || 'c:tools/knife' }
-
-        event.custom({
-            type: 'farmersdelight:cutting',
-            ingredients: [ingredient],
-            result: [
-                {
-                    item: {
-                        count: count || 1,
-                        id: output
-                    }
-                }
-            ],
-            tool: toolJson
-        })
-    }
-
-    function replaceRecipe(filter, ...adders) {
-        event.remove(filter)
-        adders.forEach(add => add())
-    }
-
-
 
     // Removal. For replacements use the function above, nerd
     
     event.remove({ input: 'minecraft:soul_campfire', type: 'minecraft:crafting_shaped' })
     event.remove({ input: 'minecraft:gravel', type: 'create:splashing' })
-    event.remove({ input: 'minecraft:sugar_cane', output: 'minecraft:sugar'})
     event.remove({ input: Ingredient.of('#c:cobblestones'), type: 'create:mixing', output: Fluid.of('minecraft:lava'),})
-    event.remove({ output: 'immersive_pillagers:crude_totem_of_undying' })
     event.remove({ output: 'oreganized:glance' })
     event.remove({ output: 'create:brass_ingot', type: 'create:mixing' })
     event.remove({ output: 'minecraft:paper', type: 'minecraft:crafting_shaped' })
@@ -86,6 +81,17 @@ ServerEvents.recipes(event => {
 
     event.remove({ output: 'minecraft:gold_nugget', type: 'create:splashing' })
     event.remove({ output: 'oreganized:silver_nugget', type: 'create:splashing' })
+
+
+
+
+    replaceRecipe(event, { input: 'minecraft:sugar_cane', output: 'minecraft:sugar' },
+        () => event.recipes.create.crushing([
+            CreateItem.of('minecraft:sugar'),
+            CreateItem.of('minecraft:sugar', 0.25),
+            CreateItem.of('create:pulp', 0.25),
+        ], 'minecraft:sugar_cane')
+    )
 
     event.shapeless(Item.of('create:framed_glass'),['minecraft:glass'])
     event.shapeless(Item.of('create:horizontal_framed_glass'),['minecraft:glass'])
@@ -99,74 +105,6 @@ ServerEvents.recipes(event => {
     event.shapeless(Item.of('create:tiled_glass_pane'), ['minecraft:glass_pane'])
     event.shapeless('minecraft:glass_pane', [['create:framed_glass_pane', 'create:horizontal_framed_glass_pane', 'create:vertical_framed_glass_pane', 'create:tiled_glass_pane']])
 
-    // Forgin
-    event.remove({ input: 'minecraft:gold_ingot', output: ['minecraft:netherite_ingot', 'oreganized:electrum_ingot']}) //alloy
-    const ingots = [
-        { full: 'minecraft:copper_ingot', fluid: 'utopia:molten_copper', crushed : 'create:crushed_raw_copper', slagAmount : 25},
-        { full: 'create:zinc_ingot', fluid: 'utopia:molten_zinc', crushed : 'create:crushed_raw_zinc', slagAmount : 25 },
-        { full: 'create:brass_ingot', fluid: 'utopia:molten_brass' },
-        { full: 'minecraft:iron_ingot', fluid: 'utopia:molten_iron', crushed : 'create:crushed_raw_iron', slagAmount : 50 },
-        { full: 'oreganized:silver_ingot', fluid: 'utopia:molten_silver', crushed : 'create:crushed_raw_silver', slagAmount : 25 },
-        { full: 'minecraft:gold_ingot', fluid: 'utopia:molten_gold', crushed : 'create:crushed_raw_gold', slagAmount : 25 },
-        { full: 'utopia:platinum_ingot', fluid: 'utopia:molten_platinum' },
-        { full: 'minecraft:netherite_scrap', fluid: 'utopia:molten_debrinium' },
-        { full: 'minecraft:netherite_ingot', fluid: 'utopia:molten_netherite' },
-        { full: 'oreganized:electrum_ingot', fluid: 'utopia:molten_electrum' },
-        { full: 'oreganized:lead_ingot', fluid: 'oreganized:molten_lead', crushed : 'create:crushed_raw_lead', slagAmount : 75},
-        { full: 'utopia:slag', fluid: 'utopia:molten_slag'}
-    ];
-    for (let item of ingots) {
-        event.recipes.create.filling(item.full, [Fluid.of(item.fluid, 100), 'utopia:ingot_mold']);
-        if(item.crushed && item.slagAmount){
-            event.recipes.create.mixing(
-                [Fluid.of(item.fluid, 200), Fluid.of('utopia:molten_slag', item.slagAmount)],
-                [item.crushed, Ingredient.of('#utopia:flux')]
-            ).heated()
-        }
-        event.recipes.create.mixing(Fluid.of(item.fluid, 100),
-            [item.full, Ingredient.of('#utopia:flux')]
-        ).heated()
-    }
-    
-    event.recipes.create.mixing([Fluid.of('utopia:molten_netherite', 25), Fluid.of('utopia:molten_slag', 175)],
-        [Fluid.of('utopia:molten_debrinium', 100), Fluid.of('utopia:molten_gold', 100)]
-    ).heated()
-    event.recipes.create.mixing([Fluid.of('utopia:molten_electrum', 25), Fluid.of('utopia:molten_slag', 175)],
-        [Fluid.of('utopia:molten_silver', 100), Fluid.of('utopia:molten_gold', 100)]
-    ).heated()
-    event.recipes.create.mixing(Fluid.of('utopia:molten_brass', 200),
-        [Fluid.of('utopia:molten_zinc', 100), Fluid.of('utopia:molten_zinc', 100)]
-    ).heated()
-    event.recipes.create.mixing([
-        CreateItem.of('create:powdered_obsidian', 0.65)
-    ], [
-        Fluid.of('minecraft:water', 50),Fluid.of('minecraft:lava', 50),
-    ]).processingTime(17)
-    event.shaped('utopia:ingot_mold', [
-        'ABA',
-        'ACA'
-    ], {
-        A: 'minecraft:clay_ball',
-        B: 'create:sturdy_sheet',
-        C: 'minecraft:clay',
-    })
-
-
-    replaceRecipe({ output: 'create:sturdy_sheet' },
-        () => event.recipes.create.sequenced_assembly(
-            [
-                CreateItem.of('create:sturdy_sheet', 0.9),
-                CreateItem.of('utopia:garbage', 0.1),
-            ],
-            'create:powdered_obsidian',
-            [
-                event.recipes.create.filling('create:unprocessed_obsidian_sheet',
-                    ['create:unprocessed_obsidian_sheet', Fluid.sizedIngredientOf('#utopia:sturdy_sheet_fluids', 50)]), // 
-                event.recipes.create.pressing('create:unprocessed_obsidian_sheet', 'create:unprocessed_obsidian_sheet'),
-                event.recipes.create.pressing('create:unprocessed_obsidian_sheet', 'create:unprocessed_obsidian_sheet'),
-            ]
-        ).transitionalItem('create:unprocessed_obsidian_sheet').id('utopia:sturdy_sheet')
-    )
 
     //  Fermenting
     fermenting(event, {
@@ -181,7 +119,7 @@ ServerEvents.recipes(event => {
     })
 
     // Device
-    replaceRecipe({ output: 'oreganized:unknown_device' },
+    replaceRecipe(event, { output: 'oreganized:unknown_device' },
         () => event.shaped(
             Item.of('oreganized:unknown_device')
             , [
@@ -194,7 +132,7 @@ ServerEvents.recipes(event => {
     }))
 
     // Food
-    replaceRecipe({ output: 'minecraft:bread', input: 'minecraft:wheat' },
+    replaceRecipe(event, { output: 'minecraft:bread', input: 'minecraft:wheat' },
         () => event.shaped(
             Item.of('minecraft:bread')
             , [
@@ -207,7 +145,7 @@ ServerEvents.recipes(event => {
             C: '#minecraft:wooden_slabs',
             D: '#utopia:campfires'
     }))
-    replaceRecipe({ output: 'brewinandchewin:heating_cask' },
+    replaceRecipe(event, { output: 'brewinandchewin:heating_cask' },
         () => event.shaped(
             Item.of('brewinandchewin:heating_cask')
             , [
@@ -220,7 +158,7 @@ ServerEvents.recipes(event => {
             C: '#minecraft:wooden_slabs',
             D: '#utopia:campfires'
     }))
-    replaceRecipe({ output: 'brewinandchewin:ice_crate' },
+    replaceRecipe(event, { output: 'brewinandchewin:ice_crate' },
         () => event.shaped(
             Item.of('brewinandchewin:ice_crate')
             , [
@@ -233,7 +171,7 @@ ServerEvents.recipes(event => {
             C: '#minecraft:wooden_slabs',
             D: 'minecraft:packed_ice'
     }))
-    replaceRecipe({ output: 'create:dough' },
+    replaceRecipe(event, { output: 'create:dough' },
         () => event.shapeless(Item.of('create:dough'), ['minecraft:water_bucket', 'create:wheat_flour']).keepIngredient('minecraft:water_bucket')
     )
 
@@ -300,7 +238,7 @@ ServerEvents.recipes(event => {
     })
 
     // Furnaces
-    replaceRecipe({ output: 'minecraft:blast_furnace' },
+    replaceRecipe(event, { output: 'minecraft:blast_furnace' },
         () => event.shaped(
             Item.of('minecraft:blast_furnace')
             , [
@@ -333,14 +271,14 @@ ServerEvents.recipes(event => {
         ], {
             A: '#utopia:burlap'
     })
-    replaceRecipe({ output: 'nirvana:hemp_crate' },
+    replaceRecipe(event, { output: 'nirvana:hemp_crate' },
         () => event.recipes.create.compacting([
             'nirvana:hemp_crate'
         ], [
             '9x nirvana:hemp',
             'create:cardboard'
     ]))
-    replaceRecipe({ output: 'nirvana:weed_crate' },
+    replaceRecipe(event, { output: 'nirvana:weed_crate' },
         () => event.recipes.create.compacting([
             'nirvana:weed_crate'
         ], [
@@ -362,12 +300,12 @@ ServerEvents.recipes(event => {
     event.recipes.create.pressing('supplementaries:ash_brick','supplementaries:ash')
 
     // Bones
-    replaceRecipe({ input: 'minecraft:bone_block', output: 'minecraft:bone_meal'},
+    replaceRecipe(event, { input: 'minecraft:bone_block', output: 'minecraft:bone_meal'},
         () => event.shapeless(
             Item.of('9x minecraft:bone'),
             ['minecraft:bone_block']
     ))
-    replaceRecipe({ output: 'minecraft:bone_block' },
+    replaceRecipe(event, { output: 'minecraft:bone_block' },
         () => event.shaped(
             Item.of('minecraft:bone_block')
             , [
@@ -379,7 +317,7 @@ ServerEvents.recipes(event => {
     }))
 
     // Food
-    replaceRecipe({ input: 'farmersdelight:pumpkin_slice', output: 'minecraft:pumpkin_pie'},
+    replaceRecipe(event, { input: 'farmersdelight:pumpkin_slice', output: 'minecraft:pumpkin_pie'},
         () => event.shaped(
             Item.of('minecraft:pumpkin_pie')
             ,[
@@ -392,7 +330,7 @@ ServerEvents.recipes(event => {
             C: 'minecraft:sugar',
             D: 'farmersdelight:pie_crust'
     }))
-    replaceRecipe({ input: 'farmersdelight:pumpkin_slice', output: 'minecraft:pumpkin'},
+    replaceRecipe(event, { input: 'farmersdelight:pumpkin_slice', output: 'minecraft:pumpkin'},
         () => event.shaped(
             Item.of('minecraft:pumpkin')
             ,[
@@ -402,7 +340,7 @@ ServerEvents.recipes(event => {
         ], {
             A: 'farmersdelight:pumpkin_slice'
     }))
-    replaceRecipe({ output: 'farmersdelight:canvas'},
+    replaceRecipe(event, { output: 'farmersdelight:canvas'},
         () => event.shaped(
             Item.of('farmersdelight:canvas')
             ,[
@@ -412,13 +350,13 @@ ServerEvents.recipes(event => {
         ], {
             A: ['farmersdelight:straw', 'supplementaries:flax', 'nirvana:hemp']
     }))
-    replaceRecipe({ input: 'minecraft:pumpkin', output: 'farmersdelight:pumpkin_slice' },
+    replaceRecipe(event, { input: 'minecraft:pumpkin', output: 'farmersdelight:pumpkin_slice' },
         () => cutting(event, 'minecraft:pumpkin', 'farmersdelight:pumpkin_slice', 9,
             { type: 'farmersdelight:item_ability', action: 'axe_dig' })
     )
 
     // Create SU Sources
-    replaceRecipe({ output: 'create:water_wheel' },
+    replaceRecipe(event, { output: 'create:water_wheel' },
         () => event.shaped('create:water_wheel', [
             'ABA',
             'BCB',
@@ -428,7 +366,7 @@ ServerEvents.recipes(event => {
             B: '#minecraft:logs',
             C: 'create:shaft'
     }))
-    replaceRecipe({ output: 'create:large_water_wheel' },
+    replaceRecipe(event, { output: 'create:large_water_wheel' },
         () => event.recipes.create.mechanical_crafting('create:large_water_wheel', [
             ' AAA ',
             'ADBDA',
@@ -441,7 +379,7 @@ ServerEvents.recipes(event => {
             C: 'create:water_wheel',
             D: 'unusual_furniture:screw'
     }))
-    replaceRecipe({ output: 'create:white_sail' },
+    replaceRecipe(event, { output: 'create:white_sail' },
         () => event.shaped('4x create:white_sail', [
             'AB ',
             'BC ',
@@ -453,7 +391,7 @@ ServerEvents.recipes(event => {
     }))
     
     // Create Components
-    replaceRecipe({ output: 'create_connected:sequenced_pulse_generator' },
+    replaceRecipe(event, { output: 'create_connected:sequenced_pulse_generator' },
         () => event.shaped(
             Item.of(
                 'create_connected:sequenced_pulse_generator'), [
@@ -467,7 +405,7 @@ ServerEvents.recipes(event => {
             D: '#c:stones',
             E: 'minecraft:redstone_torch'
     }))
-    replaceRecipe({ output: 'create:sequenced_gearshift' },
+    replaceRecipe(event, { output: 'create:sequenced_gearshift' },
         () => event.shaped(
             Item.of(
                 'create:sequenced_gearshift'), [
@@ -480,7 +418,7 @@ ServerEvents.recipes(event => {
             C: 'create:brass_sheet',
             D: 'create:cogwheel'
     }))
-    replaceRecipe({ output: 'create:elevator_pulley' },
+    replaceRecipe(event, { output: 'create:elevator_pulley' },
         () => event.shaped(
             Item.of(
                 'create:elevator_pulley'), [
@@ -493,7 +431,7 @@ ServerEvents.recipes(event => {
             C: 'utopia:basic_circuit',
             D: 'create:iron_sheet',
     }))
-    replaceRecipe({ output: 'create:mechanical_drill' },
+    replaceRecipe(event, { output: 'create:mechanical_drill' },
         () => event.shaped(
             Item.of('create:mechanical_drill'), [
             ' B ',
@@ -504,7 +442,7 @@ ServerEvents.recipes(event => {
             B: 'create:andesite_alloy',
             C: 'create:andesite_casing'
     }))
-    replaceRecipe({ output: 'create:rotation_speed_controller' },
+    replaceRecipe(event, { output: 'create:rotation_speed_controller' },
         () => event.recipes.create.mechanical_crafting('create:rotation_speed_controller', [
             ' A ',
             ' B ',
@@ -514,7 +452,7 @@ ServerEvents.recipes(event => {
             B: 'utopia:basic_circuit',
             C: 'create:brass_casing'
     }))
-    replaceRecipe({ output: 'create_connected:inventory_access_port' },
+    replaceRecipe(event, { output: 'create_connected:inventory_access_port' },
         () => event.recipes.create.mechanical_crafting('create_connected:inventory_access_port', [
             ' A ',
             ' B ',
@@ -524,7 +462,7 @@ ServerEvents.recipes(event => {
             B: 'create:smart_chute',
             C: 'utopia:basic_circuit'
     }))
-    replaceRecipe({ output: 'create:display_board' },
+    replaceRecipe(event, { output: 'create:display_board' },
     () => event.shaped('4x create:display_board', [
         ' B ',
         'ACA',
@@ -534,7 +472,7 @@ ServerEvents.recipes(event => {
         B: 'utopia:basic_circuit',
         C: 'create_connected:encased_chain_cogwheel'
     }))
-    replaceRecipe({ output: 'create:content_observer' },
+    replaceRecipe(event, { output: 'create:content_observer' },
     () => event.shaped('create:content_observer', [
         ' A ',
         ' B ',
@@ -544,7 +482,7 @@ ServerEvents.recipes(event => {
         B: 'create:brass_casing',
         C: 'minecraft:observer'
     }))
-    replaceRecipe({ output: 'create:smart_chute' },
+    replaceRecipe(event, { output: 'create:smart_chute' },
     () => event.shaped('2x create:smart_chute', [
         ' A ',
         ' B ',
@@ -554,7 +492,7 @@ ServerEvents.recipes(event => {
         B: 'create_connected:brass_chute',
         C: 'create:content_observer'
     }))
-    replaceRecipe({ output: 'create:schematicannon' },
+    replaceRecipe(event, { output: 'create:schematicannon' },
     () => event.shaped('create:schematicannon', [
         'EAE',
         'BDB',
@@ -568,7 +506,7 @@ ServerEvents.recipes(event => {
     }))
 
     // Survival
-    replaceRecipe({ output: 'minecraft:campfire' },
+    replaceRecipe(event, { output: 'minecraft:campfire' },
         () => {
             event.shaped('minecraft:campfire', [
                 'BA ',
@@ -667,7 +605,7 @@ ServerEvents.recipes(event => {
         'supplementaries:key'
     )
     event.recipes.create.pressing('supplementaries:key','utopia:shadow_key')
-    replaceRecipe({ output: 'storagedrawers:drawer_key' },
+    replaceRecipe(event, { output: 'storagedrawers:drawer_key' },
         () => event.shapeless(
             'storagedrawers:drawer_key', 
             ['supplementaries:key', 'storagedrawers:upgrade_template']
@@ -747,7 +685,7 @@ ServerEvents.recipes(event => {
         'minecraft:coal'
     ]).heated()
     event.recipes.create.mixing([
-        CreateItem.of('2x minecraft:gunpowder')
+        CreateItem.of('3x minecraft:gunpowder')
     ], [
         '4x minecraft:sugar',
         'minecraft:coal',
@@ -760,6 +698,13 @@ ServerEvents.recipes(event => {
         'minecraft:coal',
         'utopia:ammonium_nitrate'
     ]).heated()
+    event.recipes.create.mixing([
+        CreateItem.of('2x minecraft:bone_meal', 0.5),
+        CreateItem.of('minecraft:bone_meal', 0.5)
+    ], [
+        'utopia:ammonium_nitrate',
+        Fluid.of('minecraft:water', 250),
+    ]).processingTime(200)
 
     // Mill efficiently!
     event.recipes.create.milling([
@@ -789,14 +734,13 @@ ServerEvents.recipes(event => {
     })
 
     // Moissanite & Graphite
-    event.recipes.create.compacting('utopia:pencil', ['minecraft:wooden_sword', 'utopia:graphite_ingot'])
     event.recipes.create.compacting([
         CreateItem.of('utopia:graphite_ingot'),
     ], [
         'minecraft:coal_block'
     ]).heated()
     event.recipes.create.compacting([
-        CreateItem.of('utopia:moissanite', 0.55),
+        CreateItem.of('utopia:moissanite', 0.75),
     ], [
         '5x utopia:silica_dust',
         '5x utopia:graphite_ingot',
@@ -896,12 +840,18 @@ ServerEvents.recipes(event => {
         Fluid.of('minecraft:water', 500)
     ])
     event.recipes.create.compacting([
-        CreateItem.of('utopia:neon_block', 0.1),
+        CreateItem.of('utopia:neon_block', 0.15),
         '16x minecraft:glass_bottle'
     ], [
         'create_enchantment_industry:super_experience_nugget',
         '16x quark:cloud',
-        Fluid.of('utopia:propylene_glycol', 600)
+        Fluid.of('utopia:propylene_glycol', 600),
+        Fluid.ingredientOf('create:potion', {
+            'create:potion_fluid_bottle_type': 'regular',
+            'minecraft:potion_contents': {
+                potion: 'quark:resilience',
+            },
+        }).withAmount(100)
     ])
     event.recipes.create.mixing([
         Fluid.of('utopia:bleach', 200)
@@ -1040,7 +990,7 @@ ServerEvents.recipes(event => {
     })
 
     // Musket''
-    replaceRecipe({ output: 'musketmod:musket_upgrade_smithing_template' },
+    replaceRecipe(event, { output: 'musketmod:musket_upgrade_smithing_template' },
         () => event.shaped(
                 Item.of('musketmod:musket_upgrade_smithing_template', 1), [
                 'BAB',

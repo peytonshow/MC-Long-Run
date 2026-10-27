@@ -1,5 +1,5 @@
 {
-  "parent": "utopia:root",
+  "parent": "utopia:utopia",
   "criteria": {
     "voices_of_the_voice": {
       "trigger": "minecraft:impossible"

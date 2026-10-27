@@ -1,33 +1,16 @@
 {
   "values": {
+    "utopia:ruby": { "base_value": 50, "processors": [] },
     "minecraft:coal": { "base_value": 7, "processors": [] },
-    "minecraft:coal_block": { "base_value": 63, "processors": [] },
-
     "minecraft:copper_ingot": { "base_value": 6, "processors": [] },
-    "minecraft:copper_block": { "base_value": 54, "processors": [] },
-
     "minecraft:iron_ingot": { "base_value": 12, "processors": [] },
-    "minecraft:iron_block": { "base_value": 108, "processors": [] },
-
     "create:zinc_ingot": { "base_value": 12, "processors": [] },
-    "create:zinc_block": { "base_value": 108, "processors": [] },
-
     "oreganized:lead_ingot": { "base_value": 10, "processors": [] },
-    "oreganized:lead_block": { "base_value": 90, "processors": [] },
-
     "oreganized:silver_ingot": { "base_value": 50, "processors": [] },
-    "oreganized:silver_block": { "base_value": 450, "processors": [] },
-
     "minecraft:gold_ingot": { "base_value": 20, "processors": [] },
-    "minecraft:gold_block": { "base_value": 180, "processors": [] },
-
     "create:rose_quartz": { "base_value": 20, "processors": [] },
-
     "minecraft:diamond": { "base_value": 90, "processors": [] },
-    "minecraft:diamond_block": { "base_value": 810, "processors": [] },
-
     "minecraft:netherite_scrap": { "base_value": 120, "processors": [] },
-    "minecraft:netherite_ingot": { "base_value": 660, "processors": [] },
-    "minecraft:netherite_block": { "base_value": 5940, "processors": [] }
+    "minecraft:netherite_ingot": { "base_value": 660, "processors": [] }
   }
 }

@@ -117,7 +117,7 @@ _version = 5
 	[common.multiThreading]
 		#
 		# How many threads should be used by Distant Horizons?
-		numberOfThreads = 16
+		numberOfThreads = 8
 		#
 		# A value between 1.0 and 0.0 that represents the percentage 
 		# of time each thread can run before going idle. 
@@ -624,7 +624,7 @@ _version = 5
 				# Only applies to high detail LODs where the texture is actually visible, 
 				# distant LODs always use flat colors. 
 				# Some shader packs nay not have an affect.
-				enableTexturedLods = false
+				enableTexturedLods = true
 				#
 				# A comma separated list of block resource locations 
 				# that DH won't render textures on. 
@@ -809,7 +809,7 @@ _version = 5
 				# Note: this is a best effort number. 
 				# The actual render distance may be above or below this number 
 				# depending on your other graphic settings.
-				lodChunkRenderDistanceRadius = 96
+				lodChunkRenderDistanceRadius = 128
 				#
 				# How should the sides and bottom of grass block LODs render? 
 				# 

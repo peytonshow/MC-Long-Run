@@ -1,1 +1,1 @@
-{"useServerCUI":false,"wandItem":"utopia:builder_ax","wandItemDefault":false,"navWandItem":"minecraft:compass","navWandItemDefault":true}
+{"useServerCUI":false,"wandItem":"worldedit_items:wand_axe","wandItemDefault":false,"navWandItem":"worldedit_items:passthrough_compass","navWandItemDefault":false}

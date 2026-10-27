@@ -1,11 +1,11 @@
 StartupEvents.modifyCreativeTab('minecraft:tools_and_utilities', event => {
-    event.addAfter('minecraft:stone_hoe', [
-        'minecraft:copper_hoe',
-        'minecraft:copper_axe',
-        'minecraft:copper_pickaxe',
-        'minecraft:copper_shovel'
+    // event.addAfter('minecraft:stone_hoe', [
+    //     'minecraft:copper_hoe',
+    //     'minecraft:copper_axe',
+    //     'minecraft:copper_pickaxe',
+    //     'minecraft:copper_shovel'
 
-    ])
+    // ])
     event.addAfter('minecraft:golden_hoe', [
         'utopia:platinum_hoe',
         'utopia:platinum_axe',
@@ -15,12 +15,12 @@ StartupEvents.modifyCreativeTab('minecraft:tools_and_utilities', event => {
 })
 
 StartupEvents.modifyCreativeTab('minecraft:combat', event => {
-    event.addAfter('minecraft:stone_sword', [
-        'minecraft:copper_sword'
-    ])
-    event.addAfter('minecraft:stone_axe',[
-        'minecraft:copper_axe'
-    ])
+    // event.addAfter('minecraft:stone_sword', [
+    //     'minecraft:copper_sword'
+    // ])
+    // event.addAfter('minecraft:stone_axe',[
+    //     'minecraft:copper_axe'
+    // ])
     event.addAfter('minecraft:golden_sword', [
         'utopia:platinum_sword'
     ])
@@ -53,7 +53,7 @@ StartupEvents.modifyCreativeTab('minecraft:food_and_drinks', event => {
 })
 
 StartupEvents.modifyCreativeTab('minecraft:ingredients', event => {
-    event.addAfter('minecraft:lapis_lazuli',['utopia:graphite_ingot', 'utopia:moissanite'])
+    event.addAfter('minecraft:lapis_lazuli',['utopia:moissanite', 'utopia:graphite_ingot'])
     event.addAfter('minecraft:gold_ingot',['utopia:platinum_ingot'])
     event.addAfter('minecraft:gold_nugget',['utopia:platinum_nugget'])
     event.addAfter('minecraft:clay_ball',['utopia:silica_dust, utopia:plastic_ingot'])

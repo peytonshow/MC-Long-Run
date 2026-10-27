@@ -1,5 +1,5 @@
 {
-  "parent": "utopia:story/double_gold",
+  "parent": "utopia:utopia/double_gold",
   "criteria": {
     "platinum_sword": {
       "conditions": {

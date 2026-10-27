@@ -8,6 +8,15 @@
   "item.utopia.20_dollar_bill": "$20 Money",
   "item.utopia.100_dollar_bill": "$100 Money",
   "item.utopia.500_dollar_bill": "$500 Money",
+  "item.utopia.2000_dollar_bill": "$2000 Money",
+  "block.utopia.block_of_capitalism": "Pile of Money",
+  "block.utopia.block_of_moderate_capitalism": "Pile of Money",
+  "block.utopia.block_of_high_capitalism": "Pile of Money",
+  "block.utopia.block_of_extreme_capitalism": "Pile of Money",
+  "block.utopia.block_of_hyper_capitalism": "Pile of Money",
+  "block.utopia.block_of_peak_capitalism": "Pile of Money",
+
+
 
   "item.utopia.coin_netherite": "Netherite Coin",
   "item.utopia.coin_netherite_fractional": "Fractional Netherite Coin",
@@ -16,11 +25,6 @@
   "item.utopia.coin_iron": "Iron Coin",
   "item.utopia.coin_iron_fractional": "Fractional Iron Coin",
 
-  "block.utopia.block_of_hyper_capitalism": "Block of Hyper Capitalism",
-  "block.utopia.block_of_extreme_capitalism": "Block of Extreme Capitalism",
-  "block.utopia.block_of_high_capitalism": "Block of High Capitalism",
-  "block.utopia.block_of_moderate_capitalism": "Block of Moderate Capitalism",
-  "block.utopia.block_of_capitalism": "Block of Capitalism",
 
   "tag.item.utopia.stamp": "Stamps",
 
@@ -179,7 +183,7 @@
   "utopia.info.gas": "Gasses act like liquid in many ways, but can't be physically placed.",
   "utopia.info.forging": "Refining crushed minerals into their Molten form ",
 
-  "item.create.belt_connector": "Conveyer Belt",
+  "item.create.belt_connector": "Conveyor Belt",
   "farmersdelight.tooltip.cooking_pot.empty": "Empty",
   "block.minecraft.blast_furnace": "Kiln",
   "container.blast_furnace": "Kiln",
@@ -191,6 +195,8 @@
   "block.minecraft.potted_blue_orchid": "Potted Cyan Rose",
   "block.minecraft.gilded_blackstone": "Gold Gilded Blackstone",
 
+  "advancements.utop.obladiobliada.title": "Ob-La-Di, Ob-La-Da",
+  "advancements.utop.obladiobliada.description": "Obtain silica",
   "advancements.utop.flowerman_flowerman.title": "Aren't they amazing?",
   "advancements.utop.flowerman_flowerman.description": "Obtain a Rose",
   "advancements.utop.voices_of_the_voice.title": "Voices of The Void",
@@ -212,7 +218,7 @@
   "advancements.utop.with_this_treasure.title": "With this Treasure, I Summon...",
   "advancements.utop.with_this_treasure.description": "Create a weapon of Mass-Destruction",
   "advancements.utop.double_gold.title": "Double Gold",
-  "advancements.utop.double_gold.description": "Obtain a Platinum Ingot, the strongest material",
+  "advancements.utop.double_gold.description": "Obtain a Platinum Ingot",
   "advancements.utop.the_strongest_of_today.title": "The Strongest of Today",
   "advancements.utop.the_strongest_of_today.description": "Craft a Platinum Sword",
   "advancements.utop.serious_poor_choices.title": "Seriously Poor Decision-Making",
