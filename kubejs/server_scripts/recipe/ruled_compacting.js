@@ -10,6 +10,9 @@ const ITEM_PAIRS = [
     { a: "quark:apple_crate", b: "9x minecraft:apple", packing: "create:cardboard" },
     { a: "quark:golden_apple_crate", b: "9x minecraft:golden_apple", packing: "create:cardboard" },
     { a: "quark:golden_carrot_crate", b: "9x minecraft:golden_carrot", packing: "create:cardboard" },
+
+    { a: "nirvana:hemp_crate", b: "9x nirvana:hemp", packing: "farmersdelight:canvas" },
+    { a: "nirvana:weed_crate", b: "9x nirvana:weed_crate", packing: "farmersdelight:canvas" },
 ];
 
 // ===================== ENGINE (shouldn't need edits) =====================

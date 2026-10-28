@@ -48,13 +48,14 @@ ItemEvents.modification(event => {
     }
 
 
-    simpleFood('minecraft:melon_slice', 0.8, 1, 1)
-    simpleFood('farmersdelight:pumpkin_slice', 0.8, 1, 2)
+    simpleFood('minecraft:melon_slice', 0.8, 2, 1)
+    simpleFood('farmersdelight:pumpkin_slice', 0.8, 1, 1)
     simpleFood('minecraft:sweet_berries', 0.8, 1, 3)
     simpleFood('minecraft:glow_berries', 1.6, 2, 2)
+    simpleFood('farmersdelight:onion', 1.6, 2, 1)
 
     // Decrease saturation
-    simpleFood('create:chocolate_glazed_berries', 0.8, 5, 3)
+    simpleFood('create:chocolate_glazed_berries', 0.8, 6, 3)
 
     simpleFood('utopia:sea_salt', 4.8, 4, 1)
     simpleFood('utopia:pepper', 4.8, 5, 1)

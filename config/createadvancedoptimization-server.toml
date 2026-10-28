@@ -21,7 +21,7 @@
 	packageEntityWarningThreshold = 200
 
 	[optimizations.divingBoots]
-		#Skips redundant HeavyBoots marker writes/removals when the marker is already in the desired state.
+		#Avoids creating empty persistent data for entities without HeavyBoots and skips redundant marker writes/removals.
 		enabled = true
 
 	[optimizations.spoutRecipeCache]

@@ -1,0 +1,31 @@
+[
+  {
+    "mob": "quark:foxhound",
+    "mincount": { "amount": 8 },
+    "result": "deny"
+  },
+  {
+    "mob": "quark:wraith",
+    "mincount": { "amount": 8 },
+    "result": "deny"
+  },
+  {
+    "mob": "quark:stoneling",
+    "mincount": { "amount": 3 },
+    "result": "deny"
+  },
+  {
+    "when": "onjoin",
+    "firstjoin": true,
+    "mod": "endermanoverhaul",
+    "mincount": { "amount": 6 },
+    "result": "deny"
+  },
+  {
+    "when": "onjoin",
+    "firstjoin": true,
+    "mod": "creeperoverhaul",
+    "mincount": { "amount": 20 },
+    "result": "deny"
+  }
+]

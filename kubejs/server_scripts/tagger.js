@@ -213,8 +213,22 @@ ServerEvents.tags('block', event => {
     makeImmovable('selling_bin:selling_bin')
 
 
-    event.add('c:ores', [
-        "minecraft:diorite"
+event.add('c:ores', [
+        "minecraft:diorite",
+        "minecraft:granite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:basalt",
+        "create:limestone",
+        "create:scoria",
+        "create:scorchia",
+        "create:crimsite",
+        "create:ochrum",
+        "create:veridium",
+        "create:asurine",
+        "minecraft:bone_block",
+        "minecraft:amethyst_block",
+        "minecraft:calcite",
     ] )
 
 })

@@ -1,7 +1,7 @@
 [animation]
+	enable_first_person_view_animation = false
 	enable = true
 	enable_camera_animation = true
-	enable_first_person_view_animation = true
 
 	[animation.availability]
 		"parcool:fast_run" = true

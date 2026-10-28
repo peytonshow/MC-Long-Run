@@ -530,7 +530,7 @@
 	"Petals On Water" = true
 	"Pig Litters" = true
 	"Poison Potato Usage" = true
-	"Reacharound Placing" = false
+	"Reacharound Placing" = true
 	"Renewable Spore Blossoms" = true
 	"Replace Scaffolding" = true
 	"Safer Creatures" = true

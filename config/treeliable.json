@@ -4,7 +4,7 @@
   "chopping_indicator_x_offset": 8,
   "chopping_indicator_y_offset": -8,
   "drop_loot_for_chopped_blocks": true,
-  "chopping_enabled": true,
+  "chopping_enabled": false,
   "sneak_behavior": "INVERT_CHOPPING",
   "trees_must_have_leaves": true,
   "chop_in_creative_mode": false,

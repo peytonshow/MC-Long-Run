@@ -53,7 +53,6 @@ StartupEvents.registry('item', event => {
     // Impossible (Worldedit)
     event.create('utopia:builder_ax', 'axe').tier('wood').tag('utopia:special').tag('utopia:special/creative')
     event.create('utopia:builder_pickax', 'pickaxe').tier('wood').tag('utopia:special').tag('utopia:special/creative')
-    event.create('utopia:builder_compass').tag('utopia:special').tag('utopia:special/creative').texture('utopia:item/builder_navigator/')
 
     // Rares
     event.create('utopia:pencil', 'sword').tier('pencil').tag('utopia:special')
@@ -87,7 +86,7 @@ ItemEvents.modification(event => {
         { item: 'minecraft:wooden_hoe', durability: 14 },
         { item: 'minecraft:stone_hoe', durability: 38 },
         { item: 'minecraft:golden_hoe', durability: 168 },
-        { item: 'minecraft:iron_hoe', durability: 195 },
+        { item: 'minecraft:iron_hoe', durability: 200 },
 
         // Misc
         { item: 'minecraft:trident', durability: 325 },
@@ -117,6 +116,20 @@ ItemEvents.modification(event => {
         { item: 'minecraft:stone_axe', durability: 92 },
         { item: 'minecraft:stone_pickaxe', durability: 88 },
         { item: 'minecraft:stone_shovel', durability: 90 },
+
+        // Iron buff
+        { item: 'minecraft:iron_spear', durability: 750 },
+        { item: 'minecraft:iron_sword', durability: 750 },
+        { item: 'minecraft:iron_axe', durability: 750 },
+        { item: 'minecraft:iron_pickaxe', durability: 750 },
+        { item: 'minecraft:iron_shovel', durability: 750 },
+
+        // Netherite
+        { item: 'minecraft:netherite_spear', durability: 3000 },
+        { item: 'minecraft:netherite_sword', durability: 3000 },
+        { item: 'minecraft:netherite_axe', durability: 3000 },
+        { item: 'minecraft:netherite_pickaxe', durability: 3000 },
+        { item: 'minecraft:netherite_shovel', durability: 3000 },
     ];
 
     for (let entry of dur) {
