@@ -178,13 +178,12 @@ StartupEvents.registry('block', event => {
 
   // Gilded Silver Blackstone
   event.create('utopia:silver_gilded_blackstone')
-    .displayName('Gilded Blackstone Copy')
+    .displayName('Silver Gilded Blackstone')
     .soundType('gilded_blackstone')
     .hardness(1.5)
     .resistance(6.0)
     .requiresTool(true)
     .tagBlock('minecraft:mineable/pickaxe')
-    .textureAll('minecraft:block/gilded_blackstone')
 
   // Smooth Stone Stairs
   event.create('utopia:smooth_stone_stairs', 'stairs')

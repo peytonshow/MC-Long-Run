@@ -4,22 +4,6 @@ ServerEvents.recipes(event => {
     event.remove({ output: 'create:brass_ingot', type: 'create:mixing' })
     event.remove({ input: 'minecraft:gold_ingot', output: ['minecraft:netherite_ingot', 'oreganized:electrum_ingot']}) //alloy
  
-    event.recipes.create.compacting([
-        CreateItem.of('utopia:graphite_ingot'),
-    ], [
-        'minecraft:coal_block'
-    ]).heated()
- 
-    event.recipes.create.mixing([
-        CreateItem.of('2x utopia:plastic_ingot'),
-        CreateItem.of('utopia:plastic_ingot', 0.30)
-    ], [
-        'oreganized:refined_asbestos',
-        Fluid.of('utopia:propylene_glycol', 400),
-        Fluid.of('utopia:nitric_acid', 400)
-    ]).heated().processingTime(600)
- 
-
     // Basic block-ification
     event.shapeless(Item.of('utopia:moissanite', 9), ['utopia:moissanite_block'])
     event.shaped('utopia:moissanite_block', [
