@@ -38,7 +38,7 @@ StartupEvents.registry('item', event => {
     // Electricity
     //event.create('utopia:battery_charged')
     event.create('utopia:wire').texture('utopia:item/wire').tag('utopia:electricity')
-    event.create('utopia:wire_spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(25).unstackable()
+    event.create('utopia:wire_spool').texture('utopia:item/wire_spool').tag('utopia:electricity').maxDamage(32).unstackable()
     event.create('utopia:basic_circuit').texture('utopia:item/circuit_board').tag('utopia:electricity').maxStackSize(16)
     event.create('utopia:advanced_circuit').texture('utopia:item/advanced_circuit_board').tag('utopia:electricity').maxStackSize(16)
     event.create('utopia:circuit_upgrade_template').texture('utopia:item/circuit_upgrade_template')
@@ -54,9 +54,9 @@ StartupEvents.registry('item', event => {
     event.create('utopia:platinum_nugget')
     event.create('utopia:plastic_ingot').tag('utopia:chemistry').texture('utopia:item/plastic').tag('c:ingots')
 
-    // Jail
-    event.create('utopia:handcuffs')
-    event.create('utopia:shackles')
+    // Jail (stupd, die)
+    // event.create('utopia:handcuffs')
+    // event.create('utopia:shackles')
 
     // Gordon, I need spices!
     // (Food values are defined in food.js)
@@ -174,6 +174,17 @@ StartupEvents.registry('block', event => {
     resistance: 5.5,
     tags: ['minecraft:mineable/pickaxe']
   })
+
+
+  // Gilded Silver Blackstone
+  event.create('utopia:silver_gilded_blackstone')
+    .displayName('Gilded Blackstone Copy')
+    .soundType('gilded_blackstone')
+    .hardness(1.5)
+    .resistance(6.0)
+    .requiresTool(true)
+    .tagBlock('minecraft:mineable/pickaxe')
+    .textureAll('minecraft:block/gilded_blackstone')
 
   // Smooth Stone Stairs
   event.create('utopia:smooth_stone_stairs', 'stairs')

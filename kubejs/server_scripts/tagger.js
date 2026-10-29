@@ -162,7 +162,7 @@ ServerEvents.tags('item', event => {
         "minecraft:rabbit_hide"
     ] )
 
-    event.add('utopia:bolts_and_nails', [
+    event.add('utopia:bolts', [
         "create:copper_nugget",
         "create:brass_nugget",
         "minecraft:iron_nugget",

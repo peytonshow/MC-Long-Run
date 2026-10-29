@@ -1,0 +1,8 @@
+# World specific settings
+worlds = {}
+# Interval in milliseconds to flush the cursor stores
+flushInterval = 5000
+# Check for updates
+checkUpdate = true
+# Max chunk downloads to have in flight at once (the server may cap this)
+downloadWindow = 128

@@ -1,6 +1,51 @@
 // Forging
 ServerEvents.recipes(event => {
+
+    event.remove({ output: 'create:brass_ingot', type: 'create:mixing' })
     event.remove({ input: 'minecraft:gold_ingot', output: ['minecraft:netherite_ingot', 'oreganized:electrum_ingot']}) //alloy
+ 
+    event.recipes.create.compacting([
+        CreateItem.of('utopia:graphite_ingot'),
+    ], [
+        'minecraft:coal_block'
+    ]).heated()
+ 
+    event.recipes.create.mixing([
+        CreateItem.of('2x utopia:plastic_ingot'),
+        CreateItem.of('utopia:plastic_ingot', 0.30)
+    ], [
+        'oreganized:refined_asbestos',
+        Fluid.of('utopia:propylene_glycol', 400),
+        Fluid.of('utopia:nitric_acid', 400)
+    ]).heated().processingTime(600)
+ 
+
+    // Basic block-ification
+    event.shapeless(Item.of('utopia:moissanite', 9), ['utopia:moissanite_block'])
+    event.shaped('utopia:moissanite_block', [
+        'AAA',
+        'AAA',
+        'AAA'
+    ], {
+        A: 'utopia:moissanite'
+    })
+    event.shapeless(Item.of('utopia:platinum_nugget', 9), ['utopia:platinum_ingot'])
+    event.shaped('utopia:platinum_ingot', [
+        'AAA',
+        'AAA',
+        'AAA'
+    ], {
+        A: 'utopia:platinum_nugget'
+    })
+    // Block of platinum?
+ 
+    // De-sheet
+    event.smelting('create:brass_ingot', 'create:brass_sheet').cookingTime(600)
+    event.smelting('minecraft:copper_ingot', 'create:copper_sheet').cookingTime(600)
+    event.smelting('minecraft:gold_ingot', 'create:golden_sheet').cookingTime(600)
+    event.smelting('minecraft:iron_ingot', 'create:iron_sheet').cookingTime(600)
+
+
     const ingots = [
         { full: 'minecraft:copper_ingot', fluid: 'utopia:molten_copper', crushed : 'create:crushed_raw_copper', slagAmount : 25},
         { full: 'create:zinc_ingot', fluid: 'utopia:molten_zinc', crushed : 'create:crushed_raw_zinc', slagAmount : 25 },
