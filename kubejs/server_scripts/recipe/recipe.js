@@ -120,7 +120,11 @@ ServerEvents.recipes(event => {
     )
 
   event.blasting('minecraft:glass', '#minecraft:smelts_to_glass').xp(0.1).cookingTime(100)
-  event.blasting('quark:sturdy_stone', 'minecraft:cobblestone').xp(0.1).cookingTime(500)
+  
+    replaceRecipe(event, { output: 'quark:sturdy_stone' },
+        () => event.blasting('quark:sturdy_stone', 'minecraft:smooth_stone').xp(0.1).cookingTime(500)
+    )
+
   event.blasting('minecraft:terracotta', 'minecraft:clay').xp(0.35).cookingTime(100)
     cutting(event, 'minecraft:terracotta', 'minecraft:brick', 4,
             { type: 'farmersdelight:item_ability', action: 'pickaxe_dig' })
@@ -151,7 +155,7 @@ ServerEvents.recipes(event => {
         'minecraft:bone_meal'
     ])
 
-    replaceRecipe(event, [{ input: 'farmersdelight:straw',output: 'minecraft:packed_mud' }, { input: 'minecraft:wheat'}],
+    replaceRecipe(event, [{ input: 'farmersdelight:straw', output: 'minecraft:packed_mud' }, { input: 'minecraft:wheat', output: 'minecraft:packed_mud'}],
         () => event.shapeless(Item.of('2x minecraft:packed_mud'), [Ingredient.of('#supplementaries:straw'),'minecraft:mud','minecraft:mud'])
     )
     event.blasting('minecraft:charcoal', '#minecraft:logs_that_burn').cookingTime(100)
@@ -1327,7 +1331,7 @@ ServerEvents.recipes(event => {
         })
     )
  
-    replaceRecipe(event, { type: 'create:crushing' },
+    replaceRecipe(event, { type: 'create:crushing', output: 'oreganized:raw_asbestos' },
         () => event.recipes.create.crushing([
             'oreganized:raw_asbestos',
             CreateItem.of('oreganized:raw_asbestos', 0.75),
@@ -1335,7 +1339,7 @@ ServerEvents.recipes(event => {
             CreateItem.of('minecraft:cobblestone', 0.125)
         ], 'oreganized:asbestos_ore').processingTime(350)
     )
-    replaceRecipe(event, { type: 'create:crushing' },
+    replaceRecipe(event, { type: 'create:crushing', output: 'oreganized:raw_asbestos' },
         () => event.recipes.create.crushing([
             'oreganized:raw_asbestos',
             CreateItem.of('oreganized:raw_asbestos', 0.75),
