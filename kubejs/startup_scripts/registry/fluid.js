@@ -6,7 +6,8 @@ StartupEvents.registry('fluid', event => {
     gas:    ['gas/gas_still',    'gas/gas_flow'],
     watery: ['watery/watery_still', 'watery/watery_flow'],
     soupy:  ['soupy/soupy_still',  'soupy/soupy_flow'],
-    glue:   ['glue/glue_still',   'glue/glue_flow']
+    glue:   ['glue/glue_still',   'glue/glue_flow'],
+    // wind:   ['wind/wind_still',   'wind/wind_flow'],
   }
 
   // opt keys: density, viscosity, fall, slope, decrease, tick, overlay, block (true = keep block + bucket), bucketTexture
@@ -15,9 +16,10 @@ StartupEvents.registry('fluid', event => {
     ['oxygen',           'Oxygen',           0xAFEEEE, 'gas',    {}],
     ['hydrogen',         'Hydrogen',         0xFFFFFF, 'gas',    {}],
     ['nitrogen',         'Nitrogen',         0xE0F7FA, 'gas',    {}],
+    // ['wind',             'Wind',             0x5AB8FF, 'gas',    {}],
     ['ammonia',          'Ammonia',          0x9D4EDD, 'gas',    { density: 2000, viscosity: 3000, slope: 3, overlay: true }],
-    ['nitric_acid',      'Nitric Acid',      0x8B4513, 'watery', { density: 2000, viscosity: 2500, slope: 3, overlay: true }],
     ['propylene_glycol', 'Propylene Glycol', 0x36454F, 'soupy',  { density: 2500, viscosity: 5000, slope: 2, overlay: true }],
+    ['nitric_acid',      'Nitric Acid',      0x8B4513, 'watery', { density: 2000, viscosity: 2500, slope: 3, overlay: true }],
     ['bleach',           'Bleach',           0xa5dacc, 'watery', { density: 1500, viscosity: 3000, slope: 2, decrease: 2, tick: 10, overlay: true, block: true }],
     ['glue',             'Glue',             0x61f238, 'glue',   { fall: 0.5, slope: 2, decrease: 4, tick: 30, overlay: true, block: true, bucketTexture: 'utopia:item/glue_bucket' }]
   ]
@@ -36,7 +38,11 @@ StartupEvents.registry('fluid', event => {
         type.renderType(3).fallDistanceModifier(o.fall || 0)
         if (o.density)   type.density(o.density)
         if (o.viscosity) type.viscosity(o.viscosity)
-        if (o.overlay)   type.screenOverlayTexture('kubejs:textures/block/soupy_overlay.png')
+        if (o.overlay)   {
+          if (kind == 'gas') {type.screenOverlayTexture('kubejs:textures/block/gas/gas_overlay.png')}
+          else if (kind == 'soupy') {type.screenOverlayTexture('kubejs:textures/block/soupy/soupy_overlay.png')}
+          else if (kind == 'watery') {type.screenOverlayTexture('kubejs:textures/block/watery/watery_overlay.png')}
+        }
       })
 
     if (o.slope)    fluid.slopeFindDistance(o.slope)

@@ -4,31 +4,86 @@ function replaceRecipe(event, filter, ...adders) {
 }
 
 ServerEvents.recipes(event => {
- 
-    event.shapeless(Item.of('create:framed_glass'),['minecraft:glass'])
-    event.shapeless(Item.of('create:horizontal_framed_glass'),['minecraft:glass'])
-    event.shapeless(Item.of('create:vertical_framed_glass'),['minecraft:glass'])
-    event.shapeless(Item.of('create:tiled_glass'),['minecraft:glass'])
-    event.shapeless('minecraft:glass', [['create:framed_glass','create:horizontal_framed_glass','create:vertical_framed_glass','create:tiled_glass']])
- 
-    event.shapeless(Item.of('create:framed_glass_pane'), ['minecraft:glass_pane'])
-    event.shapeless(Item.of('create:horizontal_framed_glass_pane'), ['minecraft:glass_pane'])
-    event.shapeless(Item.of('create:vertical_framed_glass_pane'), ['minecraft:glass_pane'])
-    event.shapeless(Item.of('create:tiled_glass_pane'), ['minecraft:glass_pane'])
-    event.shapeless('minecraft:glass_pane', [['create:framed_glass_pane', 'create:horizontal_framed_glass_pane', 'create:vertical_framed_glass_pane', 'create:tiled_glass_pane']])
- 
-    // Decor
-    event.shaped(
-            Item.of('4x utopia:polished_flint')
+
+    replaceRecipe(event, { output: 'minecraft:mud', type: 'create:mixing' },
+        () => event.recipes.create.mixing('minecraft:mud', [['minecraft:dirt','minecraft:coarse_dirt','minecraft:rooted_dirt'], Fluid.water(100)])
+            .processingTime(12)
+    )
+    event.recipes.create.compacting( 'minecraft:packed_mud', '4x minecraft:mud').heated()
+
+    // Sconce
+    replaceRecipe(event, [
+        { output: 'supplementaries:sconce' },
+        { output: 'supplementaries:sconce_soul' }
+    ],
+        () => event.shaped(
+            Item.of('3x supplementaries:sconce')
             , [
-            'AA ',
-            'AA ',
-            '   '
-        ], {
-            A: 'supplementaries:flint_block'
-    })
+                '   ',
+                'BAB',
+                ' B '
+            ], {
+            A: 'minecraft:torch',
+            B: ['minecraft:iron_nugget', 'create:zinc_nugget', 'oreganized:lead_nugget']
+        }),
+        () => event.shaped(
+            Item.of('3x supplementaries:sconce_soul')
+            , [
+                '   ',
+                'BAB',
+                ' B '
+            ], {
+            A: 'minecraft:soul_torch',
+            B: ['minecraft:iron_nugget', 'create:zinc_nugget', 'oreganized:lead_nugget']
+        })
+    )
+
+    // Lantern
+    replaceRecipe(event, [
+        { output: 'minecraft:lantern' },
+        { output: 'minecraft:copper_lantern' },
+        { output: 'minecraft:soul_lantern' }
+    ],
+        () => event.shaped(
+            Item.of('4x minecraft:lantern')
+            , [
+                ' B ',
+                'BAB',
+                ' B '
+            ], {
+            A: 'minecraft:torch',
+            B: ['minecraft:iron_nugget', 'create:zinc_nugget', 'oreganized:lead_nugget']
+        }),
+        () => event.shaped(
+            Item.of('4x minecraft:copper_lantern')
+            , [
+                ' B ',
+                'BAB',
+                ' B '
+            ], {
+            A: 'minecraft:torch',
+            B: 'create:copper_nugget'
+        }),
+        () => event.shaped(
+            Item.of('4x minecraft:soul_lantern')
+            , [
+                ' B ',
+                'BAB',
+                ' B '
+            ], {
+            A: 'minecraft:soul_torch',
+            B: ['minecraft:iron_nugget', 'create:zinc_nugget', 'oreganized:lead_nugget']
+        })
+    )
  
-    // Building
+    // Flint
+    
+    replaceRecipe(event, 
+        { output: 'create:metal_girder' },
+        () => event.recipes.stonecutting('3x create:metal_girder', 'create:industrial_iron_block')
+    )
+
+    // Ash Brick
     event.recipes.create.pressing('supplementaries:ash_brick','supplementaries:ash')
  
     event.shaped('4x utopia:smooth_stone_stairs', [
@@ -48,7 +103,7 @@ ServerEvents.recipes(event => {
         A: 'minecraft:blackstone',
         B: 'minecraft:gold_ingot',
         C: 'minecraft:cinnabar'
-    }).group('boat')
+    })
     event.shaped('utopia:silver_gilded_blackstone', [
         'ABA',
         'BCB',
@@ -57,7 +112,7 @@ ServerEvents.recipes(event => {
         A: 'minecraft:blackstone',
         B: 'oreganized:silver_ingot',
         C: 'minecraft:cinnabar'
-    }).group('boat')
+    })
     event.shaped('utopia:sea_salt_lamp', [
         'AAA',
         'ABA',

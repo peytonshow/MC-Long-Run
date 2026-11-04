@@ -3,7 +3,7 @@
 	#Default Value: 0.25
 	# Default: 0.25
 	# Range: 0.0 ~ 1.0
-	repair_with_material_restored_durability = 0.25
+	repair_with_material_restored_durability = 0.33
 	#The additional cost in levels for combining an item with another item of the same kind when the first item is not fully repaired.
 	#Default Value: 2
 	# Default: 2
@@ -24,7 +24,7 @@
 	#Default Value: 0.12
 	# Default: 0.12
 	# Range: 0.0 ~ 1.0
-	repair_with_other_item_bonus_durability = 0.05
+	repair_with_other_item_bonus_durability = 0.1
 	#Costs for applying enchantments from enchanted books are halved.
 	#Default Value: true
 	halved_book_costs = true

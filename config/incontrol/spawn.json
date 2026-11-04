@@ -27,5 +27,14 @@
     "mod": "creeperoverhaul",
     "mincount": { "amount": 20 },
     "result": "deny"
+  },
+  {
+    "hostile": true,
+    "mincount": {
+      "amount": 20,
+      "hostile": true,
+      "perchunk": true
+    },
+    "result": "deny"
   }
 ]

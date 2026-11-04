@@ -22,13 +22,6 @@ ServerEvents.recipes(event => {
         'utopia:moissanite'
     );
     event.replaceInput({
-            output: 'minecraft:glass',
-            input: 'minecraft:sand'
-        },
-        'minecraft:sand',
-        'utopia:silica_dust'
-    );
-    event.replaceInput({
             output: 'create:crushed_raw_gold',
             type: 'create:crushing'
         },
@@ -65,10 +58,12 @@ ServerEvents.recipes(event => {
         'minecraft:bamboo_door': 'minecraft:bamboo_planks',
         'minecraft:crimson_door': 'minecraft:crimson_planks',
         'minecraft:warped_door': 'minecraft:warped_planks',
+        'minecraft:poplar_door': 'minecraft:poplar_planks',
         'minecraft:pale_oak_door': 'minecraft:pale_oak_planks',
         'minecraft:iron_door': 'minecraft:iron_ingot',
         'minecraft:copper_door': 'minecraft:copper_ingot',
         'supplementaries:gold_door': 'minecraft:gold_ingot',
+        'quark:blossom_door': 'quark:blossom_planks',
     }
 
     // Remove only shaped recipes for the doors listed in the 'doors' object

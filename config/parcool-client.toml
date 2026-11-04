@@ -53,6 +53,7 @@
 	# Default: 0
 	# Range: -100 ~ 100
 	hud_offset_v = 0
+	show_status_indicator = true
 
 [grappling_hook]
 	#how much speed widens the view. 0 disables
@@ -78,3 +79,5 @@
 
 [other]
 	enable_sounds = true
+	#Make actions needing fast-run available with normal sprint
+	enable_actions_with_sprint = false

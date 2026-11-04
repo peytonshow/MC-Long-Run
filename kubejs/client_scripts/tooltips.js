@@ -93,7 +93,9 @@ ItemEvents.modifyTooltips(event => {
     addShiftTooltip('vc_gliders:nether_upgrade', "Protects gliders from extreme heat.\n\nCan be applied at an Anvil.");
 
 
-    addShiftTooltip('utopia:soul_token', "A piece of you. Best to keep this very, very safe.");
+    addShiftTooltip('utopia:soul_token', "A piece of your presence in this world. Best to keep this very, very safe.");
+
+    addShiftTooltip('utopia:hammer', "Allows you to modify the state of walls, fenses, panes, trapdoors and Lamps.\n\n[Right Button]: Modify\n[Crouch + LB]: Save State\n[Crouch + LB]: Apply State");
 });
 
 ItemEvents.modifyTooltips(event => {

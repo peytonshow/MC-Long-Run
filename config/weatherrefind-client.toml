@@ -1,7 +1,7 @@
 #Internal version tracker — do not change manually
 [internal]
-	#Config format version. If this is lower than the mod expects, all settings are reset to defaults.
-	# Default: 2
+	#Config format version. Existing settings are preserved when upgrading.
+	# Default: 3
 	# Range: 0 ~ 100
 	configVersion = 2
 
@@ -41,6 +41,9 @@
 	# Default: 0.5
 	# Range: 0.0 ~ 1.0
 	rainSoundVolume = 0.5
+	#AUTO uses vanilla weather with Iris/Oculus shaders; CUSTOM always uses WR; VANILLA restores vanilla weather and sounds.
+	#Allowed Values: AUTO, CUSTOM, VANILLA
+	weatherMode = "AUTO"
 
 #Advanced Rain Settings — changing these may break visual quality, values are interdependent
 [advanced_rain]

@@ -61,12 +61,26 @@ ServerEvents.tags('item', event => {
     event.add('utopia:circuitry', 'utopia:advanced_circuit')
 
     event.add('supplementaries:throwable_bricks', 'minecraft:resin_brick')
-
     event.add('utopia:conductive_material', [
             'minecraft:copper_ingot',
             'minecraft:gold_ingot'
     ] )
-    event.add('utopia:conductive_material', )
+
+    // Transmutable
+    event.add('utopia:transmutable_panes', [
+        'create:framed_glass_pane',
+        'create:horizontal_framed_glass_pane',
+        'create:vertical_framed_glass_pane',
+        'create:tiled_glass_pane',
+        'minecraft:glass_pane'
+    ] )
+    event.add('utopia:transmutable_glass', [
+        'create:framed_glass',
+        'create:horizontal_framed_glass',
+        'create:vertical_framed_glass',
+        'create:tiled_glass',
+        'minecraft:glass'
+    ] )
 
     event.add('utopia:rare_templates', 'minecraft:netherite_upgrade_smithing_template')
     event.add('utopia:rare_templates', 'oreganized:electrum_upgrade_smithing_template')
@@ -162,11 +176,11 @@ ServerEvents.tags('item', event => {
         "minecraft:rabbit_hide"
     ] )
 
-    event.add('utopia:bolts_and_nails', [
+    event.add('utopia:bolts', [
+        "minecraft:iron_nugget",
+        "create:zinc_nugget",
         "create:copper_nugget",
         "create:brass_nugget",
-        "minecraft:iron_nugget",
-        "minecraft:gold_nugget"
     ] )
 
     event.add('utopia:metal_beads', [
@@ -174,13 +188,10 @@ ServerEvents.tags('item', event => {
         "create:zinc_nugget",
         "create:brass_nugget",
         "minecraft:iron_nugget",
-        "minecraft:gold_nugget",
-        "oreganized:silver_nugget",
         "oreganized:lead_nugget",
-        "oreganized:netherite_nugget"
     ] )
 
-    event.add('utopia:key', [
+    event.add('utopia:normal_key', [
         "supplementaries:key",
         "storagedrawers:drawer_key",
         "storagedrawers:quantify_key",
@@ -212,24 +223,24 @@ ServerEvents.tags('block', event => {
     };
     makeImmovable('selling_bin:selling_bin')
 
-
-event.add('c:ores', [
-        "minecraft:diorite",
-        "minecraft:granite",
-        "minecraft:andesite",
-        "minecraft:tuff",
-        "minecraft:basalt",
-        "create:limestone",
-        "create:scoria",
-        "create:scorchia",
-        "create:crimsite",
-        "create:ochrum",
-        "create:veridium",
-        "create:asurine",
-        "minecraft:bone_block",
-        "minecraft:amethyst_block",
-        "minecraft:calcite",
-    ] )
+    // ONLY USE WITH TREELIABLE
+    // event.add('c:ores', [
+    //         "minecraft:diorite",
+    //         "minecraft:granite",
+    //         "minecraft:andesite",
+    //         "minecraft:tuff",
+    //         "minecraft:basalt",
+    //         "create:limestone",
+    //         "create:scoria",
+    //         "create:scorchia",
+    //         "create:crimsite",
+    //         "create:ochrum",
+    //         "create:veridium",
+    //         "create:asurine",
+    //         "minecraft:bone_block",
+    //         "minecraft:amethyst_block",
+    //         "minecraft:calcite",
+    //     ] )
 
 })
 

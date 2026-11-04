@@ -1,7 +1,7 @@
 #The maximum amount of items a sandwich can contain
 # Default: 32
 # Range: 2 ~ 256
-maximum_sandwich_height = 32
+maximum_sandwich_height = 12
 #Whether randomly generated sandwiches should be added to chests in villages and some other locations
 generate_chest_loot = true
 #The effect applied by sandwiches, depending on the number of unique ingredients

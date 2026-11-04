@@ -1,4 +1,4 @@
-// kubejs/server_scripts/mimic_keys.js
+// would be cool to add, but also i dont trust this enough to not break somehow
 
 function isChestEmpty(block) {
     var be = block.entity

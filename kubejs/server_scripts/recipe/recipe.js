@@ -2,9 +2,6 @@
 
 const armorParts = ['helmet', 'chestplate', 'leggings', 'boots']
 
-const beakers = ['nitrogen', 'oxygen', 'hydrogen', 'ammonia', 'nitric_acid', 'bleach', 'propylene_glycol']
-    .map(name => ({ full: `utopia:beaker_${name}`, empty: 'utopia:beaker', fluid: `utopia:${name}`, amount: 200 }))
-
 const bulkDye = (event, color, input, output) =>
     event.custom({
         type: 'create_dragons_plus:coloring',
@@ -112,30 +109,90 @@ ServerEvents.recipes(event => {
     event.remove({ output: 'minecraft:mushroom_stew', type: 'minecraft:crafting_shapeless' })
     event.remove({ output: 'minecraft:beetroot_soup', type: 'minecraft:crafting_shapeless' })
 
-    replaceRecipe(event, { input: 'create:shaft',output: 'createadditionallogistics:lazy_shaft' },
-        () => event.shapeless(Item.of('createadditionallogistics:lazy_shaft'), Item.of('create:shaft'))
-    )
-    replaceRecipe(event, { input: 'createadditionallogistics:lazy_shaft',output: 'create:shaft' },
+    replaceRecipe(event, [
+        { input: 'create:shaft',output: 'createadditionallogistics:lazy_shaft' },
+        { input: 'createadditionallogistics:lazy_shaft',output: 'create:shaft' }
+    ],
+        () => event.shapeless(Item.of('createadditionallogistics:lazy_shaft'), Item.of('create:shaft')),
         () => event.shapeless(Item.of('create:shaft'), Item.of('createadditionallogistics:lazy_shaft'))
     )
-
-  event.blasting('minecraft:glass', '#minecraft:smelts_to_glass').xp(0.1).cookingTime(100)
+    replaceRecipe(event, [
+        { input: 'create:cogwheel',output: 'createadditionallogistics:lazy_cogwheel' },
+        { input: 'createadditionallogistics:lazy_cogwheel',output: 'create:cogwheel' }
+    ],
+        () => event.shapeless(Item.of('createadditionallogistics:lazy_cogwheel'), Item.of('create:cogwheel')),
+        () => event.shapeless(Item.of('create:cogwheel'), Item.of('createadditionallogistics:lazy_cogwheel'))
+    )
+    replaceRecipe(event, [
+        { input: 'create:large_cogwheel',output: 'createadditionallogistics:lazy_large_cogwheel' },
+        { input: 'createadditionallogistics:lazy_large_cogwheel',output: 'create:large_cogwheel' }
+    ],
+        () => event.shapeless(Item.of('createadditionallogistics:lazy_large_cogwheel'), Item.of('create:large_cogwheel')),
+        () => event.shapeless(Item.of('create:large_cogwheel'), Item.of('createadditionallogistics:lazy_large_cogwheel'))
+    )
   
     replaceRecipe(event, { output: 'quark:sturdy_stone' },
         () => event.blasting('quark:sturdy_stone', 'minecraft:smooth_stone').xp(0.1).cookingTime(500)
     )
 
-  event.blasting('minecraft:terracotta', 'minecraft:clay').xp(0.35).cookingTime(100)
+
     cutting(event, 'minecraft:terracotta', 'minecraft:brick', 4,
-            { type: 'farmersdelight:item_ability', action: 'pickaxe_dig' })
-  event.campfireCooking('minecraft:cookie', 'utopia:cookie_dough').xp(0.05).cookingTime(200).id('utopia:campfire/cookie_dough_camping')
-  event.campfireCooking('supplementaries:ash', '#minecraft:planks').xp(0.02).cookingTime(200).id('utopia:campfire/utop_ash_camping')
-  event.campfireCooking('minecraft:brick', 'minecraft:clay_ball').xp(0.02).cookingTime(800).id('utopia:campfire/utop_brick')
-  event.campfireCooking('minecraft:charcoal', '#minecraft:logs_that_burn').xp(0.05).cookingTime(400).id('utopia:campfire/utop_charcoal_camping')
-  event.campfireCooking('minecraft:fire_charge', '#minecraft:coals').cookingTime(400).id('utopia:campfire/utop_firecharge_camping')
-  event.campfireCooking('minecraft:leather', 'minecraft:rotten_flesh').xp(0.15).cookingTime(1200).id('utopia:campfire/utop_leather_tanning')
-  event.campfireCooking('minecraft:terracotta', 'minecraft:clay').xp(0.1).cookingTime(1300).id('utopia:campfire/utop_terracotta')
-  event.campfireCooking('minecraft:cobblestone', 'minecraft:mossy_cobblestone').xp(0.1).cookingTime(250).id('utopia:campfire/utop_unmossy_cobblestone')
+        { type: 'farmersdelight:item_ability', action: 'pickaxe_dig' })
+
+    event.blasting('minecraft:terracotta', 'minecraft:clay').xp(0.35).cookingTime(100)
+    event.campfireCooking('minecraft:cookie', 'utopia:cookie_dough').xp(0.05).cookingTime(200).id('utopia:campfire/cookie_dough_camping')
+    event.campfireCooking('minecraft:brick', 'minecraft:clay_ball').xp(0.02).cookingTime(800).id('utopia:campfire/utop_brick')
+    event.campfireCooking('minecraft:charcoal', '#minecraft:logs_that_burn').xp(0.05).cookingTime(400).id('utopia:campfire/utop_charcoal_camping')
+    event.campfireCooking('minecraft:fire_charge', '#minecraft:coals').cookingTime(400).id('utopia:campfire/utop_firecharge_camping')
+    event.campfireCooking('minecraft:leather', 'minecraft:rotten_flesh').xp(0.15).cookingTime(1200).id('utopia:campfire/utop_leather_tanning')
+    event.campfireCooking('minecraft:terracotta', 'minecraft:clay').xp(0.1).cookingTime(1300).id('utopia:campfire/utop_terracotta')
+    event.campfireCooking('minecraft:cobblestone', 'minecraft:mossy_cobblestone').xp(0.1).cookingTime(250).id('utopia:campfire/utop_unmossy_cobblestone')
+
+    replaceRecipe(event, { output: 'unusual_furniture:screw' },
+        () => event.shaped(
+            Item.of(
+                '2x unusual_furniture:screw'), [
+            ' A ',
+            ' A ',
+            '   '
+        ], {
+            A: 'minecraft:iron_nugget'
+        }),
+        () => event.smelting('minecraft:iron_nugget', 'unusual_furniture:screw')
+    )
+
+    event.recipes.create.milling(CreateItem.of('create:cinder_flour'), 'minecraft:netherrack', 300)
+    replaceRecipe(event, { output: 'create:blaze_cake_base', },
+        () => event.recipes.create.compacting([
+            'create:blaze_cake_base'
+        ], [
+            'create:dough',
+            'minecraft:sugar',
+            '5x create:cinder_flour'
+    ]))
+    
+
+    replaceRecipe(event, { output: 'create:item_drain' },
+        () => event.shaped(
+            Item.of('create:item_drain')
+            , [
+            ' A ',
+            ' B ',
+            '   '
+        ], {
+            A: '#minecraft:bars',
+            B: 'create:copper_casing',
+    }))
+    replaceRecipe(event, { output: 'minecraft:copper_trapdoor' },
+        () => event.shaped(
+            Item.of('minecraft:copper_trapdoor')
+            , [
+            'AA ',
+            'AA ',
+            '   '
+        ], {
+            A: 'minecraft:copper_ingot',
+    }))
 
     replaceRecipe(event, { output: 'minecraft:shears' },
         () => event.shaped(
@@ -161,26 +218,19 @@ ServerEvents.recipes(event => {
     event.blasting('minecraft:charcoal', '#minecraft:logs_that_burn').cookingTime(100)
 
     replaceRecipe(event, { input: 'minecraft:sugar_cane', output: 'minecraft:sugar' },
-        () => event.recipes.create.crushing([
+        () => event.recipes.create.milling([
             CreateItem.of('minecraft:sugar'),
             CreateItem.of('minecraft:sugar', 0.25),
             CreateItem.of('create:pulp', 0.25),
         ], 'minecraft:sugar_cane')
     )
 
-    event.shapeless(Item.of('utopia:letter_of_invitation'), ['minecraft:writable_book','minecraft:diamond'])
+    event.shapeless(Item.of('utopia:letter_of_invitation'), ['minecraft:writable_book','minecraft:diamond','minecraft:diamond'])
 
     // Replace minecraft:copper_nugget with create:copper_nugget in all recipe inputs
     // SUPER IMPORTANT i think. actually i have no idea
     event.replaceInput({}, 'minecraft:copper_nugget', 'create:copper_nugget')
 
-    event.recipes.create.compacting([
-            'minecraft:tuff'
-        ], [
-            'minecraft:sand',
-            '2x minecraft:quartz',
-            '5x minecraft:deepslate'
-    ]).superheated()
 
     //  Fermenting
     replaceRecipe(event, [
@@ -355,7 +405,7 @@ ServerEvents.recipes(event => {
             'AA ',
             '   '
         ], {
-            A: ['farmersdelight:straw', 'supplementaries:flax', 'nirvana:hemp']
+            A: '#supplementaries:straw'
     }))
     replaceRecipe(event, { input: 'minecraft:pumpkin', output: 'farmersdelight:pumpkin_slice' },
         () => cutting(event, 'minecraft:pumpkin', 'farmersdelight:pumpkin_slice', 9,
@@ -392,7 +442,10 @@ ServerEvents.recipes(event => {
     )
 
     // Create SU Sources
-    replaceRecipe(event, { output: 'create:water_wheel' },
+    replaceRecipe(event, [
+        { output: 'create:water_wheel' },
+        { output: 'create:large_water_wheel' }
+    ],
         () => event.shaped('create:water_wheel', [
             'ABA',
             'BCB',
@@ -401,8 +454,7 @@ ServerEvents.recipes(event => {
             A: '#minecraft:planks',
             B: '#minecraft:logs',
             C: 'create:shaft'
-    }))
-    replaceRecipe(event, { output: 'create:large_water_wheel' },
+        }),
         () => event.recipes.create.mechanical_crafting('create:large_water_wheel', [
             ' AAA ',
             'ADBDA',
@@ -414,7 +466,8 @@ ServerEvents.recipes(event => {
             B: '#minecraft:logs',
             C: 'create:water_wheel',
             D: 'unusual_furniture:screw'
-    }))
+        })
+    )
     replaceRecipe(event, { output: 'create:white_sail' },
         () => event.shaped('4x create:white_sail', [
             'AB ',
@@ -478,16 +531,6 @@ ServerEvents.recipes(event => {
             B: 'create:andesite_alloy',
             C: 'create:andesite_casing'
     }))
-    replaceRecipe(event, { output: 'create:rotation_speed_controller' },
-        () => event.recipes.create.mechanical_crafting('create:rotation_speed_controller', [
-            ' A ',
-            ' B ',
-            ' C '
-        ], {
-            A: 'create:precision_mechanism',
-            B: 'utopia:basic_circuit',
-            C: 'create:brass_casing'
-    }))
     replaceRecipe(event, { output: 'create_connected:inventory_access_port' },
         () => event.recipes.create.mechanical_crafting('create_connected:inventory_access_port', [
             ' A ',
@@ -509,7 +552,7 @@ ServerEvents.recipes(event => {
         C: 'create_connected:encased_chain_cogwheel'
     }))
     replaceRecipe(event, { output: 'create:content_observer' },
-    () => event.shaped('create:content_observer', [
+    () => event.shaped('2x create:content_observer', [
         ' A ',
         ' B ',
         ' C '
@@ -519,7 +562,7 @@ ServerEvents.recipes(event => {
         C: 'minecraft:observer'
     }))
     replaceRecipe(event, { output: 'create:smart_chute' },
-    () => event.shaped('2x create:smart_chute', [
+    () => event.shaped('4x create:smart_chute', [
         ' A ',
         ' B ',
         ' C '
@@ -620,30 +663,25 @@ ServerEvents.recipes(event => {
     })
     event.recipes.create.haunting(
         'utopia:shadow_key',
-        'supplementaries:key'
+        Ingredient.of('#utopia:normal_key')
     )
     event.recipes.create.pressing('supplementaries:key','utopia:shadow_key')
-    replaceRecipe(event, { output: 'storagedrawers:drawer_key' },
-        () => event.shapeless(
-            'storagedrawers:drawer_key', 
-            ['supplementaries:key', 'storagedrawers:upgrade_template']
-    ))
     event.smithing(
         'utopia:chroma_key',
         'utopia:neon_block',
         'utopia:shadow_key',
         'utopia:platinum_ingot'
     )
+    replaceRecipe(event, { output: 'storagedrawers:drawer_key' },
+        () => event.shapeless(
+            'storagedrawers:drawer_key',
+            ['supplementaries:key', 'storagedrawers:upgrade_template']
+    ))
 
-    replaceRecipe(event, { output: 'supplementaries:jar' },
-        () => event.shaped(Item.of('supplementaries:jar'), [
-            'A  ',
-            'B  ',
-            '   '
-        ], {
-            A: '#minecraft:wooden_slabs',
-            B: 'utopia:beaker'
-    }))
+    event.recipes.create.milling(CreateItem.of('3x minecraft:gravel'), [
+        'minecraft:cobbled_deepslate'], 50)
+    event.blasting('minecraft:stone', 'minecraft:cobblestone').xp(0.1).cookingTime(50) 
+
 
     event.recipes.create.milling(CreateItem.of('create:crushed_raw_copper'), [
         'minecraft:raw_copper'], 200)
@@ -676,7 +714,7 @@ ServerEvents.recipes(event => {
     ])
 
     // Calcite / Aka Calcium-basically-carbonate
-    event.recipes.create.mixing(['minecraft:calcite'], ['3x supplementaries:ash','3x minecraft:bone', Fluid.of('minecraft:water', 300)])
+    event.recipes.create.mixing(['3x minecraft:calcite'], ['3x supplementaries:ash','minecraft:bone', Fluid.of('minecraft:water', 100)]).processingTime(80)
 
     // Gravel
     event.recipes.create.crushing([
@@ -691,11 +729,10 @@ ServerEvents.recipes(event => {
 
     // Moissanite & Graphite
     event.recipes.create.compacting([
-        CreateItem.of('utopia:moissanite', 0.75),
+        CreateItem.of('utopia:moissanite'),
     ], [
-        '5x utopia:silica_dust',
-        '5x utopia:graphite_ingot',
-        '5x minecraft:emerald'
+        '12x utopia:silica_dust',
+        '4x utopia:graphite_ingot',
     ]).superheated()
 
     // Lava
@@ -713,6 +750,7 @@ ServerEvents.recipes(event => {
     )
 
     // Clay
+    event.recipes.create.milling('3x minecraft:clay_ball', Ingredient.of('#minecraft:dirt')).processingTime(200)
     event.recipes.create.crushing([
         CreateItem.of('minecraft:clay_ball', 0.75),
         CreateItem.of('minecraft:clay_ball', 0.5),
@@ -720,6 +758,31 @@ ServerEvents.recipes(event => {
     ], 
         Ingredient.of('#minecraft:dirt')
     ).processingTime(100)
+
+    // Dirt manufacturing (Peak!)
+    replaceRecipe(event, { output: 'minecraft:coarse_dirt' },
+        () => event.shaped(
+            Item.of('4x minecraft:coarse_dirt')
+            , [
+            'BA ',
+            'AB ',
+            '   '
+        ], {
+            A: '#minecraft:dirt',
+            B: 'minecraft:gravel',
+    }))
+    event.recipes.create.mixing(['2x minecraft:coarse_dirt'],[Ingredient.of('#minecraft:dirt'), 'minecraft:gravel'])
+
+        replaceRecipe(event, { input: 'create:brass_ingot', output: 'create_connected:empty_fan_catalyst' },
+        () => event.shaped(
+                Item.of('create_connected:empty_fan_catalyst', 4), [
+                'BAB',
+                'A A',
+                'BAB'
+            ], {
+                A: '#minecraft:bars',
+                B: 'create:brass_ingot'
+    }))
 
     // Exp Farm - ONLY IF NOT RUNNING CREATE ENCHANTING IND!!
     // event.recipes.create.compacting([
@@ -734,10 +797,15 @@ ServerEvents.recipes(event => {
     replaceRecipe(event, { output: 'minecraft:gold_nugget', type: 'create:splashing' },
         () => event.recipes.create.splashing([
             '9x minecraft:gold_nugget',
-            CreateItem.of('minecraft:quartz', 0.5),
-            CreateItem.of('utopia:platinum_nugget', 0.02)
+            CreateItem.of('utopia:platinum_nugget', 0.02),
+            CreateItem.of('minecraft:quartz', 0.5)
         ], [
             'create:crushed_raw_gold'
+        ]),
+        () => event.recipes.create.splashing([
+            CreateItem.of('minecraft:quartz', 0.5)
+        ], [
+            'minecraft:soul_sand'
         ])
     )
     replaceRecipe(event, { output: 'oreganized:silver_nugget', type: 'create:splashing' },
@@ -786,7 +854,7 @@ ServerEvents.recipes(event => {
             B: 'minecraft:gold_block',
             C: 'utopia:circuit_upgrade_template'
     })
-    event.recipes.create.pressing('utopia:block_of_plastic','utopia:plastic_ingot')
+    event.recipes.create.compacting('utopia:block_of_plastic','utopia:plastic_ingot').heated()
     event.shaped('utopia:computer_block', [
             'AAA',
             'DBC',
@@ -1008,7 +1076,7 @@ ServerEvents.recipes(event => {
     ], {
         A: 'minecraft:bamboo'
     })
-    event.shaped(Item.of('minecraft:arrow', 2), [
+    event.shaped(Item.of('minecraft:arrow', 3), [
         'A',
         'B',
         'C'
@@ -1017,15 +1085,6 @@ ServerEvents.recipes(event => {
         B: 'minecraft:stick',
         C: '#utopia:leathers'
     })
-    event.shaped('supplementaries:bomb', [
-        ' AB',
-        'ACA',
-        ' A '
-    ], {
-        A: ['#c:glass_blocks', '#c:bricks'],
-        B: '#c:strings',
-        C: 'minecraft:tnt'
-    }).group('bomb')
 
     event.shaped(Item.of('minecraft:mud', 8), [
         'AAA',
@@ -1034,15 +1093,6 @@ ServerEvents.recipes(event => {
     ], {
         A: ['minecraft:coarse_dirt', 'minecraft:dirt'],
         B: ['minecraft:sugar_cane', 'minecraft:water_bucket']
-    })
-    event.shaped('supplementaries:quiver', [
-        ' AB',
-        'A B',
-        ' AC'
-    ], {
-        A: '#utopia:twine',
-        B: '#utopia:leathers',
-        C: 'minecraft:bundle'
     })
     event.shaped('minecraft:red_bed', [
         'AAA',
@@ -1084,17 +1134,6 @@ ServerEvents.recipes(event => {
     event.shapeless('utopia:seasoned_cooked_mutton', ['minecraft:cooked_mutton', '#utopia:spices'])
     event.shapeless('utopia:seasoned_cooked_porkchop', ['minecraft:cooked_porkchop', '#utopia:spices'])
     event.shapeless('utopia:seasoned_cooked_rabbit', ['minecraft:cooked_rabbit', '#utopia:spices'])
-    event.shapeless(Item.of('supplementaries:soap', 4), [
-        'minecraft:seagrass',
-        'minecraft:seagrass',
-        'minecraft:seagrass',
-        'minecraft:seagrass',
-        'supplementaries:lumisene_bottle',
-        'minecraft:seagrass',
-        'minecraft:seagrass',
-        'minecraft:seagrass',
-        'minecraft:seagrass'
-    ])
     event.shapeless(Item.of('minecraft:wind_charge', 6), [
         'minecraft:gunpowder',
         'minecraft:blaze_powder',
@@ -1403,35 +1442,6 @@ ServerEvents.recipes(event => {
             A: '#c:ingots/iron',
             B: 'minecraft:red_wool',
             C: ['royalvariations:spiritual_crown', 'minecraft:enchanted_golden_apple']
-        })
-    )
- 
-    replaceRecipe(event, { id: 'supplementaries:bellows' },
-        () => event.shaped('supplementaries:bellows', [
-            'AAA',
-            'B B',
-            'AAA'
-        ], {
-            A: '#minecraft:wooden_slabs',
-            B: 'minecraft:leather'
-        })
-    )
-    replaceRecipe(event, { id: 'supplementaries:fire_pit' },
-        () => event.shaped('supplementaries:fire_pit', [
-            'ABA',
-            'AAA'
-        ], {
-            A: '#c:ingots/copper',
-            B: 'supplementaries:lumisene_bottle'
-        })
-    )
-    replaceRecipe(event, { id: 'supplementaries:flute' },
-        () => event.shaped('supplementaries:flute', [
-            ' A ',
-            ' A ',
-            ' A '
-        ], {
-            A: 'minecraft:bamboo'
         })
     )
 })

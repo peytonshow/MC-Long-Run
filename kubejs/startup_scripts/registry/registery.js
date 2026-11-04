@@ -19,7 +19,9 @@ StartupEvents.registry('item', event => {
     
     // Usable
     event.create('utopia:letter_of_invitation').maxStackSize(16)
+    event.create('utopia:hammer').unstackable().maxDamage(512).tag('c:tools').tag('c:tools/hammer').use((level, player, hand) => true)
 
+    
     // Sciantest
     event.create('utopia:beaker').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker')
     event.create('utopia:beaker_oxygen').tag('utopia:chemistry').tag('utopia:beakers').texture('utopia:item/beaker_oxygen').useAnimation('drink')

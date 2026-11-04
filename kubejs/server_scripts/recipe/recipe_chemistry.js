@@ -1,6 +1,8 @@
 // Chemistry recipes (split out of recipe_98a6ac.js)
 
 ServerEvents.recipes(event => {
+    event.remove({  output: 'minecraft:glass_pane', type:'minecraft:smelting'})
+    event.remove({  output: 'minecraft:glass', type:'minecraft:smelting'})
 
     fermenting(event, {
         ingredients: ['minecraft:rotten_flesh'],
@@ -56,6 +58,8 @@ ServerEvents.recipes(event => {
     )
 
     // Silica
+    event.recipes.create.compacting('minecraft:glass_pane', 'utopia:silica_dust').heated()
+
     event.recipes.create.mixing([
         CreateItem.of('7x utopia:silica_dust'),
         CreateItem.of('6x utopia:silica_dust', 0.9),
@@ -74,11 +78,20 @@ ServerEvents.recipes(event => {
     ], [
         'minecraft:sand'
     ])
+
+    // Glasswerx
+    // event.recipes.create.mixing([
+    //     Fluid.of('utopia:wind', 1000)
+    // ], [
+    //     'minecraft:wind_charge'
+    // ]).heated()
     replaceRecipe(event, { output: 'minecraft:glass_bottle', type: 'minecraft:crafting_shaped' },
         () => event.recipes.create.compacting([
             CreateItem.of('minecraft:glass_bottle'),
         ], [
-            'utopia:silica_dust'
+            'utopia:silica_dust',
+            Ingredient.of('#minecraft:buttons')
+            // Fluid.of('utopia:wind', 10)
         ]).heated()
     )
     event.recipes.create.compacting([
@@ -181,7 +194,17 @@ ServerEvents.recipes(event => {
         'utopia:platinum_ingot'
     ]).processingTime(100)
 
+    // Wind Maker
+    event.recipes.create.mixing([
+        Fluid.of('utopia:ammonia', 400),
+        '9x utopia:platinum_nugget'
+    ], [
+        Fluid.of('utopia:nitric_acid', 200),
+        Fluid.of('utopia:oxygen', 200),
+        'utopia:platinum_ingot'
+    ]).processingTime(100)
 
+    // Magic atmospheric stuff
     event.recipes.create.compacting([
         '1x quark:cloud',
         'minecraft:heart_of_the_sea'
@@ -197,14 +220,14 @@ ServerEvents.recipes(event => {
         'minecraft:blue_ice',
         'minecraft:heart_of_the_sea'
     ]).heated()
+
+    //Garbage
     event.recipes.create.mixing([
         CreateItem.of('utopia:garbage')
     ], [
         Fluid.of('utopia:propylene_glycol', 1000),
         Fluid.of('utopia:nitric_acid', 1000)
     ]).processingTime(200)
-
-    //Garbage
     event.recipes.create.mixing([
         CreateItem.of('3x supplementaries:ash', 0.5),
         CreateItem.of('2x supplementaries:ash', 0.25),

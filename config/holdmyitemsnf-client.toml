@@ -2,7 +2,7 @@
 	#Choose your preferred animation speed (0.5-1.5)
 	# Default: 1.0
 	# Range: 0.5 ~ 1.5
-	animationSpeed = 1.0
+	animationSpeed = 0.8
 	#Switch speed (0-10)
 	# Default: 0.018
 	# Range: 0.0 ~ 10.0
@@ -12,7 +12,7 @@
 	#Swing animation speed (6-12)
 	# Default: 9
 	# Range: 6 ~ 12
-	swingSpeed = 6
+	swingSpeed = 9
 	#Enable or disable climb and crawl animation
 	enableClimbAndCrawlAnimation = true
 	#Enable or disable punching animation
@@ -40,6 +40,6 @@
 	#Mod IDs that should be excluded from custom rendering (entire mod).
 	excludedModIds = ["pointblank", "jeg", "cataclysm", "reliable_backpacks", "nirvana"]
 	#Specific item IDs to exclude from custom rendering (e.g. 'modid:itemname').
-	excludedItemIds = ["minecraft:wooden_spear", "minecraft:stobe_spear", "minecraft:iron_spear", "minecraft:golden_spear", "minecraft:diamond_spear", "minecraft:netherite_spear", "oreganized:electrum_spear", "supplementaries:quiver", "supplementaries:cannon", "supplementaries:ash", "naturalist:glow_goop", "supplementaries:flax_seeds", "supplementaries:slingshot", "reliable_backpacks:backpack", "supplementaries:cage", "exposure:camera", "exposure_polaroid:instant_camera"]
+	excludedItemIds = ["minecraft:wooden_spear", "minecraft:stobe_spear", "minecraft:iron_spear", "minecraft:golden_spear", "minecraft:diamond_spear", "minecraft:netherite_spear", "oreganized:electrum_spear", "supplementaries:quiver", "supplementaries:cannon", "supplementaries:ash", "supplementaries:flax_seeds", "supplementaries:slingshot", "reliable_backpacks:backpack", "supplementaries:cage", "exposure:camera", "exposure_polaroid:instant_camera", "someassemblyrequired:sandwich", "nirvana:suspicious_pipe", "nirvana:joint", "nirvana:stuffed_pipe", "nirvana:old_pipe", "create:rare_creeper_package", "create:rare_darcy_package", "create:rare_evan_package", "create:rare_jinx_package", "create:rare_kryppers_package", "create:rare_simi_package", "create:rare_starlotte_package", "create:rare_thunder_package", "create:rare_up_package", "create:rare_vector_package", "create_dragons_plus:rare_blaze_package", "create_dragons_plus:rare_marble_gate_package", "create:cardboard_package_12x10", "create:cardboard_package_10x8", "create:cardboard_package_12x12", "create:cardboard_package_10x12", "musketmod:musket_with_scope", "musketmod:musket_with_bayonet", "musketmod:musket", "musketmod:pistol", "musketmod:blunderbuss", "create:handheld_worldshaper", "create:extendo_grip", "create:potato_cannon", "minecraft:brush"]
 	#Skips the blockItem renderer, useful especially for create items because they're already 3D.
 	renderBlockAsItem = ["create:cogwheel", "create:large_cogwheel", "create:shaft", "create:gearbox", "create:vertical_gearbox", "create:clutch", "create:gearshift", "create:encased_chain_drive", "create:adjustable_chain_gearshift", "create:belt_connector", "create:chain_conveyor", "create:creative_motor", "create:water_wheel", "create:large_water_wheel", "create:nozzle", "create:turntable", "create:hand_crank", "create:millstone", "create:crushing_wheel", "create:mechanical_press", "create:mechanical_mixer", "create:empty_blaze_burner", "create:blaze_burner", "create:depot", "create:weighted_ejector", "create:speedometer", "create:stressometer", "create:wooden_bracket", "create:metal_bracket", "create:schematicannon", "create:fluid_pipe", "create:mechanical_pump", "create:smart_fluid_pipe", "create:fluid_valve", "create:copper_valve_handle", "create:hose_pulley", "create:portable_fluid_interface", "create:steam_engine", "create:gantry_carriage", "create:gantry_shaft", "create:windmill_bearing", "create:mechanical_bearing", "create:clockwork_bearing", "create:rope_pulley", "create:elevator_pulley", "create:cart_assembler", "create:sticker", "create:contraption_controls", "create:mechanical_drill", "create:mechanical_saw", "create:deployer", "create:portable_storage_interface", "create:mechanical_harvester", "create:mechanical_plough", "create:mechanical_roller", "create:mechanical_crafter", "create:sequenced_gearshift", "create:flywheel", "create:rotation_speed_controller", "create:mechanical_arm", "create:controls", "create:andesite_funnel", "create:brass_funnel", "create:andesite_tunnel", "create:brass_tunnel", "create:package_frogport", "create:factory_gauge", "create:display_board", "create:peculiar_bell", "create:haunted_bell", "create:brown_toolbox", "create:clipboard"]

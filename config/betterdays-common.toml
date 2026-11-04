@@ -104,10 +104,10 @@
 	#The maximum speed at which time passes when all players are sleeping.
 	#A value of 110 is nearly equal to the time it takes to sleep in vanilla.
 	#Range: 0.0 ~ 24000.0
-	sleepSpeedMax = 20.0
+	sleepSpeedMax = 70.0
 	#The minimum speed at which time passes when only 1 player is sleeping in a full server.
 	#Range: 0.0 ~ 24000.0
-	sleepSpeedMin = 10.0
+	sleepSpeedMin = 40.0
 	#The speed at which time passes when all players are sleeping.
 	#Set to -1 to disable this feature (sleepSpeedMax will be used when all players are sleeping).
 	#Range: -1.0 ~ 24000.0
@@ -156,14 +156,14 @@
 			#sleepingPlayers -> the number of players in the current dimension who were sleeping.
 			#totalPlayers -> the number of players in the current dimension (spectators are not counted).
 			#sleepingPercentage -> the percentage of players in the current dimension who are sleeping (does not include % symbol).
-			message = "§e§oTempus fugit!"
+			message = "§e§oYou open your eyes."
 			#Sets where this message appears.
 			#Allowed Values: SYSTEM, GAME_INFO
 			type = "GAME_INFO"
 			#Sets to whom this message is sent.
 			#A target of 'SLEEPING' will send the message to all players who just woke up.
 			#Allowed Values: ALL, DIMENSION, SLEEPING
-			target = "DIMENSION"
+			target = "SLEEPING"
 
 		#This message is sent when a player enters their bed.
 		[sleep.messages.enterBed]

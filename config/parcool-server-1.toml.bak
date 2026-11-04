@@ -24,9 +24,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 5
+			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 5
+			need_learning = true
 
 		[action.parcool.ride_zipline]
 			available = true
@@ -39,7 +40,7 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 5
+			# Default: 0
 			# Range: 0 ~ 32767
 			learn_cost = 5
 
@@ -54,9 +55,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 5
+			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 5
+			need_learning = true
 
 		[action.parcool.fast_run]
 			available = true
@@ -72,6 +74,7 @@
 			# Default: 1
 			# Range: 0 ~ 32767
 			learn_cost = 1
+			need_learning = true
 
 		[action.parcool.vault]
 			available = true
@@ -84,9 +87,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 5
+			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 5
+			need_learning = true
 
 		[action.parcool.horizontal_wall_run]
 			available = true
@@ -99,9 +103,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 7
+			# Default: 5
 			# Range: 0 ~ 32767
 			learn_cost = 7
+			need_learning = true
 
 		[action.parcool.fast_swim]
 			available = true
@@ -114,9 +119,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 3
+			# Default: 2
 			# Range: 0 ~ 32767
 			learn_cost = 3
+			need_learning = true
 
 		[action.parcool.long_jump]
 			available = true
@@ -129,9 +135,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 5
+			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 5
+			need_learning = true
 
 		[action.parcool.dive]
 			available = true
@@ -144,9 +151,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 3
+			# Default: 2
 			# Range: 0 ~ 32767
 			learn_cost = 3
+			need_learning = true
 
 		[action.parcool.skydive]
 			available = true
@@ -159,9 +167,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 5
+			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 5
+			need_learning = true
 
 		[action.parcool.trick_jump]
 			available = true
@@ -174,9 +183,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 3
+			# Default: 2
 			# Range: 0 ~ 32767
 			learn_cost = 3
+			need_learning = true
 
 		[action.parcool.hide_in_block]
 			available = true
@@ -189,9 +199,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 8
+			# Default: 4
 			# Range: 0 ~ 32767
 			learn_cost = 8
+			need_learning = true
 
 		[action.parcool.crawl]
 			available = true
@@ -207,6 +218,7 @@
 			# Default: 1
 			# Range: 0 ~ 32767
 			learn_cost = 1
+			need_learning = true
 
 		[action.parcool.slide]
 			available = true
@@ -219,9 +231,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 10
+			# Default: 5
 			# Range: 0 ~ 32767
 			learn_cost = 10
+			need_learning = true
 
 		[action.parcool.hang_on]
 			available = true
@@ -237,6 +250,7 @@
 			# Default: 1
 			# Range: 0 ~ 32767
 			learn_cost = 1
+			need_learning = true
 
 		[action.parcool.climb_up]
 			available = true
@@ -249,9 +263,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 10
+			# Default: 5
 			# Range: 0 ~ 32767
 			learn_cost = 10
+			need_learning = true
 
 		[action.parcool.castaway]
 			available = true
@@ -267,6 +282,7 @@
 			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 3
+			need_learning = true
 
 		[action.parcool.hang_down]
 			available = true
@@ -279,9 +295,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 8
+			# Default: 4
 			# Range: 0 ~ 32767
 			learn_cost = 8
+			need_learning = true
 
 		[action.parcool.pole_climb]
 			available = true
@@ -294,9 +311,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 10
+			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 10
+			need_learning = true
 
 		[action.parcool.slide_down]
 			available = true
@@ -309,9 +327,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 10
+			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 10
+			need_learning = true
 
 		[action.parcool.dodge]
 			available = true
@@ -324,9 +343,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 12
+			# Default: 6
 			# Range: 0 ~ 32767
 			learn_cost = 12
+			need_learning = true
 
 		[action.parcool.breakfall]
 			available = true
@@ -339,9 +359,10 @@
 			# Default: 0
 			# Range: 0 ~ 32767
 			cost_finish = 0
-			# Default: 10
+			# Default: 4
 			# Range: 0 ~ 32767
 			learn_cost = 10
+			need_learning = true
 
 		[action.parcool.charge_jump]
 			available = true
@@ -354,9 +375,10 @@
 			# Default: 50
 			# Range: 0 ~ 32767
 			cost_finish = 50
-			# Default: 10
+			# Default: 3
 			# Range: 0 ~ 32767
 			learn_cost = 10
+			need_learning = true
 
 [game]
 	#Enable Skilltree, if disabled all actions are available without learning

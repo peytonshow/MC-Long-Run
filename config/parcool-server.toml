@@ -380,6 +380,21 @@
 			learn_cost = 10
 			need_learning = true
 
+		[action.parcool.super_sprint]
+			available = true
+			# Default: 0
+			# Range: 0 ~ 32767
+			cost_start = 0
+			# Default: 0
+			# Range: 0 ~ 32767
+			cost_working = 0
+			# Default: 0
+			# Range: 0 ~ 32767
+			cost_finish = 0
+			# Default: 0
+			# Range: 0 ~ 32767
+			learn_cost = 0
+
 [game]
 	#Enable Skilltree, if disabled all actions are available without learning
 	enable_skill_tree = true
@@ -387,6 +402,10 @@
 	enable_skill_tree_ui = true
 	#Whether you take damage when you use some actions like WallSlide without traceur's gloves
 	damage_without_glove = true
+	#Input acceptance duration of perfect-breakfall in tick, perfect breakfall is disabled if this value is 0
+	# Default: 0
+	# Range: > 0
+	breakfall_just_time_input_tick = 0
 
 [grappling_hook]
 	#max reach in blocks
