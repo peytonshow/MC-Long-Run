@@ -108,6 +108,18 @@ ServerEvents.recipes(event => {
     event.remove({ output: 'minecraft:mushroom_stew', type: 'minecraft:crafting_shapeless' })
     event.remove({ output: 'minecraft:beetroot_soup', type: 'minecraft:crafting_shapeless' })
 
+    event.shaped(
+        Item.of('utopia:hammer'), [
+        'BAA',
+        'BC ',
+        ' D '
+    ], {
+        A: 'create:iron_sheet',
+        B: 'minecraft:iron_ingot',
+        C: 'create:shaft',
+        D: 'minecraft:stick',
+    })
+
     replaceRecipe(event, { input: 'minecraft:gravel', type: 'create:splashing' },
         () => event.recipes.create.splashing([
             CreateItem.of('minecraft:flint', 0.25)
@@ -744,13 +756,19 @@ ServerEvents.recipes(event => {
         () => event.recipes.create.mixing([
             'minecraft:magma_block',
         ], [
-            Ingredient.of('#c:cobblestones')
+            Ingredient.of('#c:cobblestones/normal')
+        ]).superheated().processingTime(50),
+        () => event.recipes.create.mixing([
+            'minecraft:magma_block',
+            CreateItem.of('minecraft:magma_block', 0.20)
+        ], [
+            Ingredient.of('#c:cobblestones/deepslate')
         ]).superheated().processingTime(50),
         () => event.recipes.create.compacting([
             Fluid.of('minecraft:lava', 100),
         ], [
             'minecraft:magma_block',
-        ])
+        ]),
     )
 
     // Clay
@@ -849,13 +867,13 @@ ServerEvents.recipes(event => {
     }))
 
     // Science Future.
-    event.shaped('utopia:circuit_upgrade_template', [
+    event.shaped('2x utopia:circuit_upgrade_template', [
             'ACA',
             'ABA',
             'AAA'
         ], {
             A: 'utopia:plastic_ingot',
-            B: 'minecraft:gold_block',
+            B: 'minecraft:diamond',
             C: 'utopia:circuit_upgrade_template'
     })
     event.recipes.create.compacting('utopia:block_of_plastic','utopia:plastic_ingot').heated()

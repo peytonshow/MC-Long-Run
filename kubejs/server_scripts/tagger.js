@@ -10,8 +10,8 @@ ServerEvents.tags('item', event => {
         event.add('utopia:currency', item)
     };
 
-    event.removeAllTagsFrom('utopia:used_handcuffs')
-    event.removeAllTagsFrom('utopia:used_shackles')
+    // event.removeAllTagsFrom('utopia:used_handcuffs')
+    // event.removeAllTagsFrom('utopia:used_shackles')
     event.removeAllTagsFrom('utopia:crown')
     event.removeAllTagsFrom('utopia:shattering_crown')
 
@@ -35,8 +35,8 @@ ServerEvents.tags('item', event => {
     makeWashable('utopia:detective_shoes')
 
     event.add('c:hidden_from_recipe_viewers', 'utopia:shattered_crown')
-    event.add('c:hidden_from_recipe_viewers', 'utopia:used_handcuffs')
-    event.add('c:hidden_from_recipe_viewers', 'utopia:used_shackles')
+    // event.add('c:hidden_from_recipe_viewers', 'utopia:used_handcuffs')
+    // event.add('c:hidden_from_recipe_viewers', 'utopia:used_shackles')
     event.add('c:hidden_from_recipe_viewers', 'brewinandchewin:pizza')
     event.add('c:hidden_from_recipe_viewers', 'farmersdelight:wheat_dough')
     event.add('c:hidden_from_recipe_viewers', 'vc_gliders:reinforced_paper_iron')

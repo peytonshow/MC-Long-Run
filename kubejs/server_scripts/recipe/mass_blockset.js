@@ -30,5 +30,6 @@ ServerEvents.recipes(event => {
         ], {
             A: 'supplementaries:flint_block'
     })
+    event.recipes.stonecutting('utopia:polished_flint', 'supplementaries:flint_block')
 })
  

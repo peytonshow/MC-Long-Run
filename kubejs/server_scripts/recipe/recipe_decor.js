@@ -5,6 +5,38 @@ function replaceRecipe(event, filter, ...adders) {
 
 ServerEvents.recipes(event => {
 
+    const recipes = [
+        { id: 'polished_dark_oak_wood', material: 'minecraft:dark_oak_planks', functional: 'minecraft:cartography_table' },
+        { id: 'loominum_paneling', material: 'minecraft:oak_planks', functional: 'minecraft:loom' },
+        { id: 'loominum_polished', material: 'minecraft:oak_planks', functional: 'minecraft:loom' },
+        { id: 'spruce_paneling', material: 'minecraft:spruce_planks', functional: 'minecraft:barrel' },
+        { id: 'spruce_polished', material: 'minecraft:spruce_planks', functional: 'minecraft:barrel' },
+        { id: 'smithistone_paneling', material: 'minecraft:smooth_stone', functional: 'minecraft:smithing_table' },
+        { id: 'smithistone_polished', material: 'minecraft:smooth_stone', functional: 'minecraft:smithing_table' },
+        { id: 'lodium', material: 'minecraft:chiseled_stone_bricks', functional: 'minecraft:lodestone' },
+        { id: 'hivium_paneling', material: 'minecraft:oak_planks', functional: 'minecraft:beehive' },
+        { id: 'hivium_polished', material: 'minecraft:oak_planks', functional: 'minecraft:beehive' },
+        { id: 'hivium_paneling', material: 'minecraft:oak_planks', functional: 'minecraft:beehive' },
+        { id: 'hivium_polished', material: 'minecraft:oak_planks', functional: 'minecraft:beehive' },
+        { id: 'wormwood_paneling', material: 'minecraft:oak_planks', functional: 'minecraft:chiseled_bookshelf' },
+        { id: 'wormwood_polished', material: 'minecraft:oak_planks', functional: 'minecraft:chiseled_bookshelf' },
+        { id: 'blastar_polished', material: 'minecraft:smooth_stone', functional: 'minecraft:blast_furnace' },
+        { id: 'poster_paneling', material: 'minecraft:jungle_planks', functional: 'minecraft:composter' },
+        { id: 'poster_polished', material: 'minecraft:jungle_planks', functional: 'minecraft:composter' },
+        { id: 'solstice_paneling', material: 'minecraft:dark_oak_planks', functional: 'minecraft:daylight_detector' },
+    ]
+
+    recipes.forEach(recipe => {
+        event.shaped(`16x utopia:${recipe.id}`, [
+            'AAA',
+            'ABA',
+            'AAA'
+        ], {
+            A: recipe.material,
+            B: recipe.functional
+        })
+    })
+
     replaceRecipe(event, { output: 'minecraft:mud', type: 'create:mixing' },
         () => event.recipes.create.mixing('minecraft:mud', [['minecraft:dirt','minecraft:coarse_dirt','minecraft:rooted_dirt'], Fluid.water(100)])
             .processingTime(12)
@@ -76,8 +108,7 @@ ServerEvents.recipes(event => {
         })
     )
  
-    // Flint
-    
+    // girders
     replaceRecipe(event, 
         { output: 'create:metal_girder' },
         () => event.recipes.stonecutting('3x create:metal_girder', 'create:industrial_iron_block')

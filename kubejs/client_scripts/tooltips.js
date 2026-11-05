@@ -1,13 +1,13 @@
-// ---------- Colors (sampled from Create's tooltip screenshot) ----------
 const C = {
-    base:          0xc7954b, // summary / behaviour text
-    highlight:     0xeeda78, // _highlighted_ words in gold text
-    gray:          0xa8a8a8, // gray text
-    grayHighlight: 0xfcfcfc, // _highlighted_ words in gray text
-    darkGray:      0x545454, // "Hold [", "] for Summary"
-    white:         0xfcfcfc  // "Shift" when held
+    base:          0xc7954b,
+    highlight:     0xeeda78,
+    gray:          0xa8a8a8,
+    grayHighlight: 0xfcfcfc,
+    darkGray:      0x545454,
+    white:         0xfcfcfc,
+    blue:          0x5555ff  // vanilla template entries
 };
-const CREATE_WIDTH = 42; // wrap width in characters; tweak to taste
+const CREATE_WIDTH = 42;
 
 ItemEvents.modifyTooltips(event => {
     const shiftMessage = Text.join([
@@ -65,6 +65,7 @@ ItemEvents.modifyTooltips(event => {
 
     const GOLD = { base: C.base, hl: C.highlight };
     const GRAY = { base: C.gray, hl: C.grayHighlight };
+    const BLUE = { base: C.blue, hl: C.blue };
 
     // ---------- Helpers (all use the Create style) ----------
 
@@ -110,19 +111,19 @@ ItemEvents.modifyTooltips(event => {
         addCreateTooltip(itemFilter, { summary: tooltipText });
     };
 
-    // Template style: title, then "Applies to" / "Ingredients" (always visible).
-    // info = { title, appliesTo, ingredients } - every field supports _highlights_.
-    const addTemplateTooltip = (itemFilter, info) => {
+    // Vanilla smithing-template style: gray title, gray headers, blue indented entries.
+    // info = { title, appliesTo, ingredients (optional) }
+    const addTemplateTooltip = (itemFilter, { title, appliesTo, ingredients }) => {
         event.modify(itemFilter, text => {
-            let i = 1;
-            createLines(info.title, GOLD).forEach(l => text.insert(i++, l));
-            text.insert(i++, '');
-            text.insert(i++, Text.of('Applies to:').color(C.gray));
-            createLines(info.appliesTo, GOLD, ' ').forEach(l => text.insert(i++, l));
-            if (info.ingredients) {
-                text.insert(i++, Text.of('Ingredients:').color(C.gray));
-                createLines(info.ingredients, GOLD, ' ').forEach(l => text.insert(i++, l));
-            }
+            []
+                .concat(createLines(title, GRAY))
+                .concat([Text.of('')])
+                .concat([Text.of('Applies to:').color(C.gray)])
+                .concat(createLines(appliesTo, BLUE, ' '))
+                .concat(ingredients
+                    ? [Text.of('Ingredients:').color(C.gray)].concat(createLines(ingredients, BLUE, ' '))
+                    : [])
+                .forEach((line, i) => text.insert(i + 1, line));
         });
     };
 
@@ -135,8 +136,8 @@ ItemEvents.modifyTooltips(event => {
     // --- Armor ---
     addShiftTooltip('utopia:crown', 'Whoever owns this _Crown_ rules the Realm');
     addShiftTooltip('utopia:shattering_crown', 'From another time.');
-    addShiftTooltip('utopia:used_handcuffs', "It's hard to move your hands.");
-    addShiftTooltip('utopia:used_shackles', "It's hard to move in these.");
+    // addShiftTooltip('utopia:used_handcuffs', "It's hard to move your hands.");
+    // addShiftTooltip('utopia:used_shackles', "It's hard to move in these.");
 
     // --- Stamps ---
     // addShiftTooltip('utopia:encoder_stamp', 'Used to split material into Minted Coins.');
@@ -152,10 +153,11 @@ ItemEvents.modifyTooltips(event => {
     addShiftTooltip('utopia:beaker_bleach', "Touching it causes soap bubbles to appear on your hand.");
     addShiftTooltip('utopia:beaker_propylene_glycol', "It looks thick and oily. Smells weirdly sweet.");
 
-    // --- Computers ---
+        // --- Computers ---
     addTemplateTooltip('utopia:circuit_upgrade_template', {
         title: 'Chip Upgrade',
-        appliesTo: '_Circuits_'
+        appliesTo: 'Circuits',
+        ingredients: 'Silica Dust'
     });
 
     addShiftTooltip('utopia:computer_block', "A _Program_ can be selected in the crafting grid.\n\nCan be _Sold_, but otherwise acts as decoration.");
