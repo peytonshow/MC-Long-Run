@@ -74,7 +74,7 @@
 
 [tripwire_hook]
 	#Allows placing tools on tripwire hooks
-	tool_hook = true
+	tool_hook = false
 
 [carpets]
 	#Allows you to place carpets on stairs

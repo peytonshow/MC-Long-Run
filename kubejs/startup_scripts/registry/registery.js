@@ -19,7 +19,7 @@ StartupEvents.registry('item', event => {
     
     // Usable
     event.create('utopia:letter_of_invitation').maxStackSize(16)
-    event.create('utopia:hammer').unstackable().maxDamage(512).tag('c:tools').tag('c:tools/hammer').use((level, player, hand) => true)
+    event.create('utopia:hammer').unstackable().tag('c:tools').tag('c:tools/hammer').use((level, player, hand) => true)
 
     
     // Sciantest
@@ -112,7 +112,7 @@ StartupEvents.registry('item', event => {
 })
 
 
-// Engin
+// Enjun.
 global.BLOCKSETS = []
 
 global.createBlockset = (event, id, opts) => {
@@ -156,7 +156,7 @@ StartupEvents.registry('block', event => {
     sound: 'stone',
     hardness: 2.0,
     resistance: 7.5,
-    tags: ['c:storage_blocks', 'c:storage_blocks/flint']
+    tags: ['minecraft:mineable/pickaxe']
   })
 
   // bobblestone

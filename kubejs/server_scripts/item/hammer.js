@@ -1,67 +1,55 @@
-// --- Hammer --------------------------------------------------
-const HAMMER_ID = 'utopia:hammer'           // the item that acts as a hammer
-const COOLDOWN_TICKS = 2                   // 20 ticks = 1 second
-const HAMMERABLE_TAG = 'utopia:hammerable'  // block tag, auto-filled at data load
+// s2
+const HAMMER_ID = 'utopia:hammer'
+const COOLDOWN_TICKS = 2
+const HAMMERABLE_TAG = 'utopia:hammerable'
 
-// --- Which block categories are affected ---------------------
 const ENABLE_CONNECTORS = true
-const ENABLE_TRAPDOORS  = true 
-const ENABLE_LIT        = true 
+const ENABLE_TRAPDOORS  = true
+const ENABLE_LIT        = true
 
-// --- Category rules ------------------------------------------
 const SIDES = ['north', 'east', 'south', 'west']
 
 const HANDPROOF_TRAPDOOR_KEYWORDS = ['iron']
-const EXTRA_HANDPROOF_TRAPDOORS = [
-]
-
-// These are the exceptions that work fine:
+const EXTRA_HANDPROOF_TRAPDOORS = []
 const LIT_ALLOW_BLOCK_ENTITY = ['minecraft:campfire', 'minecraft:soul_campfire']
+const BLACKLIST = []
 
-const BLACKLIST = [
-    // 'modid:blah'
-]
+const CLIP_KEY = 'utopia_hammer_clip'
+const POST_REACH = 0.26   // post is 0.25 each way from the block center, plus a tiny margin
 
-// --- Feedback ------------------------------------------------
-const SOUND_CONNECTOR      = 'STONE_BUTTON_CLICK_ON'   // field names of SoundEvents
-const SOUND_LIT            = 'LEVER_CLICK'
-const SOUND_TRAPDOOR_OPEN  = 'IRON_TRAPDOOR_OPEN'
-const SOUND_TRAPDOOR_CLOSE = 'IRON_TRAPDOOR_CLOSE'
-const SOUND_COPY           = 'AMETHYST_BLOCK_CHIME'    // crouch + left click (save state)
-const SOUND_VOLUME = 1.0
-const SOUND_PITCH  = 1.0
-const SHOW_ACTIONBAR = true
-const formatMessage = (label, value) => '§e' + label + '§7: §f' + value
-
-
-
-
-const $CrossCollisionBlock = Java.loadClass('net.minecraft.world.level.block.CrossCollisionBlock') // fences, panes, bars
+const $CrossCollisionBlock = Java.loadClass('net.minecraft.world.level.block.CrossCollisionBlock')
 const $WallBlock = Java.loadClass('net.minecraft.world.level.block.WallBlock')
 const $TrapDoorBlock = Java.loadClass('net.minecraft.world.level.block.TrapDoorBlock')
 const $EntityBlock = Java.loadClass('net.minecraft.world.level.block.EntityBlock')
 const $BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
-const $SoundEvents = Java.loadClass('net.minecraft.sounds.SoundEvents')
-const $SoundSource = Java.loadClass('net.minecraft.sounds.SoundSource')
 const $Component = Java.loadClass('net.minecraft.network.chat.Component')
 
-// Saved states per player uuid. Cleared on server restart.
-const CLIPBOARD = {}
+const has = (list, value) => list.indexOf(value) !== -1
+const getProp = (block, name) => block.getStateDefinition().getProperty(name)
+const isWall = block => block instanceof $WallBlock
+const describe = props => Object.keys(props).map(k => k + '=' + props[k]).join(' ')
 
-function getProp(block, name) {
-    return block.getStateDefinition().getProperty(name)
+// Vec3 x/y/z are fields on some versions and methods on others.
+const coord = (v, k) => Number(typeof v[k] === 'function' ? v[k]() : v[k])
+
+function say(player, label, value) {
+    player.displayClientMessage($Component.literal('§e' + label + '§7: §f' + value), true)
+}
+
+function loadClip(player) {
+    const raw = String(player.persistentData.getString(CLIP_KEY))
+    return raw == '' ? null : JSON.parse(raw)
 }
 
 function isHandproofTrapdoor(id) {
-    if (EXTRA_HANDPROOF_TRAPDOORS.indexOf(id) !== -1) return true
-    return HANDPROOF_TRAPDOOR_KEYWORDS.some(k => id.indexOf(k) !== -1)
+    return has(EXTRA_HANDPROOF_TRAPDOORS, id) || HANDPROOF_TRAPDOOR_KEYWORDS.some(k => id.indexOf(k) !== -1)
 }
 
 function classify(b, id) {
-    if (BLACKLIST.indexOf(id) !== -1) return null
+    if (has(BLACKLIST, id)) return null
 
     if (ENABLE_CONNECTORS
-        && (b instanceof $CrossCollisionBlock || b instanceof $WallBlock)
+        && (b instanceof $CrossCollisionBlock || isWall(b))
         && getProp(b, 'north') != null) return 'connector'
 
     if (ENABLE_TRAPDOORS
@@ -71,7 +59,7 @@ function classify(b, id) {
 
     if (ENABLE_LIT
         && getProp(b, 'lit') != null
-        && (!(b instanceof $EntityBlock) || LIT_ALLOW_BLOCK_ENTITY.indexOf(id) !== -1)) return 'lit'
+        && (!(b instanceof $EntityBlock) || has(LIT_ALLOW_BLOCK_ENTITY, id))) return 'lit'
 
     return null
 }
@@ -83,54 +71,68 @@ ServerEvents.tags('block', event => {
     })
 })
 
+// Auto side picking. Walls use the exact hit point: inside the post footprint it is the post,
+// otherwise the arm runs perpendicular to the face you hit. Fences/panes use the clicked face,
+// else your position.
 function pickSide(event) {
-    const face = String(event.facing.getSerializedName())
-    if (SIDES.indexOf(face) !== -1) return face
-    if (getProp(event.block.blockState.block, 'up') != null) return 'up'
-    const dx = event.player.x - (event.block.x + 0.5)
-    const dz = event.player.z - (event.block.z + 0.5)
+    const block = event.block
+    const state = block.blockState
+    const hit = event.hit
+    const face = String((hit == null ? event.facing : hit.getDirection()).getSerializedName())
+    const loc = hit == null ? null : hit.getLocation()
+    const byHit = loc != null && isWall(state.block)
+    const origin = byHit ? loc : event.player
+    const dx = coord(origin, 'x') - (Number(block.x) + 0.5)
+    const dz = coord(origin, 'z') - (Number(block.z) + 0.5)
+
+    if (byHit) {
+        const upProp = getProp(state.block, 'up')
+        const postOn = upProp != null && String(state.getValue(upProp)) == 'true'
+        if (postOn && Math.abs(dx) <= POST_REACH && Math.abs(dz) <= POST_REACH) return 'up'
+
+        if (face == 'east' || face == 'west') return dz > 0 ? 'south' : 'north'
+        if (face == 'north' || face == 'south') return dx > 0 ? 'east' : 'west'
+    } else {
+        if (has(SIDES, face)) return face
+        if (getProp(state.block, 'up') != null) return 'up'
+    }
+
     if (Math.abs(dx) > Math.abs(dz)) return dx > 0 ? 'east' : 'west'
     return dz > 0 ? 'south' : 'north'
 }
 
-function hammerType(event) {
-    const { item, block } = event
+function propsFor(type, block) {
+    if (type == 'trapdoor') return ['open']
+    if (type == 'lit') return ['lit']
+    return getProp(block, 'up') != null ? SIDES.concat(['up']) : SIDES
+}
+
+function start(event) {
+    const { item, block, player } = event
     if (item.id != HAMMER_ID || !block.hasTag(HAMMERABLE_TAG)) return null
-    return classify(block.blockState.block, String(block.id))
+    const type = classify(block.blockState.block, String(block.id))
+    if (type == null) return null
+    if (player.cooldowns.isOnCooldown(item.item)) {
+        event.cancel()
+        return null
+    }
+    return type
 }
 
-const propsFor = (type, b) => type == 'connector'
-    ? (b != null && getProp(b, 'up') != null ? SIDES.concat(['up']) : SIDES)
-    : [type == 'trapdoor' ? 'open' : 'lit']
-
-function say(player, label, value) {
-    if (SHOW_ACTIONBAR) player.displayClientMessage($Component.literal(formatMessage(label, value)), true)
-}
-
-const describe = props => Object.keys(props).map(k => k + '=' + props[k]).join(' ')
-
-function soundFor(type, newState) {
-    if (type == 'connector') return $SoundEvents[SOUND_CONNECTOR]
-    if (type == 'lit') return $SoundEvents[SOUND_LIT]
-    const open = String(newState.getValue(getProp(newState.block, 'open'))) == 'true'
-    return $SoundEvents[open ? SOUND_TRAPDOOR_OPEN : SOUND_TRAPDOOR_CLOSE]
-}
-
-// Plays a sound at a block position for everyone nearby, including the clicking player.
-// A plain level.playSound(null, pos, ...) is ambiguous in Rhino (null matches Player and Entity,
-// numbers match float and double), so the exact overload is selected by its full signature.
-const PLAY_SOUND_SIG = 'playSound(net.minecraft.world.entity.player.Player,net.minecraft.core.BlockPos,net.minecraft.sounds.SoundEvent,net.minecraft.sounds.SoundSource,float,float)'
-
-function playSoundAt(level, pos, sound) {
-    level[PLAY_SOUND_SIG](null, pos, sound, $SoundSource.BLOCKS, SOUND_VOLUME, SOUND_PITCH)
+function wallBroken(state) {
+    const block = state.block
+    if (!isWall(block)) return false
+    if (String(state.getValue(getProp(block, 'up'))) != 'false') return false
+    const on = name => String(state.getValue(getProp(block, name))) != 'none'
+    return !((on('north') && on('south')) || (on('east') && on('west')))
 }
 
 function pasteState(state, props) {
     let result = state
     const ok = Object.keys(props).every(name => {
         const prop = getProp(state.block, name)
-        if (prop == null && name == 'up') return true
-        const parsed = prop == null ? null : prop.getValue(props[name])
+        if (prop == null) return name == 'up'
+        const parsed = prop.getValue(props[name])
         if (parsed == null || !parsed.isPresent()) return false
         result = result.setValue(prop, parsed.get())
         return true
@@ -140,85 +142,64 @@ function pasteState(state, props) {
 
 BlockEvents.rightClicked(event => {
     const { item: stack, block, player } = event
-
-    const type = hammerType(event)
+    const type = start(event)
     if (type == null) return
 
-    if (player.cooldowns.isOnCooldown(stack.item)) {
-        event.cancel()
-        return
-    }
-
-    // Everything is declared at the top level of the function: Rhino breaks on const/let inside if/else blocks
     const state = block.blockState
     const crouching = player.isCrouching()
-    const clip = CLIPBOARD[String(player.uuid)]
-    const prop = crouching ? null : getProp(state.block, type == 'connector' ? pickSide(event) : propsFor(type)[0])
+    const clip = crouching ? loadClip(player) : null
 
-    const newState = crouching
-        ? (clip != null && clip.type == type ? pasteState(state, clip.props) : null)
-        : state.cycle(prop)
+    let sideName = null
+    if (type == 'connector') sideName = pickSide(event)
+    const prop = getProp(state.block, type == 'connector' ? sideName : propsFor(type, state.block)[0])
 
-    if (newState == null) {
-        say(player, 'hammer', clip == null ? 'nothing saved' : 'saved state does not fit this block')
+    let next = null
+    let reason = null
+    if (!crouching) {
+        next = state.cycle(prop)
+    } else if (clip == null) {
+        reason = 'nothing saved'
+    } else {
+        next = clip.type == type ? pasteState(state, clip.props) : null
+        if (next == null) reason = 'saved state does not fit this block'
+    }
+
+    if (next != null && wallBroken(next)) {
+        reason = 'needs a post or a parallel pair of sides'
+        next = null
+    }
+
+    if (next == null) {
+        if (reason != null) say(player, 'hammer', reason)
         event.cancel()
         return
     }
 
-    // Flag 18 = update clients, skip neighbour updates (same as the vanilla debug stick)
-    block.level.setBlock(block.pos, newState, 18)
-    playSoundAt(block.level, block.pos, soundFor(type, newState))
-    say(player, crouching ? 'pasted' : prop.getName(), crouching ? describe(clip.props) : String(newState.getValue(prop)))
-
-    // Cooldown first, so it still applies if the hammer breaks
+    block.level.setBlock(block.pos, next, 18)
+    if (crouching) say(player, 'pasted', describe(clip.props))
+    else say(player, prop.getName(), String(next.getValue(prop)))
     player.cooldowns.addCooldown(stack.item, COOLDOWN_TICKS)
-    player.damageHeldItem(event.hand)
     event.cancel()
 })
 
-// Registered last and wrapped, so the right click still works if this event doesn't exist
+BlockEvents.leftClicked(event => {
+    const { item: stack, block, player } = event
+    const type = start(event)
+    if (type == null) return
 
-try {
-    BlockEvents.leftClicked(event => {
-        // Everything is declared at the top level of the function: Rhino breaks on const/let inside try/if blocks
-        const { item: stack, block, player } = event
-        if (!player.isCrouching()) return
-
-        const type = hammerType(event)
-        if (type == null) return
-
-        const state = block.blockState
-        const props = {}
-        const key = String(player.uuid)
-        let ok = true
-
-        // event.cancel() ends the handler immediately, so it comes after all the work
-        if (player.cooldowns.isOnCooldown(stack.item)) event.cancel()
-
-        try {
-            propsFor(type, state.block).forEach(name => {
-                const prop = getProp(state.block, name)
-                props[name] = prop.getName(state.getValue(prop))
-            })
-            CLIPBOARD[key] = { type: type, props: props }
-        } catch (err1) {
-            ok = false
-            console.error('Hammer: save failed: ' + err1)
-            say(player, 'hammer', 'save failed, check log')
-        }
-
-        if (ok) {
-            try {
-                playSoundAt(block.level, block.pos, $SoundEvents[SOUND_COPY])
-            } catch (err2) {
-                console.error('Hammer: sound failed: ' + err2)
-            }
-            say(player, 'saved', describe(props))
-            player.cooldowns.addCooldown(stack.item, COOLDOWN_TICKS)
-        }
-
+    if (!player.isCrouching()) {
         event.cancel()
+        return
+    }
+
+    const state = block.blockState
+    const props = {}
+    propsFor(type, state.block).forEach(name => {
+        const prop = getProp(state.block, name)
+        props[name] = String(prop.getName(state.getValue(prop)))
     })
-} catch (e) {
-    console.error('Hammer: could not register left click handler: ' + e)
-}
+    player.persistentData.putString(CLIP_KEY, JSON.stringify({ type: type, props: props }))
+    say(player, 'saved', describe(props))
+    player.cooldowns.addCooldown(stack.item, COOLDOWN_TICKS)
+    event.cancel()
+})

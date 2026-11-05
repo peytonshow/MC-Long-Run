@@ -104,11 +104,15 @@ ServerEvents.recipes(event => {
 
     event.remove({ input: 'minecraft:wheat', output: 'minecraft:bread' })
     event.remove({ input: 'minecraft:soul_campfire', type: 'minecraft:crafting_shaped' })
-    event.remove({ input: 'minecraft:gravel', type: 'create:splashing' })
     event.remove({ output: 'oreganized:glance' })
     event.remove({ output: 'minecraft:mushroom_stew', type: 'minecraft:crafting_shapeless' })
     event.remove({ output: 'minecraft:beetroot_soup', type: 'minecraft:crafting_shapeless' })
 
+    replaceRecipe(event, { input: 'minecraft:gravel', type: 'create:splashing' },
+        () => event.recipes.create.splashing([
+            CreateItem.of('minecraft:flint', 0.25)
+        ], 'minecraft:gravel')
+    )
     replaceRecipe(event, [
         { input: 'create:shaft',output: 'createadditionallogistics:lazy_shaft' },
         { input: 'createadditionallogistics:lazy_shaft',output: 'create:shaft' }
