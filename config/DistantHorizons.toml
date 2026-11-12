@@ -802,7 +802,7 @@ _version = 5
 				# 
 				# Lowest Quality: HEIGHT_MAP
 				# Highest Quality: PIXEL_ART
-				verticalQuality = "LOW"
+				verticalQuality = "HIGH"
 				#
 				# The radius of the mod's render distance. (measured in chunks)
 				# 
@@ -822,7 +822,7 @@ _version = 5
 				# 
 				# Higher settings will increase the distance between drops 
 				# but will increase memory and GPU usage.
-				horizontalQuality = "LOW"
+				horizontalQuality = "MEDIUM"
 				#
 				# How should LOD transparency be handled. 
 				# 

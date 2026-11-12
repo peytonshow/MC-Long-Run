@@ -174,4 +174,8 @@ ItemEvents.modification(event => {
         }
     })
    console.log("[Utopia] Altering stacks --- Total items to check: " + procStarting + " - Stacks altered to 16: " + procAltered + ".")
+
+    event.modify('someassemblyrequired:sandwich', item => {
+        item.maxStackSize = 64
+    })
 })

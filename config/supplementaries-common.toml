@@ -312,7 +312,7 @@
 			glowing_duration = 200
 
 [building]
-	lapis_bricks = false
+	lapis_bricks = true
 	deepslate_lamp = true
 	end_stone_lamp = true
 	blackstone_lamp = true
@@ -371,7 +371,7 @@
 	[building.gravel_bricks]
 		enabled = true
 		#Allows gravel bricks to break when fallen upon or when an entity walks on them with enough falling speed
-		allow_breaking = true
+		allow_breaking = false
 
 	[building.slidy_block]
 		enabled = true

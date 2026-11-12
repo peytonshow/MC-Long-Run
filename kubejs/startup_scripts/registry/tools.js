@@ -13,6 +13,7 @@ ItemEvents.toolTierRegistry(event => {
         tier.attackDamageBonus = tier.attackDamageBonus + 2.0
         tier.speed = tier.speed + 3.0
         tier.enchantmentValue = 40
+        tier.repairIngredient = '#c:ingots/platinum_nugget'
     });
 
     event.add('pencil', tier => {
@@ -27,7 +28,8 @@ ItemEvents.toolTierRegistry(event => {
         tier.uses = 555;
         tier.attackDamageBonus = tier.attackDamageBonus + 2.0
         tier.speed = tier.speed + 1.0
-        tier.enchantmentValue = 8
+        tier.enchantmentValue = 0
+        tier.repairIngredient = '#c:ingots/zinc'
     });
     event.addBasedOnExisting("classicnium", "iron", (tier) => {
         tier.uses = 999;

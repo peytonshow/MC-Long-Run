@@ -614,7 +614,7 @@
 		"Display Baked Enchantments In Tooltip" = true
 		"Italic Tooltip" = true
 		#Enchantments other than Gold's Fortune/Looting to bake into items. Format is "item+enchant@level", such as "minecraft:stick+minecraft:sharpness@10".
-		"Item Enchantments" = ["minecraft:golden_spear+minecraft:looting@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3", "minecraft:trident+minecraft:loyalty@1", "utopia:platinum_sword+minecraft:looting@2", "utopia:platinum_pickaxe+minecraft:fortune@2"]
+		"Item Enchantments" = ["minecraft:golden_spear+minecraft:looting@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3", "minecraft:trident+minecraft:loyalty@1", "utopia:platinum_sword+minecraft:looting@3", "utopia:platinum_pickaxe+minecraft:fortune@3","utopia:platinum_axe+minecraft:fortune@3"]
 
 	[tweaks.grab_chickens]
 		"Needs No Helmet" = true

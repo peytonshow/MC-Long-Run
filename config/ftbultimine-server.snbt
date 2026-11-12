@@ -21,15 +21,15 @@
 		# This value can also be modified with the 'ftbultimine:max_blocks_modifier' entity attribute
 		# Default: 64
 		# Range: 0 ~ 32768
-		max_blocks: 64
+		max_blocks: 32
 		
 		# Require a damageable tool, or an item in the 'ftbultimine:tools' tag, to ultimine.
 		# Default: false
-		require_tool: false
+		require_tool: true
 		
 		# Require a valid tool for the block being ultimined, i.e. one that can properly harvest the block
 		# Default: false
-		require_valid_tool_for_block: false
+		require_valid_tool_for_block: true
 		
 		# Cooldown in ticks between successive uses of the ultimine feature
 		# If FTB Ranks is installed, the 'ftbultimine.ultimine_cooldown' ranks node can override this
@@ -41,7 +41,7 @@
 	features: {
 		# Right-click with an axe with the Ultimine key held to strip multiple logs and scrape/unwax copper blocks
 		# Default: true
-		right_click_axe: true
+		right_click_axe: false
 		
 		# Right-click budding crystals (e.g. amethyst, AE2 certus) with the Ultimine key held to harvest multiple crystals
 		# FTB EZ Crystals must also be installed
@@ -67,7 +67,7 @@
 	misc: {
 		# If a block couldn't be broken (even though it should be), stop ultimining immediately instead of skipping to the next block.
 		# Default: false
-		cancel_on_block_break_fail: false
+		cancel_on_block_break_fail: true
 		
 		# These tags will be considered the same block when checking for blocks to Ultimine in shapeless mining mode
 		# Default: ["minecraft:base_stone_overworld", "c:ores/*", "forge:ores/*"]

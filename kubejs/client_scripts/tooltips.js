@@ -7,7 +7,14 @@ const C = {
     white:         0xfcfcfc,
     blue:          0x5555ff  // vanilla template entries
 };
-const CREATE_WIDTH = 42;
+
+// Max line width in GUI pixels. Measured with whatever font is active,
+// so resource-pack fonts are handled automatically. Tune once to taste.
+const CREATE_MAX_PX = 200;
+
+// Pixel width of a string in the currently active font.
+const MinecraftClient = Java.loadClass('net.minecraft.client.Minecraft');
+const px = s => MinecraftClient.getInstance().font.width(String(s));
 
 ItemEvents.modifyTooltips(event => {
     const shiftMessage = Text.join([
@@ -35,28 +42,32 @@ ItemEvents.modifyTooltips(event => {
         return words.filter(w => w.length);
     };
 
-    // Word-wraps text (supports \n and _highlights_) into Text lines.
+    // Word-wraps text (supports \n and _highlights_) into Text lines,
+    // measuring real pixel width so any font works.
     // colors = { base, hl } so it works for both gold and gray text.
     const createLines = (str, colors, indent) => {
         const lines = [];
         const pad = indent || '';
+        const padPx = px(pad);
+        const spacePx = px(' ');
+
         str.split('\n').forEach(paragraph => {
             if (paragraph === '') { lines.push(Text.of('')); return; }
 
-            let cur = [], len = 0;
+            let cur = [], width = padPx;
             const flush = () => {
                 const line = Text.of(pad).color(colors.base);
                 cur.forEach(p => line.append(Text.of(p.t).color(p.hl ? colors.hl : colors.base)));
                 lines.push(line);
-                cur = []; len = 0;
+                cur = []; width = padPx;
             };
 
             parseWords(paragraph).forEach(word => {
-                const wl = word.reduce((a, p) => a + p.t.length, 0);
-                if (cur.length && len + 1 + wl > CREATE_WIDTH) flush();
-                if (cur.length) { cur.push({ t: ' ', hl: false }); len++; }
+                const wordPx = word.reduce((a, p) => a + px(p.t), 0);
+                if (cur.length && width + spacePx + wordPx > CREATE_MAX_PX) flush();
+                if (cur.length) { cur.push({ t: ' ', hl: false }); width += spacePx; }
                 word.forEach(p => cur.push(p));
-                len += wl;
+                width += wordPx;
             });
             if (cur.length) flush();
         });
@@ -170,19 +181,18 @@ ItemEvents.modifyTooltips(event => {
 
     addShiftTooltip('oreganized:lead_bolt', "A stronger, _crossbow-exclusive_ arrow. Must be held in your _offhand_ in order to be loaded.");
 
-
     addShiftTooltip('vc_gliders:copper_upgrade', "Protects gliders from _extreme weather_.\n\nCan be applied at an _Anvil_.");
     addShiftTooltip('vc_gliders:nether_upgrade', "Protects gliders from _extreme heat_.\n\nCan be applied at an _Anvil_.");
 
-
     addShiftTooltip('utopia:soul_token', "A piece of your presence in this world. Best to keep this very, very safe.");
 
+    addShiftTooltip('utopia:letter_of_invitation', "A magic envelope that _announces vacancy_ to your town.\n\nVillagers will appear with success relative to the _safety of the dimension_ it's used in.");
     addCreateTooltip('utopia:hammer', {
-        summary: 'Allows you to modify the state of _Walls_, _Fences_, _Panes_, _Trapdoors_ and _Lamps_.',
+        summary: 'Allows you to modify the state of _Walls_, _Stairs_, _Fences_, _Panes_, _Trapdoors_ and _Lamps_.',
         conditions: [
             {
                 condition: 'When used on Blocks',
-                behavior: '_Right Click_ to modify. _Crouch + Left Click_ to save state. _Crouch + Right Click_ to apply state.'
+                behavior: 'Modifies the state of some blocks. _Sneaking_ and _left-clicking_ will save the state of the block. _Sneaking_ and _left-clicking_ will apply the saved state.'
             }
         ]
     });

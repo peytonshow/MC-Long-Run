@@ -28,15 +28,6 @@ ServerEvents.recipes(event => {
         'minecraft:sand',
         'utopia:silica_dust'
     );
-    event.replaceInput({
-            input: 'supplementaries:soap',
-            not: [
-                { output: 'supplementaries:soap_block' }
-            ]
-        },
-        'supplementaries:soap',
-        Ingredient.of(['supplementaries:soap', 'utopia:beaker_bleach'])
-    );
 
     event.replaceInput(
         [

@@ -9,6 +9,12 @@ ServerEvents.recipes(event => {
         result: 'utopia:nitrogen',
         amount: 200
     })
+    pouring(event, {
+        fluid: 'utopia:nitrogen',
+        amount: 200,
+        container: 'utopia:beaker',
+        output: 'utopia:beaker_nitrogen'
+    })
 
     // Gunpowder
     event.recipes.create.crushing([
@@ -23,7 +29,7 @@ ServerEvents.recipes(event => {
     ], [
         '4x minecraft:sugar',
         'minecraft:coal'
-    ]).heated()
+    ])
     event.recipes.create.mixing([
         CreateItem.of('3x minecraft:gunpowder')
     ], [
@@ -35,7 +41,7 @@ ServerEvents.recipes(event => {
         CreateItem.of('3x minecraft:gunpowder'),
         [
         'utopia:sulfur_dust',
-        'minecraft:coal',
+        Ingredient.of('#minecraft:coals'),
         'utopia:ammonium_nitrate'
     ]).heated()
     event.recipes.create.mixing([
@@ -48,13 +54,14 @@ ServerEvents.recipes(event => {
 
     replaceRecipe(event, { output: 'create:rose_quartz', type: 'create:mixing' },
         () => event.recipes.create.mixing([
-            CreateItem.of('create:rose_quartz', 0.83)
+            CreateItem.of('create:rose_quartz', 0.80),
+            CreateItem.of('utopia:garbage', 0.20)
         ], [
-            'minecraft:quartz',
-            '8x minecraft:glowstone_dust',
-            Fluid.of('utopia:nitric_acid', 200),
-            'create:experience_nugget'
-        ]).processingTime(200)
+            'minecraft:quartz',                 // seed crystal
+            '4x utopia:silica_dust',            // silica nutrient
+            '2x supplementaries:ash',           // K2CO3 mineralizer + trace Mn
+            Fluid.water(500)
+        ]).processingTime(6000).heated()
     )
 
     // Silica
@@ -118,13 +125,11 @@ ServerEvents.recipes(event => {
     }
 
     event.recipes.create.filling('supplementaries:lumisene_bottle', [Fluid.of('supplementaries:lumisene', 250), 'minecraft:glass_bottle'])
-
-    event.recipes.create.compacting([
+    
+    event.recipes.create.emptying([
         'minecraft:glass_bottle',
         Fluid.of('utopia:nitrogen', 50),
-    ], [
-        'quark:cloud',
-    ])
+    ], 'quark:cloud')
     event.recipes.create.mixing([
         Fluid.of('utopia:propylene_glycol', 1000)
     ], [
@@ -185,16 +190,6 @@ ServerEvents.recipes(event => {
         Fluid.of('utopia:hydrogen', 600)
     ]).heated()
     // Ostwald Process
-    event.recipes.create.mixing([
-        Fluid.of('utopia:ammonia', 400),
-        '9x utopia:platinum_nugget'
-    ], [
-        Fluid.of('utopia:nitric_acid', 200),
-        Fluid.of('utopia:oxygen', 200),
-        'utopia:platinum_ingot'
-    ]).processingTime(100)
-
-    // Wind Maker
     event.recipes.create.mixing([
         Fluid.of('utopia:ammonia', 400),
         '9x utopia:platinum_nugget'

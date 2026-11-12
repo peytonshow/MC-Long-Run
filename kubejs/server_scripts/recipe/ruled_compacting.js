@@ -13,6 +13,17 @@ const ITEM_PAIRS = [
 
     { a: "nirvana:hemp_crate", b: "9x nirvana:hemp", packing: "farmersdelight:canvas" },
     { a: "nirvana:weed_crate", b: "9x nirvana:weed_crate", packing: "farmersdelight:canvas" },
+
+    { a: "quark:cocoa_beans_sack", b: "9x minecraft:cocoa_beans", packing: "farmersdelight:canvas" },
+    { a: "quark:nether_wart_sack", b: "9x minecraft:nether_wart", packing: "farmersdelight:canvas" },
+    { a: "quark:gunpowder_sack", b: "9x minecraft:gunpowder", packing: "farmersdelight:canvas" },
+    { a: "quark:berry_sack", b: "9x minecraft:sweet_berries", packing: "farmersdelight:canvas" },
+    { a: "quark:glowberry_sack", b: "9x minecraft:glow_berries", packing: "farmersdelight:canvas" },
+    { a: "farmersdelight:rice_bag", b: "9x farmersdelight:rice", packing: "farmersdelight:canvas" },
+
+    { a: "quark:sugar_cane_block", b: "9x minecraft:sugar_cane", packing: Ingredient.of("#utopia:twine") },
+
+    { a: "oreganized:lead_bolt_crate", b: "9x oreganized:lead_bolt", packing: "create:cardboard" },
 ];
 
 // ===================== ENGINE (shouldn't need edits) =====================

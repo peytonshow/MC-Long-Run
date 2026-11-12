@@ -5,41 +5,45 @@ function replaceRecipe(event, filter, ...adders) {
 
 ServerEvents.recipes(event => {
 
-    const recipes = [
-        { id: 'polished_dark_oak_wood', material: 'minecraft:dark_oak_planks', functional: 'minecraft:cartography_table' },
-        { id: 'loominum_paneling', material: 'minecraft:oak_planks', functional: 'minecraft:loom' },
-        { id: 'loominum_polished', material: 'minecraft:oak_planks', functional: 'minecraft:loom' },
-        { id: 'spruce_paneling', material: 'minecraft:spruce_planks', functional: 'minecraft:barrel' },
-        { id: 'spruce_polished', material: 'minecraft:spruce_planks', functional: 'minecraft:barrel' },
-        { id: 'smithistone_paneling', material: 'minecraft:smooth_stone', functional: 'minecraft:smithing_table' },
-        { id: 'smithistone_polished', material: 'minecraft:smooth_stone', functional: 'minecraft:smithing_table' },
-        { id: 'lodium', material: 'minecraft:chiseled_stone_bricks', functional: 'minecraft:lodestone' },
-        { id: 'hivium_paneling', material: 'minecraft:oak_planks', functional: 'minecraft:beehive' },
-        { id: 'hivium_polished', material: 'minecraft:oak_planks', functional: 'minecraft:beehive' },
-        { id: 'hivium_paneling', material: 'minecraft:oak_planks', functional: 'minecraft:beehive' },
-        { id: 'hivium_polished', material: 'minecraft:oak_planks', functional: 'minecraft:beehive' },
-        { id: 'wormwood_paneling', material: 'minecraft:oak_planks', functional: 'minecraft:chiseled_bookshelf' },
-        { id: 'wormwood_polished', material: 'minecraft:oak_planks', functional: 'minecraft:chiseled_bookshelf' },
-        { id: 'blastar_polished', material: 'minecraft:smooth_stone', functional: 'minecraft:blast_furnace' },
-        { id: 'poster_paneling', material: 'minecraft:jungle_planks', functional: 'minecraft:composter' },
-        { id: 'poster_polished', material: 'minecraft:jungle_planks', functional: 'minecraft:composter' },
-        { id: 'solstice_paneling', material: 'minecraft:dark_oak_planks', functional: 'minecraft:daylight_detector' },
-    ]
 
-    recipes.forEach(recipe => {
-        event.shaped(`16x utopia:${recipe.id}`, [
-            'AAA',
-            'ABA',
-            'AAA'
-        ], {
-            A: recipe.material,
-            B: recipe.functional
+    const families = [
+        { functional: 'minecraft:cartography_table', variants: ['polished_dark_oak_wood'] },
+        { functional: 'minecraft:loom', variants: ['loominum_paneling', 'loominum_polished'] },
+        { functional: 'minecraft:barrel', variants: ['spruce_paneling', 'spruce_polished'] },
+        { functional: 'minecraft:smithing_table', variants: ['smithistone_paneling', 'smithistone_polished'] },
+        { functional: 'minecraft:lodestone', variants: ['lodium'] },
+        { functional: 'minecraft:beehive', variants: ['hivium_paneling', 'hivium_polished'] },
+        { functional: 'minecraft:chiseled_bookshelf', variants: ['wormwood_paneling', 'wormwood_polished'] },
+        { functional: 'minecraft:blast_furnace', variants: ['blastar_polished'] },
+        { functional: 'minecraft:composter', variants: ['poster_paneling', 'poster_polished'] },
+        { functional: 'minecraft:daylight_detector', variants: ['solstice_paneling'] },
+    ].forEach(family => {
+        family.variants.forEach(id => {
+            event.stonecutting(`16x utopia:${id}`, family.functional)
+        })
+
+        family.variants.forEach(from => {
+            family.variants.forEach(to => {
+                if (from !== to) {
+                    event.stonecutting(`utopia:${to}`, `utopia:${from}`)
+                }
+            })
         })
     })
 
+    replaceRecipe(event, { output: 'minecraft:light_gray_concrete_powder' },
+        () => event.shapeless('8x minecraft:light_gray_concrete_powder', [
+            '4x minecraft:sand',
+            '4x minecraft:gravel'
+        ])
+    )
+
+
     replaceRecipe(event, { output: 'minecraft:mud', type: 'create:mixing' },
-        () => event.recipes.create.mixing('minecraft:mud', [['minecraft:dirt','minecraft:coarse_dirt','minecraft:rooted_dirt'], Fluid.water(100)])
-            .processingTime(12)
+        () => event.recipes.create.mixing('minecraft:mud', [
+            ['minecraft:dirt', 'minecraft:coarse_dirt', 'minecraft:rooted_dirt'], Fluid.water(100)]).processingTime(12),
+        () => event.recipes.create.splashing(CreateItem.of('minecraft:mud', 0.4),
+            Ingredient.of(['minecraft:dirt', 'minecraft:coarse_dirt', 'minecraft:rooted_dirt']))
     )
     event.recipes.create.compacting( 'minecraft:packed_mud', '4x minecraft:mud').heated()
 
@@ -109,10 +113,12 @@ ServerEvents.recipes(event => {
     )
  
     // girders
-    replaceRecipe(event, 
-        { output: 'create:metal_girder' },
+    replaceRecipe(event, { output: 'create:metal_girder' },
         () => event.recipes.stonecutting('3x create:metal_girder', 'create:industrial_iron_block')
     )
+
+    // Calcite / Aka Calcium-basically-carbonate
+    event.recipes.create.mixing(['3x minecraft:calcite'], ['3x supplementaries:ash','3x minecraft:bone_meal', Fluid.of('minecraft:water', 100)]).processingTime(80)
 
     // Ash Brick
     event.recipes.create.pressing('supplementaries:ash_brick','supplementaries:ash')
@@ -125,7 +131,65 @@ ServerEvents.recipes(event => {
         S: 'minecraft:smooth_stone'
     })
     event.stonecutting('utopia:smooth_stone_stairs', 'minecraft:smooth_stone')
+    event.shaped('6x utopia:smooth_stone_wall', [
+        '   ',
+        'SSS',
+        'SSS'
+    ], {
+        S: 'minecraft:smooth_stone'
+    })
+    event.stonecutting('utopia:smooth_stone_wall', 'minecraft:smooth_stone')
+
+    // Decraft
+    event.stonecutting('minecraft:smooth_stone', '#utopia:stone_types/smooth_stone')
+    event.stonecutting('utopia:polished_flint', '#utopia:stone_types/polished_flint')
+    event.stonecutting('minecraft:packed_mud', '#utopia:stone_types/packed_mud')
+    event.stonecutting('minecraft:bricks', '#utopia:stone_types/bricks')
  
+    replaceRecipe(event, { output: 'minecraft:redstone_lamp' },
+        () => event.shaped('2x minecraft:redstone_lamp', [
+            ' B ',
+            'BAB',
+            ' B '
+        ], {
+            A: 'minecraft:glowstone',
+            B: 'minecraft:redstone'
+        })
+    )
+
+    replaceRecipe(event, { output: 'supplementaries:flower_box' },
+        () => event.shaped('2x supplementaries:flower_box', [
+            '   ',
+            'AAA',
+            'BBB'
+        ], {
+            A: 'minecraft:flower_pot',
+            B: '#minecraft:wooden_slabs'
+        })
+    )
+
+    replaceRecipe(event, { output: 'create:ornate_iron_window' },
+        () => event.shaped('3x create:ornate_iron_window', [
+            ' A ',
+            'ABA',
+            '   '
+        ], {
+            A: '#utopia:metal_beads',
+            B: 'minecraft:glass',
+        })
+    )
+    replaceRecipe(event, { output: 'create:industrial_iron_window' },
+        () => event.shaped('3x create:industrial_iron_window', [
+            ' A ',
+            'ABA',
+            '   '
+        ], {
+            A: 'create:industrial_iron_block',
+            B: 'minecraft:glass'
+        })
+    )
+        
+
     event.shaped('minecraft:gilded_blackstone', [
         'ABA',
         'BCB',
@@ -144,13 +208,13 @@ ServerEvents.recipes(event => {
         B: 'oreganized:silver_ingot',
         C: 'minecraft:cinnabar'
     })
-    event.shaped('utopia:sea_salt_lamp', [
-        'AAA',
+    event.shaped('4x utopia:sea_salt_lamp', [
+        ' A ',
         'ABA',
-        'AAA'
+        ' A '
     ], {
         A: 'utopia:sea_salt_block',
-        B: 'minecraft:sea_lantern'
+        B: 'minecraft:torch'
     })
  
     event.shaped(Item.of('minecraft:verdant_froglight', 4), [

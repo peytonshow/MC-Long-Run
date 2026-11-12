@@ -1,6 +1,30 @@
-ServerEvents.tags('item', event => {
+// ServerEvents.tags('item', event => {
+//     // Seeds
+//     event.add('utopia:seed_common', [
+//             'minecraft:wheat_seeds'
+//     ] )
 
-    //7574201914505645599
+//     event.add('utopia:seed_uncommon', [
+//             'supplementaries:flax_seeds',
+//             'farmersdelight:tomato_seeds',
+//             'farmersdelight:cabbage_seeds',
+//     ] )
+
+//     event.add('utopia:seed_rare', [
+//             'minecraft:pumpkin_seeds',
+//             'farmersdelight:rice_panicle',
+//             'farmersdelight:onion',
+//     ] )
+
+//     event.add('utopia:seed_epic', [
+//             'minecraft:beetroot_seeds',
+//             'minecraft:potato',
+//             'minecraft:carrot',
+//     ] )
+
+// })
+
+ServerEvents.tags('item', event => {
     const addBill = (item) => {
         event.add('utopia:bills', item)
         event.add('utopia:currency', item)
@@ -21,6 +45,7 @@ ServerEvents.tags('item', event => {
     };
 
     
+    event.add('c:hidden_from_recipe_viewers', 'artifacts:artifacts')
 
     const makeKindaNotSword = (item) => {
         event.removeAllTagsFrom(item)
@@ -35,28 +60,12 @@ ServerEvents.tags('item', event => {
     makeWashable('utopia:detective_shoes')
 
     event.add('c:hidden_from_recipe_viewers', 'utopia:shattered_crown')
-    // event.add('c:hidden_from_recipe_viewers', 'utopia:used_handcuffs')
-    // event.add('c:hidden_from_recipe_viewers', 'utopia:used_shackles')
-    event.add('c:hidden_from_recipe_viewers', 'brewinandchewin:pizza')
-    event.add('c:hidden_from_recipe_viewers', 'farmersdelight:wheat_dough')
-    event.add('c:hidden_from_recipe_viewers', 'vc_gliders:reinforced_paper_iron')
-    event.add('c:hidden_from_recipe_viewers', 'vc_gliders:reinforced_paper_gold')
-    event.add('c:hidden_from_recipe_viewers', 'vc_gliders:reinforced_paper_diamond')
-    event.add('c:hidden_from_recipe_viewers', 'vc_gliders:reinforced_paper_netherite')
-    event.add('c:hidden_from_recipe_viewers', 'frame_changer:crying_obsidian_brick_slab')
-    event.add('c:hidden_from_recipe_viewers', 'frame_changer:crying_polished_obsidian_stairs')
-    event.add('c:hidden_from_recipe_viewers', 'frame_changer:crying_obsidian_brick_stairs')
-    event.add('c:hidden_from_recipe_viewers', 'frame_changer:crying_polished_obsidian')
-    event.add('c:hidden_from_recipe_viewers', 'frame_changer:crying_polished_obsidian_wall')
-    event.add('c:hidden_from_recipe_viewers', 'frame_changer:crying_obsidian_bricks')
-    event.add('c:hidden_from_recipe_viewers', 'frame_changer:crying_obsidian_brick_wall')
-    event.add('c:hidden_from_recipe_viewers', 'frame_changer:crying_polished_obsidian_slab')
-    event.add('c:hidden_from_recipe_viewers', 'artifacts:eternal_steak')
-    event.add('c:hidden_from_recipe_viewers', 'artifacts:everlasting_beef')
-    event.add('c:hidden_from_recipe_viewers', 'unusual_furniture:discord')
-    // event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/way_sign_ancient')
-    // event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/cannon_boat_ancient')
-    // event.add('c:hidden_from_recipe_viewers', 'supplementaries:quark/ancient_boat')
+
+
+    event.add('c:tools', 'quark:trowel')
+    event.add('c:tools/trowel', 'quark:trowel')
+
+    
     event.add('utopia:circuitry', 'utopia:basic_circuit')
     event.add('utopia:circuitry', 'utopia:advanced_circuit')
 
@@ -93,6 +102,12 @@ ServerEvents.tags('item', event => {
     event.add('guardvillagers:convertable_guard_items', 'musketmod:musket_with_scope')
     event.add('guardvillagers:convertable_guard_items', 'musketmod:blunderbuss')
     event.add('guardvillagers:convertable_guard_items', 'musketmod:pistol')
+
+
+    event.remove('artifacts:artifacts', [
+        'artifacts:everlasting_beef',
+        'artifacts:eternal_steak'
+    ])
 
     event.remove('minecraft:enchantable/durability', [
         'utopia:platinum_sword',
@@ -203,6 +218,52 @@ ServerEvents.tags('item', event => {
         "supplementaries:ash",
         "utopia:silica_dust"
     ] )
+
+    event.add('curios:back', [
+        'musketmod:musket',
+        'musketmod:musket_with_bayonet',
+        'musketmod:musket_with_scope',
+        'musketmod:blunderbuss'
+    ])
+    event.add('curios:belt', 'musketmod:pistol')
+    event.add('curios:feet', 'musketmod:pistol')
+
+    // used in recipe decor for decrafting
+    event.add('utopia:stone_types/smooth_stone', [
+        // "minecraft:smooth_stone",
+        "utopia:smooth_stone_wall",
+        "utopia:smooth_stone_stairs",
+        
+    ] )
+    event.add('utopia:stone_types/polished_flint', [
+        "utopia:polished_flint",
+        "utopia:polished_flint_stairs",
+        "utopia:polished_flint_wall",
+        
+    ] )
+    event.add('utopia:stone_types/packed_mud', [
+        // "minecraft:packed_mud",
+        "minecraft:mud_bricks",
+        "minecraft:mud_brick_stairs",
+        "minecraft:mud_brick_wall",
+        "quark:mud_pillar",
+        "quark:carved_mud_bricks",
+    ] )
+    event.add('utopia:stone_types/bricks', [
+        // "minecraft:packed_mud",
+        "minecraft:bricks",
+        "minecraft:brick_stairs",
+        "minecraft:brick_wall"
+    ] )
+
+    // create buggin'
+    event.add('create:stone_types/granite', [
+        "minecraft:granite_stairs",
+        "minecraft:granite_wall",
+        "minecraft:polished_granite",
+        "minecraft:polished_granite_stairs"
+        
+    ] )
     //event.add('create:upright_on_belt', '#c:dusts')
 
     event.remove('minecraft:needs_stone_tool', 'quark:sturdy_stone')
@@ -210,6 +271,11 @@ ServerEvents.tags('item', event => {
     event.add('minecraft:mineable/pickaxe', 'quark:sturdy_stone')
 
     event.add('utopia:burlap', /^nirvana:.*woven_burlap.*$/)
+
+    event.add('utopia:soap', [
+        'supplementaries:soap',
+        'utopia:beaker_bleach'
+    ])
 })
 
 ServerEvents.tags('block', event => {

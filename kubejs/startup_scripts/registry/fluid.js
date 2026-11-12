@@ -16,7 +16,6 @@ StartupEvents.registry('fluid', event => {
     ['oxygen',           'Oxygen',           0xAFEEEE, 'gas',    {}],
     ['hydrogen',         'Hydrogen',         0xFFFFFF, 'gas',    {}],
     ['nitrogen',         'Nitrogen',         0xE0F7FA, 'gas',    {}],
-    // ['wind',             'Wind',             0x5AB8FF, 'gas',    {}],
     ['ammonia',          'Ammonia',          0x9D4EDD, 'gas',    { density: 2000, viscosity: 3000, slope: 3, overlay: true }],
     ['propylene_glycol', 'Propylene Glycol', 0x36454F, 'soupy',  { density: 2500, viscosity: 5000, slope: 2, overlay: true }],
     ['nitric_acid',      'Nitric Acid',      0x8B4513, 'watery', { density: 2000, viscosity: 2500, slope: 3, overlay: true }],

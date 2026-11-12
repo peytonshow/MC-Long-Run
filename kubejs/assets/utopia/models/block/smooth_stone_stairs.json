@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "minecraft:block/smooth_stone",
-    "side": "minecraft:block/smooth_stone_slab_side",
+    "side": "minecraft:block/smooth_stone_side",
     "top": "minecraft:block/smooth_stone"
   }
 }

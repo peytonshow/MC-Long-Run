@@ -43,6 +43,22 @@ function fermenting(event, o) {
     const recipe = event.custom(json)
     if (o.id) recipe.id(o.id)
 }
+function pouring(event, o) {
+    const json = {
+        type: 'brewinandchewin:keg_pouring',
+        fluid: { amount: o.amount || 250, id: o.fluid },
+        output: { count: o.count || 1, id: o.output },
+        unit: 'millibuckets'
+    }
+
+    if (o.components) json.output.components = o.components
+    if (o.container) json.container = { count: 1, id: o.container }
+    if (o.strict !== undefined) json.strict = o.strict
+    if (o.canFill !== undefined) json.can_fill = o.canFill
+
+    const recipe = event.custom(json)
+    if (o.id) recipe.id(o.id)
+}
 
 function cutting(event, input, output, count, tool) {
     // tool: a tag string ('c:tools/knife', the default) or a full tool object
@@ -152,17 +168,21 @@ ServerEvents.recipes(event => {
     )
 
 
+    replaceRecipe(event,
+        { type: 'minecraft:crafting_shapeless', input: 'supplementaries:bamboo_spikes_tipped', output: 'supplementaries:bamboo_spikes' },
+        () => event.shapeless('supplementaries:bamboo_spikes', ['supplementaries:bamboo_spikes_tipped', 'supplementaries:soap'])
+    )
+
     cutting(event, 'minecraft:terracotta', 'minecraft:brick', 4,
         { type: 'farmersdelight:item_ability', action: 'pickaxe_dig' })
 
     event.blasting('minecraft:terracotta', 'minecraft:clay').xp(0.35).cookingTime(100)
-    event.campfireCooking('minecraft:cookie', 'utopia:cookie_dough').xp(0.05).cookingTime(200).id('utopia:campfire/cookie_dough_camping')
-    event.campfireCooking('minecraft:brick', 'minecraft:clay_ball').xp(0.02).cookingTime(800).id('utopia:campfire/utop_brick')
-    event.campfireCooking('minecraft:charcoal', '#minecraft:logs_that_burn').xp(0.05).cookingTime(400).id('utopia:campfire/utop_charcoal_camping')
-    event.campfireCooking('minecraft:fire_charge', '#minecraft:coals').cookingTime(400).id('utopia:campfire/utop_firecharge_camping')
-    event.campfireCooking('minecraft:leather', 'minecraft:rotten_flesh').xp(0.15).cookingTime(1200).id('utopia:campfire/utop_leather_tanning')
-    event.campfireCooking('minecraft:terracotta', 'minecraft:clay').xp(0.1).cookingTime(1300).id('utopia:campfire/utop_terracotta')
-    event.campfireCooking('minecraft:cobblestone', 'minecraft:mossy_cobblestone').xp(0.1).cookingTime(250).id('utopia:campfire/utop_unmossy_cobblestone')
+    event.campfireCooking('minecraft:brick', 'minecraft:clay_ball').xp(0.02).cookingTime(200)
+    event.campfireCooking('minecraft:charcoal', '#minecraft:logs_that_burn').xp(0.05).cookingTime(100)
+    event.campfireCooking('minecraft:fire_charge', '#minecraft:coals').cookingTime(400)
+    event.campfireCooking('minecraft:leather', 'minecraft:rotten_flesh').xp(0.15).cookingTime(1200)
+    event.campfireCooking('minecraft:terracotta', 'minecraft:clay').xp(0.1).cookingTime(500)
+    event.campfireCooking('minecraft:cobblestone', 'minecraft:mossy_cobblestone').xp(0.1).cookingTime(250)
 
     replaceRecipe(event, { output: 'unusual_furniture:screw' },
         () => event.shaped(
@@ -238,6 +258,10 @@ ServerEvents.recipes(event => {
             CreateItem.of('minecraft:sugar'),
             CreateItem.of('minecraft:sugar', 0.25),
             CreateItem.of('create:pulp', 0.25),
+        ], 'minecraft:sugar_cane'),
+        () => event.recipes.create.crushing([
+            CreateItem.of('minecraft:sugar'),
+            CreateItem.of('minecraft:sugar', 0.1)
         ], 'minecraft:sugar_cane')
     )
 
@@ -342,14 +366,16 @@ ServerEvents.recipes(event => {
     }))
 
     // Chainmail
-    const armorParts = ['helmet', 'chestplate', 'leggings', 'boots'];
     armorParts.forEach(part => {
-      event.smithing(
-          `minecraft:chainmail_${part}`,
-          'minecraft:leather',
-          `minecraft:leather_${part}`,
-          '#c:chains'
-      )
+    event.smithing(
+        `minecraft:chainmail_${part}`,
+        'minecraft:leather',
+        `minecraft:leather_${part}`,
+        '#c:chains'
+    ).modifyResult((grid, stack) => {
+        stack.remove(Java.loadClass('net.minecraft.core.component.DataComponents').DYED_COLOR)
+        return stack
+    })
     });
 
     // Fiber unification
@@ -372,24 +398,29 @@ ServerEvents.recipes(event => {
             A: 'nirvana:hemp'
     }))
 
-    // Bones
-    replaceRecipe(event, { input: 'minecraft:bone_block', output: 'minecraft:bone_meal'},
-        () => event.shapeless(
-            Item.of('9x minecraft:bone'),
-            ['minecraft:bone_block']
-    ))
-    replaceRecipe(event, { output: 'minecraft:bone_block' },
-        () => event.shaped(
-            Item.of('minecraft:bone_block')
-            , [
-            'AAA',
-            'AAA',
-            'AAA'
-        ], {
-            A: 'minecraft:bone'
-    }))
-
     // Food
+    event.replaceInput({}, '#c:doughs', '#c:foods/dough')
+    event.campfireCooking('minecraft:cookie', 'utopia:cookie_dough').xp(0.05).cookingTime(200)
+    event.campfireCooking('utopia:roasted_seeds', ['#c:seeds', 'utopia:mixed_seeds']).xp(0.05).cookingTime(200)
+    event.recipes.create.milling([
+        CreateItem.of('supplementaries:flax_seeds', 0.25),
+        CreateItem.of('farmersdelight:tomato_seeds', 0.25),
+        CreateItem.of('farmersdelight:rice_panicle', 0.1),
+        CreateItem.of('minecraft:beetroot_seeds', 0.04),
+    ], 'utopia:mixed_seeds')
+    // const tiers = {
+    //     'utopia:seed_common': 0.5,
+    //     'utopia:seed_uncommon': 0.25,
+    //     'utopia:seed_rare': 0.1,
+    //     'utopia:seed_epic': 0.04
+    // }
+
+    // const results = []
+    // for (const tag in tiers) {
+    //     Ingredient.of('#' + tag).itemIds.forEach(id => results.push({ item: id, chance: tiers[tag] }))
+    // }
+    // cuttingMulti(event, 'utopia:mixed_seeds', 'minecraft:brush', results)
+
     replaceRecipe(event, { input: 'farmersdelight:pumpkin_slice', output: 'minecraft:pumpkin_pie'},
         () => event.shaped(
             Item.of('minecraft:pumpkin_pie')
@@ -728,9 +759,6 @@ ServerEvents.recipes(event => {
         ], [
         'minecraft:blackstone'
     ])
-
-    // Calcite / Aka Calcium-basically-carbonate
-    event.recipes.create.mixing(['3x minecraft:calcite'], ['3x supplementaries:ash','minecraft:bone', Fluid.of('minecraft:water', 100)]).processingTime(80)
 
     // Gravel
     event.recipes.create.crushing([
@@ -1200,13 +1228,14 @@ ServerEvents.recipes(event => {
  
     replaceRecipe(event, { output: 'brewinandchewin:keg' },
         () => event.shaped('brewinandchewin:keg', [
-            'ABA',
+            'BBB',
             'ACA',
-            'BBB'
+            'BDB'
         ], {
-            A: 'minecraft:iron_ingot',
+            A: ['minecraft:iron_ingot', 'create:zinc_ingot', 'create:brass_ingot'],
             B: '#minecraft:planks',
-            C: 'minecraft:honeycomb'
+            C: 'minecraft:barrel',
+            D: '#minecraft:wooden_slabs'
         })
     )
     replaceRecipe(event, { input: 'farmersdelight:cooked_bacon', output: 'brewinandchewin:quiche' },
@@ -1361,12 +1390,12 @@ ServerEvents.recipes(event => {
         })
     )
     replaceRecipe(event, { output: 'musketmod:cartridge' },
-        () => event.shapeless('musketmod:cartridge', [
+        () => event.shapeless('2x musketmod:cartridge', [
             '#utopia:metal_beads',
             '#utopia:metal_beads',
             'minecraft:gunpowder',
             'minecraft:paper'
-        ])
+        ]).id('utopia:musketmod_cartridge_manual_only').man
     )
     replaceRecipe(event, { output: 'musketmod:musket' },
         () => event.shaped('musketmod:musket', [

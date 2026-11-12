@@ -75,8 +75,16 @@ StartupEvents.registry('block', event => {
     .tagBlock('minecraft:mineable/pickaxe')
     .tagItem('utopia:decor')
 
-  // Smooth Stone Stairs
+  // Smooth Stone
   event.create('utopia:smooth_stone_stairs', 'stairs')
+    .hardness(2.0)
+    .resistance(6.0)
+    .soundType('stone')
+    .requiresTool(true)
+    .texture('utopia:block/smooth_stone_stair')
+    .tagBlock('minecraft:mineable/pickaxe')
+    .tagItem('utopia:decor')
+  event.create('utopia:smooth_stone_wall', 'wall')
     .hardness(2.0)
     .resistance(6.0)
     .soundType('stone')

@@ -69,13 +69,13 @@ ServerEvents.recipes(event => {
         ], [
             'minecraft:sand',
             '2x minecraft:quartz',
-            '5x minecraft:deepslate'
+            '5x minecraft:cobbled_deepslate'
     ]).superheated()
     event.recipes.create.compacting([
-        CreateItem.of('3x minecraft:tuff', 0.8)
+        CreateItem.of('3x minecraft:tuff', 0.75)
     ], [
         '10x minecraft:cobbled_deepslate',
-    ]).processingTime(40).superheated()
+    ]).processingTime(40).heated()
     event.remove({ input: 'minecraft:tuff', type: 'create:crushing'})
     event.recipes.create.mixing([
         Fluid.of('utopia:molten_slag', 100),
@@ -123,8 +123,7 @@ ServerEvents.recipes(event => {
             ],
             'create:powdered_obsidian',
             [
-                event.recipes.create.filling('create:unprocessed_obsidian_sheet',
-                    ['create:unprocessed_obsidian_sheet', Fluid.sizedIngredientOf('#utopia:sturdy_sheet_fluids', 50)]), // 
+                event.recipes.create.filling('create:unprocessed_obsidian_sheet',['create:unprocessed_obsidian_sheet', Fluid.sizedIngredientOf('#utopia:sturdy_sheet_fluids', 50)]), // 
                 event.recipes.create.pressing('create:unprocessed_obsidian_sheet', 'create:unprocessed_obsidian_sheet'),
                 event.recipes.create.pressing('create:unprocessed_obsidian_sheet', 'create:unprocessed_obsidian_sheet'),
             ]

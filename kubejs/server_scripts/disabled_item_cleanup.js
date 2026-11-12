@@ -14,8 +14,6 @@ const DISABLED_IDS = [
   'frame_changer:crying_obsidian_brick_wall',
   'frame_changer:crying_polished_obsidian_slab',
   'artifacts:lucky_scarf',
-  'artifacts:eternal_steak',
-  'artifacts:everlasting_beef',
   'supplementaries:quark/way_sign_ancient',
   'supplementaries:quark/cannon_boat_ancient',
   'supplementaries:quark/ancient_boat',

@@ -20,7 +20,7 @@
 
 // ---- Copper ----------------------------------------------------------------
 const COPPER_FLUID_ID = "utopia:nitric_acid";
-const COPPER_FLUID_MB = 1000; // mB consumed per recipe
+const COPPER_FLUID_MB = 50; // mB consumed per recipe
 
 // Manual spot for pairs the automatic search can't catch (e.g. items with no
 // "copper" in their id). Format: ["input_id", "output_id"]. Each pair becomes

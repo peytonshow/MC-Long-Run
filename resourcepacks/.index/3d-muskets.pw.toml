@@ -1,0 +1,69 @@
+filename = '3D Muskets 1.2.zip'
+name = '3D Muskets'
+side = 'client'
+x-prismlauncher-loaders = []
+x-prismlauncher-mc-versions = [
+    '1.20',
+    '1.20.1',
+    '1.20.2 Pre-Release 1',
+    '1.20.2-pre1',
+    '1.20.2',
+    '1.20.3',
+    '1.20.4',
+    '1.20.5 Pre-Release 1',
+    '1.20.5 Pre-Release 2',
+    '1.20.5 Pre-Release 3',
+    '1.20.5-pre1',
+    '1.20.5-pre2',
+    '1.20.5-pre3',
+    '1.20.5',
+    '1.20.6',
+    '1.21',
+    '1.21.1',
+    '23w14a',
+    '23w16a',
+    '23w31a',
+    '23w32a',
+    '23w33a',
+    '23w35a',
+    '23w42a',
+    '23w43a',
+    '23w43b',
+    '23w44a',
+    '23w45a',
+    '23w46a',
+    '24w03a',
+    '24w03b',
+    '24w04a',
+    '24w05a',
+    '24w05b',
+    '24w06a',
+    '24w07a',
+    '24w09a',
+    '24w10a',
+    '24w11a',
+    '24w12a',
+    '24w13a',
+    '24w14a',
+    '24w14potato',
+    '24w18a',
+    '24w19a',
+    '24w19b',
+    '24w20a'
+]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '1.2-Backport'
+
+[download]
+hash = '00c317ae5273defe892d810d60a3b08534584eafcafe9773a08d22865474dc913fda23e4b961e0bfe0b635758c63e41f79117c57701cb467a0c0be463e675311'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/CnHKbzuv/versions/ybI8ZejG/3D Muskets 1.2.zip'
+
+[update.modrinth]
+mod-id = 'CnHKbzuv'
+version = 'ybI8ZejG'
+
+[[x-prismlauncher-dependencies]]
+addonId = '967vM4zw'
+type = 'REQUIRED'

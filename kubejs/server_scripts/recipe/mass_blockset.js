@@ -21,15 +21,6 @@ ServerEvents.recipes(event => {
   })
 
   // Keystones to Blocksets
-    event.shaped(
-            Item.of('4x utopia:polished_flint')
-            , [
-            'AA ',
-            'AA ',
-            '   '
-        ], {
-            A: 'supplementaries:flint_block'
-    })
-    event.recipes.stonecutting('utopia:polished_flint', 'supplementaries:flint_block')
+    event.recipes.stonecutting('4x utopia:polished_flint', 'supplementaries:flint_block')
 })
  

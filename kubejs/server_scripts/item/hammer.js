@@ -6,6 +6,7 @@ const HAMMERABLE_TAG = 'utopia:hammerable'
 const ENABLE_CONNECTORS = true
 const ENABLE_TRAPDOORS  = true
 const ENABLE_LIT        = true
+const ENABLE_STAIRS     = true
 
 const SIDES = ['north', 'east', 'south', 'west']
 
@@ -20,6 +21,7 @@ const POST_REACH = 0.26   // post is 0.25 each way from the block center, plus a
 const $CrossCollisionBlock = Java.loadClass('net.minecraft.world.level.block.CrossCollisionBlock')
 const $WallBlock = Java.loadClass('net.minecraft.world.level.block.WallBlock')
 const $TrapDoorBlock = Java.loadClass('net.minecraft.world.level.block.TrapDoorBlock')
+const $StairBlock = Java.loadClass('net.minecraft.world.level.block.StairBlock')
 const $EntityBlock = Java.loadClass('net.minecraft.world.level.block.EntityBlock')
 const $BuiltInRegistries = Java.loadClass('net.minecraft.core.registries.BuiltInRegistries')
 const $Component = Java.loadClass('net.minecraft.network.chat.Component')
@@ -56,6 +58,10 @@ function classify(b, id) {
         && b instanceof $TrapDoorBlock
         && isHandproofTrapdoor(id)
         && getProp(b, 'open') != null) return 'trapdoor'
+
+    if (ENABLE_STAIRS
+        && b instanceof $StairBlock
+        && getProp(b, 'shape') != null) return 'stairs'
 
     if (ENABLE_LIT
         && getProp(b, 'lit') != null
@@ -101,9 +107,17 @@ function pickSide(event) {
     return dz > 0 ? 'south' : 'north'
 }
 
+// Stairs: top/bottom face rotates the stair, any side face cycles its shape.
+function stairProp(event) {
+    const hit = event.hit
+    const face = String((hit == null ? event.facing : hit.getDirection()).getSerializedName())
+    return (face == 'up' || face == 'down') ? 'facing' : 'shape'
+}
+
 function propsFor(type, block) {
     if (type == 'trapdoor') return ['open']
     if (type == 'lit') return ['lit']
+    if (type == 'stairs') return ['facing', 'half', 'shape']
     return getProp(block, 'up') != null ? SIDES.concat(['up']) : SIDES
 }
 
@@ -151,7 +165,8 @@ BlockEvents.rightClicked(event => {
 
     let sideName = null
     if (type == 'connector') sideName = pickSide(event)
-    const prop = getProp(state.block, type == 'connector' ? sideName : propsFor(type, state.block)[0])
+    else if (type == 'stairs') sideName = stairProp(event)
+    const prop = getProp(state.block, sideName != null ? sideName : propsFor(type, state.block)[0])
 
     let next = null
     let reason = null
@@ -187,12 +202,20 @@ BlockEvents.leftClicked(event => {
     const type = start(event)
     if (type == null) return
 
+    const state = block.blockState
+
     if (!player.isCrouching()) {
+        if (type == 'stairs') {
+            const half = getProp(state.block, 'half')
+            const next = state.cycle(half)
+            block.level.setBlock(block.pos, next, 18)
+            say(player, 'half', String(next.getValue(half)))
+            player.cooldowns.addCooldown(stack.item, COOLDOWN_TICKS)
+        }
         event.cancel()
         return
     }
 
-    const state = block.blockState
     const props = {}
     propsFor(type, state.block).forEach(name => {
         const prop = getProp(state.block, name)

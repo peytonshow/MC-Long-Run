@@ -1,11 +1,11 @@
 [animation]
-	enable_first_person_view_animation = false
 	enable = true
 	enable_camera_animation = true
+	enable_first_person_view_animation = true
 
 	[animation.availability]
+		"parcool:crawl" = false
 		"parcool:fast_run" = true
-		"parcool:crawl" = true
 		"parcool:dodge_right" = true
 		"parcool:dodge_front" = true
 		"parcool:dodge_back" = true
