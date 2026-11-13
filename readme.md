@@ -3,7 +3,7 @@
 ##   Goals              - :
 * Ongoing struggle for survival, early progression is longer.
 * Introducing underutilized mechanics into progrssion, and unifying mechanics across mods.
-* Strong performance on all systems. And additional client is available with less fluff.
+* Strong performance on all systems. An additional client is available with less fluff.
 * Built for multiplayer, with the goal of reducing individualist self-sustainment in exchange for player interaction build upon specialization.
 * Automation and logistics are central. Automation shouldn't produce infinite resources from nothing (with a few exceptions). Late game struggles revolve around supply chains.
 * Offer players the tools to naturally build a society through currency, deals, and self governing.
@@ -12,9 +12,10 @@
 * Rework of many recipes and progression.
 * Added Chemical Processing
 * Added Chipmaking
-* Added Forging
+* Added Metalworking
 * Reworked all trades
 * Reworked ore spawning
+* Expanded selection of decor blocks.
 
 ##   Credit             - :
 
