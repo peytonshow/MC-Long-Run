@@ -97,20 +97,19 @@ StartupEvents.registry('block', event => {
 
 StartupEvents.registry('block', event => {
   [
-    ['wormwood_paneling', 'wood', 'basic'],      // chiseled_bookshelf_top
-    ['wormwood_polished', 'wood', 'cardinal'],   // chiseled_bookshelf_side
+    ['wormwood_paneling', 'wood', 'cardinal'],      // chiseled_bookshelf_top
+    ['wormwood_polished', 'wood', 'basic'],   // chiseled_bookshelf_side
     ['blastar_polished', 'stone', 'basic'],      // blast_furnace_top
-    ['poster_paneling', 'wood', 'basic'],        // composter sides
+    ['poster_paneling', 'wood', 'pillar'],        // composter sides
     ['poster_polished', 'wood', 'basic'],        // composter bottom
     ['solstice_paneling', 'wood', 'basic'],      // daylight_detector_top
-    ['hivium_paneling', 'wood', 'basic'],        // beehive_top (ends) & beehive_side (sides)
-    ['hivium_polished', 'wood', 'basic'],        // beehive_top
+    ['honeywood_polished', 'wood', 'basic'],        // beehive_top (ends) & beehive_side (sides)
     ['loominum_paneling', 'wood', 'basic'],      // loom_side
     ['loominum_polished', 'wood', 'basic'],      // loom_bottom
     ['spruce_paneling', 'wood', 'pillar'],       // barrel_bottom (ends) & barrel_side (sides)
     ['spruce_polished', 'wood', 'basic'],        // barrel_bottom
-    ['polished_dark_oak_wood', 'wood', 'basic'], // cartography_table_side3
-    ['smithistone_paneling', 'stone', 'basic'],  // smithing_table_bottom
+    ['cartar_polished', 'wood', 'cardinal'], // cartography_table_side3
+    ['smithistone_tiles', 'stone', 'basic'],  // smithing_table_bottom
     ['smithistone_polished', 'stone', 'basic'],  // smithing_table_top
     ['lodium', 'stone', 'basic'],                // lodestone_top
   ].forEach(([id, type, builderType]) => {

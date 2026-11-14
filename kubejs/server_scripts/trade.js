@@ -5,8 +5,8 @@
 //   { level, group, in1, in2?, trade, uses? }
 //
 //   level   - villager level 1-5
-//   group   - "unlimited" | "shipment" | "singleton" | "legendary"  (sets villager XP, see XP_BY_GROUP)
-//               unlimited - infinitely producible via farming or crops (no metals), 1 XP
+//   group   - "mass_produce" | "shipment" | "singleton" | "legendary"  (sets villager XP, see XP_BY_GROUP)
+//               mass_produce - infinitely producible via farming or crops (no metals), 1 XP
 //               shipment  - partly infinite, 5 XP
 //               singleton - bought only once, or rarely, 10 XP
 //               legendary - the rarest trades, bought only once, or never, 50 XP
@@ -35,24 +35,24 @@ const BOOKS = [
     "minecraft:channeling", "minecraft:multishot", "minecraft:quick_charge", "minecraft:piercing", "minecraft:mending",
 ];
 
-const XP_BY_GROUP = { unlimited: 1, shipment: 5, singleton: 10, legendary: 50 };
-const USES_BY_GROUP = { unlimited: 20, shipment: 12, singleton: 3, legendary: 1 };
+const XP_BY_GROUP = { mass_produce: 1, shipment: 5, singleton: 10, legendary: 50 };
+const USES_BY_GROUP = { mass_produce: 18, shipment: 12, singleton: 3, legendary: 1 };
 
 const TRADES = {
     farmer: [
-        { level: 1, group: "unlimited", in1: ["x2 minecraft:hay_block", "x2 supplementaries:flax_block"], trade: "x2 minecraft:emerald" },
-        { level: 1, group: "unlimited", in1: ["x2 farmersdelight:potato_crate", "x2 farmersdelight:straw_bale"], trade: "minecraft:emerald" },
+        { level: 1, group: "mass_produce", in1: ["x2 minecraft:hay_block", "x2 supplementaries:flax_block"], trade: "x2 minecraft:emerald" },
+        { level: 1, group: "mass_produce", in1: ["x2 farmersdelight:potato_crate", "x2 farmersdelight:straw_bale"], trade: "minecraft:emerald" },
 
-        { level: 2, group: "unlimited", in1: ["x4 farmersdelight:carrot_crate", "x4 farmersdelight:tomato_crate"], trade: "x6 minecraft:emerald" },
-        { level: 2, group: "unlimited", in1: ["x4 quark:berry_sack", "x4 quark:apple_crate"], trade: "x4 minecraft:emerald" },
-        { level: 2, group: "unlimited", in1: "x3 quark:glowberry_sack", trade: "x4 minecraft:emerald" },
-        { level: 2, group: "unlimited", in1: "x6 minecraft:cactus", trade: "x4 minecraft:emerald" },
+        { level: 2, group: "mass_produce", in1: ["x4 farmersdelight:carrot_crate", "x4 farmersdelight:tomato_crate"], trade: "x6 minecraft:emerald" },
+        { level: 2, group: "mass_produce", in1: ["x4 quark:berry_sack", "x4 quark:apple_crate"], trade: "x4 minecraft:emerald" },
+        { level: 2, group: "mass_produce", in1: "x3 quark:glowberry_sack", trade: "x4 minecraft:emerald" },
+        { level: 2, group: "mass_produce", in1: "x6 minecraft:cactus", trade: "x4 minecraft:emerald" },
 
-        { level: 3, group: "unlimited", in1: ["x16 quark:sugar_cane_block", "x16 quark:cocoa_beans_sack"], trade: "x28 minecraft:emerald" },
-        { level: 3, group: "unlimited", in1: ["x16 minecraft:melon", "x16 minecraft:pumpkin"], trade: "x8 minecraft:emerald" },
+        { level: 3, group: "mass_produce", in1: ["x16 quark:sugar_cane_block", "x16 quark:cocoa_beans_sack"], trade: "x28 minecraft:emerald" },
+        { level: 3, group: "mass_produce", in1: ["x16 minecraft:melon", "x16 minecraft:pumpkin"], trade: "x8 minecraft:emerald" },
 
-        { level: 4, group: "unlimited", in1: ["x22 farmersdelight:rice_bag", "x22 supplementaries:sugar_cube", "x22 quark:nether_wart_sack"], trade: "x42 minecraft:emerald" },
-        { level: 4, group: "unlimited", in1: ["x20 farmersdelight:cabbage_crate", "x20 farmersdelight:onion_crate"], trade: "x30 minecraft:emerald" },
+        { level: 4, group: "mass_produce", in1: ["x22 farmersdelight:rice_bag", "x22 supplementaries:sugar_cube", "x22 quark:nether_wart_sack"], trade: "x42 minecraft:emerald" },
+        { level: 4, group: "mass_produce", in1: ["x20 farmersdelight:cabbage_crate", "x20 farmersdelight:onion_crate"], trade: "x30 minecraft:emerald" },
 
         // Golden crates contain gold (a metal), so these are only partly infinite
         { level: 5, group: "shipment", in1: "x1 quark:golden_apple_crate", trade: "x2 utopia:ruby" },
@@ -87,10 +87,10 @@ const TRADES = {
                 ],
             },
         },
-        { level: 2, group: "shipment", in1: "x5 minecraft:emerald", trade: "musketmod:cartridge" },
+        { level: 2, group: "shipment", in1: "x8 minecraft:emerald", trade: "musketmod:cartridge" },
         { level: 2, group: "shipment", in1: "x13 minecraft:emerald", trade: "minecraft:crossbow" },
 
-        { level: 3, group: "shipment", in1: "x58 minecraft:emerald", trade: "x20 musketmod:cartridge" },
+        { level: 3, group: "shipment", in1: "x20 minecraft:emerald", trade: "x3 musketmod:cartridge" }, // 58 -> 20
         {
             level: 3, group: "shipment", in1: "x5 minecraft:emerald",
             trade: {
@@ -123,8 +123,8 @@ const TRADES = {
                 components: 'custom_data={name:"Capital: ???",dim:"utopia:capital",x:-76.5d,y:36.0d,z:-68.5d}',
             },
         },
-        { level: 1, group: "unlimited", in1: "x4 minecraft:rotten_flesh", trade: "minecraft:emerald" },
-        { level: 1, group: "unlimited", in1: "x2 minecraft:leather", trade: "minecraft:emerald" },
+        { level: 1, group: "mass_produce", in1: "x4 minecraft:rotten_flesh", trade: "minecraft:emerald" },
+        { level: 1, group: "mass_produce", in1: "x2 minecraft:leather", trade: "minecraft:emerald" },
         { level: 1, group: "shipment", in1: "minecraft:gold_ingot", trade: "minecraft:emerald" },
 
 
@@ -136,11 +136,11 @@ const TRADES = {
         { level: 3, group: "shipment", in1: "x4 minecraft:emerald", trade: "minecraft:glowstone" },
 
         { level: 4, group: "shipment", in1: "x30 minecraft:emerald", trade: "minecraft:turtle_scute" },
-        { level: 4, group: "unlimited", in1: "x16 minecraft:glass_bottle", trade: "x3 minecraft:emerald" },
-        { level: 4, group: "unlimited", in1: "x16 utopia:beaker", trade: "x10 minecraft:emerald" },
+        { level: 4, group: "mass_produce", in1: "x16 minecraft:glass_bottle", trade: "x3 minecraft:emerald" },
+        { level: 4, group: "mass_produce", in1: "x16 utopia:beaker", trade: "x10 minecraft:emerald" },
         { level: 4, group: "shipment", in1: "x6 minecraft:emerald", trade: "minecraft:ender_pearl" },
 
-        { level: 5, group: "unlimited", in1: "x20 quark:nether_wart_sack", trade: "x38 minecraft:emerald" },
+        { level: 5, group: "mass_produce", in1: "x20 quark:nether_wart_sack", trade: "x38 minecraft:emerald" },
         { level: 5, group: "singleton", in1: "x2 minecraft:diamond", trade: "utopia:ruby" },
         { level: 5, group: "singleton", in1: "x1 create:experience_block", in2: "x32 minecraft:emerald", trade: "x1 create_enchantment_industry:super_experience_block" },
     ],

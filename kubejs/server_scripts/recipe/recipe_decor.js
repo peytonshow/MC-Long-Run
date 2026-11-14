@@ -7,12 +7,12 @@ ServerEvents.recipes(event => {
 
 
     const families = [
-        { functional: 'minecraft:cartography_table', variants: ['polished_dark_oak_wood'] },
+        { functional: 'minecraft:cartography_table', variants: ['cartar_polished'] },
         { functional: 'minecraft:loom', variants: ['loominum_paneling', 'loominum_polished'] },
         { functional: 'minecraft:barrel', variants: ['spruce_paneling', 'spruce_polished'] },
-        { functional: 'minecraft:smithing_table', variants: ['smithistone_paneling', 'smithistone_polished'] },
+        { functional: 'minecraft:smithing_table', variants: ['smithistone_tiles', 'smithistone_polished'] },
         { functional: 'minecraft:lodestone', variants: ['lodium'] },
-        { functional: 'minecraft:beehive', variants: ['hivium_paneling', 'hivium_polished'] },
+        { functional: 'minecraft:beehive', variants: ['honeywood_polished'] },
         { functional: 'minecraft:chiseled_bookshelf', variants: ['wormwood_paneling', 'wormwood_polished'] },
         { functional: 'minecraft:blast_furnace', variants: ['blastar_polished'] },
         { functional: 'minecraft:composter', variants: ['poster_paneling', 'poster_polished'] },

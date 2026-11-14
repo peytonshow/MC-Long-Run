@@ -6,5 +6,6 @@
         "neoforge",
         "kubejs_create",
         "farmersdelight"
-    ]
+    ],
+    "probejs.hintsForLLM": true
 }

@@ -37,7 +37,7 @@
 		headlamp = true
 		#.
 		#Availability of the Chair blocks.
-		chairs = true
+		chairs = false
 		#.
 		#Availability of the tile decoration blocks.
 		tiles = true
@@ -49,7 +49,7 @@
 		industrialTruss = true
 		#.
 		#Availability of the Cogwheel Chain Carriage block.
-		cogwheelChainCarriage = true
+		cogwheelChainCarriage = false
 		#.
 		#Availability of the Cable Girder Strut block.
 		cableGirderStrut = true
