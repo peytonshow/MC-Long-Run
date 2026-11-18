@@ -14,17 +14,12 @@ ItemEvents.modification(event => {
         "minecraft:cooked_chicken",
         "minecraft:rabbit",
         "minecraft:cooked_rabbit",
-        "minecraft:cod",
         "minecraft:cooked_cod",
-        "minecraft:salmon",
         "minecraft:cooked_salmon",
-        "minecraft:pufferfish",
         "minecraft:bread",
         "minecraft:cake",
         "minecraft:pumpkin_pie",
         "supplementaries:pancake",
-        "minecraft:rotten_flesh",
-        "minecraft:spider_eye",
         "minecraft:mushroom_stew",
         "minecraft:beetroot_soup",
         "minecraft:rabbit_stew",
@@ -160,7 +155,7 @@ ItemEvents.modification(event => {
 
         }
     })
-   console.log("[Utopia] Altering stacks --- Total items to check: " + procStarting + " - Stacks altered to 16: " + procAltered + ".")
+    console.log("[Utopia] Altering stacks --- Total items to check: " + procStarting + " - Stacks altered to 16: " + procAltered + ".")
 
     event.modify('someassemblyrequired:sandwich', item => {
         item.maxStackSize = 64

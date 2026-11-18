@@ -192,7 +192,7 @@ ItemEvents.modifyTooltips(event => {
         conditions: [
             {
                 condition: 'When used on Blocks',
-                behavior: 'Modifies the state of some blocks. _Sneaking_ and _left-clicking_ will save the state of the block. _Sneaking_ and _left-clicking_ will apply the saved state.'
+                behavior: 'Modifies the state of some blocks by _right-clicking_. _Sneaking_ and _left-clicking_ will save the state of that type of block. _Sneaking_ and _right-clicking_ will apply the saved state.'
             }
         ]
     });

@@ -1,4 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": { "all": "minecraft:block/loom_side" }
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "minecraft:block/oak_planks",
+    "top": "minecraft:block/oak_planks",
+    "side": "minecraft:block/loom_side"
+  }
 }

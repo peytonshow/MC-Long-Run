@@ -3,9 +3,45 @@
 
 {
 	features: {
-		# Right-click with any applicable items held in hand with the Ultimine key held to apply onto any blocks
+		# Right-click on the copycat blocks with the held material to apply onto
 		# Default: true
-		manual_application: true
+		copycat_application: true
+		manual_applications: {
+			"create:item_application/brass_casing_from_log": true
+			"create_connected:item_application/blue_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/freezing_catalyst_from_empty": true
+			"create_connected:item_application/sanding_catalyst_from_empty": true
+			"create:item_application/copper_casing_from_wood": true
+			"create_connected:item_application/haunting_catalyst_from_empty": true
+			"create_connected:item_application/pink_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/gray_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/black_dyeing_catalyst_dragons_plus_from_empty": true
+			"create:item_application/bound_cardboard_inworld": true
+			"create:item_application/railway_casing": true
+			"create_connected:item_application/red_dyeing_catalyst_dragons_plus_from_empty": true
+			"create:item_application/brass_casing_from_wood": true
+			"create_connected:item_application/light_blue_dyeing_catalyst_dragons_plus_from_empty": true
+			"create:item_application/copper_casing_from_log": true
+			"create_connected:item_application/yellow_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/ending_catalyst_dragon_head_from_empty": true
+			"create_connected:item_application/brown_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/purple_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/ending_catalyst_dragons_breath_from_empty": true
+			"create_connected:item_application/splashing_catalyst_from_empty": true
+			"create_enchantment_industry:item_application/experience_hatch": true
+			"create_connected:item_application/light_gray_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/cyan_dyeing_catalyst_dragons_plus_from_empty": true
+			"create:item_application/andesite_casing_from_log": true
+			"create_connected:item_application/smoking_catalyst_from_empty": true
+			"create_connected:item_application/white_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/orange_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/green_dyeing_catalyst_dragons_plus_from_empty": true
+			"create:item_application/andesite_casing_from_wood": true
+			"create_connected:item_application/magenta_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/lime_dyeing_catalyst_dragons_plus_from_empty": true
+			"create_connected:item_application/blasting_catalyst_from_empty": true
+			"bits_n_bobs:item_application/chain_pulley_from_rope_pulley": true
+		}
 		
 		# Right-click with an wrench with the Ultimine key held to interact blocks (e.g. rotate, breaking)
 		# Default: true

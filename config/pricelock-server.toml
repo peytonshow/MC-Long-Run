@@ -1,0 +1,3 @@
+#Clear the demand-based price markup after every villager
+#trade so trade prices never creep upward. Default: true.
+freezePrices = true

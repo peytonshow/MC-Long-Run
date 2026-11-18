@@ -368,7 +368,7 @@
 		"Deepslate Tweak" = false
 		"Deepslate Tweak Needs Haste2" = false
 		#Master Librarians will offer to exchange Ancient Tomes, provided you give them a max-level Enchanted Book of the Tome's enchantment too.
-		"Librarians Exchange Ancient Tomes" = true
+		"Librarians Exchange Ancient Tomes" = false
 		#Applying a tome will also randomly curse your item
 		"Curse Gear" = true
 		#Allows combining tomes with normal books
@@ -419,7 +419,7 @@
 		#minecraft:snowy_slopes,2,8,14,FF7FE4FF
 		Customs = []
 		#Set to false to make it so the default quark Pathfinder Map Built-In don't get added, and only the custom ones do
-		"Apply Default Trades" = true
+		"Apply Default Trades" = false
 		#How many steps in the search should the Pathfinder's Quill do per tick? The higher this value, the faster it'll find a result, but the higher chance it'll lag the game while doing so
 		"Pathfinders Quill Speed" = 32
 		#Experimental. Determines if quills should be multithreaded instead. Will ignore quill speed. This could drastically improve performance as it execute the logic off the main thread ideally causing no lag at all
@@ -429,7 +429,7 @@
 		"Search Radius" = 6400
 		"Xp From Trade" = 5
 		"Add To Cartographer" = true
-		"Add To Wandering Trader Forced" = true
+		"Add To Wandering Trader Forced" = false
 		"Add To Wandering Trader Generic" = false
 		"Add To Wandering Trader Rare" = false
 		"Draw Hud" = true
@@ -614,7 +614,7 @@
 		"Display Baked Enchantments In Tooltip" = true
 		"Italic Tooltip" = true
 		#Enchantments other than Gold's Fortune/Looting to bake into items. Format is "item+enchant@level", such as "minecraft:stick+minecraft:sharpness@10".
-		"Item Enchantments" = ["minecraft:golden_spear+minecraft:looting@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3", "minecraft:trident+minecraft:loyalty@1", "utopia:platinum_sword+minecraft:looting@3", "utopia:platinum_pickaxe+minecraft:fortune@3","utopia:platinum_axe+minecraft:fortune@3"]
+		"Item Enchantments" = ["minecraft:golden_spear+minecraft:looting@2", "minecraft:chainmail_helmet+minecraft:projectile_protection@3", "minecraft:chainmail_chestplate+minecraft:projectile_protection@3", "minecraft:chainmail_leggings+minecraft:projectile_protection@3", "minecraft:chainmail_boots+minecraft:projectile_protection@3", "minecraft:trident+minecraft:loyalty@1", "utopia:platinum_sword+minecraft:looting@3", "utopia:platinum_pickaxe+minecraft:fortune@3", "utopia:platinum_axe+minecraft:fortune@3"]
 
 	[tweaks.grab_chickens]
 		"Needs No Helmet" = true
@@ -1364,7 +1364,7 @@
 		#Whether Resilience should be required for 'How Did We Get Here?' and (if brewing is enabled) 'A Furious Cocktail'.
 		#Keep this on when brewing is disabled if your pack adds an alternative source for the effect.
 		"Resilience Required For All Effects" = true
-		"Add Crab Leg To Fisherman Trades" = true
+		"Add Crab Leg To Fisherman Trades" = false
 
 		[mobs.crabs.spawn_config]
 			#Allowed values: (0,)

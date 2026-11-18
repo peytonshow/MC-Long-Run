@@ -1,11 +1,9 @@
 {
     "probejs.newGame": false,
+    "probejs.hintsForLLM": true,
     "probejs.fullScanMods": [
         "minecraft",
         "kubejs",
-        "neoforge",
-        "kubejs_create",
-        "farmersdelight"
-    ],
-    "probejs.hintsForLLM": true
+        "neoforge"
+    ]
 }

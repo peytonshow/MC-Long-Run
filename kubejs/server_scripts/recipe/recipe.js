@@ -401,7 +401,9 @@ ServerEvents.recipes(event => {
     // Food
     event.replaceInput({}, '#c:doughs', '#c:foods/dough')
     event.campfireCooking('minecraft:cookie', 'utopia:cookie_dough').xp(0.05).cookingTime(200)
-    event.campfireCooking('utopia:roasted_seeds', ['#c:seeds', 'utopia:mixed_seeds']).xp(0.05).cookingTime(200)
+    event.campfireCooking('utopia:roasted_seeds', [
+        'minecraft:wheat_seeds', 'minecraft:melon_seeds','minecraft:pumpkin_seeds','minecraft:beetroot_seeds','supplementaries:flax_seeds','farmersdelight:tomato_seeds', 'utopia:mixed_seeds'
+    ]).xp(0.05).cookingTime(200)
     event.recipes.create.milling([
         CreateItem.of('supplementaries:flax_seeds', 0.25),
         CreateItem.of('farmersdelight:tomato_seeds', 0.25),
