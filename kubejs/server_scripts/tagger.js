@@ -95,7 +95,6 @@ ServerEvents.tags('item', event => {
     event.add('utopia:rare_templates', 'oreganized:electrum_upgrade_smithing_template')
     event.add('utopia:rare_templates', 'musketmod:musket_upgrade_smithing_template')
 
-    event.add('supplementaries:throwable_bricks', 'minecraft:Plastic_brick')
 
     event.add('guardvillagers:convertable_guard_items', 'musketmod:musket')
     event.add('guardvillagers:convertable_guard_items', 'musketmod:musket_with_bayonet')

@@ -15,7 +15,20 @@
     "scribble",
     "skinlayers3d",
     "colorwheel",
-    "distraction_free_recipes"
+    "distraction_free_recipes",
+    "hide_item_frame",
+    "toadlib",
+    "createbetterfps",
+    "lambdynlights",
+    "particular",
+    "eg_particle_interactions",
+    "flerovium",
+    "colorwheel_patcher",
+    "overflowingbars",
+    "alltheleaks",
+    "sound_physics_remastered",
+    "simple_music_control",
+    "showalladvancements"
   ],
   "both": [
     "krypton_fnp",

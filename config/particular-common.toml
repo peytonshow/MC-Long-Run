@@ -7,6 +7,8 @@
 		waterSplash = true
 		#Enable cascade particles
 		cascades = true
+		#Enable the translucent mist that drifts off cascades
+		cascadeMist = true
 		#Enable waterfall spray particles
 		waterfallSpray = true
 		#Enable firefly particles
@@ -35,8 +37,6 @@
 		lavaSplash = true
 		#Enable water splash and wake particles for Sable sub-levels (ships, boats, vehicles)
 		sableSplashes = true
-		#Enable the translucent mist that drifts off cascades
-		cascadeMist = true
 		#Enable camera shake for loud nearby sounds such as explosions and Warden roars
 		screenShake = true
 		#Enable snow falling off leaves that have snow on top or while it is snowing
@@ -158,34 +158,6 @@
 			# Default: 16738335
 			# Range: 0 ~ 16777215
 			lavaCuboidColor = 16738335
-
-		[general.advancedSettings.caveDustSettings]
-			#Chance of spawning cave dust (higher = less frequent)
-			# Default: 700
-			# Range: > 1
-			spawnChance = 700
-			#Base maximum age of cave dust particles
-			# Default: 200
-			# Range: > 1
-			baseMaxAge = 200
-			#Color of cave dust particles (RGB hex)
-			# Default: 8421504
-			# Range: 0 ~ 16777215
-			color = 8421504
-			#Duration of fade effect for cave dust particles
-			# Default: 20
-			# Range: > 0
-			fadeDuration = 20
-			#Maximum acceleration of cave dust particles
-			# Default: 0.029999999329447746
-			# Range: 0.0 ~ 1.0
-			maxAcceleration = 0.029999999329447746
-			#Chance of changing acceleration for cave dust particles
-			# Default: 180
-			# Range: > 1
-			accelChangeChance = 180
-			#Biomes where cave dust won't spawn
-			excludeBiomes = ["minecraft:lush_caves", "minecraft:dripstone_caves", "minecraft:deep_dark"]
 
 		[general.advancedSettings.cascadeSettings]
 			#Whether cascades get stronger the further the water falls
@@ -312,3 +284,31 @@
 			shakeIntensity = 1.0
 			#Sounds that shake the camera. Format: "soundId|intensity|durationTicks|radius". Example: "minecraft:entity.generic.explode|0.8|12|16"
 			shakeSounds = ["minecraft:entity.warden.roar|0.6|70|24", "minecraft:entity.warden.sonic_boom|1.0|15|24", "minecraft:entity.ravager.roar|0.5|25|12", "minecraft:entity.ender_dragon.growl|0.4|40|48", "minecraft:entity.generic.explode|0.8|12|16", "minecraft:entity.dragon_fireball.explode|0.5|12|16"]
+
+		[general.advancedSettings.caveDustSettings]
+			#Chance of spawning cave dust (higher = less frequent)
+			# Default: 700
+			# Range: > 1
+			spawnChance = 700
+			#Base maximum age of cave dust particles
+			# Default: 200
+			# Range: > 1
+			baseMaxAge = 200
+			#Color of cave dust particles (RGB hex)
+			# Default: 8421504
+			# Range: 0 ~ 16777215
+			color = 8421504
+			#Duration of fade effect for cave dust particles
+			# Default: 20
+			# Range: > 0
+			fadeDuration = 20
+			#Maximum acceleration of cave dust particles
+			# Default: 0.029999999329447746
+			# Range: 0.0 ~ 1.0
+			maxAcceleration = 0.029999999329447746
+			#Chance of changing acceleration for cave dust particles
+			# Default: 180
+			# Range: > 1
+			accelChangeChance = 180
+			#Biomes where cave dust won't spawn
+			excludeBiomes = ["minecraft:lush_caves", "minecraft:dripstone_caves", "minecraft:deep_dark"]

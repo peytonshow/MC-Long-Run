@@ -393,13 +393,8 @@ MoreJS.villagerTrades(event => {
 });
 
 
-// kubejs/server_scripts/no_villager_discounts.js
-// Disables villager discounts. Event-driven only: no tick events, no loops.
-//
-// Discounts come from villager gossip (curing, trading, raid rewards).
-// Vanilla applies them in updateSpecialPrices() when the trade screen opens,
-// which runs after NeoForge's EntityInteract event. Clearing the positive
-// gossip types at interaction time means that step finds nothing to apply.
+
+// Disables villager discounts.
 
 const Villager = Java.loadClass('net.minecraft.world.entity.npc.Villager')
 

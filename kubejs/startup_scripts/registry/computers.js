@@ -135,7 +135,7 @@ const defineSet = (event, prefix, color) => {
     .tagBlock('minecraft:dragon_immune')
     .tagBlock('minecraft:wither_immune')
     .tagBlock('minecraft:features_cannot_replace')
-    .tagBlock('nova_structures:explosion_resistand')
+    .tagBlock('nova_structures:explosion_resistant')
     .tagBlock('minecraft:lava_pool_stone_cannot_replace')
 
   event.create(id('broken_computer'), 'kubejs:cardinal')
