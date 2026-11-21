@@ -135,7 +135,8 @@ const defineSet = (event, prefix, color) => {
     .tagBlock('minecraft:dragon_immune')
     .tagBlock('minecraft:wither_immune')
     .tagBlock('minecraft:features_cannot_replace')
-    .tagBlock('nova_structures:explosion_resistant')
+    .tagBlock('nova_structures:explosion_resistand') // the actual tag they use. yes, it's misspelled
+    .tagBlock('nova_structures:explosion_resistant') // we got this one, just in case they lie about not wanting to backport latest d&t structures
     .tagBlock('minecraft:lava_pool_stone_cannot_replace')
 
   event.create(id('broken_computer'), 'kubejs:cardinal')

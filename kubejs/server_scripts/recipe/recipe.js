@@ -2,6 +2,12 @@
 
 const armorParts = ['helmet', 'chestplate', 'leggings', 'boots']
 
+const bulkEnding = (event, input, output) =>
+    event.custom({
+        type: 'create_dragons_plus:ending',
+        ingredients: [{ item: input }],
+        results: [{ id: output }]
+    }).id(`kubejs:bulk_ending/${input.split(':')[1]}_to_${output.split(':')[1]}`)
 const bulkDye = (event, color, input, output) =>
     event.custom({
         type: 'create_dragons_plus:coloring',
@@ -123,6 +129,8 @@ ServerEvents.recipes(event => {
     event.remove({ output: 'oreganized:glance' })
     event.remove({ output: 'minecraft:mushroom_stew', type: 'minecraft:crafting_shapeless' })
     event.remove({ output: 'minecraft:beetroot_soup', type: 'minecraft:crafting_shapeless' })
+    event.remove({ output: 'minecraft:cookie' })
+    event.remove({ output: 'royalvariations:royal_bow' })
 
     event.shaped(
         Item.of('utopia:hammer'), [
@@ -1041,15 +1049,6 @@ ServerEvents.recipes(event => {
     .transitionalItem('utopia:incomplete_advanced_circuit')
     .loops(3)
 
-
-    event.remove({ output: 'create:crafting/appliances/slime_ball' })
-    event.remove({ output: 'minecraft:cookie' })
-    event.remove({ output: 'quark:building/crafting/furnaces/mixed_furnace' })
-    event.remove({ output: 'quark:building/crafting/sturdy_stone' })
-    event.remove({ output: 'quark:building/crafting/sturdy_stone_cyclic' })
-    event.remove({ output: 'quark:building/crafting/sturdy_stone_uncompress' })
-    event.remove({ output: 'royalvariations:royal_bow' })
-    event.remove({ output: 'royalvariations:royal_upgrade_duplicate' })
 
     cuttingMulti(event, 'minecraft:red_sand', 'minecraft:brush', [
         { item: 'create:crushed_raw_gold', chance: 0.1 },

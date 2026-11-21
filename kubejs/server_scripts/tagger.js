@@ -91,11 +91,12 @@ ServerEvents.tags('item', event => {
         'minecraft:glass'
     ] )
 
+    
     event.add('utopia:rare_templates', 'minecraft:netherite_upgrade_smithing_template')
     event.add('utopia:rare_templates', 'oreganized:electrum_upgrade_smithing_template')
     event.add('utopia:rare_templates', 'musketmod:musket_upgrade_smithing_template')
 
-
+    // kind of works (?)
     event.add('guardvillagers:convertable_guard_items', 'musketmod:musket')
     event.add('guardvillagers:convertable_guard_items', 'musketmod:musket_with_bayonet')
     event.add('guardvillagers:convertable_guard_items', 'musketmod:musket_with_scope')

@@ -28,7 +28,9 @@
     "alltheleaks",
     "sound_physics_remastered",
     "simple_music_control",
-    "showalladvancements"
+    "showalladvancements",
+    "smart_bounds",
+    "smoothskies"
   ],
   "both": [
     "krypton_fnp",
@@ -52,6 +54,11 @@
     "create",
     "create_dragons_plus",
     "txnilib",
-    "yet_another_config_lib_v3"
+    "yet_another_config_lib_v3",
+    "direct_chute",
+    "etched",
+    "mixintrace",
+    "puzzleslib",
+    "visibletraders"
   ]
 }

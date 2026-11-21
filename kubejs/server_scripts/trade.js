@@ -1,32 +1,4 @@
 // ===================== TRADES =====================
-//
-// One format for every trade:
-//
-//   { level, group, in1, in2?, trade, uses? }
-//
-//   level   - villager level 1-5
-//   group   - "mass" | "shipment" | "singleton" | "legendary"  (sets villager XP, see XP_BY_GROUP)
-//               mass - trades you can make many times
-//               shipment  - larger trades,
-//               singleton - bought only once, or rarely, 10 XP
-//               legendary - the rarest trades, bought only once, or never, 50 XP
-//   uses    - optional, overrides the group default (see USES_BY_GROUP)
-//   in1     - what the player pays. A string like "x11 minecraft:gunpowder"
-//             (no "x" count = 1). An ARRAY of strings = alternate payments for the
-//             SAME trade (one is picked each time the villager rolls it).
-//   in2     - optional second payment, same string format.
-//   trade   - what the player receives. Same string format, or:
-//               { random: [ ...one of the below... ] }  - picks one each roll
-//             Anything extra (enchants, potion, name) uses an object:
-//               { item: "x16 minecraft:tipped_arrow", potion: "minecraft:strong_healing" }
-//               { item: "minecraft:bow", enchants: { "minecraft:power": 2 } }
-//               { item: "minecraft:crossbow", name: "§fRocket Launcher", enchants: { "...": 1 } }
-//               { item: "minecraft:fishing_rod", enchants: { "minecraft:luck_of_the_sea": 3, "minecraft:lure": 3 } }  - several at once
-//             Enchanted books (always max level): book("minecraft:fortune"), or book() for a random non-treasure enchant, treasureBook() for a random treasure one
-//             Quark ancient tomes (always max level for the enchant):
-//               tome("minecraft:fortune")  - that enchant
-//               tome()                     - random from Quark's Valid Enchantments, rerolled per roll
-//               { ...tome("minecraft:mending"), item: "x2 quark:ancient_tome" }  - more than one
 
 const COLORS = ["white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"];
 
@@ -37,22 +9,81 @@ const TREASURE_TAG = "minecraft:treasure";
 const TREASURE_ENCHANTS = () => enchantsWhere(true);  // ids of every treasure enchant
 const BOOKS = () => enchantsWhere(false);             // ids of every NON-treasure enchant
 
-// book("minecraft:mending") -> max-level book of exactly that enchant (treasure allowed when named)
-// book()                    -> random from BOOKS(), never treasure, rerolled per trade
-// treasureBook()            -> random from TREASURE_ENCHANTS(), rerolled per trade
-function book(id) {
-    return { item: "minecraft:enchanted_book", book: id || "random" };
+// Fraction of an enchant's max level used when a trade doesn't specify a strength.
+const DEFAULT_STRENGTH = 0.5;
+
+// book("minecraft:mending", 0.8) -> book of exactly that enchant at 80% of max level, rounded up (treasure allowed when named)
+// book()                         -> random from BOOKS(), never treasure, rerolled per trade, strength 0.5
+// treasureBook()                 -> random from TREASURE_ENCHANTS(), rerolled per trade
+// NOTE: do not pass book straight to .map(); the array index would be read as strength. Use .map(id => book(id)).
+function book(id, strength) {
+    return { item: "minecraft:enchanted_book", book: id || "random", strength: strength };
 }
-function treasureBook() {
-    return book("random_treasure");
+function treasureBook(strength) {
+    return book("random_treasure", strength);
 }
+// Tomes are ALWAYS max level; strength does not apply to them.
 // tome("minecraft:fortune") -> max-level fortune tome
 // tome()                    -> random from Quark's own Valid Enchantments list, rerolled per trade
 function tome(id) {
     return { item: "quark:ancient_tome", tome: id || "random" };
 }
 
-const XP_BY_GROUP = { mass: 1, shipment: 4, singleton: 7, legendary: 50 };
+// data
+const DYE_RGB = [0xF9FFFE, 0xF9801D, 0xC74EBD, 0x3AB3DA, 0xFED83D, 0x80C71F, 0xF38BAA, 0x474F52, 0x9D9D97, 0x169C9C, 0x8932B8, 0x3C44AA, 0x835432, 0x5E7C16, 0xB02E26, 0x1D1D21];
+
+const STEW_EFFECTS = [["night_vision", 100], ["jump_boost", 160], ["weakness", 140], ["blindness", 120], ["poison", 280], ["saturation", 7]];
+
+const ARROW_POTIONS = [
+    "night_vision", "invisibility", "leaping", "fire_resistance", "swiftness", "slowness", "water_breathing",
+    "healing", "harming", "poison", "regeneration", "strength", "weakness", "slow_falling", "turtle_master",
+];
+
+// ===================== ENCHANT CATEGORIES =====================
+
+// book("minecraft:mending", 0.8) -> exactly that enchant at 80% of max level, rounded up (treasure allowed when named)
+// book("sword", 0.75)            -> random enchant from the "sword" category (any ENCHANT_CATEGORIES key, or "all")
+// book()                         -> random non-treasure enchant, rerolled per trade
+// treasureBook()                 -> random treasure enchant, rerolled per trade
+// Default strength is 0.5. Don't pass book straight to .map(); use .map(id => book(id)).
+
+const ENCHANT_CATEGORIES = {
+    // if categories that are commented out have no valid unique enchants
+    helmet:     ["minecraft:iron_helmet", "minecraft:turtle_helmet"],
+     chestplate: ["minecraft:iron_chestplate", "minecraft:elytra"],
+    // leggings:   ["minecraft:iron_leggings"],
+    boots:      ["minecraft:iron_boots"],
+    sword:      ["minecraft:iron_sword"],
+    spear:        ["minecraft:iron_spear"],
+    tool:       ["minecraft:iron_pickaxe", "minecraft:iron_shovel", "minecraft:iron_hoe", "minecraft:iron_axe"],
+    bow:        ["minecraft:bow"],
+    crossbow:   ["minecraft:crossbow"],
+    trident:    ["minecraft:trident"],
+    mace:       ["minecraft:mace"],
+    rod:        ["minecraft:fishing_rod"],
+    // shears:     ["minecraft:shears"],
+    // shield:     ["minecraft:shield"],
+    backtank:     ["create:copper_backtank"],
+    potato_cannon:     ["create:potato_cannon"],
+    knife:      ["farmersdelight:iron_knife"],
+};
+
+// Exclusive ownership: each enchant belongs to ONLY the first category in this list that it fits.
+// So an enchant like unbreaking shows up in "tool" and nowhere else, sharpness in "sword" only,
+// and the mace is left with its own (density, breach, wind burst).
+// Order matters: put the category that should win shared enchants first.
+// Categories not listed here are checked afterwards, in the order they appear in ENCHANT_CATEGORIES.
+// "all" ignores this and still means every non-treasure enchant.
+const ENCHANT_PRIORITY = [
+    "tool", "sword", "mace", "spear", "trident", "crossbow", "bow", "rod",
+    "chestplate", "helmet", "boots", "leggings", "axe", "pickaxe", "shovel", "hoe",
+];
+
+// For these categories an enchant must fit EVERY sample item (not just any), so "tool" only owns
+// enchants that work on pickaxe, shovel, hoe and axe alike (unbreaking, efficiency, fortune, silk touch).
+const ENCHANT_MATCH_ALL = ["tool"];
+
+const XP_BY_GROUP = { mass: 1, shipment: 4, singleton: 6, legendary: 50 };
 const USES_BY_GROUP = { mass: 18, shipment: 8, singleton: 3, legendary: 1 };
 
 const TRADES = {
@@ -76,7 +107,7 @@ const TRADES = {
         { level: 5, group: "singleton", in1: "x4 quark:golden_carrot_crate", trade: "x12 minecraft:emerald_block" },
         { level: 5, group: "singleton", in1: "x20 quark:chorus_fruit_block", trade: "x32 minecraft:emerald" },
         {
-            level: 5, group: "legendary", in1: "minecraft:diamond_hoe", in2: "x5 utopia:ruby",
+            level: 5, group: "legendary", in1: "minecraft:diamond_hoe", in2: "x7 utopia:ruby",
             trade: {
                 random: [
                     { item: "minecraft:diamond_hoe", enchants: { "nova_structures:photosynthesis": 1 } },
@@ -89,6 +120,7 @@ const TRADES = {
     fletcher: [
         { level: 1, group: "shipment", in1: "minecraft:emerald", trade: "x10 minecraft:arrow" },
         { level: 1, group: "shipment", in1: "x16 minecraft:arrow", in2: "minecraft:emerald", trade: "x16 quark:torch_arrow" },
+        { level: 1, group: "shipment", in1: "x12 minecraft:emerald", in2: "x6 minecraft:book", trade: book("potato_cannon") },
 
         { level: 2, group: "shipment", in1: "x5 minecraft:emerald", trade: "minecraft:bow" },
         { level: 2, group: "shipment", in1: "x32 quark:torch_arrow", trade: "x3 minecraft:emerald" },
@@ -106,6 +138,7 @@ const TRADES = {
             },
         },
         { level: 2, group: "shipment", in1: "x8 minecraft:emerald", trade: "musketmod:cartridge" },
+        { level: 2, group: "mass", in1: "x3 minecraft:emerald", trade: "3x oreganized:lead_bolt" },
         { level: 2, group: "shipment", in1: "x13 minecraft:emerald", trade: "minecraft:crossbow" },
 
         { level: 3, group: "shipment", in1: "x21 minecraft:emerald", trade: "x3 musketmod:cartridge" }, // 58 -> 20 for weaponsmiths
@@ -123,19 +156,19 @@ const TRADES = {
         { level: 5, group: "shipment", in1: "x4 supplementaries:bomb", in2: "x10 minecraft:emerald", trade: "supplementaries:bomb_blue" },
         { level: 5, group: "shipment", in1: "x8 minecraft:emerald", in2: "x2 royalvariations:spiritual_crown_shard", trade: "royalvariations:royal_gunpowder" },
         {
-            level: 5, group: "legendary", in1: "minecraft:crossbow", in2: "x4 utopia:ruby",
-            trade: { item: "minecraft:crossbow", name: "§fRocket Launcher", enchants: { "nova_structures:ghasted": 1 } },
+            level: 5, group: "legendary", in1: "minecraft:crossbow", in2: "x5 utopia:ruby",
+            trade: { item: "minecraft:crossbow", name: "§fRocket Launcher", enchants: { "nova_structures:ghasted": 2 } },
         },
     ],
 
     cleric: [
-        {
-            level: 1, group: "singleton", in1: "x16 minecraft:emerald", in2: "x1 minecraft:ender_pearl",
-            trade: {
-                item: "utopia:recall_potion",
-                components: 'custom_data={name:"Capital: ???",dim:"utopia:capital",x:-76.5d,y:36.0d,z:-68.5d}',
-            },
-        },
+        // {
+        //     level: 1, group: "singleton", in1: "x16 minecraft:emerald", in2: "x1 minecraft:ender_pearl",
+        //     trade: {
+        //         item: "utopia:recall_potion",
+        //         components: 'custom_data={name:"Capital: ???",dim:"utopia:capital",x:-76.5d,y:36.0d,z:-68.5d}',
+        //     },
+        // },
         { level: 1, group: "mass", in1: "x4 minecraft:rotten_flesh", trade: "minecraft:emerald" },
         { level: 1, group: "mass", in1: "x2 minecraft:leather", trade: "minecraft:emerald" },
 
@@ -166,15 +199,6 @@ const TRADES = {
         { level: 5, group: "shipment", in1: "x8 quark:nether_wart_sack", trade: "x20 minecraft:emerald" },
         { level: 5, group: "singleton", in1: "x5 minecraft:diamond", trade: "utopia:ruby" },
         { level: 5, group: "singleton", in1: "x1 create:experience_block", in2: "x32 minecraft:emerald", trade: "x1 create_enchantment_industry:super_experience_block" },
-    ],
-    weaponsmith: [
-        {
-            level: 1, group: "singleton", in1: "x16 minecraft:emerald", in2: "x1 minecraft:ender_pearl",
-            trade: {
-                item: "utopia:recall_potion",
-                components: 'custom_data={name:"Capital: ???",dim:"utopia:capital",x:-76.5d,y:36.0d,z:-68.5d}',
-            },
-        },
     ],
 
     fisherman: [
@@ -235,6 +259,45 @@ const TRADES = {
             },
         },
     ],
+
+    librarian: [
+        {   level: 1, group: "shipment", in1: "x6 minecraft:emerald", in2: "x4 minecraft:book", trade: book("boots", 0.35)},
+        {   level: 1, group: "singleton", in1: "x12 minecraft:emerald", in2: "x8 minecraft:book", trade: book("minecraft:feather_falling") },
+        {   level: 1, group: "mass", in1: "x6 create:experience_block", trade: "x1 minecraft:emerald" },
+
+        {   level: 1, group: "shipment", in1: "x12 minecraft:emerald", in2: "x4 minecraft:book",
+            trade: { random: [ "minecraft:fire_aspect", "freezing_enchantment:freezing" ].map(id => book(id)), },
+        },
+
+        {   level: 2, group: "shipment", in1: "x12 minecraft:emerald", in2: "x4 minecraft:book", trade: book("chestplate", 0.35)},
+        {   level: 2, group: "mass", in1: "x8 minecraft:bookshelf", trade: "x3 minecraft:emerald" },
+        {   level: 2, group: "singleton", in1: "x5 minecraft:emerald", in2: "x7 minecraft:book", trade: book("nova_structures:outreach", .25) },
+
+        {   level: 3, group: "shipment", in1: "x6 minecraft:emerald", in2: "x5 minecraft:book", trade: book("helmet", 0.35)},
+        {   level: 3, group: "shipment", in1: "x6 minecraft:emerald", in2: "x20 minecraft:book", trade: book("minecraft:mending") },
+        {   level: 3, group: "shipment", in1: "x14 minecraft:emerald", in2: "x10 minecraft:book", trade: book("tool")},
+        {   level: 3, group: "shipment", in1: "x22 minecraft:emerald", in2: "x12 minecraft:book", trade: book("mace") },
+
+        {   level: 4, group: "shipment", in1: "x22 minecraft:emerald", in2: "x14 minecraft:book", trade: book() },
+        {   level: 4, group: "shipment", in1: "x17 minecraft:emerald", in2: "x20 minecraft:book", trade: book("sword") },
+        {   level: 4, group: "shipment", in1: "x12 minecraft:emerald", in2: "x32 minecraft:book", trade: book("crossbow") },
+        {   level: 4, group: "shipment", in1: "x24 minecraft:emerald", in2: "x10 minecraft:book", trade: book("tool", 1.0) },
+
+        {   level: 5, group: "legendary", in1: "x5 utopia:ruby", in2: "x36 minecraft:book", trade: book("minecraft:mending") },
+        {   level: 5, group: "legendary", in1: "x7 utopia:ruby", in2: "x36 minecraft:book", trade: book("nova_structures:photosynthesis") },
+        {   level: 5, group: "legendary", in1: "x1 utopia:ruby", in2: "x20 minecraft:book", trade: book("nova_structures:antidote") },
+        {   level: 5, group: "legendary", in1: "x8 utopia:ruby", in2: "x36 minecraft:book", trade: treasureBook(0.75) },
+    ],
+
+    weaponsmith: [
+        {
+            level: 1, group: "singleton", in1: "x16 minecraft:emerald", in2: "x1 minecraft:ender_pearl",
+            trade: {
+                item: "utopia:recall_potion",
+                components: 'custom_data={name:"Capital: ???",dim:"utopia:capital",x:-76.5d,y:36.0d,z:-68.5d}',
+            },
+        },
+    ],
 };
 
 // ===================== VILLAGER_TRADES (pure wiring) =====================
@@ -249,7 +312,7 @@ const VILLAGER_TRADES = {
     "minecraft:fisherman": TRADES.fisherman,
     "minecraft:fletcher": TRADES.fletcher,
     // "minecraft:leatherworker": TRADES.leatherworker,
-    // "minecraft:librarian": TRADES.librarian,
+    "minecraft:librarian": TRADES.librarian,
     // "minecraft:mason": TRADES.mason,
     // "minecraft:shepherd": TRADES.shepherd,
     // "minecraft:toolsmith": TRADES.toolsmith,
@@ -280,6 +343,13 @@ function pick(list, random) {
     return list[random.nextInt(list.length)];
 }
 
+// ceil(max * strength), clamped to 1..max. Strength defaults to DEFAULT_STRENGTH (0.5).
+// The 1e-9 stops float error (0.6 * 5 = 3.0000000000000004) from rounding up an extra level.
+function scaledLevel(maxLevel, strength) {
+    const s = Math.min(1, Math.max(0, strength == null ? DEFAULT_STRENGTH : strength));
+    return Math.min(maxLevel, Math.max(1, Math.ceil(maxLevel * s - 1e-9)));
+}
+
 // "#minecraft:logs" -> a random item id from that tag. Plain item ids pass through.
 function resolveTag(id, random) {
     if (!id.startsWith("#")) return id;
@@ -288,22 +358,116 @@ function resolveTag(id, random) {
     return String(pick(ids, random));
 }
 
+// Needs a running server. Only call from trade callbacks / server events, never at script load.
 function enchantRegistry() {
     return ServerLifecycleHooks.getCurrentServer().registryAccess().registryOrThrow(Registries.ENCHANTMENT);
 }
 
+// Enchants listed here are excluded everywhere: from books, from every category, and from "all".
+const ENCHANT_BLACKLIST = [
+    "nova_structures:shulker_boss",
+    "nova_structures:shulker_miniboss",
+    "nova_structures:boss_behaviour",
+    "supplementaries:stasis"
+];
+
 // Registry ids (vanilla and modded) that are, or are not, in the treasure tag.
+// Blacklisted enchants are excluded from both sides.
 function enchantsWhere(treasure) {
+    const registry = enchantRegistry();
     const tag = TagKey.create(Registries.ENCHANTMENT, ResourceLocation.parse(TREASURE_TAG));
-    return Array.from(enchantRegistry().keySet()).filter(id => enchantRegistry().getHolder(id).orElseThrow().is(tag) === treasure).map(String);
+    const blacklisted = new Set(ENCHANT_BLACKLIST);
+
+    const treasureIds = new Set();
+    const named = registry.getTag(tag).orElse(null); // null if the tag doesn't exist
+    if (named) {
+        Array.from(named).forEach(holder => treasureIds.add(String(holder.unwrapKey().get().location())));
+    }
+
+    return Array.from(registry.keySet())
+        .map(String)
+        .filter(id => !blacklisted.has(id))
+        .filter(id => treasureIds.has(id) === treasure);
 }
 
-function bookStack(id, count, random) {
-    const key = id === "random" ? pick(BOOKS(), random) : id === "random_treasure" ? pick(TREASURE_ENCHANTS(), random) : id;
-    return Item.of(`minecraft:enchanted_book[stored_enchantments={levels:{"${key}":${enchantRegistry().get(ResourceLocation.parse(key)).getMaxLevel()}}}]`, count);
+// Which of `all` fit a single category's sample items (before exclusivity is applied).
+// Most categories match if the enchant fits ANY sample item; ENCHANT_MATCH_ALL categories need EVERY sample.
+function filterByCategory(all, category) {
+    const samples = ENCHANT_CATEGORIES[category];
+    if (!samples) throw new Error(`[trades.js] Unknown enchant category: ${category}`);
+    const stacks = samples.map(s => Item.of(s));
+    const needAll = ENCHANT_MATCH_ALL.includes(category);
+    return all.filter(e => needAll
+        ? stacks.every(st => e.enchant.canEnchant(st))
+        : stacks.some(st => e.enchant.canEnchant(st)));
 }
 
-// Quark ancient tome at the enchant's max level. id "random" = pick from Quark's Valid Enchantments.
+// Priority order first, then any unlisted categories in definition order.
+function categoryOrder() {
+    const listed = ENCHANT_PRIORITY.filter(c => c in ENCHANT_CATEGORIES);
+    return listed.concat(Object.keys(ENCHANT_CATEGORIES).filter(c => !listed.includes(c)));
+}
+
+// [{ "<enchant id>": maxLevel }, ...] for a category (a key of ENCHANT_CATEGORIES, or "all").
+// Read from the live registry on every call, so there is no cache to go stale.
+function enchantsFor(category) {
+    var registry = enchantRegistry();
+    var all = BOOKS()
+        .map(function (id) { return { id: id, enchant: registry.get(ResourceLocation.parse(id)) }; })
+        .filter(function (x) { return x.enchant; });
+
+    var matching;
+    if (category === "all") {
+        matching = all;
+    } else {
+        if (!ENCHANT_CATEGORIES[category]) throw new Error("[trades.js] Unknown enchant category: " + category);
+        var remaining = all;
+        var order = categoryOrder();
+        for (var i = 0; i < order.length; i++) {
+            var c = order[i];
+            var claimed = filterByCategory(remaining, c);
+            if (c === category) { matching = claimed; break; }
+            var taken = new Set(claimed.map(function (e) { return e.id; }));
+            remaining = remaining.filter(function (e) { return !taken.has(e.id); });
+        }
+    }
+    return matching.map(function (x) {
+        var o = {};
+        o[x.id] = x.enchant.getMaxLevel();
+        return o;
+    });
+}
+
+// One random { "<enchant id>": level } from a category, with the level scaled by strength.
+function randomEnchant(category, random, strength) {
+    const list = enchantsFor(category);
+    if (!list.length) throw new Error(`[trades.js] Empty enchant category: ${category}`);
+    const entry = pick(list, random);
+    const id = Object.keys(entry)[0];
+    const o = {};
+    o[id] = scaledLevel(entry[id], strength);
+    return o;
+}
+
+// id: "random"           -> random non-treasure enchant
+//     "random_treasure"  -> random treasure enchant
+//     "ns:enchant"       -> exactly that enchant
+//     "sword", "mace"... -> random enchant from that ENCHANT_CATEGORIES entry (or "all")
+function bookStack(id, count, random, strength) {
+    let key;
+    if (id === "random") key = pick(BOOKS(), random);
+    else if (id === "random_treasure") key = pick(TREASURE_ENCHANTS(), random);
+    else if (id.includes(":")) key = id;
+    else {
+        const list = enchantsFor(id); // throws on an unknown category
+        if (!list.length) throw new Error(`[trades.js] Empty enchant category: ${id}`);
+        key = Object.keys(pick(list, random))[0];
+    }
+    const level = scaledLevel(enchantRegistry().get(ResourceLocation.parse(key)).getMaxLevel(), strength);
+    return Item.of(`minecraft:enchanted_book[stored_enchantments={levels:{"${key}":${level}}}]`, count);
+}
+
+// Quark ancient tome, always max level (built by Quark itself). id "random" = pick from Quark's Valid Enchantments.
 function tomeStack(id, count, random) {
     const holder = id === "random"
         ? AncientTomesModule.validEnchants.get(random.nextInt(AncientTomesModule.validEnchants.size()))
@@ -312,12 +476,17 @@ function tomeStack(id, count, random) {
 }
 
 function buildItemStack(entry, random) {
-    const { item: rawItem, count, potion, enchants, name, components, tome, book } = parseItem(entry);
+    const { item: rawItem, count, potion, enchants, name, components, tome, book, enchantFrom, strength } = parseItem(entry);
     if (tome) return tomeStack(tome, count, random);
-    if (book) return bookStack(book, count, random);
+    if (book) return bookStack(book, count, random, strength);
+
     const item = resolveTag(rawItem, random);
     const comps = [potion && `potion_contents={potion:"${potion}"}`, components].filter(Boolean).join(",");
-    const enchanted = Object.entries(enchants || {}).reduce((s, [id, level]) => s.enchant(id, level), Item.of(comps ? `${item}[${comps}]` : item, count));
+
+    // fixed enchants plus (optionally) one random enchant from a category
+    const allEnchants = Object.assign({}, enchants || {}, enchantFrom ? randomEnchant(enchantFrom, random, strength) : {});
+
+    const enchanted = Object.entries(allEnchants).reduce((s, [id, level]) => s.enchant(id, level), Item.of(comps ? `${item}[${comps}]` : item, count));
     return name ? enchanted.withCustomName(name) : enchanted;
 }
 
@@ -358,7 +527,11 @@ ServerEvents.tags("item", event => {
                 parts.filter(Boolean).forEach(part => {
                     entriesOf(part)
                         .map(entry => parseItem(entry).item)
-                        .filter(id => !["minecraft:emerald", "minecraft:emerald_block", "utopia:ruby", "utopia:ruby_block"].includes(id))
+                        .filter(id => ![
+                            "minecraft:emerald", "minecraft:emerald_block",
+                            "utopia:ruby", "utopia:ruby_block",
+                            "minecraft:enchanted_book", "quark:ancient_tome"
+                        ].includes(id))
                         .forEach(id => {
                             event.add(`utopia:trade_${profession}_${side}_${level}_${group}`, id);
                             event.add(`utopia:trade_${side}_all`, id);
@@ -391,6 +564,55 @@ MoreJS.villagerTrades(event => {
     console.log(`[trades.js] Custom trades registered for: ${configuredProfessions.join(", ")}`);
     console.log(`[trades.js] Still running vanilla trades (unaffected): ${unaffected.length ? unaffected.join(", ") : "none"}`);
 });
+
+// ===================== DEBUG =====================
+//
+// Prints every category's enchants once the world has loaded (a server exists by then) and warns about
+// non-treasure enchants that fit no category. Safe to delete.
+// Lists max levels; strength scaling is applied only when a trade is built.
+
+ServerEvents.loaded(event => {
+    console.info("[trades.js] debug handler fired");
+
+    var categorized = new Set();
+    var names = Object.keys(ENCHANT_CATEGORIES);
+    var list, ids, allList, missing, id, i, j;
+
+    for (i = 0; i < names.length; i++) {
+        try {
+            list = enchantsFor(names[i]);
+            ids = [];
+            for (j = 0; j < list.length; j++) {
+                id = Object.keys(list[j])[0];
+                ids.push(id);
+                categorized.add(id);
+            }
+            console.info("[trades.js] " + names[i] + ": " + (ids.length ? ids.join(", ") : "(none)"));
+        } catch (err1) {
+            console.info("[trades.js] ERROR in category " + names[i] + ": " + err1);
+        }
+    }
+
+    try {
+        allList = enchantsFor("all");
+        missing = [];
+        for (j = 0; j < allList.length; j++) {
+            id = Object.keys(allList[j])[0];
+            if (!categorized.has(id)) missing.push(id);
+        }
+        if (missing.length) console.info("[trades.js] WARNING: enchants matching no category: " + missing.join(", "));
+    } catch (err2) {
+        console.info('[trades.js] ERROR building "all": ' + err2);
+    }
+});
+
+
+
+
+
+
+
+
 
 
 
